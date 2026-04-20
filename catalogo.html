@@ -15,7 +15,7 @@
 
 <section class="cat-hero">
   <div class="container">
-    <div class="breadcrumbs"><a href="index.html">Inicio</a><span>/</span> Catálogo</div>
+    <div class="breadcrumbs"><a href="${rootPath()}">Inicio</a><span>/</span> Catálogo</div>
     <h1>Catálogo<br><span style="color:var(--accent)">completo.</span></h1>
     <div class="sub">
       <span class="chip">Todas las categorías</span>
@@ -57,13 +57,13 @@ mountChrome('catalogo');
   const catList = document.getElementById('cat-list');
   catList.innerHTML = topCats.map(c => {
     const count = CATALOG.products.filter(p => p.category === c.slug || CATALOG.categories.find(s => s.slug===p.category)?.parent === c.slug).length;
-    return `<li><a href="categoria.html?c=${c.slug}">${c.name}<b>${count}</b></a></li>`;
+    return `<li><a href="${categoryUrl(c.slug)}">${c.name}<b>${count}</b></a></li>`;
   }).join('');
 
   const brandList = document.getElementById('brand-list');
   brandList.innerHTML = CATALOG.brands.map(b => {
     const count = CATALOG.products.filter(p => p.brand === b.slug).length;
-    return `<li><a href="categoria.html?b=${b.slug}">${b.name}<b>${count}</b></a></li>`;
+    return `<li><a href="${brandUrl(b.slug)}">${b.name}<b>${count}</b></a></li>`;
   }).join('');
 
   renderGrid('#grid', all);

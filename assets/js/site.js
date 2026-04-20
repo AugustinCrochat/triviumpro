@@ -38,23 +38,24 @@ function waLink(message) {
 function renderHeader(active) {
   const root = rootPath();
   const main = [
-    { href: `${root}catalogo.html`, label: 'Catálogo', key: 'catalogo',
+    { href: `${root}catalogo/`, label: 'Catálogo', key: 'catalogo',
       sub: [
-        ['Elevadores', 'categoria.html?c=elevadores'],
-        ['Alineadoras', 'categoria.html?c=alineadoras'],
-        ['Balanceadoras', 'categoria.html?c=balanceadoras'],
-        ['Desarmadoras', 'categoria.html?c=desarmadoras'],
-        ['Herramientas Neumáticas', 'categoria.html?c=herramientas-neumaticas'],
-        ['Lubricación', 'categoria.html?c=lubricacion'],
-        ['Muebles de Taller', 'categoria.html?c=muebles-taller'],
-        ['Aire Comprimido Prevost', 'categoria.html?c=aire-comprimido'],
-        ['Alineación de Faros', 'categoria.html?c=alineacion-faros']
+        ['Elevadores', 'categoria/elevadores/'],
+        ['Alineadoras', 'categoria/alineadoras/'],
+        ['Balanceadoras', 'categoria/balanceadoras/'],
+        ['Desarmadoras', 'categoria/desarmadoras/'],
+        ['Herramientas Neumáticas', 'categoria/herramientas-neumaticas/'],
+        ['Lubricación', 'categoria/lubricacion/'],
+        ['Muebles de Taller', 'categoria/muebles-taller/'],
+        ['Aire Comprimido Prevost', 'categoria/aire-comprimido/'],
+        ['Alineación de Faros', 'categoria/alineacion-faros/']
       ]
     },
-    { href: `${root}marcas.html`, label: 'Marcas', key: 'marcas' },
-    { href: `${root}servicios.html`, label: 'Servicios', key: 'servicios' },
-    { href: `${root}nosotros.html`, label: 'Nosotros', key: 'nosotros' },
-    { href: `${root}contacto.html`, label: 'Contacto', key: 'contacto' }
+    { href: `${root}marcas/`, label: 'Marcas', key: 'marcas' },
+    { href: `${root}instalacion-posventa-y-servicios/`, label: 'Servicios', key: 'servicios' },
+    { href: `${root}blog.html`, label: 'Blog', key: 'blog' },
+    { href: `${root}nosotros/`, label: 'Nosotros', key: 'nosotros' },
+    { href: `${root}contacto/`, label: 'Contacto', key: 'contacto' }
   ];
   const subHtml = (items) =>
     `<div class="submenu">${items.map(([t, h]) => `<a href="${root}${h}">${t}</a>`).join('')}</div>`;
@@ -79,13 +80,13 @@ function renderHeader(active) {
   const header = `
     <header class="header">
       <div class="container nav">
-        <a class="brand" href="${root}index.html">
+        <a class="brand" href="${root}">
           <span class="mark">T</span>
           <span>Trivium<br><small>CENTER / AR</small></span>
         </a>
         <ul class="nav-links">${links}</ul>
         <div class="nav-cta">
-          <a class="btn btn--ghost btn--sm hide-sm" href="${root}contacto.html">Pedir cotización</a>
+          <a class="btn btn--ghost btn--sm hide-sm" href="${root}contacto/">Pedir cotización</a>
           <a class="btn btn--primary btn--sm" href="${waLink('Hola, quiero hacer una consulta.')}">${ICONS.wa} WhatsApp</a>
           <button class="btn-burger" aria-label="Menú" onclick="toggleMobileNav()">${ICONS.menu}</button>
         </div>
@@ -131,21 +132,21 @@ function renderFooter() {
           <div>
             <h5>Catálogo</h5>
             <ul>
-              <li><a href="${root}categoria.html?c=elevadores">Elevadores</a></li>
-              <li><a href="${root}categoria.html?c=alineadoras">Alineadoras</a></li>
-              <li><a href="${root}categoria.html?c=balanceadoras">Balanceadoras</a></li>
-              <li><a href="${root}categoria.html?c=desarmadoras">Desarmadoras</a></li>
-              <li><a href="${root}categoria.html?c=lubricacion">Lubricación</a></li>
-              <li><a href="${root}categoria.html?c=aire-comprimido">Aire Comprimido</a></li>
+              <li><a href="${root}categoria/elevadores/">Elevadores</a></li>
+              <li><a href="${root}categoria/alineadoras/">Alineadoras</a></li>
+              <li><a href="${root}categoria/balanceadoras/">Balanceadoras</a></li>
+              <li><a href="${root}categoria/desarmadoras/">Desarmadoras</a></li>
+              <li><a href="${root}categoria/lubricacion/">Lubricación</a></li>
+              <li><a href="${root}categoria/aire-comprimido/">Aire Comprimido</a></li>
             </ul>
           </div>
           <div>
             <h5>Trivium</h5>
             <ul>
-              <li><a href="${root}nosotros.html">Nosotros</a></li>
-              <li><a href="${root}marcas.html">Marcas</a></li>
-              <li><a href="${root}servicios.html">Servicios</a></li>
-              <li><a href="${root}contacto.html">Contacto</a></li>
+              <li><a href="${root}nosotros/">Nosotros</a></li>
+              <li><a href="${root}marcas/">Marcas</a></li>
+              <li><a href="${root}instalacion-posventa-y-servicios/">Servicios</a></li>
+              <li><a href="${root}contacto/">Contacto</a></li>
             </ul>
           </div>
           <div>
@@ -179,14 +180,21 @@ function mountChrome(active) {
 let CATALOG = null;
 async function loadCatalog() {
   if (CATALOG) return CATALOG;
-  const url = rootPath() + 'data/catalog.json';
-  const res = await fetch(url);
-  CATALOG = await res.json();
-  return CATALOG;
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = rootPath() + 'data/catalog.js';
+    script.onload = () => {
+      CATALOG = window.CATALOG_DATA;
+      resolve(CATALOG);
+    };
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
 }
 
-function productUrl(p) { return `${rootPath()}producto.html?id=${encodeURIComponent(p.slug)}`; }
-function categoryUrl(slug) { return `${rootPath()}categoria.html?c=${encodeURIComponent(slug)}`; }
+function productUrl(p) { return `${rootPath()}producto/${encodeURIComponent(p.slug)}/`; }
+function categoryUrl(slug) { return `${rootPath()}categoria/${encodeURIComponent(slug)}/`; }
+function brandUrl(slug) { return `${rootPath()}marca/${encodeURIComponent(slug)}/`; }
 
 function brandById(slug) {
   return CATALOG.brands.find(b => b.slug === slug) || { name: '—', note: '' };
@@ -205,7 +213,7 @@ function productCard(p) {
   }).join('');
   const msg = `Hola Trivium, quiero consultar por: ${p.name} (${p.sku})`;
   const img = p.image
-    ? `<img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+    ? `<img src="${rootPath()}${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
        <span style="display:none">Imagen / ${p.sku}</span>`
     : `<span>Imagen / ${p.sku}</span>`;
   return `
@@ -240,5 +248,66 @@ function renderGrid(containerSel, products) {
 }
 
 function getQuery(name) {
-  return new URLSearchParams(location.search).get(name);
+  const params = new URLSearchParams(location.search);
+  if (params.has(name)) return params.get(name);
+  
+  // Try to infer from path: /producto/slug/ or /categoria/slug/
+  const path = location.pathname;
+  if (name === 'id' && path.includes('/producto/')) {
+    return path.split('/producto/')[1].split('/')[0];
+  }
+  if (name === 'c' && path.includes('/categoria/')) {
+    return path.split('/categoria/')[1].split('/')[0];
+  }
+  if (name === 'b' && path.includes('/marca/')) {
+    return path.split('/marca/')[1].split('/')[0];
+  }
+  return null;
+}
+
+// ---------- Blog ----------
+let BLOG = null;
+async function loadBlog() {
+  if (BLOG) return BLOG;
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = rootPath() + 'data/blog.js';
+    script.onload = () => {
+      BLOG = window.BLOG_DATA;
+      resolve(BLOG);
+    };
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+
+function blogUrl(post) { return `${rootPath()}${post.slug}/`; }
+
+function blogCard(p) {
+  const date = new Date(p.date).toLocaleDateString('es-AR', { day: '2-digit', month: 'long', year: 'numeric' });
+  const img = p.image 
+    ? `<img src="${rootPath()}${p.image}" alt="${p.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">` 
+    : `<div class="ph">Noticia</div>`;
+  return `
+    <article class="prod-card">
+      <a class="thumb" href="${blogUrl(p)}" style="aspect-ratio:16/9">
+        ${img}
+      </a>
+      <div class="body">
+        <span class="brand-tag">${date}</span>
+        <h3 style="font-size:1.15rem"><a href="${blogUrl(p)}" style="color:inherit">${p.title}</a></h3>
+        <div class="excerpt" style="font-size:.9rem;color:var(--text-dim);margin-top:10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+          ${p.excerpt.replace(/<[^>]*>/g, '')}
+        </div>
+        <div class="actions" style="margin-top:20px">
+          <a class="btn btn--dark btn--sm" href="${blogUrl(p)}">Leer más ${ICONS.arrow}</a>
+        </div>
+      </div>
+    </article>`;
+}
+
+function renderBlogGrid(containerSel, posts) {
+  const el = document.querySelector(containerSel);
+  if (!el) return;
+  el.innerHTML = posts.map(blogCard).join('');
 }

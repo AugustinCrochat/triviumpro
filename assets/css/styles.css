@@ -436,9 +436,8 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 }
 .prod-card:hover { border-color: var(--line-2); transform: translateY(-2px); }
 .prod-card .thumb {
-  aspect-ratio: 4/3;
-  background:
-    repeating-linear-gradient(45deg, #24242b 0 12px, #1c1c22 12px 24px);
+  aspect-ratio: 1 / 1;
+  background: #ffffff;
   position: relative;
   display: grid; place-items: center;
   color: var(--text-mute);
@@ -447,7 +446,7 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
-.prod-card .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.prod-card .thumb img { width: 100%; height: 100%; object-fit: contain; background: #ffffff; }
 .prod-card .thumb .ribbon {
   position: absolute; top: 10px; left: 10px;
   display: flex; gap: 6px;
@@ -660,9 +659,8 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   gap: 56px;
 }
 .pd-gallery .main {
-  aspect-ratio: 4/3;
-  background:
-    repeating-linear-gradient(45deg, #24242b 0 14px, #1c1c22 14px 28px);
+  aspect-ratio: 1 / 1;
+  background: #ffffff;
   border: 1px solid var(--line);
   display: grid; place-items: center;
   color: var(--text-mute);
@@ -885,3 +883,30 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 .tac { text-align: center; }
 .hide-sm { }
 @media (max-width: 700px) { .hide-sm { display: none !important; } }
+
+/* ---------- Rich HTML / WooCommerce Descriptions ---------- */
+.rich-html { margin: 20px 0 0; }
+.rich-html .product-page-button-container { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+.rich-html .product-page-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 38px; padding: 0 16px;
+  font-weight: 600; font-size: .8rem;
+  text-transform: uppercase; letter-spacing: .08em;
+  border-radius: var(--radius);
+  background: var(--surface); color: var(--text); border: 1px solid var(--line);
+  transition: transform .1s, background .15s, border-color .15s;
+}
+.rich-html .product-page-btn:hover { background: var(--surface-hi); border-color: var(--line-2); }
+.rich-html .product-page-title h2 { font-size: 1.4rem; margin-bottom: 4px; }
+.rich-html .product-page-brand { color: var(--text-mute); font-family: var(--mono); font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; display: block; margin-bottom: 20px; }
+.rich-html .product-page-highlight { font-size: 1.05rem; padding: 16px 18px; background: var(--surface); border-left: 3px solid var(--accent); margin-bottom: 24px; color: var(--text-dim); }
+.rich-html .product-page-features-title { font-size: 1.15rem; margin: 28px 0 14px; text-transform: uppercase; font-family: var(--sans); }
+.rich-html ul { padding-left: 20px; margin-bottom: 24px; color: var(--text-dim); }
+.rich-html li { margin-bottom: 8px; font-size: .95rem; }
+.rich-html .product-page-specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 16px; }
+.rich-html .product-page-spec-group { background: var(--surface); border: 1px solid var(--line); padding: 20px; }
+.rich-html .product-page-spec-title { font-size: .9rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--text-mute); margin-bottom: 12px; border-bottom: 1px solid var(--line); padding-bottom: 8px; font-weight: 400; }
+.rich-html .product-page-spec-group ul { padding-left: 18px; margin: 0; font-size: .9rem; }
+.rich-html strong { color: var(--text); }
+@media (max-width: 600px) { .rich-html .product-page-specs-grid { grid-template-columns: 1fr; } }
+

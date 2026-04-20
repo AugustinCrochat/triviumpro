@@ -70,7 +70,7 @@ mountChrome('catalogo');
   document.getElementById('cat-tag').textContent = sub || 'Trivium';
   document.getElementById('cat-count').textContent = `${results.length} productos`;
   document.getElementById('count').textContent = `${results.length} resultados`;
-  document.getElementById('crumbs').innerHTML = `<a href="index.html">Inicio</a><span>/</span><a href="catalogo.html">Catálogo</a><span>/</span>${crumb}`;
+  document.getElementById('crumbs').innerHTML = `<a href="${rootPath()}">Inicio</a><span>/</span><a href="${rootPath()}catalogo/">Catálogo</a><span>/</span>${crumb}`;
 
   // Sidebar
   const topCats = CATALOG.categories.filter(c => !c.parent);
@@ -78,13 +78,13 @@ mountChrome('catalogo');
     const subs = CATALOG.categories.filter(s => s.parent === c.slug).map(s => s.slug);
     const count = CATALOG.products.filter(p => p.category === c.slug || subs.includes(p.category)).length;
     const active = c.slug === catSlug ? 'active' : '';
-    return `<li><a class="${active}" href="categoria.html?c=${c.slug}">${c.name}<b>${count}</b></a></li>`;
+    return `<li><a class="${active}" href="${categoryUrl(c.slug)}">${c.name}<b>${count}</b></a></li>`;
   }).join('');
 
   document.getElementById('brand-list').innerHTML = CATALOG.brands.map(b => {
     const count = CATALOG.products.filter(p => p.brand === b.slug).length;
     const active = b.slug === brandSlug ? 'active' : '';
-    return `<li><a class="${active}" href="categoria.html?b=${b.slug}">${b.name}<b>${count}</b></a></li>`;
+    return `<li><a class="${active}" href="${brandUrl(b.slug)}">${b.name}<b>${count}</b></a></li>`;
   }).join('');
 
   renderGrid('#grid', results);

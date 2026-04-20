@@ -39,7 +39,7 @@
 
 <section class="cat-hero">
   <div class="container">
-    <div class="breadcrumbs"><a href="index.html">Inicio</a><span>/</span> Marcas</div>
+    <div class="breadcrumbs"><a href="${rootPath()}">Inicio</a><span>/</span> Marcas</div>
     <h1>Marcas que<br><span style="color:var(--accent)">representamos.</span></h1>
     <p style="color:var(--text-dim);margin-top:14px;max-width:60ch;">Somos distribuidores oficiales. Cada marca fue elegida por su calidad, respaldo técnico y disponibilidad de repuestos originales.</p>
   </div>
@@ -76,7 +76,7 @@ const BRAND_INFO = {
           <h2>${b.name}</h2>
           <p>${info.desc}</p>
           <div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;">
-            <a class="btn btn--primary" href="categoria.html?b=${b.slug}">Ver productos (${count})</a>
+            <a class="btn btn--primary" href="${brandUrl(b.slug)}">Ver productos (${count})</a>
             <a class="btn btn--ghost" href="${waLink('Hola, quiero info sobre productos '+b.name)}">Consultar</a>
           </div>
         </div>

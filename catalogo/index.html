@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="tv-root" content="../">
+<title>Catálogo completo — Trivium Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<section class="cat-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="${rootPath()}">Inicio</a><span>/</span> Catálogo</div>
+    <h1>Catálogo<br><span style="color:var(--accent)">completo.</span></h1>
+    <div class="sub">
+      <span class="chip">Todas las categorías</span>
+      <span class="mono muted" id="total-count">— productos</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container cat-layout">
+    <aside class="sidebar">
+      <h4>Categorías</h4>
+      <ul id="cat-list"></ul>
+      <h4>Marcas</h4>
+      <ul id="brand-list"></ul>
+    </aside>
+    <div>
+      <div class="results-head">
+        <span class="count" id="count">—</span>
+        <span class="mono muted">Ordenar: recomendados</span>
+      </div>
+      <div class="prod-grid" id="grid"></div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="../assets/js/site.js"></script>
+<script>
+mountChrome('catalogo');
+(async () => {
+  await loadCatalog();
+  const all = CATALOG.products;
+  document.getElementById('total-count').textContent = `${all.length} productos`;
+  document.getElementById('count').textContent = `${all.length} resultados`;
+
+  // Sidebar
+  const topCats = CATALOG.categories.filter(c => !c.parent);
+  const catList = document.getElementById('cat-list');
+  catList.innerHTML = topCats.map(c => {
+    const count = CATALOG.products.filter(p => p.category === c.slug || CATALOG.categories.find(s => s.slug===p.category)?.parent === c.slug).length;
+    return `<li><a href="${categoryUrl(c.slug)}">${c.name}<b>${count}</b></a></li>`;
+  }).join('');
+
+  const brandList = document.getElementById('brand-list');
+  brandList.innerHTML = CATALOG.brands.map(b => {
+    const count = CATALOG.products.filter(p => p.brand === b.slug).length;
+    return `<li><a href="${brandUrl(b.slug)}">${b.name}<b>${count}</b></a></li>`;
+  }).join('');
+
+  renderGrid('#grid', all);
+})();
+</script>
+</body>
+</html>
