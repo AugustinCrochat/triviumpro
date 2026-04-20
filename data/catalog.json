@@ -1,0 +1,3131 @@
+{
+  "categories": [
+    {
+      "slug": "elevadores",
+      "name": "Elevadores",
+      "tagline": "Para cada tipo de vehículo y taller",
+      "parent": null
+    },
+    {
+      "slug": "elevadores-2-columnas",
+      "name": "2 Columnas",
+      "parent": "elevadores"
+    },
+    {
+      "slug": "elevadores-4-columnas",
+      "name": "4 Columnas",
+      "parent": "elevadores"
+    },
+    {
+      "slug": "elevadores-tijera",
+      "name": "Tijera",
+      "parent": "elevadores"
+    },
+    {
+      "slug": "elevadores-pesados",
+      "name": "Pesados",
+      "parent": "elevadores"
+    },
+    {
+      "slug": "elevadores-motos",
+      "name": "Motos",
+      "parent": "elevadores"
+    },
+    {
+      "slug": "alineadoras",
+      "name": "Alineadoras",
+      "tagline": "Alineación de precisión"
+    },
+    {
+      "slug": "balanceadoras",
+      "name": "Balanceadoras",
+      "tagline": "Balanceo profesional"
+    },
+    {
+      "slug": "desarmadoras",
+      "name": "Desarmadoras",
+      "tagline": "Desmontaje rápido y seguro"
+    },
+    {
+      "slug": "herramientas-neumaticas",
+      "name": "Herramientas Neumáticas",
+      "tagline": "Pistolas, llaves, accesorios"
+    },
+    {
+      "slug": "lubricacion",
+      "name": "Lubricación",
+      "tagline": "Sistemas y equipos"
+    },
+    {
+      "slug": "muebles-taller",
+      "name": "Muebles de Taller",
+      "tagline": "Carros, bancos, organizadores"
+    },
+    {
+      "slug": "equipamiento-taller",
+      "name": "Equipamiento de Taller",
+      "tagline": "Todo para armar tu taller"
+    },
+    {
+      "slug": "accesorios-balanceo",
+      "name": "Accesorios de Balanceo"
+    },
+    {
+      "slug": "alineacion-faros",
+      "name": "Alineación de Faros"
+    },
+    {
+      "slug": "aire-comprimido",
+      "name": "Sistema Prevost",
+      "tagline": "Aire comprimido modular"
+    }
+  ],
+  "brands": [
+    {
+      "slug": "rotary-lift",
+      "name": "Rotary Lift",
+      "note": "USA — Elevadores"
+    },
+    {
+      "slug": "hofmann",
+      "name": "Hofmann",
+      "note": "Snap-on — Alineación"
+    },
+    {
+      "slug": "direct-lift",
+      "name": "Direct Lift",
+      "note": "USA — Tijera"
+    },
+    {
+      "slug": "forward-lift",
+      "name": "Forward Lift",
+      "note": "USA — Elevación"
+    },
+    {
+      "slug": "prevost",
+      "name": "Prevost",
+      "note": "France — Aire comprimido"
+    },
+    {
+      "slug": "trivium-pro",
+      "name": "Trivium Pro",
+      "note": "Marca propia"
+    }
+  ],
+  "products": [
+    {
+      "sku": "1010001",
+      "slug": "elevador-dos-columnas-4535-kg-rotary-lift-spoa10",
+      "name": "Elevador Dos Columnas 4535 kg - Rotary Lift SPOA10",
+      "category": "elevadores-2-columnas",
+      "brand": "rotary-lift",
+      "capacity": "4,535 kg",
+      "lift_height": "1962 mm",
+      "summary": "Ficha Técnica Elevador Asimétrico de Dos Columnas con Brazos de Elevación para Todo Tipo de Vehículos Capacidad: 4,535 kg ¡Presentamos el ÚNICO ELEVADOR para atenderlos a todos! Ha llegado la próxima evolución en tecnología de elevadores…",
+      "bullets": [
+        "Eléctricos a batería",
+        "Exóticos de perfil bajo",
+        "Camiones con bastidor",
+        "Autos y SUVs monocasco"
+      ],
+      "badges": [
+        "Top"
+      ],
+      "image": "assets/img/productos/elevador-dos-columnas-rotary-lift-spoa10.jpg",
+      "images": [
+        "assets/img/productos/elevador-dos-columnas-rotary-lift-spoa10.jpg"
+      ]
+    },
+    {
+      "sku": "1010017",
+      "slug": "elevador-dos-columnas-4536-kg-rotary-lift-spoa10trio",
+      "name": "Elevador Dos Columnas 4536 kg – Rotary Lift SPOA10TRIO",
+      "category": "elevadores-2-columnas",
+      "brand": "rotary-lift",
+      "capacity": "4536 kg",
+      "lift_height": "121 mm",
+      "summary": "Ficha Técnica Alta capacidad y versatilidad : Elevador de 2 columnas con capacidad de 4536 kg y adaptadores intercambiables. Tecnología TRIO™ avanzada : Brazos ajustables en tres etapas para mayor flexibilidad y precisión en el…",
+      "bullets": [
+        "Alta capacidad y versatilidad : Elevador de 2 columnas con capacidad de 4536 kg y adaptadores intercambiables.",
+        "Tecnología TRIO™ avanzada : Brazos ajustables en tres etapas para mayor flexibilidad y precisión en el levantamiento.",
+        "Máxima seguridad y durabilidad : Incluye triple sistema de seguridad (hidráulico, mecánico y eléctrico)."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-dos-columnas-rotary-lift-spoa10-trio.jpg",
+      "images": [
+        "assets/img/productos/elevador-dos-columnas-rotary-lift-spoa10-trio.jpg"
+      ]
+    },
+    {
+      "sku": "1010003",
+      "slug": "elevador-tijera-portatil-2722-kg-rotary-lift-pro-6mr",
+      "name": "Elevador Tijera Portatil 2722 kg - Rotary Lift PRO 6MR",
+      "category": "elevadores-tijera",
+      "brand": "rotary-lift",
+      "capacity": "2722 kg",
+      "lift_height": "1372 mm",
+      "summary": "Diseño portátil y eficiente : Elevador tijera de media altura con capacidad de 2722 kg, ideal para rotación de neumáticos, frenos y tareas rápidas. Rápido y seguro : Alcanza su altura máxima en menos de 30 segundos con 7 posiciones de…",
+      "bullets": [
+        "Diseño portátil y eficiente : Elevador tijera de media altura con capacidad de 2722 kg, ideal para rotación de neumáticos, frenos y tareas rápidas.",
+        "Rápido y seguro : Alcanza su altura máxima en menos de 30 segundos con 7 posiciones de bloqueo. Incluye adaptadores de altura adicionales.",
+        "Calidad Rotary : Cilindros hidráulicos gemelos y liberación de bloqueo de un solo punto garantizan confiabilidad y seguridad en el taller."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/rmr6.jpg",
+      "images": [
+        "assets/img/productos/rmr6.jpg"
+      ]
+    },
+    {
+      "sku": "1010004",
+      "slug": "elevador-tijera-baja-altura-3175-kg-rotary-lift-vlxs7",
+      "name": "Elevador Tijera Baja Altura 3175 kg - Rotary Lift VLXS7",
+      "category": "elevadores-tijera",
+      "brand": "rotary-lift",
+      "capacity": "3175 kg",
+      "lift_height": "629 mm",
+      "summary": "Alta capacidad: Soporta hasta 3175 kg, ideal para coches de pasajeros y camionetas. Diseño práctico: Rampas de acceso y adaptadores de goma para mayor versatilidad. Eficiencia y seguridad: Cilindros duales y tiempo de elevación rápido de…",
+      "bullets": [
+        "Alta capacidad: Soporta hasta 3175 kg, ideal para coches de pasajeros y camionetas.",
+        "Diseño práctico: Rampas de acceso y adaptadores de goma para mayor versatilidad.",
+        "Eficiencia y seguridad: Cilindros duales y tiempo de elevación rápido de 40 segundos."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-tijera-rotary-lift-baja-altura.jpg",
+      "images": [
+        "assets/img/productos/elevador-tijera-rotary-lift-baja-altura.jpg"
+      ]
+    },
+    {
+      "sku": "1010269",
+      "slug": "elevador-tijera-para-alineacion-4500-kg-rotary-lift-xa10",
+      "name": "Elevador Tijera para Alineación 4500 kg - Rotary Lift XA10",
+      "category": "elevadores-tijera",
+      "brand": "rotary-lift",
+      "capacity": "4,500 kg",
+      "lift_height": "1,870 mm",
+      "summary": "Capacidad de elevación de 4,500 kg Diseño abierto en el frente y la parte trasera, sin conexión estructural entre plataformas o bases, lo que aumenta el área de trabajo para el técnico Altura de elevación de 1,870 mm (parte superior de la…",
+      "bullets": [
+        "Capacidad de elevación de 4,500 kg",
+        "Diseño abierto en el frente y la parte trasera, sin conexión estructural entre plataformas o bases, lo que aumenta el área de trabajo para el técnico",
+        "Altura de elevación de 1,870 mm (parte superior de la plataforma)",
+        "Longitud de la plataforma de 4,800 mm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-rotary-lift-xa10-4500-kg.jpg",
+      "images": [
+        "assets/img/productos/elevador-rotary-lift-xa10-4500-kg.jpg"
+      ]
+    },
+    {
+      "sku": "1010009",
+      "slug": "elevador-de-estacionamiento-direct-lift-pro-park-8s",
+      "name": "Elevador de Estacionamiento - Direct Lift Pro Park 8S",
+      "category": "elevadores-4-columnas",
+      "brand": "rotary-lift",
+      "capacity": "3630 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Capacidad de 3630 kg y diseño móvil , ideal para cocheras o garajes. 9 posiciones de bloqueo y rampas de acero incluidas , ofreciendo versatilidad y seguridad. Acabado duradero y sistema de doble cerradura , garantiza máxima…",
+      "bullets": [
+        "Capacidad de 3630 kg y diseño móvil , ideal para cocheras o garajes.",
+        "9 posiciones de bloqueo y rampas de acero incluidas , ofreciendo versatilidad y seguridad.",
+        "Acabado duradero y sistema de doble cerradura , garantiza máxima resistencia y estabilidad."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-estacionamiento-direct-lift-pro-park-8s.jpg",
+      "images": [
+        "assets/img/productos/elevador-estacionamiento-direct-lift-pro-park-8s.jpg"
+      ]
+    },
+    {
+      "sku": "1010008",
+      "slug": "elevador-de-motos-453-kg-rotary-lift-procycle-dt",
+      "name": "Elevador de Motos 453 kg - Rotary Lift ProCycle DT",
+      "category": "elevadores-motos",
+      "brand": "rotary-lift",
+      "capacity": "453 kg",
+      "lift_height": "838 mm",
+      "summary": "Ficha Técnica Alta capacidad y diseño práctico: Soporta hasta 453 kg, con plataforma antideslizante y rampa desmontable. Mantenimiento eficiente: Soporte frontal, sección trasera desmontable y pedal neumático de 100 psi. Movilidad y…",
+      "bullets": [
+        "Alta capacidad y diseño práctico: Soporta hasta 453 kg, con plataforma antideslizante y rampa desmontable.",
+        "Mantenimiento eficiente: Soporte frontal, sección trasera desmontable y pedal neumático de 100 psi.",
+        "Movilidad y versatilidad: Diseño móvil para optimizar espacios, ideal para una amplia gama de motos."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-para-moto-direct-lift-procycle-dt.jpg",
+      "images": [
+        "assets/img/productos/elevador-para-moto-direct-lift-procycle-dt.jpg"
+      ]
+    },
+    {
+      "sku": "1010007",
+      "slug": "elevador-de-motos-453-kg-rotary-lift-procycle-xlt-dt",
+      "name": "Elevador de Motos 453 kg - Rotary Lift ProCycle XLT-DT",
+      "category": "elevadores-motos",
+      "brand": "rotary-lift",
+      "capacity": "453 kg",
+      "lift_height": "838 mm",
+      "summary": "Ficha Técnica Versatilidad y seguridad: Capacidad de 453 kg, con extensiones laterales desmontables y cinco posiciones de bloqueo. Fácil operación: Pedal neumático con presión de trabajo de 100 psi y soporte ajustable para fijar la rueda…",
+      "bullets": [
+        "Versatilidad y seguridad: Capacidad de 453 kg, con extensiones laterales desmontables y cinco posiciones de bloqueo.",
+        "Fácil operación: Pedal neumático con presión de trabajo de 100 psi y soporte ajustable para fijar la rueda delantera.",
+        "Diseño funcional: Sección trasera desmontable para un mejor acceso y plataforma amplia para vehículos todoterreno."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-para-moto-direct-lift-procycle-xlt-dt.jpg",
+      "images": [
+        "assets/img/productos/elevador-para-moto-direct-lift-procycle-xlt-dt.jpg"
+      ]
+    },
+    {
+      "sku": "1010030",
+      "slug": "elevador-cuatro-columnas-13608-kg-rotary-lift-sm30s",
+      "name": "Elevador Cuatro Columnas 13608 kg - Rotary Lift SM30S",
+      "category": "elevadores-4-columnas",
+      "brand": "rotary-lift",
+      "capacity": "13,608 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Capacidad extrema : Elevador de 4 columnas con capacidad de 13.6 toneladas, ideal para camiones, autobuses y vehículos pesados. Diseño seguro y eficiente : Carriles antideslizantes, sistema Sentinel Lock™ y barra de seguridad…",
+      "bullets": [
+        "Capacidad extrema : Elevador de 4 columnas con capacidad de 13.6 toneladas, ideal para camiones, autobuses y vehículos pesados.",
+        "Diseño seguro y eficiente : Carriles antideslizantes, sistema Sentinel Lock™ y barra de seguridad ajustable.",
+        "Alta confiabilidad : Certificación ALI Gold, motor monofásico y componentes duraderos para trabajo continuo."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-cuatro-columnas-rotary-lift-sm30s.jpg",
+      "images": [
+        "assets/img/productos/elevador-cuatro-columnas-rotary-lift-sm30s.jpg"
+      ]
+    },
+    {
+      "sku": "1010139",
+      "slug": "alineadora-3d-hofmann-geoliner-320",
+      "name": "Alineadora 3D Hofmann Geoliner 320",
+      "category": "alineadoras",
+      "brand": "hofmann",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Tecnología Avanzada: Sistema de cámaras 3D XD y notificaciones inteligentes \"Compensar, Avisar, Alertar\" para alineaciones rápidas y precisas. Diseño Compacto y Versátil: Ideal para cualquier taller, compatible con fosas y…",
+      "bullets": [
+        "Tecnología Avanzada: Sistema de cámaras 3D XD y notificaciones inteligentes \"Compensar, Avisar, Alertar\" para alineaciones rápidas y precisas.",
+        "Diseño Compacto y Versátil: Ideal para cualquier taller, compatible con fosas y elevadores, sin cables que ocupen espacio innecesario.",
+        "Fácil de Usar y Mantener: Software intuitivo, batería intercambiable en caliente, actualizaciones automáticas y servicio remoto para minimizar tiempos de inactividad."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/alineadora-3d-hofmann-geoliner-320-cargadores-de-bateria.jpg",
+      "images": [
+        "assets/img/productos/alineadora-3d-hofmann-geoliner-320-cargadores-de-bateria.jpg"
+      ]
+    },
+    {
+      "sku": "1010076",
+      "slug": "alineadora-de-camion-haweka-axis4000",
+      "name": "Alineadora de Camión Haweka AXIS4000",
+      "category": "alineadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Datos Técnicos: Mediciones de Convergencia: 5 Grados Mediciones de Caster: 10 Grados Mediciones de Camber: 10 Grados Mediciones de KPI: 20 Grados Dirección Máxima: 90 Grados Frecuencia: 433 MHz Número de Canales: 10 Requerimientos de…",
+      "bullets": [
+        "Mediciones de Convergencia: 5 Grados",
+        "Mediciones de Caster: 10 Grados",
+        "Mediciones de Camber: 10 Grados",
+        "Mediciones de KPI: 20 Grados",
+        "Dirección Máxima: 90 Grados",
+        "Frecuencia: 433 MHz"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/alineadora-de-camion-haweka-axis4000.jpg",
+      "images": [
+        "assets/img/productos/alineadora-de-camion-haweka-axis4000.jpg"
+      ]
+    },
+    {
+      "sku": "1010080",
+      "slug": "alineadora-de-camion-haweka-axis500",
+      "name": "Alineadora de Camión Haweka AXIS500",
+      "category": "alineadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características técnicas: Medición sin elevación requerida. No requiere Kit de Alineación. Se puede utilizar tanto en fosa como en elevador. No requiere mover el vehículo durante el proceso de alineación. Registro de los valores de…",
+      "bullets": [
+        "Medición sin elevación requerida.",
+        "No requiere Kit de Alineación.",
+        "Se puede utilizar tanto en fosa como en elevador.",
+        "No requiere mover el vehículo durante el proceso de alineación.",
+        "Registro de los valores de medición mediante el inclinómetro."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/alineadora-de-camion-haweka-axis500.jpg",
+      "images": [
+        "assets/img/productos/alineadora-de-camion-haweka-axis500.jpg"
+      ]
+    },
+    {
+      "sku": "1010097",
+      "slug": "balanceadora-de-ruedas-hofmann-geodyna-7100-pantalla-led",
+      "name": "Balanceadora de Ruedas Hofmann Geodyna 7100 - Pantalla LED",
+      "category": "balanceadoras",
+      "brand": "hofmann",
+      "capacity": "70 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica QUICKBAL ™ para reducir los tiempos de duración de los ciclos Modo de división de pesos El sistema de bloqueo accionado por pedal sujeta la rueda en cualquier posición",
+      "bullets": [
+        "QUICKBAL ™ para reducir los tiempos de duración de los ciclos",
+        "Modo de división de pesos",
+        "El sistema de bloqueo accionado por pedal sujeta la rueda en cualquier posición"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-7100-para-gomeria.jpg",
+      "images": [
+        "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-7100-para-gomeria.jpg"
+      ]
+    },
+    {
+      "sku": "1010028",
+      "slug": "balanceadora-de-ruedas-hofmann-geodyna-7200vci",
+      "name": "Balanceadora de Ruedas Hofmann Geodyna 7200VCI",
+      "category": "balanceadoras",
+      "brand": "hofmann",
+      "capacity": "70 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Tecnología avanzada: Monitor TFT de 19\", Smart Sonar y sistema VPM para máxima precisión. Eficiencia mejorada: QuickBAL y modos de optimización para ciclos rápidos y precisos. Diseño versátil: Compatible con ruedas de hasta…",
+      "bullets": [
+        "Tecnología avanzada: Monitor TFT de 19\", Smart Sonar y sistema VPM para máxima precisión.",
+        "Eficiencia mejorada: QuickBAL y modos de optimización para ciclos rápidos y precisos.",
+        "Diseño versátil: Compatible con ruedas de hasta 70 kg y diversos tamaños de llantas."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-7200-para-gomeria.jpg",
+      "images": [
+        "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-7200-para-gomeria.jpg"
+      ]
+    },
+    {
+      "sku": "1010029",
+      "slug": "balanceadora-de-ruedas-hofmann-geodyna-7800-2p",
+      "name": "Balanceadora de Ruedas Hofmann Geodyna 7800-2P",
+      "category": "balanceadoras",
+      "brand": "hofmann",
+      "capacity": "70 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Equilibradora de ruedas premium : Ideal para talleres, concesionarios y centros de servicio con alto volumen, la Geodyna 7800P incluye un monitor táctil, escáner de llantas para medición automática, y posicionamiento rápido…",
+      "bullets": [
+        "Equilibradora de ruedas premium : Ideal para talleres, concesionarios y centros de servicio con alto volumen, la Geodyna 7800P incluye un monitor táctil, escáner de llantas para medición automática, y posicionamiento rápido de los contrapesos con puntero láser.",
+        "Alta productividad y precisión : Con una velocidad de medición de hasta 200 rpm y un tiempo de ciclo rápido de 4.5 segundos, ofrece una precisión de equilibrado de 1 g, compatible con ruedas de hasta 42\" y 70 kg.",
+        "Tecnología avanzada : Incluye funciones como QuickBal, Smart Sonar para medición automática de anchos de llanta, y Power Clamp para fijación rápida de las ruedas, optimizando tiempos y garantizando resultados precisos."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-78002p.jpg",
+      "images": [
+        "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-78002p.jpg"
+      ]
+    },
+    {
+      "sku": "1010071",
+      "slug": "desarmadora-de-neumaticos-hofmann-monty-1270",
+      "name": "Desarmadora de Neumáticos Hofmann Monty 1270",
+      "category": "desarmadoras",
+      "brand": "hofmann",
+      "capacity": "173 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica El destalonado puede llevarse a cabo de manera sencilla y sin dañar la llanta. El sólido y robusto diseño de todos los componentes augura una prolongada vida útil. El diseño específico de la columna de montaje garantiza…",
+      "bullets": [
+        "El destalonado puede llevarse a cabo de manera sencilla y sin dañar la llanta.",
+        "El sólido y robusto diseño de todos los componentes augura una prolongada vida útil.",
+        "El diseño específico de la columna de montaje garantiza torsiones mínimas.",
+        "Apertura de garras exterior de hasta 20 pulgadas."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/desarmadora-hofmann-monty-1270-con-desmontadora-de-neumaticos.jpg",
+      "images": [
+        "assets/img/productos/desarmadora-hofmann-monty-1270-con-desmontadora-de-neumaticos.jpg"
+      ]
+    },
+    {
+      "sku": "1010073",
+      "slug": "desarmadora-de-neumaticos-hofmann-monty-3300-20",
+      "name": "Desarmadora de Neumáticos Hofmann Monty 3300-20",
+      "category": "desarmadoras",
+      "brand": "hofmann",
+      "capacity": "300 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Certificación WDK para neumáticos UHP y Run Flat, garantizando un manejo seguro y eficiente. Plato autocentrante con capacidad de bloqueo externo de hasta 20\" y pala destalonadora ajustable. Compacta y ergonómica , ideal para…",
+      "bullets": [
+        "Certificación WDK para neumáticos UHP y Run Flat, garantizando un manejo seguro y eficiente.",
+        "Plato autocentrante con capacidad de bloqueo externo de hasta 20\" y pala destalonadora ajustable.",
+        "Compacta y ergonómica , ideal para talleres de baja productividad con un diseño preciso y robusto."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/desarmadora-hofmann-monty-3300-20-con-desmontadora-de-neumaticos.jpg",
+      "images": [
+        "assets/img/productos/desarmadora-hofmann-monty-3300-20-con-desmontadora-de-neumaticos.jpg"
+      ]
+    },
+    {
+      "sku": "1010119",
+      "slug": "desarmadora-de-neumaticos-hofmann-monty-3300-24",
+      "name": "Desarmadora de Neumáticos Hofmann Monty 3300-24",
+      "category": "desarmadoras",
+      "brand": "hofmann",
+      "capacity": "310 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Versatilidad y Precisión: Diseñada para talleres que buscan alto rendimiento, es compatible con neumáticos UHP y Run Flat gracias a su certificación WDK. Innovación y Seguridad: Incluye tecnología SmartSpeed que ajusta…",
+      "bullets": [
+        "Versatilidad y Precisión: Diseñada para talleres que buscan alto rendimiento, es compatible con neumáticos UHP y Run Flat gracias a su certificación WDK.",
+        "Innovación y Seguridad: Incluye tecnología SmartSpeed que ajusta automáticamente la velocidad y un cilindro destalonador ajustable que protege las llantas durante el proceso.",
+        "Opciones Avanzadas: Su brazo neumático vertical y la columna auxiliar EasyMont Pro facilitan el manejo de ruedas grandes y neumáticos de alto rendimiento."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/desarmadora-hofmann-monty-3300-24-con-desmontadora-de-neumaticos.jpg",
+      "images": [
+        "assets/img/productos/desarmadora-hofmann-monty-3300-24-con-desmontadora-de-neumaticos.jpg"
+      ]
+    },
+    {
+      "sku": "1010199",
+      "slug": "brazo-auxiliar-easymont",
+      "name": "Brazo Auxiliar Easymont",
+      "category": "desarmadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Facilita el montaje y desmontaje de neumáticos duros o run-flat. El brazo auxiliar brinda apoyo adicional para trabajar con mayor seguridad, rapidez y sin dañar llantas o cubiertas. Ideal para talleres que buscan eficiencia y…",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/brazo-auxiliar-para-neumaticos-run-flat-y-de-talon-bajo.jpg",
+      "images": [
+        "assets/img/productos/brazo-auxiliar-para-neumaticos-run-flat-y-de-talon-bajo.jpg"
+      ]
+    },
+    {
+      "sku": "1010070",
+      "slug": "espatula-para-despegar-contrapesos-adhesivos-en-llantas-de-aluminio-haweka",
+      "name": "Espátula para Despegar Contrapesos Adhesivos en Llantas de Aluminio | Haweka",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Diseñada específicamente para despegar contrapesos adhesivos de llantas de aluminio. Evita daños en la superficie de las llantas durante la extracción. Ideal para uso en talleres mecánicos y servicios de balanceo de ruedas. Construida con…",
+      "bullets": [
+        "Diseñada específicamente para despegar contrapesos adhesivos de llantas de aluminio.",
+        "Evita daños en la superficie de las llantas durante la extracción.",
+        "Ideal para uso en talleres mecánicos y servicios de balanceo de ruedas.",
+        "Construida con materiales de alta durabilidad para un uso prolongado.",
+        "Asegura un trabajo rápido y eficiente en cada operación.",
+        "Herramienta profesional respaldada por la calidad de Haweka."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/espatula-para-contrapesos-plomos-adhesivos.jpg",
+      "images": [
+        "assets/img/productos/espatula-para-contrapesos-plomos-adhesivos.jpg"
+      ]
+    },
+    {
+      "sku": "1010055",
+      "slug": "calibre-haweka-para-medir-la-distancia-entre-bulones-de-ruedas",
+      "name": "Calibre Haweka para Medir la Distancia entre Bulones de Ruedas",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Herramienta precisa para medir la distancia entre bulones en ruedas de vehículos. Diseñado para asegurar un ajuste correcto en el montaje de ruedas. Compatible con una amplia variedad de vehículos y patrones de bulones. Fabricado con…",
+      "bullets": [
+        "Herramienta precisa para medir la distancia entre bulones en ruedas de vehículos.",
+        "Diseñado para asegurar un ajuste correcto en el montaje de ruedas.",
+        "Compatible con una amplia variedad de vehículos y patrones de bulones.",
+        "Fabricado con materiales duraderos para un uso prolongado y fiable.",
+        "Fácil de usar, ideal para talleres y profesionales de la mecánica.",
+        "Producto de alta calidad de la marca Haweka, líder en equipos de alineación y balanceo."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/calibre-para-medir-la-distancia-entre-bulones-de-ruedas.jpg",
+      "images": [
+        "assets/img/productos/calibre-para-medir-la-distancia-entre-bulones-de-ruedas.jpg"
+      ]
+    },
+    {
+      "sku": "1010082",
+      "slug": "kit-de-9-conos-para-balanceadora-52-5-122-mm",
+      "name": "Kit de 9 Conos para Balanceadora (Ø 52,5 - Ø 122 mm)",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Rango de diámetros : Conos de 52,5 mm a 122 mm para adaptarse a distintas ruedas. Versatilidad : Compatible con varios modelos de balanceadoras. Alta precisión : Garantiza un centrado perfecto durante el balanceo. Durabilidad : Fabricados…",
+      "bullets": [
+        "Rango de diámetros : Conos de 52,5 mm a 122 mm para adaptarse a distintas ruedas.",
+        "Versatilidad : Compatible con varios modelos de balanceadoras.",
+        "Alta precisión : Garantiza un centrado perfecto durante el balanceo.",
+        "Durabilidad : Fabricados con materiales resistentes para un uso prolongado.",
+        "Fácil identificación : Conos numerados para una selección rápida y precisa."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/kit-de-9-conos-para-balanceadora.jpg",
+      "images": [
+        "assets/img/productos/kit-de-9-conos-para-balanceadora.jpg"
+      ]
+    },
+    {
+      "sku": "1010062",
+      "slug": "conos-de-centrado-haweka",
+      "name": "Conos de Centrado Haweka",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "150 400 049: Cono centrador 89-132 mm, 40 mm de diámetro del eje. 150 280 049: Cono centrador 4x4 89-132 mm, 28 mm de diámetro del eje. Alta precisión : Asegura el centrado exacto de las ruedas. Compatibilidad universal : Adecuado para una…",
+      "bullets": [
+        "Alta precisión : Asegura el centrado exacto de las ruedas.",
+        "Compatibilidad universal : Adecuado para una amplia gama de vehículos.",
+        "Construcción robusta : Fabricados con materiales duraderos para uso prolongado.",
+        "Fácil de usar : Diseño intuitivo para un montaje y desmontaje rápidos.",
+        "Incluye 4 tamaños : Conos de diferentes diámetros para mayor versatilidad en el taller."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/set-de-4-conos-de-centrado-haweka.jpg",
+      "images": [
+        "assets/img/productos/set-de-4-conos-de-centrado-haweka.jpg"
+      ]
+    },
+    {
+      "sku": "1010064",
+      "slug": "tuerca-rapida-de-40-x-4-mm-progrip-haweka",
+      "name": "Tuerca Rápida de 40 x 4 mm - ProGrip Haweka",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Diseño de alta precisión : Ajuste perfecto para balanceadoras de ruedas. Operación rápida : Permite fijar y aflojar rápidamente. Material duradero : Fabricada con materiales resistentes al desgaste. Compatibilidad : Ideal para la mayoría…",
+      "bullets": [
+        "Diseño de alta precisión : Ajuste perfecto para balanceadoras de ruedas.",
+        "Operación rápida : Permite fijar y aflojar rápidamente.",
+        "Material duradero : Fabricada con materiales resistentes al desgaste.",
+        "Compatibilidad : Ideal para la mayoría de las balanceadoras.",
+        "Fácil de usar : Simplifica el proceso de montaje y desmontaje de ruedas."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tuerca-rapida-progrip-haweka.jpg",
+      "images": [
+        "assets/img/productos/tuerca-rapida-progrip-haweka.jpg"
+      ]
+    },
+    {
+      "sku": "1010186",
+      "slug": "tuerca-rapida-softgrip-para-eje-40x4mm-haweka",
+      "name": "Tuerca Rápida SoftGrip para Eje 40x4mm Haweka",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Mango SoftGrip : Proporciona un agarre cómodo y antideslizante. Fijación rápida : Acelera el proceso de montaje en el eje. Compatibilidad : Diseñada específicamente para ejes de 40x4mm. Durabilidad : Resistente a la corrosión y al…",
+      "bullets": [
+        "Mango SoftGrip : Proporciona un agarre cómodo y antideslizante.",
+        "Fijación rápida : Acelera el proceso de montaje en el eje.",
+        "Compatibilidad : Diseñada específicamente para ejes de 40x4mm.",
+        "Durabilidad : Resistente a la corrosión y al desgaste.",
+        "Uso profesional : Ideal para talleres que requieren eficiencia y precisión."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tuerca-rapida-softgrip-haweka.jpg",
+      "images": [
+        "assets/img/productos/tuerca-rapida-softgrip-haweka.jpg"
+      ]
+    },
+    {
+      "sku": "1010194",
+      "slug": "conos-expandibles-haweka-54-86-mm",
+      "name": "Conos Expandibles Haweka 54-86 mm",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Adaptador DuoExpert II, eje 40 mm. Rango 54 - 62 mm Rango 62 - 70 mm Rango 70 - 78 mm Rango 78 - 86 mm",
+      "bullets": [
+        "Rango 54 - 62 mm",
+        "Rango 62 - 70 mm",
+        "Rango 70 - 78 mm",
+        "Rango 78 - 86 mm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/cono-expandible-haweka.jpg",
+      "images": [
+        "assets/img/productos/cono-expandible-haweka.jpg"
+      ]
+    },
+    {
+      "sku": "1010197",
+      "slug": "soporte-para-accesorios-haweka",
+      "name": "Soporte para Accesorios Haweka",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Compatibilidad : Diseñado para paneles Haweka. Resistente : Material duradero y estable. Fácil de usar : Montaje y desmontaje sencillo. Portátil : Ideal para talleres y estaciones de trabajo móviles. Diseño compacto : Ahorro de espacio en…",
+      "bullets": [
+        "Compatibilidad : Diseñado para paneles Haweka.",
+        "Resistente : Material duradero y estable.",
+        "Fácil de usar : Montaje y desmontaje sencillo.",
+        "Portátil : Ideal para talleres y estaciones de trabajo móviles.",
+        "Diseño compacto : Ahorro de espacio en el taller."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/soporte-accesorios-de-balanceo-haweka.jpg",
+      "images": [
+        "assets/img/productos/soporte-accesorios-de-balanceo-haweka.jpg"
+      ]
+    },
+    {
+      "sku": "1010066",
+      "slug": "dispositivo-de-fijacion-probike-haweka",
+      "name": "Dispositivo de Fijación ProBike Haweka",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características: Resultados de equilibrado precisos Instalación fácil y rápida Rango de agarre de 360 mm a 740 mm Ideal tanto para las ruedas de 10 pulgadas y ruedas de camioneta El manejo es seguro y fácil",
+      "bullets": [
+        "Resultados de equilibrado precisos",
+        "Instalación fácil y rápida",
+        "Rango de agarre de 360 mm a 740 mm",
+        "Ideal tanto para las ruedas de 10 pulgadas y ruedas de camioneta",
+        "El manejo es seguro y fácil"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/centrado-de-ruedas-de-moto-probike.jpg",
+      "images": [
+        "assets/img/productos/centrado-de-ruedas-de-moto-probike.jpg"
+      ]
+    },
+    {
+      "sku": "1010176",
+      "slug": "maquina-para-purga-de-cajas-de-cambio-automaticas-transmision-atf-brain-bee-agc-",
+      "name": "Máquina para Purga de Cajas de Cambio Automáticas Transmisión ATF - Brain Bee AGC 8200",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "TOTAL COBERTURA DE LA FLOTA DE VEHÍCULOS La estación AGC ha sido diseñada para cambiar todo el aceite del cambio automático y limpiar el circuito correspondiente en todos los modelos de coche. La base de datos que incorpora la estación…",
+      "bullets": [
+        "TIPO DE ACEITE",
+        "CAPACIDAD DE LA TRANSMISIÓN",
+        "CONEXIONES DE SERVICIO (drenaje de aceite; llenado/nivel de aceite)"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/maquina-de-purga-de-cajas-de-cambio-transmision-atf-brain-bee-agc-8200.jpg",
+      "images": [
+        "assets/img/productos/maquina-de-purga-de-cajas-de-cambio-transmision-atf-brain-bee-agc-8200.jpg"
+      ]
+    },
+    {
+      "sku": "5010066",
+      "slug": "alineador-de-faros-tecnolux-2019",
+      "name": "Alineador de Faros Tecnolux 2019",
+      "category": "alineacion-faros",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Alineador mecánico de luces con luxómetro analógico graduado o digital, visor con espejo o láser visor línea y punto óptico láser, deslizamiento vertical con patines de precisión en nylon autolubrificado.",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/alineador-de-faros-tecnolux-2019.jpg",
+      "images": [
+        "assets/img/productos/alineador-de-faros-tecnolux-2019.jpg"
+      ]
+    },
+    {
+      "sku": "5010067",
+      "slug": "alineador-de-faros-tecnolux-2350",
+      "name": "Alineador de Faros Tecnolux 2350",
+      "category": "alineacion-faros",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Alineador electrónico de luces disponible con múltiples opciones: base simple con railes, visor con espejo o visor y apuntamiento láser, columna giratoria. Alineador electrónico combinado para faros Americanos o Europeos.",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/alineador-de-faros-tecnolux-2350.jpg",
+      "images": [
+        "assets/img/productos/alineador-de-faros-tecnolux-2350.jpg"
+      ]
+    },
+    {
+      "sku": "1010151",
+      "slug": "camilla-para-mecanico-120-kg",
+      "name": "Camilla para Mecánico 120 kg",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "120 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad: 120 kg Peso: 6.6 kg Dimensiones: 1000 x 490 x 95 mm",
+      "bullets": [
+        "Capacidad: 120 kg",
+        "Peso: 6.6 kg",
+        "Dimensiones: 1000 x 490 x 95 mm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/trh6802-2.jpg",
+      "images": [
+        "assets/img/productos/trh6802-2.jpg"
+      ]
+    },
+    {
+      "sku": "1010208",
+      "slug": "carro-para-ruedas-de-camion",
+      "name": "Carro para Ruedas de Camión",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "68 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad: 1 ton Peso: 68 kg Tamaño del producto: 104*109*89 cm",
+      "bullets": [
+        "Capacidad: 1 ton",
+        "Peso: 68 kg",
+        "Tamaño del producto: 104*109*89 cm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/trx10001.jpg",
+      "images": [
+        "assets/img/productos/trx10001.jpg"
+      ]
+    },
+    {
+      "sku": "1010148",
+      "slug": "caballetes-3-ton",
+      "name": "Caballetes 3 Ton",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Modelo: T43001C Capacidad: 3 Ton Altura Min.: 288 mm Altura Max.: 425 mm Aprobación CE: TUV / GS Con doble pasador de seguridad Mango de acero macizo",
+      "bullets": [
+        "Capacidad: 3 Ton",
+        "Altura Min.: 288 mm",
+        "Altura Max.: 425 mm",
+        "Aprobación CE: TUV / GS",
+        "Con doble pasador de seguridad",
+        "Mango de acero macizo"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/t43001c.jpg",
+      "images": [
+        "assets/img/productos/t43001c.jpg"
+      ]
+    },
+    {
+      "sku": "1010210",
+      "slug": "caballete-alto-4-ton",
+      "name": "Caballete Alto 4 Ton",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "17.5 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad: 2 Ton Peso: 17.5 KG Altura Mínima 124 cm Altura Máxima: 214,5 cm Tamaño del producto: 118 x 19,8 x 55 cm",
+      "bullets": [
+        "Capacidad: 2 Ton",
+        "Peso: 17.5 KG",
+        "Altura Mínima 124 cm",
+        "Altura Máxima: 214,5 cm",
+        "Tamaño del producto: 118 x 19,8 x 55 cm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/trf42009.jpg",
+      "images": [
+        "assets/img/productos/trf42009.jpg"
+      ]
+    },
+    {
+      "sku": "1010203",
+      "slug": "criquet-botella-4-ton",
+      "name": "Criquet Botella 4 Ton",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "3.4 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad: 4 Ton. Altura Mínima: 19.4 cm Altura Máxima: 37.2 cm Altura de elevación: 11,8 cm Altura ajustable: 6 cm Peso: 3.4 KG. Tamaño del Pack: 570 x 24 x 31 cm",
+      "bullets": [
+        "Capacidad: 4 Ton.",
+        "Altura Mínima: 19.4 cm",
+        "Altura Máxima: 37.2 cm",
+        "Altura de elevación: 11,8 cm",
+        "Altura ajustable: 6 cm",
+        "Peso: 3.4 KG."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/criquet-botella-4-ton.jpg",
+      "images": [
+        "assets/img/productos/criquet-botella-4-ton.jpg"
+      ]
+    },
+    {
+      "sku": "1010205",
+      "slug": "criquet-carro-3-ton",
+      "name": "Criquet Carro 3 Ton",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "La tecnología hidráulica simplifica la elevación, mientras que un marco más amplio y una válvula de derivación interna garantizan la seguridad. El sistema de bypass de seguridad evita la sobrecarga y garantiza un funcionamiento seguro.…",
+      "bullets": [
+        "La tecnología hidráulica simplifica la elevación, mientras que un marco más amplio y una válvula de derivación interna garantizan la seguridad.",
+        "El sistema de bypass de seguridad evita la sobrecarga y garantiza un funcionamiento seguro.",
+        "Ruedas de acero para la longevidad.",
+        "Diseño de calidad especial: los cilindros pulidos y tratados utilizan asientos de alto rendimiento."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/t830018.jpg",
+      "images": [
+        "assets/img/productos/t830018.jpg"
+      ]
+    },
+    {
+      "sku": "1010206",
+      "slug": "criquet-carro-3-ton-bajo-perfil",
+      "name": "Criquet Carro 3 Ton Bajo Perfil",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "La tecnología hidráulica simplifica la elevación, mientras que un marco más amplio y una válvula de derivación interna garantizan la seguridad. El sistema de bypass de seguridad evita la sobrecarga y garantiza un funcionamiento seguro.…",
+      "bullets": [
+        "La tecnología hidráulica simplifica la elevación, mientras que un marco más amplio y una válvula de derivación interna garantizan la seguridad.",
+        "El sistema de bypass de seguridad evita la sobrecarga y garantiza un funcionamiento seguro.",
+        "Ruedas de acero para la longevidad.",
+        "Diseño de calidad especial: los cilindros pulidos y tratados utilizan asientos de alto rendimiento."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/t83508.jpg",
+      "images": [
+        "assets/img/productos/t83508.jpg"
+      ]
+    },
+    {
+      "sku": "1010147",
+      "slug": "criquet-carro-para-taller-4-ton",
+      "name": "Criquet Carro para Taller 4 Ton",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Levantamiento rápido con la bomba dual. Soldadura robusta le otorga durabilidad y fiabilidad. La manija desmontable de dos piezas con mango de goma facilita el bombeo. Ruedas giratorias y anchas le otorgan mayor estabilidad. Su altura…",
+      "bullets": [
+        "Levantamiento rápido con la bomba dual.",
+        "Soldadura robusta le otorga durabilidad y fiabilidad.",
+        "La manija desmontable de dos piezas con mango de goma facilita el bombeo.",
+        "Ruedas giratorias y anchas le otorgan mayor estabilidad.",
+        "Su altura mínima de 100 mm es ideal para los vehículos de chasis bajos.",
+        "Los cilindros cromados y los sellos de alta calidad proporcionan una larga vida sin fugas de aceite."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/t84008.jpg",
+      "images": [
+        "assets/img/productos/t84008.jpg"
+      ]
+    },
+    {
+      "sku": "1010154",
+      "slug": "criquet-botella-32-ton",
+      "name": "Criquet Botella 32 Ton",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "22 kg",
+      "lift_height": "180 mm",
+      "summary": "Características: Capacidad: 32 Ton. Altura Min: 285 mm Altura Máx: 465 mm Altura de elevación: 180 mm Peso: 22 Kgs. Tamaño del Pack: 230 x 205 x 345 mm",
+      "bullets": [
+        "Capacidad: 32 Ton.",
+        "Altura Min: 285 mm",
+        "Altura Máx: 465 mm",
+        "Altura de elevación: 180 mm",
+        "Peso: 22 Kgs.",
+        "Tamaño del Pack: 230 x 205 x 345 mm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/t93204.jpg",
+      "images": [
+        "assets/img/productos/t93204.jpg"
+      ]
+    },
+    {
+      "sku": "1010207",
+      "slug": "criquet-neumatico-profesional-40-20-10-ton",
+      "name": "Criquet Neumático Profesional 40/20/10 Ton",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características Cuenta con un potente motor neumático para elevaciones de carga nominal. Sistema hidráulico de derivación incorporado para evitar sobrecargas de accidentes. Mango extra largo para un fácil posicionamiento y movimiento.",
+      "bullets": [
+        "Cuenta con un potente motor neumático para elevaciones de carga nominal.",
+        "Sistema hidráulico de derivación incorporado para evitar sobrecargas de accidentes.",
+        "Mango extra largo para un fácil posicionamiento y movimiento."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tra40-3al.jpg",
+      "images": [
+        "assets/img/productos/tra40-3al.jpg"
+      ]
+    },
+    {
+      "sku": "1010155",
+      "slug": "criquet-carro-para-camion-15-ton",
+      "name": "Criquet Carro para Camión 15 Ton",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "260 kg",
+      "lift_height": "—",
+      "summary": "Capacidad: 15 Ton. Altura Máxima: 720 mm Altura Mínima: 180 mm Altura ajustable: 60 mm Peso: 260 Kg. Tamaño: 2370 x 560 x 235 mm Certificación: TUV/GS CE",
+      "bullets": [
+        "Capacidad: 15 Ton.",
+        "Altura Máxima: 720 mm",
+        "Altura Mínima: 180 mm",
+        "Altura ajustable: 60 mm",
+        "Peso: 260 Kg.",
+        "Tamaño: 2370 x 560 x 235 mm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tr150001.jpg",
+      "images": [
+        "assets/img/productos/tr150001.jpg"
+      ]
+    },
+    {
+      "sku": "1010213",
+      "slug": "criquet-baja-motor-1-5-ton",
+      "name": "Criquet Baja Motor 1.5 Ton",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "83 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad: 1.5 ton Altura Mínima: 27 cm Altura Máxima: 90 cm Peso: 83 kg",
+      "bullets": [
+        "Capacidad: 1.5 ton",
+        "Altura Mínima: 27 cm",
+        "Altura Máxima: 90 cm",
+        "Peso: 83 kg"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/criquet-baja-motor-1500-kilos.jpg",
+      "images": [
+        "assets/img/productos/criquet-baja-motor-1500-kilos.jpg"
+      ]
+    },
+    {
+      "sku": "1010153",
+      "slug": "baja-cajas-de-cambio-500-kg",
+      "name": "Baja Cajas de Cambio 500 kg",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "57 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad: 0.5 ton Altura Min.: 890 mm Altura Max.:1795 mm Tamaño del Pack: 520 x 320 x 740 mm Peso: 57 kg",
+      "bullets": [
+        "Capacidad: 0.5 ton",
+        "Altura Min.: 890 mm",
+        "Altura Max.:1795 mm",
+        "Tamaño del Pack: 520 x 320 x 740 mm",
+        "Peso: 57 kg"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tel05005.jpg",
+      "images": [
+        "assets/img/productos/tel05005.jpg"
+      ]
+    },
+    {
+      "sku": "1010152",
+      "slug": "baja-caja-de-cambios-1-ton-hidraulica-manual",
+      "name": "Baja Caja de Cambios 1 Ton - Hidráulica Manual",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "77 kg",
+      "lift_height": "—",
+      "summary": "Caracteristicas Capacidad: 1 Ton Altura Min.: 880 mm Altura Max.:1915 mm Tamaño del Pack: 560 x 370 x 910 mm Peso: 77 kg",
+      "bullets": [
+        "Capacidad: 1 Ton",
+        "Altura Min.: 880 mm",
+        "Altura Max.:1915 mm",
+        "Tamaño del Pack: 560 x 370 x 910 mm",
+        "Peso: 77 kg"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tel10001.jpg",
+      "images": [
+        "assets/img/productos/tel10001.jpg"
+      ]
+    },
+    {
+      "sku": "1010156",
+      "slug": "levanta-motor-2-ton-hidraulica-manual",
+      "name": "Levanta Motor 2 Ton - Hidráulica Manual",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características principales: Construido de acero de alto grado y con los más altos estándares de la calidad para asegurar la durabilidad. El acabado de pintura sin plomo se aplica después de un lavado químico a fondo para asegurar un…",
+      "bullets": [
+        "Construido de acero de alto grado y con los más altos estándares de la calidad para asegurar la durabilidad.",
+        "El acabado de pintura sin plomo se aplica después de un lavado químico a fondo para asegurar un acabado que otorgue una larga durabilidad y para ayudar a prevenir el óxido",
+        "Pintura resistente para una limpieza fácil de aceites, grasas y suciedades.",
+        "Unidad de cilindro hidráulico de acero, de gran diámetro, de alta calidad, da como resultado una menor presión de aceite necesaria para mover la carga, lo que ayuda a reducir el desgaste y prolongar la vida útil"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/t32002x.jpg",
+      "images": [
+        "assets/img/productos/t32002x.jpg"
+      ]
+    },
+    {
+      "sku": "1010212",
+      "slug": "nivelador-de-motor-500-kg",
+      "name": "Nivelador de Motor 500 kg",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "500 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad: 500 kg Peso: 4.5 kg",
+      "bullets": [
+        "Capacidad: 500 kg",
+        "Peso: 4.5 kg"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/trf20501.jpg",
+      "images": [
+        "assets/img/productos/trf20501.jpg"
+      ]
+    },
+    {
+      "sku": "1010214",
+      "slug": "soporte-motor-500-kg",
+      "name": "Soporte Motor 500 kg",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "500 kg",
+      "lift_height": "—",
+      "summary": "Características: Soporta el motor o la transmisión en su lugar durante las reparaciones Montajes de doble gancho para un soporte equilibrado Tornillo de ajuste para nivelación de carga Patas de apoyo acolchadas de goma que evitan daños en…",
+      "bullets": [
+        "Soporta el motor o la transmisión en su lugar durante las reparaciones",
+        "Montajes de doble gancho para un soporte equilibrado",
+        "Tornillo de ajuste para nivelación de carga",
+        "Patas de apoyo acolchadas de goma que evitan daños en la pintura",
+        "Toda la construcción de acero",
+        "Acabado en polvo"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tw05001.jpg",
+      "images": [
+        "assets/img/productos/tw05001.jpg"
+      ]
+    },
+    {
+      "sku": "1010157",
+      "slug": "soporte-para-motor-680-kg",
+      "name": "Soporte para Motor 680 kg",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "680 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad: 680 kg Tamaño del producto: 810 x 825 x 875 mm Peso neto: 33 kg",
+      "bullets": [
+        "Capacidad: 680 kg",
+        "Tamaño del producto: 810 x 825 x 875 mm",
+        "Peso neto: 33 kg"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/soporte-motor.jpg",
+      "images": [
+        "assets/img/productos/soporte-motor.jpg"
+      ]
+    },
+    {
+      "sku": "1010211",
+      "slug": "prensa-hidraulica-20-ton",
+      "name": "Prensa Hidráulica 20 Ton",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "100 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad: 20 ton Carrera: 185 mm Rango de trabajo: 0-910 mm Peso: 100 kg",
+      "bullets": [
+        "Capacidad: 20 ton",
+        "Carrera: 185 mm",
+        "Rango de trabajo: 0-910 mm",
+        "Peso: 100 kg"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/prensa-hidraulica-20-ton-big-red.jpg",
+      "images": [
+        "assets/img/productos/prensa-hidraulica-20-ton-big-red.jpg"
+      ]
+    },
+    {
+      "sku": "1010149",
+      "slug": "prensa-hidraulica-30-ton",
+      "name": "Prensa Hidráulica 30 Ton",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "165 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad: 30 ton Carrera: 150 mm Rango de trabajo: 51-1131 mm Peso: 165 kg Tamaño del Pack: 183 x 78 x 30 cm",
+      "bullets": [
+        "Capacidad: 30 ton",
+        "Carrera: 150 mm",
+        "Rango de trabajo: 51-1131 mm",
+        "Peso: 165 kg",
+        "Tamaño del Pack: 183 x 78 x 30 cm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/prensa-hidraulica-30-ton.jpg",
+      "images": [
+        "assets/img/productos/prensa-hidraulica-30-ton.jpg"
+      ]
+    },
+    {
+      "sku": "1010150",
+      "slug": "mesa-hidraulica-360-kg-eleva-1-3-metros",
+      "name": "Mesa Hidráulica 360 kg - Eleva 1,3 Metros",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "360 kg",
+      "lift_height": "—",
+      "summary": "Características: Para levantar y bajar carga pesada de manera muy fácil Funciona con un pedal de pie de manera hidráulica Liberación de presión montada en el mango",
+      "bullets": [
+        "Para levantar y bajar carga pesada de manera muy fácil",
+        "Funciona con un pedal de pie de manera hidráulica",
+        "Liberación de presión montada en el mango"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tc04001.jpg",
+      "images": [
+        "assets/img/productos/tc04001.jpg"
+      ]
+    },
+    {
+      "sku": "1010146",
+      "slug": "torin-big-red-rolling-jack-2000-kg",
+      "name": "Torin Big Red Rolling Jack 2000 kg",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "2000 kg",
+      "lift_height": "1760 mm",
+      "summary": "Características: Elevación hidráulica Para elevadores de cuatro columnas. Accesorio ideal para la alineación de las ruedas.",
+      "bullets": [
+        "Elevación hidráulica",
+        "Para elevadores de cuatro columnas.",
+        "Accesorio ideal para la alineación de las ruedas."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/torin-red-lift-rolling-jack.jpg",
+      "images": [
+        "assets/img/productos/torin-red-lift-rolling-jack.jpg"
+      ]
+    },
+    {
+      "sku": "1010216",
+      "slug": "multiplicador-de-torque-para-camion-1-68",
+      "name": "Multiplicador de Torque para Camión 1:68",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "8 kg",
+      "lift_height": "—",
+      "summary": "Características: Reduce la fatiga Para ruedas de autos comerciales y equipos agrícolas Peso: 8 kg Tamaño del pack: 40 x 38 x 25 cm",
+      "bullets": [
+        "Reduce la fatiga",
+        "Para ruedas de autos comerciales y equipos agrícolas",
+        "Peso: 8 kg",
+        "Tamaño del pack: 40 x 38 x 25 cm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/llave-de-tuerca-con-engranaje-big-red.jpg",
+      "images": [
+        "assets/img/productos/llave-de-tuerca-con-engranaje-big-red.jpg"
+      ]
+    },
+    {
+      "sku": "1010217",
+      "slug": "multiplicador-de-torque-1-16-big-red",
+      "name": "Multiplicador De Torque 1:16 Big Red",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "2.25 kg",
+      "lift_height": "—",
+      "summary": "Características: Reduce la fatiga Para ruedas de autos y camionetas Peso: 2.25 kg Tamaño del pack: 34 x 29.5 x 23 cm",
+      "bullets": [
+        "Reduce la fatiga",
+        "Para ruedas de autos y camionetas",
+        "Peso: 2.25 kg",
+        "Tamaño del pack: 34 x 29.5 x 23 cm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/juego-de-llave-multiplicadora-de-torque.jpg",
+      "images": [
+        "assets/img/productos/juego-de-llave-multiplicadora-de-torque.jpg"
+      ]
+    },
+    {
+      "sku": "1010218",
+      "slug": "juego-extractor-de-masa-deslizante-2-5-kg",
+      "name": "Juego Extractor De Masa Deslizante 2.5 Kg",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "10.5 kg",
+      "lift_height": "—",
+      "summary": "Características: Peso: 10.5 kg Tamaño del pack: 60 x 26 x 25 cm",
+      "bullets": [
+        "Peso: 10.5 kg",
+        "Tamaño del pack: 60 x 26 x 25 cm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/juego-extractor-de-masa-deslizante-2.5-kg-en-estuche.jpg",
+      "images": [
+        "assets/img/productos/juego-extractor-de-masa-deslizante-2.5-kg-en-estuche.jpg"
+      ]
+    },
+    {
+      "sku": "1010219",
+      "slug": "separador-de-juntas-esfericas",
+      "name": "Separador de Juntas Esféricas",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características: Herramientas universales para retroceder pistones de caliper de freno. Compatibles con la mayoría de vehículos nacionales e importados, incluyendo modelos europeos y japoneses. Diseñadas para girar los pistones de regreso…",
+      "bullets": [
+        "Herramientas universales para retroceder pistones de caliper de freno.",
+        "Compatibles con la mayoría de vehículos nacionales e importados, incluyendo modelos europeos y japoneses.",
+        "Diseñadas para girar los pistones de regreso al caliper y brindar espacio para colocar nuevas pastillas de freno."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/separadora-de-juntas-esfericas.jpg",
+      "images": [
+        "assets/img/productos/separadora-de-juntas-esfericas.jpg"
+      ]
+    },
+    {
+      "sku": "1010045",
+      "slug": "banqueta-para-taller-con-porta-herramientas",
+      "name": "Banqueta para Taller con Porta Herramientas",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características del producto: Marco de cromo pulido resistente Ruedas de gran tamaño Bandeja de almacenamiento de fácil acceso Asiento de espuma de alta densidad",
+      "bullets": [
+        "Marco de cromo pulido resistente",
+        "Ruedas de gran tamaño",
+        "Bandeja de almacenamiento de fácil acceso",
+        "Asiento de espuma de alta densidad"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tr6340.jpg",
+      "images": [
+        "assets/img/productos/tr6340.jpg"
+      ]
+    },
+    {
+      "sku": "1010032",
+      "slug": "carro-de-tres-bandejas-para-taller",
+      "name": "Carro de Tres Bandejas para Taller",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características del producto: Uso: Herramientas Estilo: Despliegue Cantidad de ruedas: 4 (dos giratorias c/freno) Material: Acero Tratamiento de la superficial: Galvanizado",
+      "bullets": [
+        "Uso: Herramientas",
+        "Estilo: Despliegue",
+        "Cantidad de ruedas: 4 (dos giratorias c/freno)",
+        "Material: Acero",
+        "Tratamiento de la superficial: Galvanizado"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/carro-de-tres-bandejas-para-taller.jpg",
+      "images": [
+        "assets/img/productos/carro-de-tres-bandejas-para-taller.jpg"
+      ]
+    },
+    {
+      "sku": "1010033",
+      "slug": "carro-de-dos-cajones-para-taller",
+      "name": "Carro de Dos Cajones para Taller",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "23,5 kg",
+      "lift_height": "—",
+      "summary": "Características del producto: Material: Acero galvanizado Peso neto: 23,5 kg Capacidad de carga: 150 Kg Cantidad de ruedas: 4 (dos giratorias c/freno) Medidas con ruedas: 71,2 x 44 x 81,4 cm",
+      "bullets": [
+        "Material: Acero galvanizado",
+        "Peso neto: 23,5 kg",
+        "Capacidad de carga: 150 Kg",
+        "Cantidad de ruedas: 4 (dos giratorias c/freno)",
+        "Medidas con ruedas: 71,2 x 44 x 81,4 cm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tc333-x.jpg",
+      "images": [
+        "assets/img/productos/tc333-x.jpg"
+      ]
+    },
+    {
+      "sku": "P-2572",
+      "slug": "carro-de-dos-cajones-con-bandeja-superior-deslizable",
+      "name": "Carro de Dos Cajones con Bandeja Superior Deslizable",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "28.7 kg",
+      "lift_height": "—",
+      "summary": "Características del producto: Uso: Herramientas Material: Acero galvanizado Tipo de ruedas: Neumáticas Cantidad de ruedas: 4 (dos giratorias c/freno) Peso: 28.7kg",
+      "bullets": [
+        "Uso: Herramientas",
+        "Material: Acero galvanizado",
+        "Tipo de ruedas: Neumáticas",
+        "Cantidad de ruedas: 4 (dos giratorias c/freno)",
+        "Peso: 28.7kg"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tc310g.jpg",
+      "images": [
+        "assets/img/productos/tc310g.jpg"
+      ]
+    },
+    {
+      "sku": "1010046",
+      "slug": "mueble-movil-porta-herramientas-de-seis-bandejas",
+      "name": "Mueble Móvil Porta Herramientas de Seis Bandejas",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características del producto: Carro de herramientas TBR3006X equipado con seis cajones y estantes, que se mueven suavemente a lo largo de las guías. La gran capacidad le permite colocar todas las herramientas y accesorios necesarios para…",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/tbr3006-x.jpg",
+      "images": [
+        "assets/img/productos/tbr3006-x.jpg"
+      ]
+    },
+    {
+      "sku": "1010047",
+      "slug": "caja-porta-herramientas-sobre-mesa",
+      "name": "Caja porta Herramientas - Sobre Mesa",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características del producto: Equipado con cuatro cajones y estantes, que se mueven suavemente a lo largo de las guías. La gran capacidad le permite colocar todas las herramientas y accesorios necesarios para las operaciones de reparación…",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/tbt3004-x.jpg",
+      "images": [
+        "assets/img/productos/tbt3004-x.jpg"
+      ]
+    },
+    {
+      "sku": "1010036",
+      "slug": "mesa-banco-para-taller-de-1-5-metros",
+      "name": "Mesa Banco para Taller de 1.5 Metros",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "67 kg",
+      "lift_height": "—",
+      "summary": "Superficie de trabajo superior Peso: 67 Kg Certificación: ISO9001",
+      "bullets": [
+        "Superficie de trabajo superior",
+        "Peso: 67 Kg",
+        "Certificación: ISO9001"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/mesa-banco-de-taller-con-dos-cajones.jpg",
+      "images": [
+        "assets/img/productos/mesa-banco-de-taller-con-dos-cajones.jpg"
+      ]
+    },
+    {
+      "sku": "1010035",
+      "slug": "mesa-para-taller-de-1-5-metros-con-respaldo-porta-herramientas",
+      "name": "Mesa para Taller de 1.5 Metros con Respaldo Porta Herramientas",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "67 kg",
+      "lift_height": "—",
+      "summary": "Peso: 67 Kg. Capacidad: 800 Kg. Certificación: ISO9001",
+      "bullets": [
+        "Peso: 67 Kg.",
+        "Capacidad: 800 Kg.",
+        "Certificación: ISO9001"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tsc5911j.jpg",
+      "images": [
+        "assets/img/productos/tsc5911j.jpg"
+      ]
+    },
+    {
+      "sku": "1010038",
+      "slug": "mesa-para-taller-de-dos-metros-con-tres-cajones",
+      "name": "Mesa para Taller de Dos Metros con Tres Cajones",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "600 kg",
+      "lift_height": "—",
+      "summary": "Capacidad: 600 kg. Peso: 90 Kg Certificación: ISO9001",
+      "bullets": [
+        "Capacidad: 600 kg.",
+        "Peso: 90 Kg",
+        "Certificación: ISO9001"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tsc59111.jpg",
+      "images": [
+        "assets/img/productos/tsc59111.jpg"
+      ]
+    },
+    {
+      "sku": "1010037",
+      "slug": "mesa-para-taller-de-dos-metros-con-tres-cajones-respaldo-porta-herramientas",
+      "name": "Mesa para Taller de Dos Metros con Tres Cajones - Respaldo Porta Herramientas",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "600 kg",
+      "lift_height": "—",
+      "summary": "Capacidad: 600 kg. Peso: 110 Kg Certificación: ISO9001",
+      "bullets": [
+        "Capacidad: 600 kg.",
+        "Peso: 110 Kg",
+        "Certificación: ISO9001"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tsc59111j.jpg",
+      "images": [
+        "assets/img/productos/tsc59111j.jpg"
+      ]
+    },
+    {
+      "sku": "1010056B",
+      "slug": "inflador-de-neumaticos-digital-kuani",
+      "name": "Inflador de Neumáticos Digital Kuani",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Pantalla digital : Proporciona lecturas precisas de presión de neumáticos. Rango de presión : Capacidad para medir y ajustar presiones de neumáticos entre 0 y 174 psi (12 bar). Precisión : Alta precisión para inflar neumáticos de vehículos…",
+      "bullets": [
+        "Pantalla digital : Proporciona lecturas precisas de presión de neumáticos.",
+        "Rango de presión : Capacidad para medir y ajustar presiones de neumáticos entre 0 y 174 psi (12 bar).",
+        "Precisión : Alta precisión para inflar neumáticos de vehículos de manera rápida y eficiente.",
+        "Función automática : Se apaga automáticamente cuando alcanza la presión deseada.",
+        "Diseño ergonómico : Mango de fácil agarre para mayor comodidad del usuario.",
+        "Material duradero : Construido en materiales resistentes para uso prolongado en talleres y estaciones de servicio."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/inflador-de-neumaticos-digital-ki-79d01.jpg",
+      "images": [
+        "assets/img/productos/inflador-de-neumaticos-digital-ki-79d01.jpg"
+      ]
+    },
+    {
+      "sku": "1010029B",
+      "slug": "carros-para-traslado-de-vehiculos",
+      "name": "Carros para Traslado de Vehículos",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características: Construcción de acero resistente para mayor resistencia y durabilidad Acabado resistente a la oxidación Cada Carro tiene cuatro ruedas giratorias de 3 pulgadas y bloqueo de seguridad Con empuñadura lateral de alta…",
+      "bullets": [
+        "Construcción de acero resistente para mayor resistencia y durabilidad",
+        "Acabado resistente a la oxidación",
+        "Cada Carro tiene cuatro ruedas giratorias de 3 pulgadas y bloqueo de seguridad",
+        "Con empuñadura lateral de alta resistencia"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tc323.jpg",
+      "images": [
+        "assets/img/productos/tc323.jpg"
+      ]
+    },
+    {
+      "sku": "1010030B",
+      "slug": "mueble-movil-porta-herramientas-de-tres-bandejas",
+      "name": "Mueble Móvil Porta Herramientas de Tres Bandejas",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "46,5 kg",
+      "lift_height": "—",
+      "summary": "Características del producto: Uso: Herramientas Estilo: Despliegue Porta Rollo de Papel Material: Acero galvanizado Peso neto: 46,5 kg",
+      "bullets": [
+        "Uso: Herramientas",
+        "Estilo: Despliegue",
+        "Porta Rollo de Papel",
+        "Material: Acero galvanizado",
+        "Peso neto: 46,5 kg"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/tbr6903-x.jpg",
+      "images": [
+        "assets/img/productos/tbr6903-x.jpg"
+      ]
+    },
+    {
+      "sku": "1010031B",
+      "slug": "mueble-movil-porta-herramientas-de-seis-cajones-con-guarda-objetos",
+      "name": "Mueble Móvil Porta Herramientas de Seis cajones con Guarda Objetos",
+      "category": "muebles-taller",
+      "brand": "trivium-pro",
+      "capacity": "85.2 kg",
+      "lift_height": "—",
+      "summary": "Características del producto: Dimensiones: Con ruedas: 89 x 53 x 102,75 cm Peso Neto: 85.2 Kg Capacidad de carga de 200 kg Sistema de cierre centralizado",
+      "bullets": [
+        "Dimensiones: Con ruedas: 89 x 53 x 102,75 cm",
+        "Peso Neto: 85.2 Kg",
+        "Capacidad de carga de 200 kg",
+        "Sistema de cierre centralizado"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/mueble-de-taller-premium.jpg",
+      "images": [
+        "assets/img/productos/mueble-de-taller-premium.jpg"
+      ]
+    },
+    {
+      "sku": "1010104",
+      "slug": "cuentalitros-digital-aceite-1-2-raasm",
+      "name": "Cuentalitros Digital Aceite 1/2'' Raasm",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Equipada con: Articulación de entrada H 1/2” Terminal flexible Boquilla semiautomática ø 16 mm",
+      "bullets": [
+        "Articulación de entrada H 1/2”",
+        "Terminal flexible",
+        "Boquilla semiautomática ø 16 mm"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/cuentalitros-digital-aceite-raasm-37794.jpg",
+      "images": [
+        "assets/img/productos/cuentalitros-digital-aceite-raasm-37794.jpg"
+      ]
+    },
+    {
+      "sku": "1010101",
+      "slug": "recuperador-neumatico-aceite",
+      "name": "Recuperador Neumático Aceite",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "33 kg",
+      "lift_height": "—",
+      "summary": "Características: 85 litros de capacidad máxima El recuperador pesa 33 kg Cárter de 15 litros",
+      "bullets": [
+        "85 litros de capacidad máxima",
+        "El recuperador pesa 33 kg",
+        "Cárter de 15 litros"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/recuperadora-profesional-aceite-usado.jpg",
+      "images": [
+        "assets/img/productos/recuperadora-profesional-aceite-usado.jpg"
+      ]
+    },
+    {
+      "sku": "1010099",
+      "slug": "recuperador-neumatico-combinado-15-litros-raasm",
+      "name": "Recuperador Neumático Combinado 15 litros Raasm",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características: Cárter orientable para aumentar el radio de acción Precámara de 8 litros transparente Tubo de 2 metros para el vaciado neumático del depósito Medidor de vacío para controlar la fuerza de aspiración",
+      "bullets": [
+        "Cárter orientable para aumentar el radio de acción",
+        "Precámara de 8 litros transparente",
+        "Tubo de 2 metros para el vaciado neumático del depósito",
+        "Medidor de vacío para controlar la fuerza de aspiración"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/recuperador-neumatico-combinado-15-litros-raasm.jpg",
+      "images": [
+        "assets/img/productos/recuperador-neumatico-combinado-15-litros-raasm.jpg"
+      ]
+    },
+    {
+      "sku": "1010180",
+      "slug": "recuperador-neumatico-combinado-raasm",
+      "name": "Recuperador Neumático Combinado Raasm",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "41 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad del depósito: 80 litros Presión por despresurización: 6.5 - 7 bar Ruido: 75 dB Peso 41 kg",
+      "bullets": [
+        "Capacidad del depósito: 80 litros",
+        "Presión por despresurización: 6.5 - 7 bar",
+        "Ruido: 75 dB",
+        "Peso 41 kg"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/recuperadora-aceite-combinado-usado-raasm-44085-.jpg",
+      "images": [
+        "assets/img/productos/recuperadora-aceite-combinado-usado-raasm-44085-.jpg"
+      ]
+    },
+    {
+      "sku": "1010100",
+      "slug": "recuperador-para-aceite-usado",
+      "name": "Recuperador para Aceite Usado",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características: Cuba con separador Precámara de 8 litros 97 litros de recuperación Luego de despresurización, no necesita conexión a red de aire comprimido",
+      "bullets": [
+        "Cuba con separador",
+        "Precámara de 8 litros",
+        "97 litros de recuperación",
+        "Luego de despresurización, no necesita conexión a red de aire comprimido"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/recuperador-aceite-neumatico-50-litros-raasm.jpg",
+      "images": [
+        "assets/img/productos/recuperador-aceite-neumatico-50-litros-raasm.jpg"
+      ]
+    },
+    {
+      "sku": "1010102",
+      "slug": "bomba-manual-de-aceite-manguera-2-metros-raasm",
+      "name": "Bomba Manual de Aceite Manguera 2 Metros Raasm",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "220 kg",
+      "lift_height": "—",
+      "summary": "Características: De doble efecto con juntas en NBR, 180 - 220 Kg. Manguera 2 m El pescante telescópico permite la aplicación directa en contenedores de distinta capacidad. Adecuadas para la distribución de aceite de alta/baja viscosidad.",
+      "bullets": [
+        "De doble efecto con juntas en NBR, 180 - 220 Kg.",
+        "Manguera 2 m El pescante telescópico permite la aplicación directa en contenedores de distinta capacidad.",
+        "Adecuadas para la distribución de aceite de alta/baja viscosidad."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/bomba-manual-aceite-raasm.jpg",
+      "images": [
+        "assets/img/productos/bomba-manual-aceite-raasm.jpg"
+      ]
+    },
+    {
+      "sku": "1010103",
+      "slug": "bomba-neumatica-de-distribucion-raasm",
+      "name": "Bomba Neumática de Distribución Raasm",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Bombas neumáticas serie 500 para distribución de aceite a distancias medias. Adecuadas para la distribución de aceite de viscosidad media-alta y líquido anticongelante. Adecuadas tanto para instalaciones móviles como en instalaciones…",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/bomba-neumatica-de-distribucion-raasm-35094.jpg",
+      "images": [
+        "assets/img/productos/bomba-neumatica-de-distribucion-raasm-35094.jpg"
+      ]
+    },
+    {
+      "sku": "1010111",
+      "slug": "bomba-neumatica-para-distribucion-raasm",
+      "name": "Bomba Neumática para Distribución Raasm",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Bombas neumáticas de doble efecto serie 650 para distribución de aceite a distancias medias. Adecuadas para la distribución del aceite, incluso de alta viscosidad. El doble efecto garantiza un suministro de un flujo continuo y constante,…",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/bomba-neumatica-de-distribucion-raasm-36094.jpg",
+      "images": [
+        "assets/img/productos/bomba-neumatica-de-distribucion-raasm-36094.jpg"
+      ]
+    },
+    {
+      "sku": "1010183",
+      "slug": "distribuidor-manual-para-aceite-con-carro-para-tambores-30-60-kg",
+      "name": "Distribuidor Manual para Aceite con Carro para Tambores 30/60 kg",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "60 kg",
+      "lift_height": "—",
+      "summary": "Características: Bomba manual para distribución de aceite y afines De doble efecto con juntas en NBR El pescante telescópico permite la aplicación directa en contenedores de distinta capacidad Adecuadas para la distribución de aceite de…",
+      "bullets": [
+        "Bomba manual para distribución de aceite y afines",
+        "De doble efecto con juntas en NBR",
+        "El pescante telescópico permite la aplicación directa en contenedores de distinta capacidad",
+        "Adecuadas para la distribución de aceite de alta/baja viscosidad"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/distribuidor-manual-para-aceite-con-carro-cuatro-ruedas.jpg",
+      "images": [
+        "assets/img/productos/distribuidor-manual-para-aceite-con-carro-cuatro-ruedas.jpg"
+      ]
+    },
+    {
+      "sku": "1010107",
+      "slug": "enrollador-para-fluidos-150-bar-raasm",
+      "name": "Enrollador para Fluidos 150 bar Raasm",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características: Enrolladores para fluidos. 150 bar - manguera 15 m ø 1/2\" Resistente a la corrosión: todos los componentes se tratan o pintan para poder trabajar en exteriores Fácil instalación en cualquier lugar: a pared, a suelo, a…",
+      "bullets": [
+        "Enrolladores para fluidos. 150 bar - manguera 15 m ø 1/2\"",
+        "Resistente a la corrosión: todos los componentes se tratan o pintan para poder trabajar en exteriores",
+        "Fácil instalación en cualquier lugar: a pared, a suelo, a techo, en vehículos, etc."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/enrollador-para-fluidos-150-bar.jpg",
+      "images": [
+        "assets/img/productos/enrollador-para-fluidos-150-bar.jpg"
+      ]
+    },
+    {
+      "sku": "1010108",
+      "slug": "enrollador-para-fluidos-raasm",
+      "name": "Enrollador para Fluidos Raasm",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Articulación en acero al carbono Juntas en poliuretano Equipados con: Tubos de goma sintética negra Empalmes en acero galvanizado Enrolladores para fluidos. 150 bar - manguera 15 m ø 1/2\"",
+      "bullets": [
+        "Articulación en acero al carbono",
+        "Juntas en poliuretano",
+        "Equipados con: Tubos de goma sintética negra",
+        "Empalmes en acero galvanizado",
+        "Enrolladores para fluidos. 150 bar - manguera 15 m ø 1/2\""
+      ],
+      "badges": [],
+      "image": "assets/img/productos/enrollador-para-fluidos-raasm.jpg",
+      "images": [
+        "assets/img/productos/enrollador-para-fluidos-raasm.jpg"
+      ]
+    },
+    {
+      "sku": "1010109",
+      "slug": "purga-frenos-y-embragues-raasm",
+      "name": "Purga Frenos y Embragues Raasm",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "El purga frenos de tres cámaras, de funcionamiento neumático, es adecuado para la purga de frenos y embragues hidráulicos de todos los tipos de medios de locomoción. La operación de purga puede ser realizada en pocos minutos y por una sola…",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/purga-frenos-y-embrague-raasm.jpg",
+      "images": [
+        "assets/img/productos/purga-frenos-y-embrague-raasm.jpg"
+      ]
+    },
+    {
+      "sku": "1010110",
+      "slug": "cuba-de-lavado-de-partes-automotrices-y-frenos-65-litros-raasm",
+      "name": "Cuba de Lavado de Partes Automotrices y Frenos 65 Litros Raasm",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Cuba de lavado universal para la limpieza rápida de partes mecánicas y de componentes en general. El sistema neumático a baja presión permite: lavado con cepillo de flujo continuo de líquido detergente para una operación minuciosa lavado…",
+      "bullets": [
+        "lavado con cepillo de flujo continuo de líquido detergente para una operación minuciosa",
+        "lavado por inmersión, con los componentes sumergidos en el líquido detergente dentro de la cuba."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/cuba-de-lavado-lubricentro-raasm.jpg",
+      "images": [
+        "assets/img/productos/cuba-de-lavado-lubricentro-raasm.jpg"
+      ]
+    },
+    {
+      "sku": "1010113",
+      "slug": "bandeja-colectora-de-goteo-modular-para-pared-raasm",
+      "name": "Bandeja Colectora de Goteo Modular para Pared Raasm",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "La Recogedora de Gotas Modular es la solución ideal para optimizar la recolección de gotas en diversos procesos industriales. Diseñada con un sistema modular, esta máquina permite una instalación y ajuste flexibles, adaptándose a…",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/bandeja-colectora-de-goteo-modular-para-pared-raasm.jpg",
+      "images": [
+        "assets/img/productos/bandeja-colectora-de-goteo-modular-para-pared-raasm.jpg"
+      ]
+    },
+    {
+      "sku": "1010115",
+      "slug": "bar-de-aceite-raasm",
+      "name": "Bar de Aceite Raasm",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Permite suministrar hasta 3 tipos distintos de fluidos como, por ejemplo, aceite motor, aceite de caja de cambio, líquido anticongelante u otros líquidos similares. La cantidad suministrada puede controlarse mediante el cuenta litros…",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/bar-de-aceite-para-suministrar-fluidos-raasm.jpg",
+      "images": [
+        "assets/img/productos/bar-de-aceite-para-suministrar-fluidos-raasm.jpg"
+      ]
+    },
+    {
+      "sku": "1010184",
+      "slug": "columna-para-5-enrolladores-de-manguera-raasm",
+      "name": "Columna para 5 Enrolladores de Manguera Raasm",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Ubicaciones de servicio adecuadas para racionalizar los espacios dedicados al suministro. Si se montan a pared, conectadas a la instalación centralizada de distribución, resultan auténticas estaciones operativas autónomas. Se realizan con…",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/columna-para-5-enrolladores-de-manguera.jpg",
+      "images": [
+        "assets/img/productos/columna-para-5-enrolladores-de-manguera.jpg"
+      ]
+    },
+    {
+      "sku": "1010049",
+      "slug": "llave-de-impacto-neumatica-kuani-ki-1478",
+      "name": "Llave de Impacto Neumática Kuani KI-1478",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características: Ofrece un impresionante par máximo de 678 Nm en reversa, con una velocidad libre de 10.000 rpm. Corto: solo 113 mm de longitud.",
+      "bullets": [
+        "Ofrece un impresionante par máximo de 678 Nm en reversa, con una velocidad libre de 10.000 rpm.",
+        "Corto: solo 113 mm de longitud."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/llave-de-impacto-neumatica-kuani-ki-1478.jpg",
+      "images": [
+        "assets/img/productos/llave-de-impacto-neumatica-kuani-ki-1478.jpg"
+      ]
+    },
+    {
+      "sku": "1010048",
+      "slug": "llave-de-impacto-neumatica-kuani-ki-1488",
+      "name": "Llave de Impacto Neumática Kuani KI-1488",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "2.30 kg",
+      "lift_height": "—",
+      "summary": "Características 3 configuraciones de potencia. El par máximo de 1356 Nm con 9.500 rpm en una pistola que pesa solo 2.30 kg Excelente relación potencia-peso Ergonómica, reduce la fatiga de la operación",
+      "bullets": [
+        "3 configuraciones de potencia.",
+        "El par máximo de 1356 Nm con 9.500 rpm en una pistola que pesa solo 2.30 kg",
+        "Excelente relación potencia-peso",
+        "Ergonómica, reduce la fatiga de la operación"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/llave-pistola-neumatica-de-impacto-kuani-ki-1488.jpg",
+      "images": [
+        "assets/img/productos/llave-pistola-neumatica-de-impacto-kuani-ki-1488.jpg"
+      ]
+    },
+    {
+      "sku": "1010050",
+      "slug": "llave-de-impacto-neumatica-kuani-ki-1481",
+      "name": "Llave de Impacto Neumática Kuani KI-1481",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características: Par de avance máximo limitado a 108 Nm Par máximo en reversa a 1085 Nm Cómodo agarre TPR",
+      "bullets": [
+        "Par de avance máximo limitado a 108 Nm",
+        "Par máximo en reversa a 1085 Nm",
+        "Cómodo agarre TPR"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/llave-pistola-neumatica-de-impacto-kuani-ki-1481.jpg",
+      "images": [
+        "assets/img/productos/llave-pistola-neumatica-de-impacto-kuani-ki-1481.jpg"
+      ]
+    },
+    {
+      "sku": "1010051",
+      "slug": "llave-de-impacto-neumatica-kuani-ki-1481-mt",
+      "name": "Llave de Impacto Neumática Kuani KI-1481-MT",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Torque-limitado y superior Características: Par de avance máximo limitado a 108 Nm Par máximo en reversa a 1085 Nm Cómodo agarre TPR Beneficios: Ajuste rápidamente la tuerca de la rueda cerca del par objetivo, pero sin exceder Control F/R…",
+      "bullets": [
+        "Par de avance máximo limitado a 108 Nm",
+        "Par máximo en reversa a 1085 Nm",
+        "Cómodo agarre TPR",
+        "Ajuste rápidamente la tuerca de la rueda cerca del par objetivo, pero sin exceder",
+        "Control F/R con una sola mano, suave y eficiente",
+        "Especialmente diseñado para centros de reparación de neumáticos"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/llave-de-impacto-neumatica-kuani-ki-1481-mt.jpg",
+      "images": [
+        "assets/img/productos/llave-de-impacto-neumatica-kuani-ki-1481-mt.jpg"
+      ]
+    },
+    {
+      "sku": "1010052",
+      "slug": "llave-crique-neumatica-kuani-ki-1475-a",
+      "name": "Llave Crique Neumática Kuani KI-1475-A",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "1.80 kg",
+      "lift_height": "—",
+      "summary": "Características Con 7.000 rpm en una llave que pesa solo 1.80 kg Excelente relación potencia-peso Ergonómica, reduce la fatiga de la operación",
+      "bullets": [
+        "Con 7.000 rpm en una llave que pesa solo 1.80 kg",
+        "Excelente relación potencia-peso",
+        "Ergonómica, reduce la fatiga de la operación"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/llave-crique-neumatica-de-impacto-kuani-ki-1475a.jpg",
+      "images": [
+        "assets/img/productos/llave-crique-neumatica-de-impacto-kuani-ki-1475a.jpg"
+      ]
+    },
+    {
+      "sku": "1010053",
+      "slug": "llave-crique-neumatica-kuani-ki-2422",
+      "name": "Llave Crique Neumática Kuani KI-2422",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Producto confiable Genera 108 Nm de max torque con 210 rpm de velocidad libre El escape de aire lateral giratorio de 360 ° dirige el flujo de aire fuera del lugar de trabajo Diseño que prolonga la vida útil de la herramienta Carcasa de…",
+      "bullets": [
+        "Genera 108 Nm de max torque con 210 rpm de velocidad libre",
+        "El escape de aire lateral giratorio de 360 ° dirige el flujo de aire fuera del lugar de trabajo",
+        "Diseño que prolonga la vida útil de la herramienta",
+        "Carcasa de aleación de aluminio para obtener el mejor valor y durabilidad"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/llave-crique-neumatica-de-impacto-kuani-ki-2422.jpg",
+      "images": [
+        "assets/img/productos/llave-crique-neumatica-de-impacto-kuani-ki-2422.jpg"
+      ]
+    },
+    {
+      "sku": "1010054",
+      "slug": "llave-crique-neumatica-kuani-ki-2223",
+      "name": "Llave Crique Neumática Kuani KI-2223",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Beneficios destacados: 3 veces más rápido 20% de salida de par aumentada La mejor relación potencia / peso de su clase Diseño ergonómico para usar en espacios reducidos.",
+      "bullets": [
+        "3 veces más rápido",
+        "20% de salida de par aumentada",
+        "La mejor relación potencia / peso de su clase",
+        "Diseño ergonómico para usar en espacios reducidos."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/llave-crique-neumatica-de-impacto-kuani-ki-2223.jpg",
+      "images": [
+        "assets/img/productos/llave-crique-neumatica-de-impacto-kuani-ki-2223.jpg"
+      ]
+    },
+    {
+      "sku": "1010057",
+      "slug": "llave-de-impacto-neumatica-kuani-ki-1838a",
+      "name": "Llave de Impacto Neumática Kuani KI-1838A",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "8.1 kg",
+      "lift_height": "—",
+      "summary": "Características: Configuraciones de energía de 3 posiciones Ofrece un impresionante par máximo de 2.712 Nm con un peso ultra ligero de 8.1 kg Beneficios : Excelente relación potencia-peso Elección premium en centros de servicio de…",
+      "bullets": [
+        "Configuraciones de energía de 3 posiciones",
+        "Ofrece un impresionante par máximo de 2.712 Nm con un peso ultra ligero de 8.1 kg",
+        "Excelente relación potencia-peso",
+        "Elección premium en centros de servicio de neumáticos"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/llave-crique-neumatica-de-impacto-kuani-ki-1838a.jpg",
+      "images": [
+        "assets/img/productos/llave-crique-neumatica-de-impacto-kuani-ki-1838a.jpg"
+      ]
+    },
+    {
+      "sku": "1010058",
+      "slug": "llave-de-impacto-neumatica-kuani-ki-1845-6",
+      "name": "Llave de Impacto Neumática Kuani KI-1845-6",
+      "category": "herramientas-neumaticas",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Características: Configuraciones de energía de 3 posiciones Nuevo embrague de martillo doble para una operación duradera y equilibrada Potencia de par máximo de 3390 Nm con velocidad libre de 4.500 rpm Beneficios: Altamente eficiente y con…",
+      "bullets": [
+        "Configuraciones de energía de 3 posiciones",
+        "Nuevo embrague de martillo doble para una operación duradera y equilibrada",
+        "Potencia de par máximo de 3390 Nm con velocidad libre de 4.500 rpm",
+        "Altamente eficiente y con durabilidad",
+        "Diseñado para demandas industriales y servicios de vehículos extremadamente intensivos"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/llave-crique-neumatica-de-impacto-kuani-ki-1845.jpg",
+      "images": [
+        "assets/img/productos/llave-crique-neumatica-de-impacto-kuani-ki-1845.jpg"
+      ]
+    },
+    {
+      "sku": "P-3024",
+      "slug": "balanceadora-de-ruedas-hofmann-geodyna-9000p",
+      "name": "Balanceadora de Ruedas Hofmann Geodyna 9000p",
+      "category": "balanceadoras",
+      "brand": "hofmann",
+      "capacity": "70 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Tecnología Avanzada: Diagnóstico 3D sin contacto con cámaras láser que detectan imperfecciones en neumáticos y llantas. Máxima Precisión: Power Clamp™ y medición automática para resultados fiables y rápidos. Diseño…",
+      "bullets": [
+        "Tecnología Avanzada: Diagnóstico 3D sin contacto con cámaras láser que detectan imperfecciones en neumáticos y llantas.",
+        "Máxima Precisión: Power Clamp™ y medición automática para resultados fiables y rápidos.",
+        "Diseño Profesional: Pantalla táctil intuitiva, informes detallados y análisis de profundidad del dibujo para optimizar el mantenimiento."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-9000p.jpg",
+      "images": [
+        "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-9000p.jpg"
+      ]
+    },
+    {
+      "sku": "P-3026",
+      "slug": "elevador-de-ruedas-hofmann",
+      "name": "Elevador de Ruedas Hofmann",
+      "category": "elevadores",
+      "brand": "hofmann",
+      "capacity": "69 kg",
+      "lift_height": "—",
+      "summary": "Características: Neumático: Funcionamiento eficiente y seguro. Controlado por pedal: Operación manos libres para mayor comodidad. Peso máximo: 153 lbs (aproximadamente 69 kg). Elevación máxima: 20 pulgadas (aproximadamente 51 cm).…",
+      "bullets": [
+        "Neumático: Funcionamiento eficiente y seguro.",
+        "Controlado por pedal: Operación manos libres para mayor comodidad.",
+        "Peso máximo: 153 lbs (aproximadamente 69 kg).",
+        "Elevación máxima: 20 pulgadas (aproximadamente 51 cm).",
+        "Dimensiones (Ancho x Profundidad x Altura): 49” x 25” x 38” (aproximadamente 124 cm x 63 cm x 97 cm)."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/bw2010.jpg",
+      "images": [
+        "assets/img/productos/bw2010.jpg"
+      ]
+    },
+    {
+      "sku": "P-3041",
+      "slug": "elevador-cuatro-columnas-8165-kg-rotary-lift-sm18",
+      "name": "Elevador Cuatro Columnas 8165 kg - Rotary Lift SM18",
+      "category": "elevadores-4-columnas",
+      "brand": "rotary-lift",
+      "capacity": "8165 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Versatilidad total : Elevador de 4 columnas diseñado para coches, camiones y vehículos comerciales ligeros con una capacidad de 8165 kg (18,000 lbs). Máxima seguridad : Superficie antideslizante, barra ajustable y sistema de…",
+      "bullets": [
+        "Versatilidad total : Elevador de 4 columnas diseñado para coches, camiones y vehículos comerciales ligeros con una capacidad de 8165 kg (18,000 lbs).",
+        "Máxima seguridad : Superficie antideslizante, barra ajustable y sistema de liberación automática de seguros.",
+        "Diseño inteligente : Componentes bajo el carril para evitar obstrucciones y un manejo eficiente."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-cuatro-columnas-rotary-lift-sm18.jpg",
+      "images": [
+        "assets/img/productos/elevador-cuatro-columnas-rotary-lift-sm18.jpg"
+      ]
+    },
+    {
+      "sku": "P-3046",
+      "slug": "elevador-de-ruedas-neumatico",
+      "name": "Elevador de Ruedas Neumático",
+      "category": "elevadores",
+      "brand": "trivium-pro",
+      "capacity": "65 kg",
+      "lift_height": "—",
+      "summary": "Características: Capacidad: 65 kg Mango ergonómico Gancho para proteger la rueda de una caída",
+      "bullets": [
+        "Capacidad: 65 kg",
+        "Mango ergonómico",
+        "Gancho para proteger la rueda de una caída"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/baja-ruedas-hwq-100-1.jpg",
+      "images": [
+        "assets/img/productos/baja-ruedas-hwq-100-1.jpg"
+      ]
+    },
+    {
+      "sku": "P-3059",
+      "slug": "kit-modular-con-enrollador-para-distribucion-de-aceite-raasm",
+      "name": "Kit Modular con Enrollador para Distribución de Aceite Raasm",
+      "category": "lubricacion",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Sistema de distribución de aceite con bomba aplicada al armazón o cisterna, con enrollador abierto y pistola cuentalitros digital. Permite desarrollar la operación de suministro de aceite desde una ubicación fija independiente.",
+      "bullets": [],
+      "badges": [],
+      "image": "assets/img/productos/kit-modular-con-enrolladora-para-distribucion-de-aceite-raasm.jpg",
+      "images": [
+        "assets/img/productos/kit-modular-con-enrolladora-para-distribucion-de-aceite-raasm.jpg"
+      ]
+    },
+    {
+      "sku": "P-3135",
+      "slug": "kit-haweka-duoexpert",
+      "name": "Kit Haweka DuoExpert",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Aumenta la calidad del balanceo de ruedas. El conjunto cubre hasta el 95% de los coches existentes. Vida útil extendida - Calidad Alemana. El diámetro del orificio central del disco hasta 94 mm. El kit consta de: 3 adaptadores (54-78 mm)…",
+      "bullets": [
+        "Aumenta la calidad del balanceo de ruedas.",
+        "El conjunto cubre hasta el 95% de los coches existentes.",
+        "Vida útil extendida - Calidad Alemana.",
+        "El diámetro del orificio central del disco hasta 94 mm.",
+        "El kit consta de: 3 adaptadores (54-78 mm)",
+        "Valija /Estuche"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/collar-expansor-haweka-duoexpert.jpg",
+      "images": [
+        "assets/img/productos/collar-expansor-haweka-duoexpert.jpg"
+      ]
+    },
+    {
+      "sku": "P-3137",
+      "slug": "indicador-de-nivel-de-volante-haweka",
+      "name": "Indicador de Nivel de Volante Haweka",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "2 kg",
+      "lift_height": "—",
+      "summary": "Alta precisión : Mide el nivel del volante con exactitud. Diseño compacto : Fácil de usar y transportar. Compatibilidad universal : Apto para la mayoría de volantes. Construcción duradera : Materiales resistentes para un uso prolongado.…",
+      "bullets": [
+        "Alta precisión : Mide el nivel del volante con exactitud.",
+        "Diseño compacto : Fácil de usar y transportar.",
+        "Compatibilidad universal : Apto para la mayoría de volantes.",
+        "Construcción duradera : Materiales resistentes para un uso prolongado.",
+        "Fácil de leer : Indicador claro y sencillo de interpretar."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/indicador-de-nivel-de-volante-haweka.jpg",
+      "images": [
+        "assets/img/productos/indicador-de-nivel-de-volante-haweka.jpg"
+      ]
+    },
+    {
+      "sku": "P-3139",
+      "slug": "pinza-para-plomos-contrapesos-haweka",
+      "name": "Pinza para Plomos Contrapesos Haweka",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Función 3 en 1 : Remueve, instala y corta contrapesos de plomo. Mango ergonómico : Para un uso cómodo y preciso. Construcción robusta : Fabricada con materiales duraderos. Compatibilidad universal : Apta para la mayoría de ruedas y…",
+      "bullets": [
+        "Función 3 en 1 : Remueve, instala y corta contrapesos de plomo.",
+        "Mango ergonómico : Para un uso cómodo y preciso.",
+        "Construcción robusta : Fabricada con materiales duraderos.",
+        "Compatibilidad universal : Apta para la mayoría de ruedas y llantas.",
+        "Marca confiable : Calidad garantizada por Haweka."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/clasica-pinza-para-retirar-plomos-contrapesos.jpg",
+      "images": [
+        "assets/img/productos/clasica-pinza-para-retirar-plomos-contrapesos.jpg"
+      ]
+    },
+    {
+      "sku": "1010124",
+      "slug": "elevador-dos-columnas-4000-kg-travesano-al-piso-unite-pl-4-0-2d",
+      "name": "Elevador Dos Columnas 4000 kg Travesaño Al Piso - Unite PL 4.0 2D",
+      "category": "elevadores-2-columnas",
+      "brand": "trivium-pro",
+      "capacity": "4000 kg",
+      "lift_height": "1900 mm",
+      "summary": "Ficha Técnica Capacidad de 4000kg y altura mínima de 110 mm , ideal para vehículos bajos y SUV. Desbloqueo manual doble y cables sincronizados , garantiza seguridad y estabilidad. Motor de aluminio y cilindros confiables , aseguran un…",
+      "bullets": [
+        "Capacidad de 4000kg y altura mínima de 110 mm , ideal para vehículos bajos y SUV.",
+        "Desbloqueo manual doble y cables sincronizados , garantiza seguridad y estabilidad.",
+        "Motor de aluminio y cilindros confiables , aseguran un rendimiento duradero."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-dos-columnas-4-toneladas-trivium-pro-monofasico.jpg",
+      "images": [
+        "assets/img/productos/elevador-dos-columnas-4-toneladas-trivium-pro-monofasico.jpg"
+      ]
+    },
+    {
+      "sku": "1010144",
+      "slug": "elevador-dos-columnas-4000-kg-piso-libre-unite-pl-4-0-2a",
+      "name": "Elevador Dos Columnas 4000 kg Piso Libre - Unite PL 4.0 2A",
+      "category": "elevadores-2-columnas",
+      "brand": "trivium-pro",
+      "capacity": "4000 kg",
+      "lift_height": "1850 mm",
+      "summary": "Ficha Técnica Capacidad de 4000kg y altura mínima de plataforma de 110 mm , ideal para vehículos bajos y SUV. Diseño de piso despejado y desenganche manual fácil de usar , garantiza comodidad y seguridad. Motor de aluminio y sistema de…",
+      "bullets": [
+        "Capacidad de 4000kg y altura mínima de plataforma de 110 mm , ideal para vehículos bajos y SUV.",
+        "Diseño de piso despejado y desenganche manual fácil de usar , garantiza comodidad y seguridad.",
+        "Motor de aluminio y sistema de cables sincronizados , proporciona estabilidad y rendimiento confiable."
+      ],
+      "badges": [
+        "Top"
+      ],
+      "image": "assets/img/productos/elevador-dos-columnas-cuatro-toneladas-piso-libre.jpg",
+      "images": [
+        "assets/img/productos/elevador-dos-columnas-cuatro-toneladas-piso-libre.jpg"
+      ]
+    },
+    {
+      "sku": "1010143",
+      "slug": "elevador-tijera-portatil-3000-kg-pl-b30m",
+      "name": "Elevador Tijera Portatil 3000 kg PL-B30M",
+      "category": "elevadores-tijera",
+      "brand": "trivium-pro",
+      "capacity": "3000 kg",
+      "lift_height": "980 mm",
+      "summary": "Ficha Técnica Capacidad profesional de 3000 kg con diseño compacto tipo tijera, ideal para talleres con espacios reducidos y necesidad de movilidad Triple sistema de seguridad que incluye bloqueo hidráulico, cerradura neumática y…",
+      "bullets": [
+        "Capacidad profesional de 3000 kg con diseño compacto tipo tijera, ideal para talleres con espacios reducidos y necesidad de movilidad",
+        "Triple sistema de seguridad que incluye bloqueo hidráulico, cerradura neumática y dispositivo mecánico de doble garra para máxima protección",
+        "Plataforma versátil de 1870 mm con elevación hasta 980 mm, perfecta para trabajos de neumáticos, frenos y escape, con tiempos eficientes de operación de 25 segundos"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-tijera-portatil-trivium-pro-b30m.jpg",
+      "images": [
+        "assets/img/productos/elevador-tijera-portatil-trivium-pro-b30m.jpg",
+        "assets/img/productos/elevador-tijera-movil-trivium-center.webp"
+      ]
+    },
+    {
+      "sku": "1010127",
+      "slug": "elevador-tijera-3000-kg-pl-e30",
+      "name": "Elevador Tijera 3000 kg PL-E30",
+      "category": "elevadores-tijera",
+      "brand": "trivium-pro",
+      "capacity": "3000 kg",
+      "lift_height": "2050 mm",
+      "summary": "Ficha Técnica Modelo para embutir, cerrado, queda a nivel del piso. Válvula contra sobretensiones evita la caída repentina de los brazos, en el caso de la manguera hidráulica se rompa, tanto para la seguridad del operador como del…",
+      "bullets": [
+        "Modelo para embutir, cerrado, queda a nivel del piso.",
+        "Válvula contra sobretensiones evita la caída repentina de los brazos, en el caso de la manguera hidráulica se rompa, tanto para la seguridad del operador como del vehículo.",
+        "Cada plataforma es una pieza sin soldadura, haciéndolo plano y la durable."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-tijera-corto-3-toneladas-trivium-pro-e30-monofasico.jpg",
+      "images": [
+        "assets/img/productos/elevador-tijera-corto-3-toneladas-trivium-pro-e30-monofasico.jpg"
+      ]
+    },
+    {
+      "sku": "1010261",
+      "slug": "elevador-cuatro-columnas-5000-kg-con-kit-para-alineacion",
+      "name": "Elevador Cuatro Columnas 5000 kg - Con Kit Para Alineación",
+      "category": "elevadores-4-columnas",
+      "brand": "trivium-pro",
+      "capacity": "5000 kg",
+      "lift_height": "1750 mm",
+      "summary": "Ficha Técnica Capacidad y versatilidad : Elevador electro-hidráulico de 4 columnas con capacidad de 5 toneladas. Diseño práctico y robusto : Plataformas de perfil bajo, estructura de una sola pieza y rampas compactas. Equipado para…",
+      "bullets": [
+        "Capacidad y versatilidad : Elevador electro-hidráulico de 4 columnas con capacidad de 5 toneladas.",
+        "Diseño práctico y robusto : Plataformas de perfil bajo, estructura de una sola pieza y rampas compactas.",
+        "Equipado para alineación : Incluye kit de alineación y Rolling Jack para máxima funcionalidad."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-4-columnas-unite-pl-fs50.webp",
+      "images": [
+        "assets/img/productos/elevador-4-columnas-unite-pl-fs50.webp"
+      ]
+    },
+    {
+      "sku": "1010282",
+      "slug": "elevador-tijera-largo-5500-kg-con-kit-de-alineacion",
+      "name": "Elevador Tijera Largo 5500 kg - Con Kit De Alineación",
+      "category": "elevadores-tijera",
+      "brand": "trivium-pro",
+      "capacity": "5500 kg",
+      "lift_height": "1850 mm",
+      "summary": "Robustez y capacidad : Elevador tijera con capacidad de 5500 kg, ideal para trabajos de alineación y mantenimiento. Seguridad avanzada : Bloqueo neumático automático y válvula de seguridad para máxima protección. Diseño eficiente :…",
+      "bullets": [
+        "Robustez y capacidad : Elevador tijera con capacidad de 5500 kg, ideal para trabajos de alineación y mantenimiento.",
+        "Seguridad avanzada : Bloqueo neumático automático y válvula de seguridad para máxima protección.",
+        "Diseño eficiente : Plataforma de bajo perfil (380 mm) compatible con alineadoras de sensores y cámaras."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-tijera-largo-con-kit-de-alineacion.webp",
+      "images": [
+        "assets/img/productos/elevador-tijera-largo-con-kit-de-alineacion.webp"
+      ]
+    },
+    {
+      "sku": "P-3246",
+      "slug": "inflador-de-neumaticos-automatico",
+      "name": "Inflador De Neumáticos Automático",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Función automática de llenado y descarga de aire. Memoriza automáticamente la presión de inflado más reciente, ahorra tiempo de ajuste de presión y mejora la eficiencia de trabajo. Sensor de presión de la alta precisión, rápida velocidad…",
+      "bullets": [
+        "Función automática de llenado y descarga de aire.",
+        "Memoriza automáticamente la presión de inflado más reciente, ahorra tiempo de ajuste de presión y mejora la eficiencia de trabajo.",
+        "Sensor de presión de la alta precisión, rápida velocidad de inflado y alta exactitud.",
+        "Diseño impermeable grado IP54, hermoso, robusto y durable.",
+        "Detección de presión de neumáticos.",
+        "Con soporte enrollador de manguera."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/inflador-de-neumaticos-unite.webp",
+      "images": [
+        "assets/img/productos/inflador-de-neumaticos-unite.webp"
+      ]
+    },
+    {
+      "sku": "P-3251",
+      "slug": "inflador-de-neumaticos-por-nitrogeno-hpmm",
+      "name": "Inflador De Neumáticos Por Nitrógeno HPMM",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "HPMM ofrece la línea más grande de generadores de nitrógeno, por lo que seguramente habrá un modelo que se adapte a su situación. Nuestros sistemas de adsorción por cambio de presión (PSA) se están convirtiendo en el estándar tanto para…",
+      "bullets": [],
+      "badges": [
+        "Top"
+      ],
+      "image": "assets/img/productos/inflador-de-neumaticos-por-nitrogeno-hpmm.webp",
+      "images": [
+        "assets/img/productos/inflador-de-neumaticos-por-nitrogeno-hpmm.webp"
+      ]
+    },
+    {
+      "sku": "1010272",
+      "slug": "balanceadora-de-ruedas-unite-g66",
+      "name": "Balanceadora De Ruedas Unite G66",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "65 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Precisión y velocidad : Balanceadora de ruedas con autocalibración, pantalla LED de 17\", animación 3D y medición automática de parámetros. Diseño funcional : Freno de disco automático, puntero láser para posicionamiento…",
+      "bullets": [
+        "Balanceadora con autocalibración y pantalla LED de 17\" para una interfaz fácil de usar.",
+        "Animación 3D e ingreso automático de datos de distancia, diámetro y ancho de la rueda.",
+        "Freno de disco automático y puntero láser para posicionamiento rápido y preciso.",
+        "Iluminación LED para señalar la posición del peso.",
+        "Diámetro de llantas: 10\" - 24\".",
+        "Ancho de llantas: 40 - 510 mm."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/balanceadora-con-pantalla-y-puntero-laser-g66.jpg",
+      "images": [
+        "assets/img/productos/balanceadora-con-pantalla-y-puntero-laser-g66.jpg",
+        "assets/img/productos/kit-de-accesorios-para-balanceadora-g66.jpg"
+      ]
+    },
+    {
+      "sku": "1010265",
+      "slug": "desarmadora-de-ruedas-unite-pl-1200u",
+      "name": "Desarmadora De Ruedas Unite PL-1200U",
+      "category": "desarmadoras",
+      "brand": "trivium-pro",
+      "capacity": "2500 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Brazo oscilante semiautomático: Bloqueo manual, rápido y conveniente, ideal para autos y motos. Plataforma giratoria central: Tamaño de sujeción de hasta 24\", con motor de alta potencia para mayor eficiencia. Diseño…",
+      "bullets": [
+        "Brazo oscilante semiautomático: Bloqueo manual, rápido y conveniente, ideal para autos y motos.",
+        "Plataforma giratoria central: Tamaño de sujeción de hasta 24\", con motor de alta potencia para mayor eficiencia.",
+        "Diseño resistente y duradero: Mordazas de fundición de una pieza y pala de presión ajustable para mayor comodidad."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/desarmadora-para-neumaticos-de-auto-y-camioneta-monfasica-24-pulgadas-trivium-pro.jpg",
+      "images": [
+        "assets/img/productos/desarmadora-para-neumaticos-de-auto-y-camioneta-monfasica-24-pulgadas-trivium-pro.jpg"
+      ]
+    },
+    {
+      "sku": "1010267",
+      "slug": "desarmadora-de-ruedas-con-brazo-auxiliar-pl-1256s-trivium-center",
+      "name": "Desarmadora De Ruedas Con Brazo Auxiliar PL-1256S Trivium Center",
+      "category": "desarmadoras",
+      "brand": "trivium-pro",
+      "capacity": "256 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Columna basculante neumática : Totalmente automática para mayor precisión y eficiencia. Brazo auxiliar de 360° : Facilita el montaje y desmontaje de neumáticos grandes con comodidad. Capacidad de sujeción versátil :…",
+      "bullets": [
+        "Columna basculante neumática : Totalmente automática para mayor precisión y eficiencia.",
+        "Brazo auxiliar de 360° : Facilita el montaje y desmontaje de neumáticos grandes con comodidad.",
+        "Capacidad de sujeción versátil : Compatible con ruedas de 12\" a 26\", ideal para talleres y gomerías."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/desarmadora-con-brazo-auxiliar-para-run-flat-1256-s-pro-trivium-center.jpg",
+      "images": [
+        "assets/img/productos/desarmadora-con-brazo-auxiliar-para-run-flat-1256-s-pro-trivium-center.jpg"
+      ]
+    },
+    {
+      "sku": "1010263",
+      "slug": "elevador-tijera-3000-kg-pl-b30y",
+      "name": "Elevador Tijera 3000 kg PL-B30Y",
+      "category": "elevadores-tijera",
+      "brand": "trivium-pro",
+      "capacity": "3000 kg",
+      "lift_height": "1850 mm",
+      "summary": "Ficha Técnica Diseño compacto y eficiente : Elevador tijera ultradelgado con capacidad de 3 toneladas, ideal para talleres con espacio limitado. Fácil instalación : No requiere obra civil y cuenta con desbloqueo neumático y descenso…",
+      "bullets": [
+        "Diseño compacto y eficiente : Elevador tijera ultradelgado con capacidad de 3 toneladas, ideal para talleres con espacio limitado.",
+        "Fácil instalación : No requiere obra civil y cuenta con desbloqueo neumático y descenso electromagnético.",
+        "Seguridad avanzada : Sistema sincronizado de cilindros hidráulicos, alarma de seguridad y válvula anti-explosión."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-tijera-ultradelgado-unite-pl-b30y.jpg",
+      "images": [
+        "assets/img/productos/elevador-tijera-ultradelgado-unite-pl-b30y.jpg"
+      ]
+    },
+    {
+      "sku": "1010281",
+      "slug": "elevador-tijera-gomeria-4500-kg-pl-45h",
+      "name": "Elevador Tijera Gomería 4500 kg PL-45H",
+      "category": "elevadores-tijera",
+      "brand": "trivium-pro",
+      "capacity": "4.500 kg",
+      "lift_height": "620 mm",
+      "summary": "Capacidad y eficiencia : Elevador ultradelgado con capacidad de 4.500 kg, ideal para gomerías. Diseño práctico : Altura mínima de 100 mm, sin necesidad de obra civil y desbloqueo neumático. Seguridad avanzada : Estructura paralela y…",
+      "bullets": [
+        "Capacidad y eficiencia : Elevador ultradelgado con capacidad de 4.500 kg, ideal para gomerías.",
+        "Diseño práctico : Altura mínima de 100 mm, sin necesidad de obra civil y desbloqueo neumático.",
+        "Seguridad avanzada : Estructura paralela y válvula antiexplosión que garantiza un trabajo confiable."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-tijera-4500-kg-pl45h-para-gomeria-rotacion-balanceo-trivium-pro.jpg",
+      "images": [
+        "assets/img/productos/elevador-tijera-4500-kg-pl45h-para-gomeria-rotacion-balanceo-trivium-pro.jpg"
+      ]
+    },
+    {
+      "sku": "1010122",
+      "slug": "balanceadora-de-ruedas-unite-s-901",
+      "name": "Balanceadora De Ruedas Unite S 901",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "65 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Alta precisión y estabilidad : Circuito integrado con funciones de autocalibración y diagnóstico, ofreciendo resultados exactos. Diseño robusto y moderno : Cabina resistente con bandeja dinámica para herramientas y pantalla…",
+      "bullets": [
+        "Alta precisión y estabilidad : Circuito integrado con funciones de autocalibración y diagnóstico, ofreciendo resultados exactos.",
+        "Diseño robusto y moderno : Cabina resistente con bandeja dinámica para herramientas y pantalla LED para visualización clara.",
+        "Especificaciones avanzadas : Soporta ruedas de hasta 65 kg, con velocidad de equilibrado de 200 r.p.m. y un tiempo de medición de solo 8 segundos."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/balanceadora-de-ruedas-s901-trivium-pro.jpg",
+      "images": [
+        "assets/img/productos/balanceadora-de-ruedas-s901-trivium-pro.jpg",
+        "assets/img/productos/kit-de-accesorios-para-balanceadora-s901.jpg"
+      ]
+    },
+    {
+      "sku": "1010005",
+      "slug": "elevador-cuatro-cloumnas-4082kg-forward-lift-by-rotary-cr4t",
+      "name": "Elevador Cuatro Cloumnas 4082kg - Forward Lift by Rotary CR4T",
+      "category": "elevadores-4-columnas",
+      "brand": "rotary-lift",
+      "capacity": "4082 kg",
+      "lift_height": "1962 mm",
+      "summary": "Unidades de accionamiento Rotary, diseñadas y fabricadas por Rotary Las columnas son realizadas en una sola pieza, para lograr mayor fortaleza Las ruedas delanteras se frenan fácilmente con las rampas “drive-thru” La unidad de poder…",
+      "bullets": [
+        "Unidades de accionamiento Rotary, diseñadas y fabricadas por Rotary",
+        "Las columnas son realizadas en una sola pieza, para lograr mayor fortaleza",
+        "Las ruedas delanteras se frenan fácilmente con las rampas “drive-thru”",
+        "La unidad de poder (motor) se puede ubicar tanto al frente, a la izquierda o atrás a la derecha"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-cuatro-cloumnas-forward-lift-by-rotary-cr4t.jpg",
+      "images": [
+        "assets/img/productos/elevador-cuatro-cloumnas-forward-lift-by-rotary-cr4t.jpg"
+      ]
+    },
+    {
+      "sku": "1010006",
+      "slug": "elevador-cuatro-columnas-6350-kg-rotary-lift-sm14l",
+      "name": "Elevador Cuatro Columnas 6350 kg - Rotary Lift SM14L",
+      "category": "elevadores-4-columnas",
+      "brand": "rotary-lift",
+      "capacity": "6350 kg",
+      "lift_height": "—",
+      "summary": "Capacidad y seguridad : Elevador de 4 columnas con capacidad de 6350 kg, ideal para vehículos grandes y comerciales. Durabilidad garantizada : Pistas con recubrimiento Hammer Tone y barras de seguridad ajustables para mayor vida útil.…",
+      "bullets": [
+        "Capacidad y seguridad : Elevador de 4 columnas con capacidad de 6350 kg, ideal para vehículos grandes y comerciales.",
+        "Durabilidad garantizada : Pistas con recubrimiento Hammer Tone y barras de seguridad ajustables para mayor vida útil.",
+        "Versatilidad operativa : Compatible con Rolling Jacks y kit de alineación (no incluidos)."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-cuatro-columnas-rotary-lift-sm14l.jpg",
+      "images": [
+        "assets/img/productos/elevador-cuatro-columnas-rotary-lift-sm14l.jpg"
+      ]
+    },
+    {
+      "sku": "1010288",
+      "slug": "elevador-dos-columnas-7250-kg-rotary-lift-spo16-cargo",
+      "name": "Elevador Dos Columnas 7250 kg - Rotary Lift SPO16 Cargo",
+      "category": "elevadores-2-columnas",
+      "brand": "rotary-lift",
+      "capacity": "7257 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Capacidad para trabajo pesado : Soporta hasta 7257 kg con brazos de 3 etapas que facilitan el alcance en camionetas largas y camiones. Eficiencia y seguridad : Sistema de bloqueo automático cada 4\", retención de brazos…",
+      "bullets": [
+        "Capacidad para trabajo pesado : Soporta hasta 7257 kg con brazos de 3 etapas que facilitan el alcance en camionetas largas y camiones.",
+        "Eficiencia y seguridad : Sistema de bloqueo automático cada 4\", retención de brazos automáticos y diseño de columna \"Doble S\" para máxima resistencia.",
+        "Rendimiento confiable : Motor de 4 HP con tiempo de elevación de 81 segundos y configuraciones ajustables para diferentes alturas y anchos."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-dos-columnas-rotary-lift-spo16.jpg",
+      "images": [
+        "assets/img/productos/elevador-dos-columnas-rotary-lift-spo16.jpg"
+      ]
+    },
+    {
+      "sku": "1010278",
+      "slug": "balanceadora-de-ruedas-hofmann-geodyna-7400l",
+      "name": "Balanceadora de Ruedas Hofmann Geodyna 7400L",
+      "category": "balanceadoras",
+      "brand": "hofmann",
+      "capacity": "70 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica QUICKBAL ™ para reducir los tiempos de duración de los ciclos Selección semiautomática de modos de equilibrado con easyALU ™ Modo peso dividido, oculta los pesos detrás de los rayos para que no se vean desde el exterior",
+      "bullets": [
+        "QUICKBAL ™ para reducir los tiempos de duración de los ciclos",
+        "Selección semiautomática de modos de equilibrado con easyALU ™",
+        "Modo peso dividido, oculta los pesos detrás de los rayos para que no se vean desde el exterior"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-7400l.jpg",
+      "images": [
+        "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-7400l.jpg"
+      ]
+    },
+    {
+      "sku": "P-3338",
+      "slug": "desarmadora-de-neumaticos-hofmann-monty-8800",
+      "name": "Desarmadora de Neumáticos Hofmann Monty 8800",
+      "category": "desarmadoras",
+      "brand": "hofmann",
+      "capacity": "465 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Desmontadora de neumáticos sin palanca con tecnología smartSpeed™ que ajusta automáticamente la velocidad óptima, ideal para neumáticos estándar y de alto rendimiento. Sistema powerMONT™ todo en uno con visor de cámara y…",
+      "bullets": [
+        "Desmontadora de neumáticos sin palanca con tecnología smartSpeed™ que ajusta automáticamente la velocidad óptima, ideal para neumáticos estándar y de alto rendimiento.",
+        "Sistema powerMONT™ todo en uno con visor de cámara y destalonador en piso, perfecto para ruedas RFT, UHP y de perfil bajo sin dañar los neumáticos.",
+        "Elevador de ruedas integrado y sistema quickLOK™ de sujeción central que maximiza la productividad y reduce la fatiga del operador."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/desarmadora-hofmann-monty-8800-con-desmontadora-de-neumaticos.jpg",
+      "images": [
+        "assets/img/productos/desarmadora-hofmann-monty-8800-con-desmontadora-de-neumaticos.jpg"
+      ]
+    },
+    {
+      "sku": "P-3341",
+      "slug": "desarmadora-de-neumaticos-automatica-hofmann-monty-quadriga-1-gp",
+      "name": "Desarmadora de Neumáticos Automática - Hofmann Monty Quadriga 1 GP",
+      "category": "desarmadoras",
+      "brand": "hofmann",
+      "capacity": "70 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Desmontadora automática certificada WDK con detección láser del contorno de la llanta y control automático de herramientas desde consola. Sistema sin palanca con abrazadera central y destalonador giratorio integrado, ideal…",
+      "bullets": [
+        "Desmontadora automática certificada WDK con detección láser del contorno de la llanta y control automático de herramientas desde consola.",
+        "Sistema sin palanca con abrazadera central y destalonador giratorio integrado, ideal para todo tipo de neumáticos incluyendo run-flat y de perfil bajo.",
+        "Elevador de ruedas ergonómico e inflado controlado por pedal, permite trabajar con ruedas de hasta 70kg y llantas de 12\" a 30\"."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/desarmadora-hofmann-monty-quadriga-1-gp-automatica.jpg",
+      "images": [
+        "assets/img/productos/desarmadora-hofmann-monty-quadriga-1-gp-automatica.jpg"
+      ]
+    },
+    {
+      "sku": "P-3346",
+      "slug": "sistema-de-calibracion-hofmann-ez-adas",
+      "name": "Sistema De Calibración Hofmann EZ-ADAS™",
+      "category": "alineadoras",
+      "brand": "hofmann",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Tecnología avanzada y fácil de usar : Sistema guiado por láser para un posicionamiento rápido y preciso. Compatible con la mayoría de los vehículos equipados con ADAS. Diseño práctico y eficiente : Carro de almacenamiento compacto que…",
+      "bullets": [
+        "Tecnología avanzada y fácil de usar : Sistema guiado por láser para un posicionamiento rápido y preciso. Compatible con la mayoría de los vehículos equipados con ADAS.",
+        "Diseño práctico y eficiente : Carro de almacenamiento compacto que organiza todas las dianas y accesorios necesarios para la recalibración.",
+        "Soporte integral con aplicación exclusiva : Videos 3D interactivos que guían paso a paso la configuración y eliminan la incertidumbre."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/sistema-de-calibracion-hofmann-ez-adas-compacto.jpg",
+      "images": [
+        "assets/img/productos/sistema-de-calibracion-hofmann-ez-adas-compacto.jpg"
+      ]
+    },
+    {
+      "sku": "1010234",
+      "slug": "balanceadora-de-ruedas-hofmann-geodyna-7600p",
+      "name": "Balanceadora de Ruedas Hofmann Geodyna 7600P",
+      "category": "balanceadoras",
+      "brand": "hofmann",
+      "capacity": "130 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Medición avanzada : Tecnología Smart Sonar™ y Power Clamp™ para resultados rápidos y precisos. Operación ergonómica : Pantalla táctil intuitiva y funciones como iluminación de llanta y easyWEIGHT™. Alta eficiencia : Ciclo de…",
+      "bullets": [
+        "Medición avanzada : Tecnología Smart Sonar™ y Power Clamp™ para resultados rápidos y precisos.",
+        "Operación ergonómica : Pantalla táctil intuitiva y funciones como iluminación de llanta y easyWEIGHT™.",
+        "Alta eficiencia : Ciclo de equilibrado de solo 4,5 segundos y diseño optimizado para talleres exigentes."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-7600p.jpg",
+      "images": [
+        "assets/img/productos/balanceadora-de-ruedas-hofmann-geodyna-7600p.jpg"
+      ]
+    },
+    {
+      "sku": "P-3365",
+      "slug": "alineadora-hofmann-geoliner-770",
+      "name": "Alineadora Hofmann Geoliner 770",
+      "category": "alineadoras",
+      "brand": "hofmann",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Precisión y Eficiencia Garantizadas : La Geoliner® 770 ofrece mediciones de alineación de ruedas con tecnología avanzada, incluyendo cámaras automáticas de seguimiento de altura y el exclusivo sistema VODI™ para guiar al…",
+      "bullets": [
+        "Precisión y Eficiencia Garantizadas : La Geoliner® 770 ofrece mediciones de alineación de ruedas con tecnología avanzada, incluyendo cámaras automáticas de seguimiento de altura y el exclusivo sistema VODI™ para guiar al técnico en todo momento.",
+        "Diseño Móvil y Versátil : Sus brazos de cámaras plegables y centro de gravedad bajo permiten una movilidad cómoda entre diferentes puestos de trabajo, maximizando la productividad en talleres y concesionarias.",
+        "Software Inteligente y Accesorios Incluidos : Sistema de notificaciones avanzadas, medición rápida de parámetros críticos, conectividad Wi-Fi para actualizaciones automáticas y accesorios estándar como fijador de volante, depresor de freno y garras para ruedas."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/alineadora-3d-hofmann-geoliner-770-versatil.jpg",
+      "images": [
+        "assets/img/productos/alineadora-3d-hofmann-geoliner-770-versatil.jpg"
+      ]
+    },
+    {
+      "sku": "P-3405",
+      "slug": "elevador-de-baterias-para-autos-electricos",
+      "name": "Elevador de Baterías para Autos Eléctricos",
+      "category": "elevadores",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "1800 mm",
+      "summary": "Altura ajustable de 1130 a 1800 mm Ideal para trabajar con distintos modelos de autos eléctricos sin necesidad de instalación. Mesa inclinable y desplazamiento lateral Permite alinear la batería con precisión gracias a su ángulo ajustable…",
+      "bullets": [
+        "Fácil de trasladar, no requiere instalación",
+        "Altura ajustable de 1130 a 1800 mm",
+        "Disponible en modelos neumáticos o eléctricos",
+        "Mesa de ángulo ajustable para adaptarse a la base de la batería",
+        "Permite el desplazamiento horizontal de la batería hasta 30 mm",
+        "Ensamblaje con componentes de alta calidad para un trabajo rápido y preciso"
+      ],
+      "badges": [],
+      "image": "https://trivium.ar/wp-content/uploads/2024/06/elevador-de-baterias-de-autos-electricos.webp",
+      "images": []
+    },
+    {
+      "sku": "1010289",
+      "slug": "elevador-dos-columnas-6000-kg-vehiculos-electricos",
+      "name": "Elevador Dos Columnas 6000 kg - Vehículos Eléctricos",
+      "category": "elevadores-2-columnas",
+      "brand": "trivium-pro",
+      "capacity": "6000 kg",
+      "lift_height": "1945 mm",
+      "summary": "Ficha Técnica Capacidad de 6000kg y plataforma de 100 mm , ideal para vehículos eléctricos y SUV. Interruptor de final de carrera y cables sincronizados , asegura protección y estabilidad. Cilindros dobles y motor de aluminio , diseñados…",
+      "bullets": [
+        "Capacidad de 6000kg y plataforma de 100 mm , ideal para vehículos eléctricos y SUV.",
+        "Interruptor de final de carrera y cables sincronizados , asegura protección y estabilidad.",
+        "Cilindros dobles y motor de aluminio , diseñados para máxima durabilidad y seguridad."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-dos-columnas-6000-kg-vehiculos-electricos.jpg",
+      "images": [
+        "assets/img/productos/elevador-dos-columnas-6000-kg-vehiculos-electricos.jpg"
+      ]
+    },
+    {
+      "sku": "1010077",
+      "slug": "balanceadora-para-ruedas-de-camion-hofmann-geodyna-980l",
+      "name": "Balanceadora para Ruedas de Camión Hofmann Geodyna 980L",
+      "category": "balanceadoras",
+      "brand": "hofmann",
+      "capacity": "250 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Alta Precisión: Equilibrio estático y dinámico con tecnología VPM patentada para máxima exactitud. Automatización Avanzada: Captura automática de distancia y diámetro de llantas. Compatible con ruedas de aleación y acero.…",
+      "bullets": [
+        "Alta Precisión: Equilibrio estático y dinámico con tecnología VPM patentada para máxima exactitud.",
+        "Automatización Avanzada: Captura automática de distancia y diámetro de llantas. Compatible con ruedas de aleación y acero.",
+        "Diseño Robusto: Soporta ruedas de hasta 250 kg y cuenta con freno electrónico y pantalla VGA de 15\"."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/balanceadora-para-ruedas-de-camion-geodyna-980l.jpg",
+      "images": [
+        "assets/img/productos/balanceadora-para-ruedas-de-camion-geodyna-980l.jpg"
+      ]
+    },
+    {
+      "sku": "1010075",
+      "slug": "desarmadora-de-ruedas-para-camion-hofmann-monty-4250p",
+      "name": "Desarmadora de Ruedas para Camión Hofmann Monty 4250P",
+      "category": "desarmadoras",
+      "brand": "hofmann",
+      "capacity": "1500 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Alta capacidad : Soporta ruedas de hasta 1500 kg , con un rango de sujeción de 12” a 32” (hasta 56” con extensiones). Máxima eficiencia : Mandril robusto, doble estructura reforzada , control móvil y 2 velocidades…",
+      "bullets": [
+        "Mandril de diseño robusto para máxima durabilidad",
+        "Doble estructura reforzada para ruedas de hasta 1500 kg",
+        "Alcance de sujeción de llantas de 12” a 32”",
+        "Máx. anchura de la rueda: 43” / 1100 mm",
+        "Máx. diámetro de la rueda: 92,5” / 2350 mm",
+        "Unidad de control móvil con manejo simultáneo de operaciones"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/desarmadora-para-ruedas-de-camiones-monty-4250p.jpg",
+      "images": [
+        "assets/img/productos/desarmadora-para-ruedas-de-camiones-monty-4250p.jpg"
+      ]
+    },
+    {
+      "sku": "1010256",
+      "slug": "alineadora-de-camiones-josam-cv-aligner",
+      "name": "Alineadora de Camiones Josam CV-Aligner",
+      "category": "alineadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Alineación precisa y rápida: El JOSAM CV-Aligner permite la alineación de vehículos pesados (camiones, remolques, autobuses) utilizando tecnología de cámara avanzada, sin necesidad de levantar el vehículo. Mediciones…",
+      "bullets": [
+        "Alineación precisa y rápida: El JOSAM CV-Aligner permite la alineación de vehículos pesados (camiones, remolques, autobuses) utilizando tecnología de cámara avanzada, sin necesidad de levantar el vehículo.",
+        "Mediciones detalladas: Mide ángulos de rueda como convergencia, KPI, Caster, giro máximo, y más, con un proceso de medición que se realiza mientras el vehículo está en movimiento.",
+        "Tecnología inalámbrica: Sistema de comunicación sin cables entre las unidades de medición y el software, con informes automáticos sobre los valores antes y después de la alineación."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/alineadora-para-camiones-con-tecnologia-de-camara-josam-cv-aligner.jpg",
+      "images": [
+        "assets/img/productos/alineadora-para-camiones-con-tecnologia-de-camara-josam-cv-aligner.jpg"
+      ]
+    },
+    {
+      "sku": "1010259",
+      "slug": "alineadora-3d-hofmann-geoliner-630",
+      "name": "Alineadora 3D Hofmann Geoliner 630",
+      "category": "alineadoras",
+      "brand": "hofmann",
+      "capacity": "227 kg",
+      "lift_height": "—",
+      "summary": "Clientes que confían en la Geoliner 630 Tecnología de precisión avanzada : Cámaras de alta velocidad y el sistema VODI™ patentado garantizan mediciones exactas y en tiempo real. Optimización de productividad : Interfaz de usuario…",
+      "bullets": [
+        "Tecnología de precisión avanzada : Cámaras de alta velocidad y el sistema VODI™ patentado garantizan mediciones exactas y en tiempo real.",
+        "Optimización de productividad : Interfaz de usuario inteligente que facilita un flujo de trabajo eficiente, minimizando el tiempo de configuración.",
+        "Conectividad y actualizaciones automáticas : Sistema en línea que permite mantener el software actualizado, maximizando el rendimiento en cada uso."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/alineadora-3d-para-autos-hofmann-geoliner-630.jpg",
+      "images": [
+        "assets/img/productos/alineadora-3d-para-autos-hofmann-geoliner-630.jpg",
+        "assets/img/productos/barra-ajustable-via-control-remoto-de-alineadora-3d-hofmann-geoliner630.jpeg",
+        "assets/img/productos/pantallas-para-alineadora-3d-hofmann-geoliner630.jpeg",
+        "assets/img/productos/sistema-vodi-de-indicacion-para-alineadora-3d-hofmann-geoliner-630.jpeg"
+      ]
+    },
+    {
+      "sku": "1010291",
+      "slug": "elevador-dos-columnas-5443-kg-forward-lift-f12-by-rotary-lift",
+      "name": "Elevador Dos Columnas 5443 kg - Forward Lift F12 by Rotary Lift",
+      "category": "elevadores-2-columnas",
+      "brand": "rotary-lift",
+      "capacity": "5443 kg",
+      "lift_height": "—",
+      "summary": "Diseño de columna simétrica Opción de ancho ajustable Ecualización de cable aéreo y liberación de bloqueo de un solo punto Acabado duradero con recubrimiento en polvo",
+      "bullets": [
+        "Diseño de columna simétrica",
+        "Opción de ancho ajustable",
+        "Ecualización de cable aéreo y liberación de bloqueo de un solo punto",
+        "Acabado duradero con recubrimiento en polvo"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-dos-columnas-forward-lift-f12-by-rotary-lift.jpg",
+      "images": [
+        "assets/img/productos/elevador-dos-columnas-forward-lift-f12-by-rotary-lift.jpg"
+      ]
+    },
+    {
+      "sku": "P-4371",
+      "slug": "elevador-tijera-corto-3000-kg-dl-by-rotary-lift-dig30",
+      "name": "Elevador Tijera Corto 3000 kg - DL by Rotary Lift DIG30",
+      "category": "elevadores-tijera",
+      "brand": "rotary-lift",
+      "capacity": "3000 kg",
+      "lift_height": "—",
+      "summary": "Elevador de tijera Direct Lift DIG30 con capacidad de 3000 kg, ideal para talleres y garajes. Diseño empotrado con control electrohidráulico avanzado, extensiones extraíbles y estructura abierta para mayor espacio de trabajo. Panel de…",
+      "bullets": [
+        "Elevador de tijera Direct Lift DIG30 con capacidad de 3000 kg, ideal para talleres y garajes.",
+        "Diseño empotrado con control electrohidráulico avanzado, extensiones extraíbles y estructura abierta para mayor espacio de trabajo.",
+        "Panel de control intuitivo, seguridad garantizada con bloqueo mecánico y acabados duraderos en pintura en polvo."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-tijera-dig30-direct-lift-by-rotary-lift-de-3000-kilos.jpg",
+      "images": [
+        "assets/img/productos/elevador-tijera-dig30-direct-lift-by-rotary-lift-de-3000-kilos.jpg"
+      ]
+    },
+    {
+      "sku": "1010011",
+      "slug": "elevador-tijera-corto-3200-kg-dl-by-rotary-lift-dsd32",
+      "name": "Elevador Tijera Corto 3200 kg - DL by Rotary Lift DSD32",
+      "category": "elevadores-tijera",
+      "brand": "rotary-lift",
+      "capacity": "3200 kg",
+      "lift_height": "35 mm",
+      "summary": "Capacidad de 3200 kg y altura mínima de 105 mm, ideal para vehículos con chasis bajo. Sistema hidráulico avanzado maestro-esclavo para un funcionamiento seguro y nivelado. Diseño robusto y duradero , con pintura en polvo y bajada manual de…",
+      "bullets": [
+        "Capacidad de 3200 kg y altura mínima de 105 mm, ideal para vehículos con chasis bajo.",
+        "Sistema hidráulico avanzado maestro-esclavo para un funcionamiento seguro y nivelado.",
+        "Diseño robusto y duradero , con pintura en polvo y bajada manual de emergencia."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-tijera-dsd32-direct-lift-de-rotary-lift-capacidad-3200-kilos.jpg",
+      "images": [
+        "assets/img/productos/elevador-tijera-dsd32-direct-lift-de-rotary-lift-capacidad-3200-kilos.jpg"
+      ]
+    },
+    {
+      "sku": "1010034",
+      "slug": "lift-para-balanceadoras-u-l01",
+      "name": "Lift Para Balanceadoras U-L01",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "75 kg",
+      "lift_height": "1210 mm",
+      "summary": "Ficha Técnica Elevador de Ruedas U-L01 Compacto y Versátil: Ideal para balanceadoras de ruedas, con capacidad de carga de hasta 75 kg. Diseño Ergonómico: Interruptor fácil de operar y pista de rodamiento de aluminio y acero para mayor…",
+      "bullets": [
+        "Compacto y Versátil: Ideal para balanceadoras de ruedas, con capacidad de carga de hasta 75 kg.",
+        "Diseño Ergonómico: Interruptor fácil de operar y pista de rodamiento de aluminio y acero para mayor velocidad y menor ruido.",
+        "Resistente y Práctico: Construcción robusta con bajo perfil, facilitando la carga de neumáticos y optimizando el espacio."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-de-neumaticos.webp",
+      "images": [
+        "assets/img/productos/elevador-de-neumaticos.webp"
+      ]
+    },
+    {
+      "sku": "P-4451",
+      "slug": "inflador-de-neumaticos-automatico-unite-hj-931-bd-j",
+      "name": "Inflador de Neumáticos Automático Unite HJ 931 BD-J",
+      "category": "equipamiento-taller",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Inflador de Neumáticos Automático HJ931BD-J Alta Precisión y Seguridad: Pantalla electrónica, sensor de presión con 2% de precisión y sistema de descarga automática para inflados precisos y seguros. Eficiencia en el Trabajo:…",
+      "bullets": [
+        "Alta Precisión y Seguridad: Pantalla electrónica, sensor de presión con 2% de precisión y sistema de descarga automática para inflados precisos y seguros.",
+        "Eficiencia en el Trabajo: Permite inflar mientras se trabaja en el próximo neumático, optimizando tiempos en talleres.",
+        "Diseño Resistente y Versátil: A prueba de agua (IP54), con alarma sonora y luminosa para advertir problemas durante el inflado."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/unite-hj931bd-j-inflador-de-neumaticos.jpg",
+      "images": [
+        "assets/img/productos/unite-hj931bd-j-inflador-de-neumaticos.jpg"
+      ]
+    },
+    {
+      "sku": "1010223",
+      "slug": "elevador-para-moto-454-kg-mt07-trivium-pro",
+      "name": "Elevador para Moto 454 kg -  MT07 Trivium Pro",
+      "category": "elevadores-motos",
+      "brand": "trivium-pro",
+      "capacity": "454 kg",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Capacidad de carga de 454 kg (1000 lbs) ideal para todo tipo de motocicletas Sistema de ascenso dual: manual o neumático para mayor versatilidad en tu taller Incluye prensa de rueda acolchada con goma para sujeción segura y…",
+      "bullets": [
+        "Capacidad de carga de 454 kg (1000 lbs) ideal para todo tipo de motocicletas",
+        "Sistema de ascenso dual: manual o neumático para mayor versatilidad en tu taller",
+        "Incluye prensa de rueda acolchada con goma para sujeción segura y sin daños"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-para-motos-mt07-trivium-center-454-kilos.jpg",
+      "images": [
+        "assets/img/productos/elevador-para-motos-mt07-trivium-center-454-kilos.jpg"
+      ]
+    },
+    {
+      "sku": "1010120",
+      "slug": "alineadora-3d-para-autos-y-camionetas-u-va2023-auto-pro",
+      "name": "Alineadora 3D Para Autos y Camionetas U-VA2023 Auto Pro",
+      "category": "alineadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Tecnología 3D con cámaras HD : Alineaciones rápidas y precisas gracias a su sistema de visión avanzada y pantalla gráfica. Ajuste automático de altura : Columna con ascenso rápido y altura mínima de solo 760 mm, alineado a…",
+      "bullets": [
+        "Tecnología 3D con cámaras HD : Alineaciones rápidas y precisas gracias a su sistema de visión avanzada y pantalla gráfica.",
+        "Ajuste automático de altura : Columna con ascenso rápido y altura mínima de solo 760 mm, alineado a nivel del suelo.",
+        "Software completo e intuitivo : Base de datos de vehículos, comparación en tiempo real y detección de distancia entre ejes y vías."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/alineadora-3d-trivium-center.jpeg",
+      "images": [
+        "assets/img/productos/alineadora-3d-trivium-center.jpeg"
+      ]
+    },
+    {
+      "sku": "1010022",
+      "slug": "elevador-dos-columnas-4082-kg-direct-lift-dl9-by-rotary-lift",
+      "name": "Elevador Dos Columnas 4082 kg - Direct Lift DL9 by Rotary Lift",
+      "category": "elevadores-2-columnas",
+      "brand": "rotary-lift",
+      "capacity": "4082 kg",
+      "lift_height": "1930 mm",
+      "summary": "Elevador profesional de 2 columnas sin travesaños en el piso, evita accidentes y permite tránsito libre. Triple sistema de seguridad: hidráulico, traba mecánica y sensor eléctrico superior para máxima protección. Libre de mantenimiento sin…",
+      "bullets": [
+        "Elevador profesional de 2 columnas sin travesaños en el piso, evita accidentes y permite tránsito libre.",
+        "Triple sistema de seguridad: hidráulico, traba mecánica y sensor eléctrico superior para máxima protección.",
+        "Libre de mantenimiento sin tornillos sinfín ni piezas de desgaste - Capacidad de 4082 kg y elevación de 1930 mm."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-dos-columnas-direct-lift-by-rotary-lift.jpg",
+      "images": [
+        "assets/img/productos/elevador-dos-columnas-direct-lift-by-rotary-lift.jpg"
+      ]
+    },
+    {
+      "sku": "P-4996",
+      "slug": "alineadora-3d-u-va2023",
+      "name": "Alineadora 3D U-VA2023",
+      "category": "alineadoras",
+      "brand": "trivium-pro",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Alineación rápida, precisa y confiable: Gracias a su sistema de cámaras HD y software visual intuitivo, la U-VA2023 ofrece alineaciones profesionales con gran velocidad y precisión. Tecnología avanzada con datos en tiempo…",
+      "bullets": [
+        "Alineación de ruedas de alta precisión",
+        "Pantalla gráfica con interfaz visual clara",
+        "Cámaras HD de grado industrial",
+        "Comparación en tiempo real con los estándares",
+        "Detección precisa de distancia entre ejes y vías",
+        "Targets de fibra de vidrio resistentes y livianos"
+      ],
+      "badges": [],
+      "image": "assets/img/productos/alineadora-3d-unite-u-va2023.jpg",
+      "images": [
+        "assets/img/productos/alineadora-3d-unite-u-va2023.jpg"
+      ]
+    },
+    {
+      "sku": "P-5035",
+      "slug": "alineadora-hofmann-geoliner-609",
+      "name": "Alineadora Hofmann Geoliner 609",
+      "category": "alineadoras",
+      "brand": "hofmann",
+      "capacity": "—",
+      "lift_height": "—",
+      "summary": "Ficha Técnica Diseño compacto sin consola, ideal para talleres con poco espacio y fácil de instalar por una sola persona. Tecnología de alineación por imágenes con flujo predictivo, cámaras giratorias y funcionamiento con tablet VODI™.…",
+      "bullets": [
+        "Diseño compacto sin consola, ideal para talleres con poco espacio y fácil de instalar por una sola persona.",
+        "Tecnología de alineación por imágenes con flujo predictivo, cámaras giratorias y funcionamiento con tablet VODI™.",
+        "Incluye garras AC100, fijador de volante, depresor de freno y acceso a datos técnicos como ADAS, TSB y TPMS."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/alineadora-3d-para-autos-hofmann-geoliner-609.jpg",
+      "images": [
+        "assets/img/productos/alineadora-3d-para-autos-hofmann-geoliner-609.jpg"
+      ]
+    },
+    {
+      "sku": "P-5083",
+      "slug": "elevador-dos-columnas-5500-kg-rotary-lift-spo55",
+      "name": "Elevador Dos Columnas 5500 kg Rotary Lift SPO55",
+      "category": "elevadores-2-columnas",
+      "brand": "rotary-lift",
+      "capacity": "5500 kg",
+      "lift_height": "3486 mm",
+      "summary": "Ficha Técnica Capacidad 5500 kg , ideal para vehículos comerciales ligeros y de gran distancia entre ejes. Brazos simétricos y amplio espacio entre columnas (2802 mm) para máxima comodidad de trabajo. Altura de elevación de 3486 mm ,…",
+      "bullets": [
+        "Capacidad 5500 kg , ideal para vehículos comerciales ligeros y de gran distancia entre ejes.",
+        "Brazos simétricos y amplio espacio entre columnas (2802 mm) para máxima comodidad de trabajo.",
+        "Altura de elevación de 3486 mm , perfecto para furgones y utilitarios altos."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-dos-columnas-spo55.webp",
+      "images": [
+        "assets/img/productos/elevador-dos-columnas-spo55.webp",
+        "assets/img/productos/elevador-dos-columnas-spo55-sistema-de-trabas.webp",
+        "assets/img/productos/elevador-dos-columnas-spo55-brazos.webp",
+        "assets/img/productos/elevador-dos-columnas-spo55-controles.webp"
+      ]
+    },
+    {
+      "sku": "P-5090",
+      "slug": "elevador-dos-columnas-6500-kg-rotary-lift-spo65",
+      "name": "Elevador Dos Columnas 6500 kg Rotary Lift SPO65",
+      "category": "elevadores-2-columnas",
+      "brand": "rotary-lift",
+      "capacity": "6.500 kg",
+      "lift_height": "2.000 mm",
+      "summary": "Capacidad de 6.500 kg , ideal para furgonetas y vehículos comerciales. Sistema electrohidráulico que reduce costos operativos y facilita el mantenimiento. Brazos de soporte con bloqueo automático para mayor seguridad y comodidad.",
+      "bullets": [
+        "Capacidad de 6.500 kg , ideal para furgonetas y vehículos comerciales.",
+        "Sistema electrohidráulico que reduce costos operativos y facilita el mantenimiento.",
+        "Brazos de soporte con bloqueo automático para mayor seguridad y comodidad."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-dos-columnas-spo65.webp",
+      "images": [
+        "assets/img/productos/elevador-dos-columnas-spo65.webp",
+        "assets/img/productos/elevador-dos-columnas-spo65-brazos.webp",
+        "assets/img/productos/elevador-dos-columnas-spo65-controles.webp"
+      ]
+    },
+    {
+      "sku": "1010271",
+      "slug": "elevador-dos-columnas-5000-kg-trivium-pro-u-t50msd",
+      "name": "Elevador Dos Columnas 5000 kg - Trivium Pro U-T50MSD",
+      "category": "elevadores-2-columnas",
+      "brand": "trivium-pro",
+      "capacity": "5000 kg",
+      "lift_height": "1910 mm",
+      "summary": "Piso 100% libre entre columnas: maniobrá cajas de transmisión, carros de herramientas y equipamiento de servicio sin obstáculos durante todo el trabajo. 5000 kg de capacidad con elevación estable y uniforme, pensado para los vehículos más…",
+      "bullets": [
+        "Piso 100% libre entre columnas: maniobrá cajas de transmisión, carros de herramientas y equipamiento de servicio sin obstáculos durante todo el trabajo.",
+        "5000 kg de capacidad con elevación estable y uniforme, pensado para los vehículos más exigentes del taller: SUVs, camionetas doble cabina y furgones de carga.",
+        "Máxima seguridad con seguro automático de acero, válvula anti-explosión y certificación CE europea."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/elevador-pesados-dos-columnas-piso-libre-5-toneladas-trivium-pro.jpg",
+      "images": [
+        "assets/img/productos/elevador-pesados-dos-columnas-piso-libre-5-toneladas-trivium-pro.jpg"
+      ]
+    },
+    {
+      "sku": "P-5406",
+      "slug": "balanceadora-de-ruedas-para-camion-u-850-150-kg-trivium-pro",
+      "name": "Balanceadora de Ruedas para Camión U-850 150 kg Trivium Pro",
+      "category": "balanceadoras",
+      "brand": "trivium-pro",
+      "capacity": "150 kg",
+      "lift_height": "—",
+      "summary": "Capacidad profesional 150 kg con plataforma neumática elevadora: monta y balancea neumáticos pesados de camión y bus sin esfuerzo, ideal para talleres de alto volumen y flotas en Argentina. Precisión ±5 g y pedal de freno preciso :…",
+      "bullets": [
+        "Capacidad profesional 150 kg con plataforma neumática elevadora: monta y balancea neumáticos pesados de camión y bus sin esfuerzo, ideal para talleres de alto volumen y flotas en Argentina.",
+        "Precisión ±5 g y pedal de freno preciso : localiza el desbalance exacto en segundos, reduce vibraciones, prolonga la vida de los neumáticos y mejora la seguridad en ruta para vehículos pesados.",
+        "Hasta 24\" de diámetro + kit deluxe incluido : arranque/frenado ultrarrápido a 200 rpm, 4 modos de balanceo y Quick-Chuck para sujeción segura – la equilibradora real para camiones, no una adaptación genérica."
+      ],
+      "badges": [],
+      "image": "assets/img/productos/balanceadora-de-ruedas-para-camion-y-pesados-u850-150-kilos-trivium-pro.jpg",
+      "images": [
+        "assets/img/productos/balanceadora-de-ruedas-para-camion-y-pesados-u850-150-kilos-trivium-pro.jpg"
+      ]
+    }
+  ]
+}

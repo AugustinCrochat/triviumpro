@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="tv-root" content="">
+<title>Categoría — Trivium Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<section class="cat-hero">
+  <div class="container">
+    <div class="breadcrumbs" id="crumbs"></div>
+    <h1 id="cat-title">—</h1>
+    <div class="sub">
+      <span class="chip" id="cat-tag">—</span>
+      <span class="mono muted" id="cat-count">—</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container cat-layout">
+    <aside class="sidebar">
+      <h4>Categorías</h4>
+      <ul id="cat-list"></ul>
+      <h4>Marcas</h4>
+      <ul id="brand-list"></ul>
+    </aside>
+    <div>
+      <div class="results-head">
+        <span class="count" id="count">—</span>
+        <span class="mono muted">Ordenar: recomendados</span>
+      </div>
+      <div class="prod-grid" id="grid"></div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/js/site.js"></script>
+<script>
+mountChrome('catalogo');
+(async () => {
+  await loadCatalog();
+  const catSlug = getQuery('c');
+  const brandSlug = getQuery('b');
+  let results = [];
+  let title = '', sub = '', crumb = '';
+
+  if (catSlug) {
+    const cat = categoryById(catSlug);
+    const subs = CATALOG.categories.filter(c => c.parent === catSlug).map(c => c.slug);
+    results = CATALOG.products.filter(p => p.category === catSlug || subs.includes(p.category));
+    title = cat.name; sub = cat.tagline || ''; crumb = cat.name;
+    document.title = `${cat.name} — Trivium Center`;
+  } else if (brandSlug) {
+    const br = brandById(brandSlug);
+    results = CATALOG.products.filter(p => p.brand === brandSlug);
+    title = br.name; sub = br.note || ''; crumb = br.name;
+    document.title = `${br.name} — Trivium Center`;
+  }
+
+  document.getElementById('cat-title').innerHTML = title.replace(/(\S+)$/, '<span style="color:var(--accent)">$1</span>');
+  document.getElementById('cat-tag').textContent = sub || 'Trivium';
+  document.getElementById('cat-count').textContent = `${results.length} productos`;
+  document.getElementById('count').textContent = `${results.length} resultados`;
+  document.getElementById('crumbs').innerHTML = `<a href="index.html">Inicio</a><span>/</span><a href="catalogo.html">Catálogo</a><span>/</span>${crumb}`;
+
+  // Sidebar
+  const topCats = CATALOG.categories.filter(c => !c.parent);
+  document.getElementById('cat-list').innerHTML = topCats.map(c => {
+    const subs = CATALOG.categories.filter(s => s.parent === c.slug).map(s => s.slug);
+    const count = CATALOG.products.filter(p => p.category === c.slug || subs.includes(p.category)).length;
+    const active = c.slug === catSlug ? 'active' : '';
+    return `<li><a class="${active}" href="categoria.html?c=${c.slug}">${c.name}<b>${count}</b></a></li>`;
+  }).join('');
+
+  document.getElementById('brand-list').innerHTML = CATALOG.brands.map(b => {
+    const count = CATALOG.products.filter(p => p.brand === b.slug).length;
+    const active = b.slug === brandSlug ? 'active' : '';
+    return `<li><a class="${active}" href="categoria.html?b=${b.slug}">${b.name}<b>${count}</b></a></li>`;
+  }).join('');
+
+  renderGrid('#grid', results);
+})();
+</script>
+</body>
+</html>

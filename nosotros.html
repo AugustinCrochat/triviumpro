@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="tv-root" content="">
+<title>Nosotros — Trivium Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  .about {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start;
+  }
+  .about .big {
+    font-family: var(--display); text-transform: uppercase;
+    font-size: clamp(2rem, 3.6vw, 3rem); line-height: .98;
+  }
+  .values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); margin-top: 40px; }
+  .values .v { background: var(--bg-2); padding: 28px; }
+  .values .v b { font-family: var(--display); font-size: 1.2rem; text-transform: uppercase; display:block; margin-bottom: 8px; }
+  .values .v p { margin: 0; color: var(--text-dim); font-size: .95rem; }
+  @media (max-width:900px){ .about { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<section class="cat-hero">
+  <div class="container">
+    <div class="breadcrumbs"><a href="index.html">Inicio</a><span>/</span> Nosotros</div>
+    <h1>Somos<br><span style="color:var(--accent)">Trivium Center.</span></h1>
+    <p style="color:var(--text-dim);margin-top:14px;max-width:60ch;">Importadores y distribuidores de equipamiento profesional para talleres y concesionarias en Argentina.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container about">
+    <div>
+      <span class="eyebrow">Nuestra historia</span>
+      <p class="big" style="margin: 16px 0 20px">Desde el primer tornillo hasta la puesta en marcha del elevador, somos <span style="color:var(--accent)">el socio técnico</span> de tu taller.</p>
+      <p>Representamos a las marcas más exigentes del mundo (Rotary Lift, Hofmann, Direct Lift, Forward Lift, Prevost) y desarrollamos nuestra propia línea <b>Trivium Pro</b> para ofrecer equipos de excelente relación precio-calidad, todos con respaldo local.</p>
+      <p>Trabajamos con talleres mecánicos, concesionarias oficiales, gomerías, servicios de pesados, flotas corporativas y VTV en todo el país.</p>
+      <div class="values">
+        <div class="v"><b>Calidad</b><p>Solo marcas con trayectoria mundial y estándares industriales comprobados.</p></div>
+        <div class="v"><b>Servicio</b><p>Instalación, calibración, capacitación y posventa con equipo técnico propio.</p></div>
+        <div class="v"><b>Respaldo</b><p>Repuestos originales en stock y soporte rápido en todo el territorio.</p></div>
+        <div class="v"><b>Innovación</b><p>Atentos a las últimas tecnologías de elevación, alineación y servicio.</p></div>
+      </div>
+    </div>
+    <aside>
+      <div class="hero-card" style="aspect-ratio: 4/5">
+        <div class="ph">Foto / Equipo Trivium</div>
+        <div class="meta">
+          <div>
+            <span class="mono" style="color:var(--text-mute);letter-spacing:.18em;">EST. — AR</span>
+            <h3>Trivium<br>Center</h3>
+          </div>
+        </div>
+      </div>
+      <div class="brands" style="margin-top:20px;grid-template-columns:repeat(2,1fr)">
+        <div class="cell"><b>+15</b><span>Años de experiencia</span></div>
+        <div class="cell"><b>+500</b><span>Talleres equipados</span></div>
+        <div class="cell"><b>6</b><span>Marcas oficiales</span></div>
+        <div class="cell" style="background:var(--accent);color:#fff"><b>24/7</b><span style="color:rgba(255,255,255,.75)">Soporte técnico</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/js/site.js"></script>
+<script>mountChrome('nosotros');</script>
+</body>
+</html>
