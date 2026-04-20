@@ -111,7 +111,15 @@ mountChrome('catalogo');
     descEl.className = 'rich-html';
     descEl.style.gridColumn = '1 / -1';
     descEl.style.marginTop = '20px';
-    descEl.innerHTML = p.html_description;
+    
+    // Fix relative paths in WooCommerce HTML
+    let html = p.html_description;
+    const root = rootPath();
+    if (root) {
+      html = html.replace(/href="assets\//g, `href="${root}assets/`);
+      html = html.replace(/src="assets\//g, `src="${root}assets/`);
+    }
+    descEl.innerHTML = html;
     wrap.appendChild(descEl);
   }
 
