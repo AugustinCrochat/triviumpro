@@ -53,7 +53,7 @@ function renderHeader(active) {
     },
     { href: `${root}marcas/`, label: 'Marcas', key: 'marcas' },
     { href: `${root}instalacion-posventa-y-servicios/`, label: 'Servicios', key: 'servicios' },
-    { href: `${root}blog.html`, label: 'Blog', key: 'blog' },
+    { href: `${root}blog/`, label: 'Blog', key: 'blog' },
     { href: `${root}nosotros/`, label: 'Nosotros', key: 'nosotros' },
     { href: `${root}contacto/`, label: 'Contacto', key: 'contacto' }
   ];
@@ -251,10 +251,19 @@ function getQuery(name) {
   const params = new URLSearchParams(location.search);
   if (params.has(name)) return params.get(name);
   
-  // Try to infer from path: /producto/slug/ or /categoria/slug/
+  // Try to infer from path
   const path = location.pathname;
-  if (name === 'id' && path.includes('/producto/')) {
-    return path.split('/producto/')[1].split('/')[0];
+  if (name === 'id') {
+    if (path.includes('/producto/')) {
+      return path.split('/producto/')[1].split('/')[0];
+    }
+    // Generic fallback for blog posts at root /slug/
+    const parts = path.split('/').filter(Boolean);
+    if (parts.length === 1 && !['catalogo','marcas','servicios','nosotros','contacto'].includes(parts[0])) {
+      return parts[0];
+    }
+    // If it's the last part of the path and we are looking for id (used by blog)
+    if (parts.length > 0) return parts[parts.length - 1];
   }
   if (name === 'c' && path.includes('/categoria/')) {
     return path.split('/categoria/')[1].split('/')[0];
@@ -281,7 +290,7 @@ async function loadBlog() {
   });
 }
 
-function blogUrl(post) { return `${rootPath()}${post.slug}/`; }
+function blogUrl(post) { return `${rootPath()}blog/${post.slug}/`; }
 
 function blogCard(p) {
   const date = new Date(p.date).toLocaleDateString('es-AR', { day: '2-digit', month: 'long', year: 'numeric' });
