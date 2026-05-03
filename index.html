@@ -229,15 +229,6 @@
     const featured = [...top, ...rest].slice(0, 8);
     renderGrid('#featured-grid', featured);
   })();
-
-  // Clients marquee — improved for mobile and image loading
-  (function() {
-    var track = document.querySelector('.clients-track');
-    if (!track) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    
-    var pos = 0;
-    var speed = 0.6;
   // Clients marquee handled by CSS animation for better performance
 </script>
 </body>
