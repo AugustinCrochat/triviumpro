@@ -51,10 +51,7 @@ function renderHeader(active) {
         ['Balanceadoras', 'categoria/balanceadoras/'],
         ['Desarmadoras', 'categoria/desarmadoras/'],
         ['Herramientas Neumáticas', 'categoria/herramientas-neumaticas/'],
-        ['Lubricación', 'categoria/lubricacion/'],
-        ['Muebles de Taller', 'categoria/muebles-taller/'],
-        ['Aire Comprimido Prevost', 'categoria/aire-comprimido/'],
-        ['Alineación de Faros', 'categoria/alineacion-faros/']
+        ['Muebles de Taller', 'categoria/muebles-taller/']
       ]
     },
     { href: `${root}marcas/`, label: 'Marcas', key: 'marcas' },
@@ -63,8 +60,14 @@ function renderHeader(active) {
     { href: `${root}nosotros/`, label: 'Nosotros', key: 'nosotros' },
     { href: `${root}contacto/`, label: 'Contacto', key: 'contacto' }
   ];
-  const subHtml = (items) =>
-    `<div class="submenu">${items.map(([t, h]) => `<a href="${root}${h}">${t}</a>`).join('')}</div>`;
+  const subHtml = (items) => {
+    const primary = items.slice(0, 4);
+    const secondary = items.slice(4);
+    const primaryHtml = primary.map(([t, h]) => `<a href="${root}${h}" class="submenu-primary"><strong>${t}</strong></a>`).join('');
+    const sepHtml = secondary.length ? `<div class="submenu-sep"></div>` : '';
+    const secondaryHtml = secondary.map(([t, h]) => `<a href="${root}${h}">${t}</a>`).join('');
+    return `<div class="submenu">${primaryHtml}${sepHtml}${secondaryHtml}</div>`;
+  };
   const links = main.map(l =>
     `<li class="${l.sub ? 'has-menu' : ''}">
        <a href="${l.href}" class="${active===l.key?'active':''}">${l.label}</a>
@@ -138,8 +141,7 @@ function renderFooter() {
               <li><a href="${root}categoria/alineadoras/">Alineadoras</a></li>
               <li><a href="${root}categoria/balanceadoras/">Balanceadoras</a></li>
               <li><a href="${root}categoria/desarmadoras/">Desarmadoras</a></li>
-              <li><a href="${root}categoria/lubricacion/">Lubricación</a></li>
-              <li><a href="${root}categoria/aire-comprimido/">Aire Comprimido</a></li>
+              <li><a href="${root}categoria/muebles-taller/">Muebles de Taller</a></li>
             </ul>
           </div>
           <div>
