@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="68.035728mm"
+   width="68.035706mm"
    height="68.035721mm"
-   viewBox="0 0 68.035728 68.035721"
+   viewBox="0 0 68.035706 68.035721"
    version="1.1"
    id="svg966"
    inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
@@ -44,29 +44,19 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-19.181271,-73.514906)"><rect
-       ry="0"
-       inkscape:export-ydpi="403.19995"
-       inkscape:export-xdpi="403.19995"
-       inkscape:export-filename="../../../Downloads/icono trivium.png"
-       style="opacity:1;fill:#1c1c1c;fill-opacity:1;stroke:none;stroke-width:0.671667;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
-       id="rect10981"
-       width="68.035728"
-       height="68.035728"
-       x="19.181271"
-       y="73.514908" /><text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:41.5959px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff1e00;fill-opacity:1;stroke:none;stroke-width:1.0399"
-       x="23.496685"
-       y="121.82097"
-       id="text10987"
-       inkscape:export-filename="C:\Users\augus\Downloads\icono cuadrado.png"
-       inkscape:export-xdpi="403.19986"
-       inkscape:export-ydpi="403.19986"><tspan
-         sodipodi:role="line"
-         id="tspan10985"
-         x="23.496685"
-         y="121.82097"
-         style="font-style:italic;font-variant:normal;font-weight:800;font-stretch:normal;font-family:Metropolis;-inkscape-font-specification:'Metropolis Ultra-Bold Italic';fill:#ff1e00;fill-opacity:1;stroke-width:1.0399">T<tspan
-   id="tspan10983"
-   style="fill:#ffffff;fill-opacity:1;stroke-width:1.0399">C</tspan></tspan></text></g></svg>
+     transform="translate(-459.13124,-67.777266)"><path
+       id="rect676"
+       style="opacity:1;fill:#1c1c1c;stroke-width:0.671667;stroke-linecap:round"
+       d="m 459.13123,67.777267 h 68.03572 V 135.813 h -68.03572 z"
+       inkscape:export-filename="../../../Downloads/icono.svg"
+       inkscape:export-xdpi="626.56519"
+       inkscape:export-ydpi="626.56519" /><g
+       aria-label="TC"
+       id="text682"
+       style="font-size:41.5959px;line-height:1.25;letter-spacing:0px;word-spacing:0px;fill:#ff1e00;stroke-width:1.0399"><path
+         d="m 471.01711,116.08333 h 7.1129 l 4.61714,-22.212213 h 8.69355 l 1.28947,-6.364173 h -24.45839 l -1.28947,6.364173 h 8.65194 z"
+         style="font-style:italic;font-weight:800;font-family:Metropolis;-inkscape-font-specification:'Metropolis Ultra-Bold Italic'"
+         id="path684" /><path
+         d="m 505.12576,116.58248 c 4.0348,0 8.98471,-1.95501 12.146,-4.70034 l -4.49236,-5.0331 c -1.87181,1.95501 -4.82512,3.28607 -7.02971,3.28607 -3.20288,0 -6.23938,-2.53735 -6.23938,-6.44736 0,-5.28268 4.94991,-10.232592 10.31578,-10.232592 2.45416,0 4.45076,1.206281 5.49066,2.828521 l 5.82343,-4.201186 c -2.24618,-2.911713 -6.28098,-5.0747 -10.89813,-5.0747 -9.35908,0 -17.92783,7.944817 -17.92783,16.846337 0,7.1129 5.86502,12.72835 12.81154,12.72835 z"
+         style="fill:#ffffff"
+         id="path686" /></g></g></svg>
