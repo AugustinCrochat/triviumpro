@@ -71,29 +71,17 @@ function renderHeader(active) {
        ${l.sub ? subHtml(l.sub) : ''}
      </li>`).join('');
 
-  const topbar = `
-    <div class="topbar">
-      <div class="container row">
-        <div><span class="muted">★ Distribuidores oficiales</span> <span class="sep">/</span> <span>Rotary · Hofmann · Direct Lift · Forward · Prevost</span></div>
-        <div class="hide-sm">
-          <a href="mailto:${TRIVIUM.email}">${TRIVIUM.email}</a>
-          <span class="sep">/</span>
-          <a href="${waLink()}">${TRIVIUM.whatsappDisplay}</a>
-        </div>
-      </div>
-    </div>`;
-
   const header = `
-    <header class="header">
+    <header class="header" id="main-header">
       <div class="container nav">
         <button class="btn-burger" aria-label="Menú" onclick="toggleMobileNav()">${ICONS.menu}</button>
         <a class="brand" href="${root}" aria-label="Trivium Center">
-          <img src="${root}assets/img/logo-trivium.svg" alt="Trivium Center" height="36" style="display:block;width:auto">
+          <img src="${root}assets/img/logo-trivium.svg" alt="Trivium Center" class="logo-img">
         </a>
         <ul class="nav-links">${links}</ul>
         <div class="nav-cta">
           <a class="btn btn--ghost btn--sm hide-sm" href="${root}contacto/">Pedir cotización</a>
-          <a class="btn btn--primary btn--sm" href="${waLink('Hola, quiero hacer una consulta.')}">${ICONS.wa}<span class="nav-wa-text"> WhatsApp</span></a>
+          <a class="btn btn--primary btn--sm btn--wa-red" href="${waLink('Hola, quiero hacer una consulta.')}">${ICONS.wa}<span class="nav-wa-text"> WhatsApp</span></a>
         </div>
       </div>
     </header>
@@ -113,8 +101,19 @@ function renderHeader(active) {
       </div>
     </div>`;
 
-  return topbar + header;
+  return header;
 }
+
+// Add scroll listener for header shrinking
+window.addEventListener('scroll', () => {
+  const header = document.getElementById('main-header');
+  if (!header) return;
+  if (window.scrollY > 20) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
 
 function toggleMobileNav() {
   document.getElementById('mobileNav').classList.toggle('open');
