@@ -432,14 +432,31 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 .clients-carousel {
   overflow: hidden;
   padding: 8px 0 4px;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  position: relative;
+}
+.clients-carousel::before,
+.clients-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 1;
+  pointer-events: none;
+}
+.clients-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-2), transparent);
+}
+.clients-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-2), transparent);
 }
 .clients-track {
   display: flex;
   align-items: center;
   gap: 24px;
   width: max-content;
+  will-change: transform;
   animation: clients-scroll 28s linear infinite;
 }
 @media (prefers-reduced-motion: reduce) { .clients-track { animation: none; } }
@@ -462,8 +479,8 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   .clients-track { gap: 16px; }
 }
 @keyframes clients-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
 }
 
 /* ---------- Services block ---------- */
