@@ -577,7 +577,8 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 40px;
-  padding: 36px 0 72px;
+  padding-top: 36px;
+  padding-bottom: 72px;
 }
 .sidebar h4 {
   font-size: .72rem;
@@ -615,7 +616,8 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 
 /* ---------- Product detail ---------- */
 .pd-wrap {
-  padding: 36px 0 72px;
+  padding-top: 36px;
+  padding-bottom: 72px;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 48px;
