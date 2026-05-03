@@ -98,6 +98,8 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
   transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
 }
 .header.scrolled {
   box-shadow: 0 1px 3px rgba(0,0,0,.05);
@@ -194,6 +196,8 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   background: var(--bg);
   border-bottom: 1px solid var(--line);
   height: 52px;
+  position: relative;
+  z-index: 1;
 }
 .brand-bar__inner {
   display: flex;
@@ -216,11 +220,11 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   height: 22px;
   width: auto;
   display: block;
-  filter: grayscale(1) opacity(.55);
-  transition: filter .2s;
+  transition: opacity .2s;
   object-fit: contain;
+  opacity: .8;
 }
-.brand-bar__item:hover img { filter: none; }
+.brand-bar__item:hover img { opacity: 1; }
 @media (max-width: 600px) {
   .brand-bar__item { padding: 4px 8px; }
   .brand-bar__item img { height: 18px; }
@@ -504,18 +508,18 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 .prod-card .brand-tag--logo {
   display: block;
   margin-bottom: 5px;
-  height: 13px;
+  height: 11px;
 }
 .prod-card .brand-tag--logo img {
-  height: 13px;
-  max-width: 80px;
+  height: 11px;
+  max-width: 64px;
   width: auto;
   display: block;
-  filter: grayscale(1) opacity(.35);
+  filter: grayscale(1) opacity(.3);
   transition: filter .2s;
   object-fit: contain;
 }
-.prod-card:hover .brand-tag--logo img { filter: grayscale(1) opacity(.6); }
+.prod-card:hover .brand-tag--logo img { filter: grayscale(1) opacity(.55); }
 
 
 .prod-card h3 {
