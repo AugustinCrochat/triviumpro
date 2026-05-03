@@ -86,9 +86,8 @@ function renderHeader(active) {
   const header = `
     <header class="header">
       <div class="container nav">
-        <a class="brand" href="${root}">
-          <span class="mark">T</span>
-          <span>Trivium<br><small>CENTER / AR</small></span>
+        <a class="brand" href="${root}" aria-label="Trivium Center">
+          <img src="${root}assets/img/logo-trivium.svg" alt="Trivium Center" height="36" style="display:block;width:auto">
         </a>
         <ul class="nav-links">${links}</ul>
         <div class="nav-cta">
@@ -128,9 +127,8 @@ function renderFooter() {
       <div class="container">
         <div class="grid">
           <div>
-            <div class="brand">
-              <span class="mark" style="display:inline-grid;place-items:center;width:36px;height:36px;background:var(--accent);font-family:var(--display);vertical-align:middle;margin-right:10px;">T</span>
-              <span style="font-family:var(--display);font-size:1.25rem;text-transform:uppercase;vertical-align:middle;">Trivium Center</span>
+            <div class="brand" style="margin-bottom:12px">
+              <img src="${root}assets/img/logo-trivium.svg" alt="Trivium Center" height="32" style="display:block;width:auto">
             </div>
             <p class="tagline">Soluciones para talleres y concesionarias. Importadores y distribuidores de equipamiento profesional en Argentina.</p>
             <p class="mono" style="font-size:.72rem;color:var(--text-mute);letter-spacing:.18em;text-transform:uppercase;margin-top:14px;">EST. — Buenos Aires, AR</p>
