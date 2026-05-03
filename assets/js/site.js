@@ -41,6 +41,29 @@ function waLink(message) {
   return base + '?text=' + encodeURIComponent(message);
 }
 
+// Brand logos map (slug → image path relative to root)
+const BRAND_LOGOS = {
+  'rotary-lift':  'assets/img/marcas/logo-rotary-lift.svg',
+  'hofmann':      'assets/img/marcas/logo-hofmann.svg',
+  'direct-lift':  'assets/img/marcas/logo-direct-lift.svg',
+  'forward-lift': 'assets/img/marcas/logo-forward-lift.svg',
+  'trivium-pro':  'assets/img/marcas/logo-trivium-pro.svg',
+};
+
+const MAIN_BRANDS = ['rotary-lift', 'hofmann', 'direct-lift', 'forward-lift', 'trivium-pro'];
+
+function renderBrandBar() {
+  const root = rootPath();
+  const items = MAIN_BRANDS.map(slug => {
+    const logo = BRAND_LOGOS[slug];
+    const name = { 'rotary-lift': 'Rotary Lift', 'hofmann': 'Hofmann', 'direct-lift': 'Direct Lift', 'forward-lift': 'Forward Lift', 'trivium-pro': 'Trivium Pro' }[slug];
+    return `<a class="brand-bar__item" href="${root}marca/${slug}/" aria-label="${name}">
+      <img src="${root}${logo}" alt="${name}" loading="lazy">
+    </a>`;
+  }).join('');
+  return `<div class="brand-bar" id="brand-bar"><div class="container brand-bar__inner">${items}</div></div>`;
+}
+
 function renderHeader(active) {
   const root = rootPath();
   const main = [
@@ -176,7 +199,7 @@ function renderFooter() {
 function mountChrome(active) {
   const h = document.getElementById('site-header');
   const f = document.getElementById('site-footer');
-  if (h) h.innerHTML = renderHeader(active);
+  if (h) h.innerHTML = renderHeader(active) + renderBrandBar();
   if (f) f.innerHTML = renderFooter();
 }
 
@@ -201,7 +224,9 @@ function categoryUrl(slug) { return `${rootPath()}categoria/${encodeURIComponent
 function brandUrl(slug) { return `${rootPath()}marca/${encodeURIComponent(slug)}/`; }
 
 function brandById(slug) {
-  return CATALOG.brands.find(b => b.slug === slug) || { name: '—', note: '' };
+  const b = CATALOG.brands.find(b => b.slug === slug) || { name: '—', note: '', slug: '' };
+  b.logo = BRAND_LOGOS[slug] || null;
+  return b;
 }
 function categoryById(slug) {
   return CATALOG.categories.find(c => c.slug === slug) || { name: '—' };
@@ -247,6 +272,9 @@ function productCard(p) {
       </div>`;
   }
 
+  const brandTag = brand.logo
+    ? `<a class="brand-tag brand-tag--logo" href="${rootPath()}marca/${brand.slug}/"><img src="${rootPath()}${brand.logo}" alt="${brand.name}"></a>`
+    : `<span class="brand-tag">${brand.name}</span>`;
   return `
     <a class="prod-card" href="${productUrl(p)}">
       <div class="thumb">
@@ -254,7 +282,7 @@ function productCard(p) {
         ${img}
       </div>
       <div class="body">
-        <span class="brand-tag">${brand.name}</span>
+        ${brandTag}
         <h3>${p.name}</h3>
         ${specHtml}
       </div>

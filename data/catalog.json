@@ -73,11 +73,6 @@
     {
       "slug": "alineacion-faros",
       "name": "Alineación de Faros"
-    },
-    {
-      "slug": "aire-comprimido",
-      "name": "Sistema Prevost",
-      "tagline": "Aire comprimido modular"
     }
   ],
   "brands": [
@@ -89,7 +84,7 @@
     {
       "slug": "hofmann",
       "name": "Hofmann",
-      "note": "Snap-on — Alineación"
+      "note": "Snap-On USA/Italia — Alineación"
     },
     {
       "slug": "direct-lift",
@@ -100,11 +95,6 @@
       "slug": "forward-lift",
       "name": "Forward Lift",
       "note": "USA — Elevación"
-    },
-    {
-      "slug": "prevost",
-      "name": "Prevost",
-      "note": "France — Aire comprimido"
     },
     {
       "slug": "trivium-pro",

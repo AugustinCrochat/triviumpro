@@ -78,7 +78,9 @@ mountChrome('catalogo');
     </div>
     <div class="pd-info">
       <div class="brand-line">
-        <span class="chip chip--accent">${brand.name}</span>
+        ${brand.logo
+          ? `<a class="brand-chip" href="${rootPath()}marca/${brand.slug}/" title="${brand.name}"><img src="${rootPath()}${brand.logo}" alt="${brand.name}"></a>`
+          : `<span class="chip chip--accent">${brand.name}</span>`}
         ${ribbons}
       </div>
       <h1>${p.name}</h1>
@@ -96,7 +98,7 @@ mountChrome('catalogo');
           `<div class="row"><span>Rango de sujeción</span><b>${p.clamping_range || '—'}</b></div>
            <div class="row"><span>Peso de la máquina</span><b>${p.capacity || '—'}</b></div>`
         : ''}
-        <div class="row"><span>Marca</span><b>${brand.name}</b></div>
+        <div class="row"><span>Marca</span><b><a href="${rootPath()}marca/${brand.slug}/" style="color:var(--text);text-decoration:underline;text-underline-offset:3px">${brand.name}</a></b></div>
         <div class="row"><span>Categoría</span><b>${cat.name}</b></div>
       </div>
 

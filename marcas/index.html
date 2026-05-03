@@ -30,6 +30,17 @@
     text-align: center;
     letter-spacing: -.01em;
   }
+  .brand-logo--img {
+    background: var(--bg-2);
+    padding: 24px;
+  }
+  .brand-logo--img img {
+    width: 100%;
+    height: auto;
+    max-height: 100px;
+    object-fit: contain;
+    display: block;
+  }
   .brand-card h2 { font-family: var(--display); text-transform: uppercase; font-size: 2rem; margin-bottom: 8px; }
   .brand-card .origin { font-family: var(--mono); font-size: .72rem; color: var(--accent); letter-spacing:.2em; text-transform: uppercase; }
   @media (max-width: 700px) { .brand-card { grid-template-columns: 1fr; } }
@@ -56,22 +67,26 @@
 mountChrome('marcas');
 const BRAND_INFO = {
   'rotary-lift':  { origin: 'USA · Madison, IN', desc: 'Líder mundial en elevadores hidráulicos desde 1925. Estándar de calidad de la industria automotriz. Somos distribuidores oficiales en Argentina.' },
-  'hofmann':      { origin: 'Germany / Snap-on', desc: 'Hofmann es la marca premium de Snap-on para alineadoras 3D, balanceadoras y soluciones para servicio de neumáticos. Tecnología y precisión alemana.' },
+  'hofmann':      { origin: 'Snap-On USA/Italia', desc: 'Hofmann es la marca premium de Snap-on para alineadoras 3D, balanceadoras y soluciones para servicio de neumáticos. Tecnología y precisión de primer nivel.' },
   'direct-lift':  { origin: 'USA · Kentucky', desc: 'Elevadores tijera y portátiles para talleres y garajes. Enfocados en diseños compactos con instalación simplificada.' },
   'forward-lift': { origin: 'USA · Indiana', desc: 'Especialistas en elevadores para camiones, buses y vehículos pesados. Soluciones móviles y fijas de gran capacidad.' },
-  'prevost':      { origin: 'France', desc: 'Sistemas modulares de aire comprimido con tuberías de aluminio, conectores rápidos y accesorios profesionales. Instalación limpia y sin fugas.' },
-  'trivium-pro':  { origin: 'Marca propia · China', desc: 'Nuestra línea propia de equipos importados de China, seleccionados y validados por Trivium. Excelente relación precio-calidad con respaldo local de posventa y repuestos.' }
+  'trivium-pro':  { origin: 'Marca propia · Argentina', desc: 'Nuestra línea propia de equipos seleccionados y validados por Trivium. Excelente relación precio-calidad con respaldo local de posventa y repuestos.' }
 };
 
 (async () => {
   await loadCatalog();
   const list = document.getElementById('brand-detail-list');
+  const root = '../';
   list.innerHTML = CATALOG.brands.map(b => {
     const info = BRAND_INFO[b.slug] || { origin: b.note, desc: '' };
+    const logo = BRAND_LOGOS[b.slug];
     const count = CATALOG.products.filter(p => p.brand === b.slug).length;
+    const logoHtml = logo
+      ? `<div class="brand-logo brand-logo--img"><img src="${root}${logo}" alt="${b.name}"></div>`
+      : `<div class="brand-logo">${b.name}</div>`;
     return `
       <div class="brand-card">
-        <div class="brand-logo">${b.name}</div>
+        ${logoHtml}
         <div>
           <span class="origin">${info.origin}</span>
           <h2>${b.name}</h2>
