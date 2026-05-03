@@ -110,7 +110,7 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   transition: height .3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header.scrolled .nav {
-  height: 60px;
+  height: 52px;
 }
 .logo-img {
   height: 40px;
@@ -295,10 +295,6 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   text-transform: uppercase; letter-spacing: .08em;
   margin-top: 6px; display: block;
   line-height: 1.2;
-}
-.hero .stats img.stat-icon {
-  height: 42px; width: auto; display: block; margin-bottom: 2px;
-  filter: invert(15%) sepia(100%) saturate(6000%) hue-rotate(10deg) brightness(90%) contrast(110%);
 }
 .hero-card {
   position: relative;
