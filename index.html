@@ -29,14 +29,12 @@
         <a class="btn btn--primary btn--lg" href="catalogo/">Ver catálogo completo</a>
       </div>
       <div class="stats" style="max-width:800px; margin:32px auto 0;">
-        <div><b>15+</b><span>Años en el mercado</span></div>
+        <div><b>15+</b><span>Años en el<br>mercado</span></div>
         <div>
-          <b style="display:flex; align-items:center; justify-content:center; gap:8px;">
-            <svg viewBox="0 0 100 150" fill="var(--accent)" style="width:24px;height:36px"><path d="M45,5 L48,8 L50,15 L48,22 L45,28 L40,32 L38,38 L35,45 L32,52 L35,60 L38,68 L42,75 L40,82 L35,88 L32,95 L30,105 L28,115 L25,125 L28,132 L35,138 L45,142 L55,145 L65,142 L75,135 L82,125 L85,115 L82,105 L78,98 L75,90 L78,82 L82,75 L85,65 L82,55 L78,48 L75,40 L78,32 L82,25 L85,15 L82,8 L78,5 L70,2 L60,0 L50,2 L45,5 Z"/></svg>
-          </b>
-          <span>Soporte nacional</span>
+          <img src="assets/img/soporte-nacional.svg" alt="Argentina" class="stat-icon">
+          <span>Soporte<br>Nacional</span>
         </div>
-        <div><b>1 Año</b><span>Garantía de 1 año</span></div>
+        <div><b>1 Año</b><span>Garantía<br>Oficial</span></div>
       </div>
     </div>
   </div>
@@ -240,34 +238,7 @@
     
     var pos = 0;
     var speed = 0.6;
-    var half = 0;
-    
-    function measure() { 
-      half = track.scrollWidth / 2; 
-    }
-    
-    function tick() {
-      pos += speed;
-      if (pos >= half) pos -= half;
-      track.style.transform = 'translate3d(-' + pos + 'px, 0, 0)';
-      requestAnimationFrame(tick);
-    }
-    
-    // Wait for images to be loaded or at least layout ready
-    window.addEventListener('load', function() {
-      measure();
-      requestAnimationFrame(tick);
-    });
-    
-    // Also re-measure on resize for mobile orientation changes
-    window.addEventListener('resize', measure);
-    
-    // Fallback if load event already fired
-    if (document.readyState === 'complete') {
-      measure();
-      requestAnimationFrame(tick);
-    }
-  })();
+  // Clients marquee handled by CSS animation for better performance
 </script>
 </body>
 </html>

@@ -89,7 +89,9 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 /* ---------- Top bar removed ---------- */
 
 .header {
-  position: sticky; top: 0; z-index: 100;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   background: rgba(255,255,255,.98);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
@@ -271,21 +273,30 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 .hero .stats {
   display: grid; grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--line);
-  margin-top: 32px; padding-top: 20px;
+  margin-top: 32px; padding-top: 24px;
+  gap: 16px;
+}
+.hero .stats > div {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
 }
 .hero .stats b {
   display: block;
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--text);
-  line-height: 1;
+  line-height: 1.1;
 }
 .hero .stats span {
-  font-size: .7rem;
-  font-weight: 500;
+  font-size: .72rem;
+  font-weight: 600;
   color: var(--text-mute);
-  text-transform: uppercase; letter-spacing: .1em;
-  margin-top: 4px; display: block;
+  text-transform: uppercase; letter-spacing: .08em;
+  margin-top: 6px; display: block;
+  line-height: 1.2;
+}
+.hero .stats img.stat-icon {
+  height: 42px; width: auto; display: block; margin-bottom: 2px;
+  filter: invert(15%) sepia(100%) saturate(6000%) hue-rotate(10deg) brightness(90%) contrast(110%);
 }
 .hero-card {
   position: relative;
@@ -467,8 +478,18 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 .clients-track {
   display: inline-flex;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
+  width: max-content;
+  animation: marquee 40s linear infinite;
   will-change: transform;
+}
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+/* Pause on hover only on desktop */
+@media (hover: hover) {
+  .clients-carousel:hover .clients-track { animation-play-state: paused; }
 }
 .logo-wrap {
   width: 120px;
@@ -537,7 +558,6 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 .cta-banner .btn--dark { background: rgba(255,255,255,.1); color: #fff; border-color: rgba(255,255,255,.2); }
 .cta-banner .btn--dark:hover { background: rgba(255,255,255,.18); }
 @media (max-width: 800px) { .cta-banner .inner { grid-template-columns: 1fr; } }
-
 /* ---------- Category page header ---------- */
 .cat-hero {
   padding: 56px 0 36px;
