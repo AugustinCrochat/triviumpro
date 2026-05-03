@@ -433,8 +433,6 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   overflow: hidden;
   padding: 8px 0 4px;
   position: relative;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
 }
 .clients-carousel::before,
 .clients-carousel::after {
@@ -457,20 +455,13 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   display: inline-flex;
   align-items: center;
   gap: 24px;
-  -webkit-animation: clients-scroll 28s linear infinite;
-  animation: clients-scroll 28s linear infinite;
-}
-@media (prefers-reduced-motion: reduce) {
-  .clients-track { -webkit-animation: none; animation: none; }
+  will-change: transform;
 }
 .logo-wrap {
   width: 120px;
   height: 56px;
-  display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center;
   align-items: center;
-  -webkit-justify-content: center;
   justify-content: center;
   flex-shrink: 0;
 }
@@ -483,14 +474,6 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 @media (max-width: 600px) {
   .logo-wrap { width: 90px; height: 42px; }
   .clients-track { gap: 16px; }
-}
-@-webkit-keyframes clients-scroll {
-  from { -webkit-transform: translate3d(0, 0, 0); }
-  to   { -webkit-transform: translate3d(-50%, 0, 0); }
-}
-@keyframes clients-scroll {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
 }
 
 /* ---------- Services block ---------- */

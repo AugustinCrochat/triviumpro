@@ -245,6 +245,25 @@
     const featured = [...top, ...rest].slice(0, 8);
     renderGrid('#featured-grid', featured);
   })();
+
+  // Clients marquee — rAF-based, works on all mobile browsers
+  (function() {
+    var track = document.querySelector('.clients-track');
+    if (!track) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var pos = 0;
+    var speed = 0.5;
+    var half = 0;
+    function measure() { half = track.scrollWidth / 2; }
+    function tick() {
+      pos += speed;
+      if (pos >= half) pos -= half;
+      track.style.transform = 'translateX(-' + pos + 'px)';
+      requestAnimationFrame(tick);
+    }
+    if (document.readyState === 'complete') { measure(); requestAnimationFrame(tick); }
+    else window.addEventListener('load', function() { measure(); requestAnimationFrame(tick); });
+  })();
 </script>
 </body>
 </html>
