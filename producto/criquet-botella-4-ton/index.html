@@ -86,8 +86,16 @@ mountChrome('catalogo');
       <div class="summary">${p.summary}</div>
 
       <div class="pd-specs">
-        <div class="row"><span>Capacidad</span><b>${p.capacity}</b></div>
-        <div class="row"><span>Altura de elevación</span><b>${p.lift_height}</b></div>
+        ${p.category.includes('elevador') ? 
+          `<div class="row"><span>Capacidad</span><b>${p.capacity || '—'}</b></div>
+           <div class="row"><span>Altura de elevación</span><b>${p.lift_height || '—'}</b></div>` 
+        : p.category.includes('balanceadora') ? 
+          `<div class="row"><span>Diámetro de llanta</span><b>${p.rim_diameter || '—'}</b></div>
+           <div class="row"><span>Precisión de equilibrado</span><b>${p.precision || '—'}</b></div>`
+        : p.category.includes('desarmadora') ?
+          `<div class="row"><span>Rango de sujeción</span><b>${p.clamping_range || '—'}</b></div>
+           <div class="row"><span>Peso de la máquina</span><b>${p.capacity || '—'}</b></div>`
+        : ''}
         <div class="row"><span>Marca</span><b>${brand.name}</b></div>
         <div class="row"><span>Categoría</span><b>${cat.name}</b></div>
       </div>

@@ -328,53 +328,6 @@
       "html_description": "<div class=\"product-page-description\">\n<div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-video\" href=\"https://www.youtube.com/watch?v=zacqufWpWeA\" target=\"_blank\" rel=\"noopener\">Ver Video</a>\n<a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/29-ficha-hofmann-geoliner-320.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a></div>\n<div class=\"product-page-title\">\n<h2>Alineador de Ruedas Hofmann Geoliner 320</h2>\n<span class=\"product-page-brand\">Hofmann</span>\n\n</div>\n<div class=\"product-page-main-description\">\n<p class=\"product-page-highlight\">Alineador 3D compacto y robusto diseñado para proporcionar alineaciones precisas y fáciles, ideal para talleres de todos los tamaños. Incorpora tecnología avanzada de cámaras y un sistema intuitivo de notificaciones para optimizar el proceso.</p>\n\n</div>\n<div class=\"product-page-specs-section\">\n<h3 class=\"product-page-features-title\">Características Principales</h3>\n<ul class=\"product-page-features-list\">\n \t<li>Sistema de notificación \"Compensar, Avisar, Alertar\" que elimina errores antes de que afecten la alineación.</li>\n \t<li>Software de alineación de próxima generación con interfaz adaptable y herramientas de productividad.</li>\n \t<li>Cápsulas de referencia con comunicación inalámbrica para máxima flexibilidad.</li>\n \t<li>Compensación de rodadura rápida para mediciones precisas sin molestias.</li>\n \t<li>Sistema de baterías intercambiables en caliente para evitar tiempos de inactividad.</li>\n \t<li>Diseño compacto y sin cables que ahorra espacio en el taller.</li>\n</ul>\n<h3 class=\"product-page-features-title\">Especificaciones Técnicas</h3>\n<div class=\"product-page-specs-grid\">\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Dimensiones de Trabajo</h4>\n<ul>\n \t<li>Ancho de la vía: 121,9 cm - 243,8 cm (48\" - 96\").</li>\n \t<li>Base de la rueda: 200,7 cm - 457,2 cm (79\" - 180\").</li>\n \t<li>Requisitos de energía: 100 - 230V AC, 50/60Hz, circuito de 15 amperios.</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Accesorios Estándar</h4>\n<ul>\n \t<li>Soporte del volante.</li>\n \t<li>Calzos de rueda.</li>\n \t<li>Depresor del pedal del freno.</li>\n \t<li>Kit de elevación de montaje lateral.</li>\n \t<li>Impresora a color.</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Ventajas Adicionales</h4>\n<ul>\n \t<li>Montaje flexible para trabajar con cualquier tipo de elevador o fosa.</li>\n \t<li>Notificaciones críticas con un solo clic para garantizar precisión en cada alineación.</li>\n \t<li>Reparable en el sitio, con servicio remoto y actualizaciones automáticas.</li>\n \t<li>Pequeña huella que maximiza el espacio disponible en el taller.</li>\n</ul>\n</div>\n</div>\n</div>\n</div>"
     },
     {
-      "sku": "1010076",
-      "slug": "alineadora-de-camion-haweka-axis4000",
-      "name": "Alineadora de Camión Haweka AXIS4000",
-      "category": "alineadoras",
-      "brand": "trivium-pro",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Datos Técnicos: Mediciones de Convergencia: 5 Grados Mediciones de Caster: 10 Grados Mediciones de Camber: 10 Grados Mediciones de KPI: 20 Grados Dirección Máxima: 90 Grados Frecuencia: 433 MHz Número de Canales: 10 Requerimientos de…",
-      "bullets": [
-        "Mediciones de Convergencia: 5 Grados",
-        "Mediciones de Caster: 10 Grados",
-        "Mediciones de Camber: 10 Grados",
-        "Mediciones de KPI: 20 Grados",
-        "Dirección Máxima: 90 Grados",
-        "Frecuencia: 433 MHz"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/alineadora-de-camion-haweka-axis4000.jpg",
-      "images": [
-        "assets/img/productos/alineadora-de-camion-haweka-axis4000.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/46-ficha-alineadora-axis-4000-haweka.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/46-ficha-alineadora-axis-4000-haweka.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010080",
-      "slug": "alineadora-de-camion-haweka-axis500",
-      "name": "Alineadora de Camión Haweka AXIS500",
-      "category": "alineadoras",
-      "brand": "trivium-pro",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Características técnicas: Medición sin elevación requerida. No requiere Kit de Alineación. Se puede utilizar tanto en fosa como en elevador. No requiere mover el vehículo durante el proceso de alineación. Registro de los valores de…",
-      "bullets": [
-        "Medición sin elevación requerida.",
-        "No requiere Kit de Alineación.",
-        "Se puede utilizar tanto en fosa como en elevador.",
-        "No requiere mover el vehículo durante el proceso de alineación.",
-        "Registro de los valores de medición mediante el inclinómetro."
-      ],
-      "badges": [],
-      "image": "assets/img/productos/alineadora-de-camion-haweka-axis500.jpg",
-      "images": [
-        "assets/img/productos/alineadora-de-camion-haweka-axis500.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/44-ficha-alineadora-axis-500-haweka.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/44-ficha-alineadora-axis-500-haweka.pdf\">Descargar PDF</a>."
-    },
-    {
       "sku": "1010097",
       "slug": "balanceadora-de-ruedas-hofmann-geodyna-7100-pantalla-led",
       "name": "Balanceadora de Ruedas Hofmann Geodyna 7100 - Pantalla LED",

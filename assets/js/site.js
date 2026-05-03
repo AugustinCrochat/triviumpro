@@ -218,6 +218,33 @@ function productCard(p) {
     ? `<img src="${rootPath()}${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
        <span style="display:none">Imagen / ${p.sku}</span>`
     : `<span>Imagen / ${p.sku}</span>`;
+  let specHtml = '';
+  if (p.category.includes('elevador')) {
+    specHtml = `
+      <div class="spec">
+        <span>CAP <b>${p.capacity || '—'}</b></span>
+        <span>ALT <b>${p.lift_height || '—'}</b></span>
+      </div>`;
+  } else if (p.category.includes('balanceadora')) {
+    specHtml = `
+      <div class="spec">
+        <span title="Diámetro de llanta">DIA <b>${p.rim_diameter || '—'}</b></span>
+        <span title="Precisión de equilibrado">PRE <b>${p.precision || '—'}</b></span>
+      </div>`;
+  } else if (p.category.includes('desarmadora')) {
+    specHtml = `
+      <div class="spec">
+        <span title="Rango de sujeción">RAN <b>${p.clamping_range || '—'}</b></span>
+        <span title="Peso de la máquina">PES <b>${p.capacity || '—'}</b></span>
+      </div>`;
+  } else {
+    specHtml = `
+      <div class="spec" style="visibility: hidden">
+        <span>— <b>—</b></span>
+        <span>— <b>—</b></span>
+      </div>`;
+  }
+
   return `
     <a class="prod-card" href="${productUrl(p)}">
       <div class="thumb">
@@ -227,10 +254,7 @@ function productCard(p) {
       <div class="body">
         <span class="brand-tag">${brand.name}</span>
         <h3>${p.name}</h3>
-        <div class="spec">
-          <span>CAP <b>${p.capacity}</b></span>
-          <span>ALT <b>${p.lift_height}</b></span>
-        </div>
+        ${specHtml}
       </div>
     </a>`;
 }
