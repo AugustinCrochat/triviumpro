@@ -812,9 +812,12 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 
 /* ---------- Mobile nav ---------- */
 @media (max-width: 980px) {
+  .nav { gap: 0; }
   .nav-links { display: none; }
   .btn-burger { display: inline-flex; }
+  .brand { justify-self: center; }
   .nav-cta .btn--ghost { display: none; }
+  .nav-wa-text { display: none; }
 }
 .mobile-nav {
   display: none;
