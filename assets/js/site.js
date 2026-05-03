@@ -220,24 +220,20 @@ function productCard(p) {
        <span style="display:none">Imagen / ${p.sku}</span>`
     : `<span>Imagen / ${p.sku}</span>`;
   return `
-    <article class="prod-card">
-      <a class="thumb" href="${productUrl(p)}">
+    <a class="prod-card" href="${productUrl(p)}">
+      <div class="thumb">
         <div class="ribbon">${ribbons}</div>
         ${img}
-      </a>
+      </div>
       <div class="body">
         <span class="brand-tag">${brand.name}</span>
-        <h3><a href="${productUrl(p)}" style="color:inherit">${p.name}</a></h3>
+        <h3>${p.name}</h3>
         <div class="spec">
           <span>CAP <b>${p.capacity}</b></span>
           <span>ALT <b>${p.lift_height}</b></span>
         </div>
-        <div class="actions">
-          <a class="btn btn--primary" href="${waLink(msg)}" target="_blank" rel="noopener">${ICONS.wa} Consultar</a>
-          <a class="btn btn--dark" href="${productUrl(p)}" aria-label="Ver ficha">${ICONS.arrow}</a>
-        </div>
       </div>
-    </article>`;
+    </a>`;
 }
 
 function renderGrid(containerSel, products) {
