@@ -131,7 +131,6 @@ function renderFooter() {
               <img src="${root}assets/img/logo-trivium.svg" alt="Trivium Center" height="32" style="display:block;width:auto">
             </div>
             <p class="tagline">Soluciones para talleres y concesionarias. Importadores y distribuidores de equipamiento profesional en Argentina.</p>
-            <p class="mono" style="font-size:.72rem;color:var(--text-mute);letter-spacing:.18em;text-transform:uppercase;margin-top:14px;">EST. — Buenos Aires, AR</p>
           </div>
           <div>
             <h5>Catálogo</h5>
