@@ -84,7 +84,7 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 
 /* ---------- Container ---------- */
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
-@media (max-width: 720px) { .container { padding: 0 14px; } }
+@media (max-width: 720px) { .container { padding: 0 20px; } }
 
 /* ---------- Top bar / utility ---------- */
 .topbar {
