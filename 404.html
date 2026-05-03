@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="tv-root" content="">
+<title>Página no encontrada — Trivium Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<section style="padding: 96px 0 80px; text-align: center;">
+  <div class="container" style="max-width: 560px;">
+    <p class="eyebrow" style="justify-content: center; margin-bottom: 20px;">Error 404</p>
+    <h1 style="font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 16px;">
+      Esta página no existe
+    </h1>
+    <p style="font-size: 1.05rem; margin-bottom: 36px;">
+      El producto o la sección que buscás puede haber cambiado de dirección. Buscalo en el catálogo o contactanos directamente.
+    </p>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+      <a class="btn btn--primary btn--lg" href="catalogo/">Ver catálogo</a>
+      <a class="btn btn--ghost btn--lg" id="waBtn" href="#">Consultar por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="assets/js/site.js"></script>
+<script>
+  mountChrome('');
+  document.getElementById('waBtn').href = waLink('Hola, estaba buscando un producto y no lo encuentro en el sitio.');
+</script>
+</body>
+</html>

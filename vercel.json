@@ -1,3 +1,10 @@
 {
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/producto/elevador-tijera-unite-pl-h45-4500kg/",
+      "destination": "/producto/elevador-tijera-gomeria-4500-kg-pl-45h/",
+      "permanent": true
+    }
+  ]
 }
