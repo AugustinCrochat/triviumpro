@@ -9,7 +9,13 @@ window.TRIVIUM = {
   whatsappDisplay: "+54 9 11 2701-5294",
   email: "info@trivium.ar",
   brand: "Trivium Center",
-  cityLine: "Importadores y distribuidores oficiales — Argentina"
+  cityLine: "Importadores y distribuidores oficiales — Argentina",
+  env: (function() {
+    const h = window.location.hostname;
+    if (h === 'localhost' || h === '127.0.0.1' || h.startsWith('192.168.')) return 'local';
+    if (h.endsWith('.vercel.app')) return 'staging';
+    return 'production';
+  })()
 };
 
 const ICONS = {
