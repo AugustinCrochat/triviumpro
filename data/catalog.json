@@ -687,30 +687,6 @@
       "html_description": "<embed src=\"assets/pdf/128-ficha-trx10001-wheel-dolly-1-ton.pdf\"width=\"100%\" height=\"700\" \n\n\n\n type=\"application/pdf\">\n\n\n\n <p>Clic para <a href=\"assets/pdf/128-ficha-trx10001-wheel-dolly-1-ton.pdf\">Descargar PDF</a>.</p>"
     },
     {
-      "sku": "1010148",
-      "slug": "caballetes-3-ton",
-      "name": "Caballetes 3 Ton",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Modelo: T43001C Capacidad: 3 Ton Altura Min.: 288 mm Altura Max.: 425 mm Aprobación CE: TUV / GS Con doble pasador de seguridad Mango de acero macizo",
-      "bullets": [
-        "Capacidad: 3 Ton",
-        "Altura Min.: 288 mm",
-        "Altura Max.: 425 mm",
-        "Aprobación CE: TUV / GS",
-        "Con doble pasador de seguridad",
-        "Mango de acero macizo"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/t43001c.jpg",
-      "images": [
-        "assets/img/productos/t43001c.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/101-t43001c-jack-stand-3t.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/101-t43001c-jack-stand-3t.pdf\">Descargar PDF</a>."
-    },
-    {
       "sku": "1010205",
       "slug": "criquet-carro-3-ton",
       "name": "Criquet Carro 3 Ton",
@@ -846,52 +822,6 @@
       "html_description": "<embed src=\"assets/pdf/131-ficha-tre15001-criquet-para-transmision-15-ton.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/131-ficha-tre15001-criquet-para-transmision-15-ton.pdf\">Descargar PDF</a>."
     },
     {
-      "sku": "1010153",
-      "slug": "baja-cajas-de-cambio-500-kg",
-      "name": "Baja Cajas de Cambio 500 kg",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "57 kg",
-      "lift_height": "—",
-      "summary": "Características: Capacidad: 0.5 ton Altura Min.: 890 mm Altura Max.:1795 mm Tamaño del Pack: 520 x 320 x 740 mm Peso: 57 kg",
-      "bullets": [
-        "Capacidad: 0.5 ton",
-        "Altura Min.: 890 mm",
-        "Altura Max.:1795 mm",
-        "Tamaño del Pack: 520 x 320 x 740 mm",
-        "Peso: 57 kg"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/tel05005.jpg",
-      "images": [
-        "assets/img/productos/tel05005.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/110-tel10001-tel05005-baja-cajas-de-cambio.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/110-tel10001-tel05005-baja-cajas-de-cambio.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010152",
-      "slug": "baja-caja-de-cambios-1-ton-hidraulica-manual",
-      "name": "Baja Caja de Cambios 1 Ton - Hidráulica Manual",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "77 kg",
-      "lift_height": "—",
-      "summary": "Caracteristicas Capacidad: 1 Ton Altura Min.: 880 mm Altura Max.:1915 mm Tamaño del Pack: 560 x 370 x 910 mm Peso: 77 kg",
-      "bullets": [
-        "Capacidad: 1 Ton",
-        "Altura Min.: 880 mm",
-        "Altura Max.:1915 mm",
-        "Tamaño del Pack: 560 x 370 x 910 mm",
-        "Peso: 77 kg"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/tel10001.jpg",
-      "images": [
-        "assets/img/productos/tel10001.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/110-tel10001-tel05005-baja-cajas-de-cambio.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/110-tel10001-tel05005-baja-cajas-de-cambio.pdf\">Descargar PDF</a>."
-    },
-    {
       "sku": "1010156",
       "slug": "levanta-motor-2-ton-hidraulica-manual",
       "name": "Levanta Motor 2 Ton - Hidráulica Manual",
@@ -977,51 +907,6 @@
         "assets/img/productos/soporte-motor.jpg"
       ],
       "html_description": "<embed src=\"assets/pdf/108-t26801-soporte-motor-681kg.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/108-t26801-soporte-motor-681kg.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010211",
-      "slug": "prensa-hidraulica-20-ton",
-      "name": "Prensa Hidráulica 20 Ton",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "100 kg",
-      "lift_height": "—",
-      "summary": "Características: Capacidad: 20 ton Carrera: 185 mm Rango de trabajo: 0-910 mm Peso: 100 kg",
-      "bullets": [
-        "Capacidad: 20 ton",
-        "Carrera: 185 mm",
-        "Rango de trabajo: 0-910 mm",
-        "Peso: 100 kg"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/prensa-hidraulica-20-ton-big-red.jpg",
-      "images": [
-        "assets/img/productos/prensa-hidraulica-20-ton-big-red.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/120-ficha-ty20002-prensa-hidraulica-20-ton.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/120-ficha-ty20002-prensa-hidraulica-20-ton.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010149",
-      "slug": "prensa-hidraulica-30-ton",
-      "name": "Prensa Hidráulica 30 Ton",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "165 kg",
-      "lift_height": "—",
-      "summary": "Características: Capacidad: 30 ton Carrera: 150 mm Rango de trabajo: 51-1131 mm Peso: 165 kg Tamaño del Pack: 183 x 78 x 30 cm",
-      "bullets": [
-        "Capacidad: 30 ton",
-        "Carrera: 150 mm",
-        "Rango de trabajo: 51-1131 mm",
-        "Peso: 165 kg",
-        "Tamaño del Pack: 183 x 78 x 30 cm"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/prensa-hidraulica-30-ton.jpg",
-      "images": [
-        "assets/img/productos/prensa-hidraulica-30-ton.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/112-ty30021-prensa-hidraulica-30t.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/112-ty30021-prensa-hidraulica-30t.pdf\">Descargar PDF</a>."
     },
     {
       "sku": "1010150",
@@ -1209,27 +1094,6 @@
       "html_description": "<div style=\"text-align: center;\">\n    <iframe src=\"assets/pdf/ficha-porta-herraminetas-tbt3004-x-4-cajones.pdf\"\n            width=\"100%\" \n            height=\"600px\"\n            style=\"border: none;\"\n            allow=\"fullscreen\">\n    </iframe>\n    <p><a href=\"assets/pdf/ficha-porta-herraminetas-tbt3004-x-4-cajones.pdf\" download>Descargar PDF</a></p>\n</div>\n\n<style>\n    /* Ajuste para pantallas pequeñas */\n    @media (max-width: 767px) {\n        iframe {\n            height: 300px; /* Ajusta el alto para pantallas móviles */\n        }\n    }\n</style>\n"
     },
     {
-      "sku": "1010035",
-      "slug": "mesa-para-taller-de-1-5-metros-con-respaldo-porta-herramientas",
-      "name": "Mesa para Taller de 1.5 Metros con Respaldo Porta Herramientas",
-      "category": "muebles-taller",
-      "brand": "",
-      "capacity": "67 kg",
-      "lift_height": "—",
-      "summary": "Peso: 67 Kg. Capacidad: 800 Kg. Certificación: ISO9001",
-      "bullets": [
-        "Peso: 67 Kg.",
-        "Capacidad: 800 Kg.",
-        "Certificación: ISO9001"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/tsc5911j.jpg",
-      "images": [
-        "assets/img/productos/tsc5911j.jpg"
-      ],
-      "html_description": "<div style=\"text-align: center;\">\n    <iframe src=\"assets/pdf/mesa-de-trabajo-taller-tsc5911j-2-cajones-y-alzada.pdf\"\n            width=\"100%\" \n            height=\"600px\"\n            style=\"border: none;\"\n            allow=\"fullscreen\">\n    </iframe>\n    <p><a href=\"assets/pdf/mesa-de-trabajo-taller-tsc5911j-2-cajones-y-alzada.pdf\" download>Descargar PDF</a></p>\n</div>\n\n<style>\n    /* Ajuste para pantallas pequeñas */\n    @media (max-width: 767px) {\n        iframe {\n            height: 300px; /* Ajusta el alto para pantallas móviles */\n        }\n    }\n</style>\n"
-    },
-    {
       "sku": "1010056B",
       "slug": "inflador-de-neumaticos-digital-kuani",
       "name": "Inflador de Neumáticos Digital Kuani",
@@ -1319,83 +1183,6 @@
         "assets/img/productos/mueble-de-taller-premium.jpg"
       ],
       "html_description": "<div style=\"text-align: center;\"><iframe style=\"border: none;\" src=\"assets/pdf/ficha-mueble-de-taller-movil-tbr0107x-deluxe.pdf\" width=\"100%\" height=\"600px\">\n</iframe><a href=\"assets/pdf/ficha-mueble-de-taller-movil-tbr0107x-deluxe.pdf\" download=\"\">Descargar PDF</a>\n\n</div>\n<style>\n    /* Ajuste para pantallas pequeñas */<br />\n    @media (max-width: 767px) {<br />\n        iframe {<br />\n            height: 300px; /* Ajusta el alto para pantallas móviles */<br />\n        }<br />\n    }<br />\n</style>"
-    },
-    {
-      "sku": "1010102",
-      "slug": "bomba-manual-de-aceite-manguera-2-metros-raasm",
-      "name": "Bomba Manual de Aceite Manguera 2 Metros Raasm",
-      "category": "herramientas-neumaticas",
-      "brand": "",
-      "capacity": "220 kg",
-      "lift_height": "—",
-      "summary": "Características: De doble efecto con juntas en NBR, 180 - 220 Kg. Manguera 2 m El pescante telescópico permite la aplicación directa en contenedores de distinta capacidad. Adecuadas para la distribución de aceite de alta/baja viscosidad.",
-      "bullets": [
-        "De doble efecto con juntas en NBR, 180 - 220 Kg.",
-        "Manguera 2 m El pescante telescópico permite la aplicación directa en contenedores de distinta capacidad.",
-        "Adecuadas para la distribución de aceite de alta/baja viscosidad."
-      ],
-      "badges": [],
-      "image": "assets/img/productos/bomba-manual-aceite-raasm.jpg",
-      "images": [
-        "assets/img/productos/bomba-manual-aceite-raasm.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/73-ficha-raasm-30200-bomba-manual.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/73-ficha-raasm-30200-bomba-manual.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010103",
-      "slug": "bomba-neumatica-de-distribucion-raasm",
-      "name": "Bomba Neumática de Distribución Raasm",
-      "category": "herramientas-neumaticas",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Bombas neumáticas serie 500 para distribución de aceite a distancias medias. Adecuadas para la distribución de aceite de viscosidad media-alta y líquido anticongelante. Adecuadas tanto para instalaciones móviles como en instalaciones…",
-      "bullets": [],
-      "badges": [],
-      "image": "assets/img/productos/bomba-neumatica-de-distribucion-raasm-35094.jpg",
-      "images": [
-        "assets/img/productos/bomba-neumatica-de-distribucion-raasm-35094.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/75-ficha-raasm-35094-bomba-neumatica.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/75-ficha-raasm-35094-bomba-neumatica.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010111",
-      "slug": "bomba-neumatica-para-distribucion-raasm",
-      "name": "Bomba Neumática para Distribución Raasm",
-      "category": "herramientas-neumaticas",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Bombas neumáticas de doble efecto serie 650 para distribución de aceite a distancias medias. Adecuadas para la distribución del aceite, incluso de alta viscosidad. El doble efecto garantiza un suministro de un flujo continuo y constante,…",
-      "bullets": [],
-      "badges": [],
-      "image": "assets/img/productos/bomba-neumatica-de-distribucion-raasm-36094.jpg",
-      "images": [
-        "assets/img/productos/bomba-neumatica-de-distribucion-raasm-36094.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/77-ficha-raasm-36094-bomba-neumatica.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/77-ficha-raasm-36094-bomba-neumatica.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010183",
-      "slug": "distribuidor-manual-para-aceite-con-carro-para-tambores-30-60-kg",
-      "name": "Distribuidor Manual para Aceite con Carro para Tambores 30/60 kg",
-      "category": "herramientas-neumaticas",
-      "brand": "",
-      "capacity": "60 kg",
-      "lift_height": "—",
-      "summary": "Características: Bomba manual para distribución de aceite y afines De doble efecto con juntas en NBR El pescante telescópico permite la aplicación directa en contenedores de distinta capacidad Adecuadas para la distribución de aceite de…",
-      "bullets": [
-        "Bomba manual para distribución de aceite y afines",
-        "De doble efecto con juntas en NBR",
-        "El pescante telescópico permite la aplicación directa en contenedores de distinta capacidad",
-        "Adecuadas para la distribución de aceite de alta/baja viscosidad"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/distribuidor-manual-para-aceite-con-carro-cuatro-ruedas.jpg",
-      "images": [
-        "assets/img/productos/distribuidor-manual-para-aceite-con-carro-cuatro-ruedas.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/72-ficha-raasm-30050-bomba-manual-con-carro.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/72-ficha-raasm-30050-bomba-manual-con-carro.pdf\">Descargar PDF</a>."
     },
     {
       "sku": "1010049",
