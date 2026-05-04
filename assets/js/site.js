@@ -52,6 +52,13 @@ const BRAND_LOGOS = {
 
 const MAIN_BRANDS = ['rotary-lift', 'hofmann', 'direct-lift', 'trivium-pro'];
 
+const CAT_ICONS = {
+  'elevadores': 'assets/img/iconos/elevadores.svg',
+  'alineadoras': 'assets/img/iconos/alineadoras.svg',
+  'balanceadoras': 'assets/img/iconos/balanceadoras.svg',
+  'desarmadoras': 'assets/img/iconos/desarmadoras.svg'
+};
+
 function renderBrandBar() {
   const root = rootPath();
   const items = MAIN_BRANDS.map(slug => {
@@ -86,7 +93,11 @@ function renderHeader(active) {
   const subHtml = (items) => {
     const primary = items.slice(0, 4);
     const secondary = items.slice(4);
-    const primaryHtml = primary.map(([t, h]) => `<a href="${root}${h}" class="submenu-primary"><strong>${t}</strong></a>`).join('');
+    const primaryHtml = primary.map(([t, h]) => {
+      const slug = h.split('/')[1];
+      const icon = CAT_ICONS[slug] ? `<img src="${root}${CAT_ICONS[slug]}" class="cat-icon" alt="">` : '';
+      return `<a href="${root}${h}" class="submenu-primary">${icon}<strong>${t}</strong></a>`;
+    }).join('');
     const sepHtml = secondary.length ? `<div class="submenu-sep"></div>` : '';
     const secondaryHtml = secondary.map(([t, h]) => `<a href="${root}${h}">${t}</a>`).join('');
     return `<div class="submenu">${primaryHtml}${sepHtml}${secondaryHtml}</div>`;
@@ -121,7 +132,11 @@ function renderHeader(active) {
         <div class="mobile-menu-section">
           <h5>Categorías</h5>
           <div class="mobile-cat-list">
-            ${(main[0].sub||[]).slice(0,4).map(([t,h]) => `<a href="${root}${h}" class="bold"><strong>${t}</strong></a>`).join('')}
+            ${(main[0].sub||[]).slice(0,4).map(([t,h]) => {
+              const slug = h.split('/')[1];
+              const icon = CAT_ICONS[slug] ? `<img src="${root}${CAT_ICONS[slug]}" class="cat-icon" alt="">` : '';
+              return `<a href="${root}${h}" class="bold">${icon}<strong>${t}</strong></a>`;
+            }).join('')}
             <div class="sep"></div>
             ${(main[0].sub||[]).slice(4).map(([t,h]) => `<a href="${root}${h}">${t}</a>`).join('')}
           </div>

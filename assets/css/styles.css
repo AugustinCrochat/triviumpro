@@ -184,6 +184,9 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   border-radius: var(--radius);
 }
 .submenu a:hover { background: var(--surface); color: var(--text); }
+.submenu-primary { display: flex; align-items: center; gap: 10px; }
+.submenu-primary .cat-icon { width: 20px; height: 20px; flex-shrink: 0; opacity: .7; }
+.submenu-primary:hover .cat-icon { opacity: 1; }
 .submenu-primary strong { font-weight: 700; color: var(--text); }
 .submenu-sep {
   height: 1px;
@@ -1014,6 +1017,10 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 }
 .mobile-nav .mobile-cat-list .bold {
   font-size: 1.1rem; padding: 12px 0;
+  display: flex; align-items: center; gap: 12px;
+}
+.mobile-nav .mobile-cat-list .cat-icon {
+  width: 24px; height: 24px; flex-shrink: 0;
 }
 .mobile-nav .mobile-cat-list .sep {
   height: 1px; background: var(--line); margin: 8px 0;
