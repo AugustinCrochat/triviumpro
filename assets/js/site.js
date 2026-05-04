@@ -129,6 +129,12 @@ function renderHeader(active) {
           <button class="btn-burger" onclick="toggleMobileNav()">${ICONS.close}</button>
         </div>
         
+        <div class="mobile-menu-section" style="padding-bottom:20px; border-bottom:1px solid var(--line); margin-bottom:4px;">
+          <h5>Contacto</h5>
+          <a href="mailto:${TRIVIUM.email}" class="contact-link">${ICONS.mail} ${TRIVIUM.email}</a>
+          <a href="${waLink()}" class="contact-link">${ICONS.wa} ${TRIVIUM.whatsappDisplay}</a>
+        </div>
+
         <div class="mobile-menu-section">
           <h5>Categorías</h5>
           <div class="mobile-cat-list">
@@ -145,12 +151,6 @@ function renderHeader(active) {
         <div class="mobile-menu-section">
           <h5>Trivium</h5>
           ${main.slice(1).map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
-        </div>
-
-        <div class="mobile-menu-section" style="margin-top:auto; padding-top:24px; border-top:1px solid var(--line);">
-          <h5>Contacto</h5>
-          <a href="mailto:${TRIVIUM.email}" class="contact-link">${ICONS.mail} ${TRIVIUM.email}</a>
-          <a href="${waLink()}" class="contact-link">${ICONS.wa} ${TRIVIUM.whatsappDisplay}</a>
         </div>
       </div>
     </div>`;
