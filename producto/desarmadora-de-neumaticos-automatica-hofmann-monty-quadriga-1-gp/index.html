@@ -59,8 +59,6 @@ mountChrome('catalogo');
   `;
 
   const msg = `Hola Trivium, me interesa el ${p.name} (SKU ${p.sku}). ¿Me pasan precio y disponibilidad?`;
-  const ribbons = (p.badges||[]).map(b => `<span class="chip chip--accent">${b}</span>`).join(' ');
-
   // Extract PDF and video links from html_description
   let pdfHref = null, videoHref = null;
   if (p.html_description) {
@@ -96,7 +94,6 @@ mountChrome('catalogo');
         ${brand.logo
           ? `<a class="brand-chip" href="${rootPath()}marca/${brand.slug}/" title="${brand.name}"><img src="${rootPath()}${brand.logo}" alt="${brand.name}"></a>`
           : `<span class="chip chip--accent">${brand.name}</span>`}
-        ${ribbons}
       </div>
       <h1>${p.name}</h1>
       <span class="sku">SKU · ${p.sku}</span>
@@ -119,9 +116,6 @@ mountChrome('catalogo');
         </a>` : ''}
       </div>` : ''}
 
-      <ul class="pd-bullets">
-        ${(p.bullets||[]).map(b => `<li>${b}</li>`).join('')}
-      </ul>
     </div>
   `;
 
@@ -142,6 +136,8 @@ mountChrome('catalogo');
     descEl.innerHTML = html;
     const btnContainer = descEl.querySelector('.product-page-button-container');
     if (btnContainer) btnContainer.style.display = 'none';
+    const titleEl = descEl.querySelector('.product-page-title');
+    if (titleEl) titleEl.style.display = 'none';
     wrap.appendChild(descEl);
   }
 

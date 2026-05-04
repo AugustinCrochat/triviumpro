@@ -201,10 +201,8 @@
   document.getElementById('ctaWaBtn').href  = waLink('Hola, me gustaría pedir una cotización.');
   (async () => {
     await loadCatalog();
-    // Featured: products marked "Top" first, then fill with any with images
-    const top = CATALOG.products.filter(p => (p.badges||[]).includes('Top'));
-    const rest = CATALOG.products.filter(p => !(p.badges||[]).includes('Top') && p.image);
-    const featured = [...top, ...rest].slice(0, 8);
+    const featuredSkus = ['1010001', '1010259', '1010267', '1010272', '1010124', '1010143'];
+    const featured = featuredSkus.map(sku => CATALOG.products.find(p => p.sku === sku)).filter(Boolean);
     renderGrid('#featured-grid', featured);
   })();
   // Clients marquee handled by CSS animation for better performance

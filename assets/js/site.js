@@ -297,12 +297,6 @@ function categoryById(slug) {
 
 function productCard(p) {
   const brand = brandById(p.brand);
-  const ribbons = (p.badges||[]).map(b => {
-    const cls = b.toLowerCase().includes('oferta') ? 'chip--yellow'
-              : b.toLowerCase().includes('nuevo') ? 'chip--green'
-              : 'chip--accent';
-    return `<span class="chip ${cls}">${b}</span>`;
-  }).join('');
   const msg = `Hola Trivium, quiero consultar por: ${p.name} (${p.sku})`;
   const img = p.image
     ? `<img src="${rootPath()}${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
@@ -327,7 +321,6 @@ function productCard(p) {
   return `
     <a class="prod-card" href="${productUrl(p)}">
       <div class="thumb">
-        <div class="ribbon">${ribbons}</div>
         ${img}
       </div>
       <div class="body">

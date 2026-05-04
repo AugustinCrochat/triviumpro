@@ -74,15 +74,36 @@ mountChrome('catalogo');
   } else if (brandSlug) {
     const br = brandById(brandSlug);
     results = CATALOG.products.filter(p => p.brand === brandSlug);
+    if (brandSlug === 'direct-lift') {
+      results.sort((a, b) => {
+        if (a.slug.includes('dl9')) return -1;
+        if (b.slug.includes('dl9')) return 1;
+        const isMotoA = a.category === 'elevadores-motos';
+        const isMotoB = b.category === 'elevadores-motos';
+        if (isMotoA && !isMotoB) return 1;
+        if (!isMotoA && isMotoB) return -1;
+        return 0;
+      });
+    }
     title = br.name; sub = br.note || ''; crumb = br.name;
     document.title = `${br.name} — Trivium Center`;
   }
 
   document.getElementById('cat-title').innerHTML = title.replace(/(\S+)$/, '<span style="color:var(--accent)">$1</span>');
-  document.getElementById('cat-tag').textContent = sub || 'Trivium';
   document.getElementById('cat-count').textContent = `${results.length} productos`;
   document.getElementById('count').textContent = `${results.length} resultados`;
-  document.getElementById('crumbs').innerHTML = `<a href="${rootPath()}">Inicio</a><span>/</span><a href="${rootPath()}catalogo/">Catálogo</a><span>/</span>${crumb}`;
+
+  if (brandSlug) {
+    document.getElementById('crumbs').innerHTML = '';
+    document.querySelector('.cat-hero').style.padding = '28px 0 24px';
+    const origin = sub.split(' — ')[0];
+    const tagEl = document.getElementById('cat-tag');
+    tagEl.textContent = origin;
+    tagEl.className = 'chip chip--yellow';
+  } else {
+    document.getElementById('cat-tag').textContent = sub || 'Trivium';
+    document.getElementById('crumbs').innerHTML = `<a href="${rootPath()}">Inicio</a><span>/</span><a href="${rootPath()}catalogo/">Catálogo</a><span>/</span>${crumb}`;
+  }
 
   // Sidebar
   const topCats = CATALOG.categories.filter(c => !c.parent);

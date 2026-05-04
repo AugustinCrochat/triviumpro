@@ -814,29 +814,6 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.2;
 }
 .pd-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
-.pd-bullets {
-  margin: 20px 0 0;
-  padding: 0; list-style: none;
-  display: flex; flex-direction: column; gap: 6px;
-}
-.pd-bullets li {
-  display: flex; align-items: flex-start; gap: 10px;
-  padding: 10px 14px;
-  background: var(--bg-2);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  color: var(--text-dim);
-  font-size: .9rem;
-  line-height: 1.45;
-}
-.pd-bullets li::before {
-  content: '';
-  display: block; flex-shrink: 0;
-  width: 6px; height: 6px;
-  margin-top: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-}
 @media (max-width: 900px) { .pd-wrap { grid-template-columns: 1fr; gap: 28px; } }
 
 /* ---------- Contact ---------- */
