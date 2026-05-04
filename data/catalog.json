@@ -666,27 +666,6 @@
       "html_description": "<embed src=\"assets/pdf/39-ficha-805-818-000-805-995-000-probike-haweka.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/39-ficha-805-818-000-805-995-000-probike-haweka.pdf\">Descargar PDF</a>."
     },
     {
-      "sku": "1010151",
-      "slug": "camilla-para-mecanico-120-kg",
-      "name": "Camilla para Mecánico 120 kg",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "120 kg",
-      "lift_height": "—",
-      "summary": "Características: Capacidad: 120 kg Peso: 6.6 kg Dimensiones: 1000 x 490 x 95 mm",
-      "bullets": [
-        "Capacidad: 120 kg",
-        "Peso: 6.6 kg",
-        "Dimensiones: 1000 x 490 x 95 mm"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/trh6802-2.jpg",
-      "images": [
-        "assets/img/productos/trh6802-2.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/98-trh6802-2-camilla.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/98-trh6802-2-camilla.pdf\">Descargar PDF</a>."
-    },
-    {
       "sku": "1010208",
       "slug": "carro-para-ruedas-de-camion",
       "name": "Carro para Ruedas de Camión",
@@ -730,53 +709,6 @@
         "assets/img/productos/t43001c.jpg"
       ],
       "html_description": "<embed src=\"assets/pdf/101-t43001c-jack-stand-3t.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/101-t43001c-jack-stand-3t.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010210",
-      "slug": "caballete-alto-4-ton",
-      "name": "Caballete Alto 4 Ton",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "17.5 kg",
-      "lift_height": "—",
-      "summary": "Características: Capacidad: 2 Ton Peso: 17.5 KG Altura Mínima 124 cm Altura Máxima: 214,5 cm Tamaño del producto: 118 x 19,8 x 55 cm",
-      "bullets": [
-        "Capacidad: 2 Ton",
-        "Peso: 17.5 KG",
-        "Altura Mínima 124 cm",
-        "Altura Máxima: 214,5 cm",
-        "Tamaño del producto: 118 x 19,8 x 55 cm"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/trf42009.jpg",
-      "images": [
-        "assets/img/productos/trf42009.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/127-ficha-trf42009-caballete-alto-2-ton.pdf\"width=\"100%\" height=\"700\" \n\n\n\n type=\"application/pdf\">\n\n\n\n <p>Clic para <a href=\"assets/pdf/127-ficha-trf42009-caballete-alto-2-ton.pdf\">Descargar PDF</a>.</p>"
-    },
-    {
-      "sku": "1010203",
-      "slug": "criquet-botella-4-ton",
-      "name": "Criquet Botella 4 Ton",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "3.4 kg",
-      "lift_height": "—",
-      "summary": "Características: Capacidad: 4 Ton. Altura Mínima: 19.4 cm Altura Máxima: 37.2 cm Altura de elevación: 11,8 cm Altura ajustable: 6 cm Peso: 3.4 KG. Tamaño del Pack: 570 x 24 x 31 cm",
-      "bullets": [
-        "Capacidad: 4 Ton.",
-        "Altura Mínima: 19.4 cm",
-        "Altura Máxima: 37.2 cm",
-        "Altura de elevación: 11,8 cm",
-        "Altura ajustable: 6 cm",
-        "Peso: 3.4 KG."
-      ],
-      "badges": [],
-      "image": "assets/img/productos/criquet-botella-4-ton.jpg",
-      "images": [
-        "assets/img/productos/criquet-botella-4-ton.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/122-ficha-t90403s-criquet-botella-4-ton.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/122-ficha-t90403s-criquet-botella-4-ton.pdf\">Descargar PDF</a>."
     },
     {
       "sku": "1010205",
@@ -845,30 +777,6 @@
         "assets/img/productos/t84008.jpg"
       ],
       "html_description": "<embed src=\"assets/pdf/103-t84008-criquet-carro-4t.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/103-t84008-criquet-carro-4t.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010154",
-      "slug": "criquet-botella-32-ton",
-      "name": "Criquet Botella 32 Ton",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "22 kg",
-      "lift_height": "180 mm",
-      "summary": "Características: Capacidad: 32 Ton. Altura Min: 285 mm Altura Máx: 465 mm Altura de elevación: 180 mm Peso: 22 Kgs. Tamaño del Pack: 230 x 205 x 345 mm",
-      "bullets": [
-        "Capacidad: 32 Ton.",
-        "Altura Min: 285 mm",
-        "Altura Máx: 465 mm",
-        "Altura de elevación: 180 mm",
-        "Peso: 22 Kgs.",
-        "Tamaño del Pack: 230 x 205 x 345 mm"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/t93204.jpg",
-      "images": [
-        "assets/img/productos/t93204.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/105-t93204-criquet-botella-30t.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/105-t93204-criquet-botella-30t.pdf\">Descargar PDF</a>."
     },
     {
       "sku": "1010207",
@@ -1158,50 +1066,6 @@
       "html_description": "<div class=\"product-page-description\">\n<div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/106-qjyj020-rolling-jack-2t.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a></div>\n  <div class=\"product-page-title\">\n    <h2>Rolling Jack QJYJ020</h2>\n    <span class=\"product-page-brand\">Trivium</span>\n  </div>\n  \n  <div class=\"product-page-main-description\">\n    <p class=\"product-page-highlight\">Accesorio hidráulico ideal para elevadores de cuatro columnas, diseñado para facilitar la alineación de ruedas y operaciones de servicio rápido.</p>\n  </div>\n  \n  <div class=\"product-page-specs-section\">\n    <h3 class=\"product-page-features-title\">Características Principales</h3>\n    <ul class=\"product-page-features-list\">\n      <li>Elevación hidráulica eficiente</li>\n      <li>Diseñado específicamente para elevadores de cuatro columnas</li>\n      <li>Accesorio esencial para tareas de alineación de ruedas</li>\n    </ul>\n    \n    <h3 class=\"product-page-features-title\">Especificaciones Técnicas</h3>\n    <div class=\"product-page-specs-grid\">\n      <div class=\"product-page-spec-group\">\n        <h4 class=\"product-page-spec-title\">Dimensiones y Capacidad</h4>\n        <ul>\n          <li>Capacidad de carga: 2 Toneladas</li>\n          <li>Altura de elevación máxima: 1760 mm</li>\n          <li>Ancho total: 480 mm</li>\n          <li>Ancho ajustable: 916 mm a 1450 mm</li>\n          <li>Altura mínima: 215 mm</li>\n          <li>Altura de la plataforma (zona de apoyo): 90 mm a 360 mm</li>\n          <li>Altura máxima desde el suelo: 485 mm</li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
     },
     {
-      "sku": "1010216",
-      "slug": "multiplicador-de-torque-para-camion-1-68",
-      "name": "Multiplicador de Torque para Camión 1:68",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "8 kg",
-      "lift_height": "—",
-      "summary": "Características: Reduce la fatiga Para ruedas de autos comerciales y equipos agrícolas Peso: 8 kg Tamaño del pack: 40 x 38 x 25 cm",
-      "bullets": [
-        "Reduce la fatiga",
-        "Para ruedas de autos comerciales y equipos agrícolas",
-        "Peso: 8 kg",
-        "Tamaño del pack: 40 x 38 x 25 cm"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/llave-de-tuerca-con-engranaje-big-red.jpg",
-      "images": [
-        "assets/img/productos/llave-de-tuerca-con-engranaje-big-red.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/116-ficha-trx31002-herramienta-extraccion-de-tuercas.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/116-ficha-trx31002-herramienta-extraccion-de-tuercas.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010217",
-      "slug": "multiplicador-de-torque-1-16-big-red",
-      "name": "Multiplicador De Torque 1:16 Big Red",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "2.25 kg",
-      "lift_height": "—",
-      "summary": "Características: Reduce la fatiga Para ruedas de autos y camionetas Peso: 2.25 kg Tamaño del pack: 34 x 29.5 x 23 cm",
-      "bullets": [
-        "Reduce la fatiga",
-        "Para ruedas de autos y camionetas",
-        "Peso: 2.25 kg",
-        "Tamaño del pack: 34 x 29.5 x 23 cm"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/juego-de-llave-multiplicadora-de-torque.jpg",
-      "images": [
-        "assets/img/productos/juego-de-llave-multiplicadora-de-torque.jpg"
-      ],
-      "html_description": "<div style=\"text-align: center;\"><iframe style=\"border: none;\" src=\"assets/pdf/123-fichas-trx31005-herramienta-extraccion-de-tuercas.pdf\" width=\"100%\" height=\"600px\">\n</iframe><a href=\"assets/pdf/123-fichas-trx31005-herramienta-extraccion-de-tuercas.pdf\" download=\"\">Descargar PDF</a></div>\n<style>\n/* Ajuste para pantallas pequeñas */<br />@media (max-width: 767px) {<br />iframe {<br />height: 300px; /* Ajusta el alto para pantallas móviles */<br />}<br />}<br /></style>"
-    },
-    {
       "sku": "1010218",
       "slug": "juego-extractor-de-masa-deslizante-2-5-kg",
       "name": "Juego Extractor De Masa Deslizante 2.5 Kg",
@@ -1241,28 +1105,6 @@
         "assets/img/productos/separadora-de-juntas-esfericas.jpg"
       ],
       "html_description": "<strong>Características:</strong>\n<ul>\n \t<li>Herramientas universales para retroceder pistones de caliper de freno.</li>\n \t<li>Compatibles con la mayoría de vehículos nacionales e importados, incluyendo modelos europeos y japoneses.</li>\n \t<li>Diseñadas para girar los pistones de regreso al caliper y brindar espacio para colocar nuevas pastillas de freno.</li>\n</ul>"
-    },
-    {
-      "sku": "1010045",
-      "slug": "banqueta-para-taller-con-porta-herramientas",
-      "name": "Banqueta para Taller con Porta Herramientas",
-      "category": "muebles-taller",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Características del producto: Marco de cromo pulido resistente Ruedas de gran tamaño Bandeja de almacenamiento de fácil acceso Asiento de espuma de alta densidad",
-      "bullets": [
-        "Marco de cromo pulido resistente",
-        "Ruedas de gran tamaño",
-        "Bandeja de almacenamiento de fácil acceso",
-        "Asiento de espuma de alta densidad"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/tr6340.jpg",
-      "images": [
-        "assets/img/productos/tr6340.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/79-ficha-banqueta-taller-tr6340.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/79-ficha-banqueta-taller-tr6340.pdf\">Descargar PDF</a>."
     },
     {
       "sku": "1010032",
@@ -1367,27 +1209,6 @@
       "html_description": "<div style=\"text-align: center;\">\n    <iframe src=\"assets/pdf/ficha-porta-herraminetas-tbt3004-x-4-cajones.pdf\"\n            width=\"100%\" \n            height=\"600px\"\n            style=\"border: none;\"\n            allow=\"fullscreen\">\n    </iframe>\n    <p><a href=\"assets/pdf/ficha-porta-herraminetas-tbt3004-x-4-cajones.pdf\" download>Descargar PDF</a></p>\n</div>\n\n<style>\n    /* Ajuste para pantallas pequeñas */\n    @media (max-width: 767px) {\n        iframe {\n            height: 300px; /* Ajusta el alto para pantallas móviles */\n        }\n    }\n</style>\n"
     },
     {
-      "sku": "1010036",
-      "slug": "mesa-banco-para-taller-de-1-5-metros",
-      "name": "Mesa Banco para Taller de 1.5 Metros",
-      "category": "muebles-taller",
-      "brand": "",
-      "capacity": "67 kg",
-      "lift_height": "—",
-      "summary": "Superficie de trabajo superior Peso: 67 Kg Certificación: ISO9001",
-      "bullets": [
-        "Superficie de trabajo superior",
-        "Peso: 67 Kg",
-        "Certificación: ISO9001"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/mesa-banco-de-taller-con-dos-cajones.jpg",
-      "images": [
-        "assets/img/productos/mesa-banco-de-taller-con-dos-cajones.jpg"
-      ],
-      "html_description": "<div style=\"text-align: center;\"><iframe style=\"border: none;\" src=\"assets/pdf/ficha-mesatrabajo-taller-tsc5911-2-cajones.pdf\" width=\"100%\" height=\"600px\">\n</iframe><a href=\"assets/pdf/ficha-mesatrabajo-taller-tsc5911-2-cajones.pdf\" download=\"\">Descargar PDF</a>\n\n</div>\n<style>\n    /* Ajuste para pantallas pequeñas */<br />\n    @media (max-width: 767px) {<br />\n        iframe {<br />\n            height: 300px; /* Ajusta el alto para pantallas móviles */<br />\n        }<br />\n    }<br />\n</style>"
-    },
-    {
       "sku": "1010035",
       "slug": "mesa-para-taller-de-1-5-metros-con-respaldo-porta-herramientas",
       "name": "Mesa para Taller de 1.5 Metros con Respaldo Porta Herramientas",
@@ -1407,48 +1228,6 @@
         "assets/img/productos/tsc5911j.jpg"
       ],
       "html_description": "<div style=\"text-align: center;\">\n    <iframe src=\"assets/pdf/mesa-de-trabajo-taller-tsc5911j-2-cajones-y-alzada.pdf\"\n            width=\"100%\" \n            height=\"600px\"\n            style=\"border: none;\"\n            allow=\"fullscreen\">\n    </iframe>\n    <p><a href=\"assets/pdf/mesa-de-trabajo-taller-tsc5911j-2-cajones-y-alzada.pdf\" download>Descargar PDF</a></p>\n</div>\n\n<style>\n    /* Ajuste para pantallas pequeñas */\n    @media (max-width: 767px) {\n        iframe {\n            height: 300px; /* Ajusta el alto para pantallas móviles */\n        }\n    }\n</style>\n"
-    },
-    {
-      "sku": "1010038",
-      "slug": "mesa-para-taller-de-dos-metros-con-tres-cajones",
-      "name": "Mesa para Taller de Dos Metros con Tres Cajones",
-      "category": "muebles-taller",
-      "brand": "",
-      "capacity": "600 kg",
-      "lift_height": "—",
-      "summary": "Capacidad: 600 kg. Peso: 90 Kg Certificación: ISO9001",
-      "bullets": [
-        "Capacidad: 600 kg.",
-        "Peso: 90 Kg",
-        "Certificación: ISO9001"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/tsc59111.jpg",
-      "images": [
-        "assets/img/productos/tsc59111.jpg"
-      ],
-      "html_description": "<div style=\"text-align: center;\"><iframe style=\"border: none;\" src=\"assets/pdf/mesa-trabajo-taller-tsc79111-3-cajones.pdf\" width=\"100%\" height=\"600px\">\n</iframe><a href=\"assets/pdf/mesa-trabajo-taller-tsc79111-3-cajones.pdf\" download=\"\">Descargar PDF</a></div>\n<style>\n    /* Ajuste para pantallas pequeñas */<br />    @media (max-width: 767px) {<br />        iframe {<br />            height: 300px; /* Ajusta el alto para pantallas móviles */<br />        }<br />    }<br /></style>"
-    },
-    {
-      "sku": "1010037",
-      "slug": "mesa-para-taller-de-dos-metros-con-tres-cajones-respaldo-porta-herramientas",
-      "name": "Mesa para Taller de Dos Metros con Tres Cajones - Respaldo Porta Herramientas",
-      "category": "muebles-taller",
-      "brand": "",
-      "capacity": "600 kg",
-      "lift_height": "—",
-      "summary": "Capacidad: 600 kg. Peso: 110 Kg Certificación: ISO9001",
-      "bullets": [
-        "Capacidad: 600 kg.",
-        "Peso: 110 Kg",
-        "Certificación: ISO9001"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/tsc59111j.jpg",
-      "images": [
-        "assets/img/productos/tsc59111j.jpg"
-      ],
-      "html_description": "<div style=\"text-align: center;\"><iframe style=\"border: none;\" src=\"assets/pdf/ficha-mesa-trabajo-taller-79111j-3-cajones-y-alzada-1.pdf\" width=\"100%\" height=\"600px\">\n</iframe><a href=\"assets/pdf/ficha-mesa-trabajo-taller-79111j-3-cajones-y-alzada-1.pdf\" download=\"\">Descargar PDF</a></div>\n<style>\n    /* Ajuste para pantallas pequeñas */<br />    @media (max-width: 767px) {<br />        iframe {<br />            height: 300px; /* Ajusta el alto para pantallas móviles */<br />        }<br />    }<br /></style>"
     },
     {
       "sku": "1010056B",
@@ -2114,24 +1893,6 @@
       "image": "assets/img/productos/inflador-de-neumaticos-unite.webp",
       "images": [
         "assets/img/productos/inflador-de-neumaticos-unite.webp"
-      ]
-    },
-    {
-      "sku": "P-3251",
-      "slug": "inflador-de-neumaticos-por-nitrogeno-hpmm",
-      "name": "Inflador De Neumáticos Por Nitrógeno HPMM",
-      "category": "equipamiento-taller",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "HPMM ofrece la línea más grande de generadores de nitrógeno, por lo que seguramente habrá un modelo que se adapte a su situación. Nuestros sistemas de adsorción por cambio de presión (PSA) se están convirtiendo en el estándar tanto para…",
-      "bullets": [],
-      "badges": [
-        "Top"
-      ],
-      "image": "assets/img/productos/inflador-de-neumaticos-por-nitrogeno-hpmm.webp",
-      "images": [
-        "assets/img/productos/inflador-de-neumaticos-por-nitrogeno-hpmm.webp"
       ]
     },
     {
