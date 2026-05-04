@@ -813,6 +813,7 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 .pd-spec-tile .tile-value {
   font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.2;
 }
+.pd-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
 .pd-bullets {
   margin: 24px 0 0;
   padding: 0; list-style: none;
