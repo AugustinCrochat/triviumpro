@@ -143,7 +143,6 @@ function renderHeader(active) {
               const icon = CAT_ICONS[slug] ? `<img src="${root}${CAT_ICONS[slug]}" class="cat-icon" alt="">` : '';
               return `<a href="${root}${h}" class="bold">${icon}<strong>${t}</strong></a>`;
             }).join('')}
-            <div class="sep"></div>
             ${(main[0].sub||[]).slice(4).map(([t,h]) => `<a href="${root}${h}">${t}</a>`).join('')}
           </div>
         </div>
