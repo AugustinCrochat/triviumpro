@@ -129,7 +129,7 @@ function renderHeader(active) {
           <button class="btn-burger" onclick="toggleMobileNav()">${ICONS.close}</button>
         </div>
         
-        <div class="mobile-menu-section" style="padding-bottom:20px; border-bottom:1px solid var(--line); margin-bottom:4px;">
+        <div class="mobile-menu-section" style="padding-bottom:20px; margin-bottom:4px;">
           <h5>Contacto</h5>
           <a href="mailto:${TRIVIUM.email}" class="contact-link">${ICONS.mail} ${TRIVIUM.email}</a>
           <a href="${waLink()}" class="contact-link">${ICONS.wa} ${TRIVIUM.whatsappDisplay}</a>
