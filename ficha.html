@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/svg+xml" href="assets/img/icono-trivium.svg">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="tv-root" content="">
+<title>Ficha Técnica — Trivium Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<div class="ficha-bar">
+  <div class="container">
+    <div class="breadcrumbs" id="crumbs"></div>
+    <a class="ficha-back" id="back-link" href="#">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10,3 5,8 10,13"/></svg>
+      Volver al producto
+    </a>
+    <div id="ficha-identity"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="ficha-layout" id="ficha-layout"></div>
+</div>
+
+<hr class="ficha-divider" style="border:0;border-top:1px solid var(--line);margin:0">
+
+<div class="ficha-content">
+  <div class="container" id="ficha-desc"></div>
+</div>
+
+<div id="site-footer"></div>
+<script src="assets/js/site.js"></script>
+<script>
+mountChrome('catalogo');
+(async () => {
+  await loadCatalog();
+  const slug = getQuery('id');
+  const p = CATALOG.products.find(x => x.slug === slug);
+
+  if (!p) {
+    document.getElementById('ficha-layout').innerHTML = `<p>Producto no encontrado. <a href="${rootPath()}catalogo/" style="color:var(--accent)">Volver al catálogo</a>.</p>`;
+    return;
+  }
+
+  const productPageUrl = `${rootPath()}producto/${encodeURIComponent(p.slug)}/`;
+  document.title = `Ficha Técnica ${p.name} — Trivium Center`;
+
+  const cat = categoryById(p.category);
+  const parent = cat.parent ? categoryById(cat.parent) : null;
+  const brand = brandById(p.brand);
+
+  // Breadcrumbs
+  document.getElementById('crumbs').innerHTML = `
+    <a href="${rootPath()}">Inicio</a><span>/</span>
+    <a href="${rootPath()}catalogo/">Catálogo</a><span>/</span>
+    ${parent ? `<a href="${categoryUrl(parent.slug)}">${parent.name}</a><span>/</span>` : ''}
+    <a href="${categoryUrl(cat.slug)}">${cat.name}</a><span>/</span>
+    <a href="${productPageUrl}">${p.name}</a><span>/</span>
+    Ficha Técnica
+  `;
+
+  // Back link
+  document.getElementById('back-link').href = productPageUrl;
+
+  const ribbons = (p.badges || []).map(b => `<span class="chip chip--accent">${b}</span>`).join(' ');
+
+  // Identity header
+  document.getElementById('ficha-identity').innerHTML = `
+    <div class="ficha-eyebrow">Ficha Técnica</div>
+    <div class="ficha-meta" style="margin-bottom:10px">
+      ${brand.logo
+        ? `<a class="brand-chip" href="${rootPath()}marca/${brand.slug}/" title="${brand.name}"><img src="${rootPath()}${brand.logo}" alt="${brand.name}"></a>`
+        : `<span class="chip chip--accent">${brand.name}</span>`}
+      ${ribbons}
+    </div>
+    <h1>${p.name}</h1>
+    <div class="ficha-meta">
+      <span class="ficha-sku">SKU · ${p.sku}</span>
+    </div>
+  `;
+
+  // Extract PDF and video links from html_description
+  let pdfHref = null, videoHref = null;
+  if (p.html_description) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = p.html_description;
+    const pdfA = tmp.querySelector('.product-page-btn-pdf');
+    const videoA = tmp.querySelector('.product-page-btn-video');
+    if (pdfA) {
+      pdfHref = pdfA.getAttribute('href');
+      if (pdfHref && !pdfHref.startsWith('http') && !pdfHref.startsWith('/')) {
+        pdfHref = rootPath() + pdfHref;
+      }
+    }
+    if (videoA) videoHref = videoA.getAttribute('href');
+  }
+
+  // Key specs tiles
+  const specTiles = [];
+  if (p.capacity) specTiles.push({ label: 'Capacidad', value: p.capacity });
+  if (p.lift_height) specTiles.push({ label: 'Altura de elevación', value: p.lift_height });
+
+  const tilesHtml = specTiles.length
+    ? `<div class="ficha-spec-tiles">${specTiles.map(t => `
+        <div class="ficha-spec-tile">
+          <div class="tile-label">${t.label}</div>
+          <div class="tile-value">${t.value}</div>
+        </div>`).join('')}
+      </div>`
+    : '';
+
+  // WhatsApp message
+  const msg = `Hola Trivium, me interesa el ${p.name} (SKU ${p.sku}). ¿Me pasan precio y disponibilidad?`;
+
+  // Action buttons
+  const actionsHtml = `
+    <div class="ficha-actions">
+      ${pdfHref ? `
+        <a class="btn btn--primary btn--lg" href="${pdfHref}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          Descargar PDF
+        </a>` : ''}
+      ${videoHref ? `
+        <a class="btn btn--dark btn--lg" href="${videoHref}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><polygon points="5,3 19,12 5,21 5,3"/></svg>
+          Ver video
+        </a>` : ''}
+      <div class="ficha-actions-label">Consultas</div>
+      <a class="btn btn--wa btn--lg" href="${waLink(msg)}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" fill="currentColor" style="width:16px;height:16px"><path d="M16.003 3C9.373 3 4 8.373 4 15.003c0 2.388.696 4.613 1.893 6.486L4 29l7.76-1.84A11.946 11.946 0 0016.003 28C22.633 28 28 22.633 28 16c0-3.185-1.245-6.18-3.505-8.44A11.933 11.933 0 0016.003 3z"/></svg>
+        WhatsApp
+      </a>
+      <a class="btn btn--ghost btn--lg" href="mailto:${TRIVIUM.email}?subject=${encodeURIComponent('Consulta ficha ' + p.sku)}">Email</a>
+    </div>
+  `;
+
+  // Hero layout: image (left) + sidebar (right)
+  document.getElementById('ficha-layout').innerHTML = `
+    <div class="ficha-img-wrap">
+      ${p.image
+        ? `<img src="${rootPath()}${p.image}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="ficha-img-placeholder" style="display:none">Sin imagen</span>`
+        : `<span class="ficha-img-placeholder">Sin imagen</span>`}
+    </div>
+    <div class="ficha-sidebar">
+      ${tilesHtml}
+      ${actionsHtml}
+    </div>
+  `;
+
+  // Technical content
+  if (p.html_description) {
+    const root = rootPath();
+    let html = p.html_description;
+    if (root) {
+      html = html.replace(/href="assets\//g, `href="${root}assets/`);
+      html = html.replace(/src="assets\//g, `src="${root}assets/`);
+    }
+    const descEl = document.createElement('div');
+    descEl.className = 'rich-html';
+    descEl.innerHTML = html;
+    document.getElementById('ficha-desc').appendChild(descEl);
+  }
+})();
+</script>
+</body>
+</html>
