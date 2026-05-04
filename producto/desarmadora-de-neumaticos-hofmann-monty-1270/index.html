@@ -87,20 +87,11 @@ mountChrome('catalogo');
       <span class="sku">SKU · ${p.sku}</span>
       <div class="summary">${p.summary}</div>
 
+      ${p.category.includes('elevador') ? `
       <div class="pd-specs">
-        ${p.category.includes('elevador') ? 
-          `<div class="row"><span>Capacidad</span><b>${p.capacity || '—'}</b></div>
-           <div class="row"><span>Altura de elevación</span><b>${p.lift_height || '—'}</b></div>` 
-        : p.category.includes('balanceadora') ? 
-          `<div class="row"><span>Diámetro de llanta</span><b>${p.rim_diameter || '—'}</b></div>
-           <div class="row"><span>Precisión de equilibrado</span><b>${p.precision || '—'}</b></div>`
-        : p.category.includes('desarmadora') ?
-          `<div class="row"><span>Rango de sujeción</span><b>${p.clamping_range || '—'}</b></div>
-           <div class="row"><span>Peso de la máquina</span><b>${p.capacity || '—'}</b></div>`
-        : ''}
-        <div class="row"><span>Marca</span><b><a href="${rootPath()}marca/${brand.slug}/" style="color:var(--text);text-decoration:underline;text-underline-offset:3px">${brand.name}</a></b></div>
-        <div class="row"><span>Categoría</span><b>${cat.name}</b></div>
-      </div>
+        <div class="row"><span>Capacidad</span><b>${p.capacity || '—'}</b></div>
+        <div class="row"><span>Altura de elevación</span><b>${p.lift_height || '—'}</b></div>
+      </div>` : ''}
 
       <div class="pd-actions">
         <a class="btn btn--primary btn--lg" href="${waLink(msg)}" target="_blank" rel="noopener">

@@ -315,18 +315,6 @@ function productCard(p) {
         <span>CAP <b>${p.capacity || '—'}</b></span>
         <span>ALT <b>${p.lift_height || '—'}</b></span>
       </div>`;
-  } else if (p.category.includes('balanceadora')) {
-    specHtml = `
-      <div class="spec">
-        <span title="Diámetro de llanta">DIA <b>${p.rim_diameter || '—'}</b></span>
-        <span title="Precisión de equilibrado">PRE <b>${p.precision || '—'}</b></span>
-      </div>`;
-  } else if (p.category.includes('desarmadora')) {
-    specHtml = `
-      <div class="spec">
-        <span title="Rango de sujeción">RAN <b>${p.clamping_range || '—'}</b></span>
-        <span title="Peso de la máquina">PES <b>${p.capacity || '—'}</b></span>
-      </div>`;
   } else {
     specHtml = `
       <div class="spec" style="visibility: hidden">
