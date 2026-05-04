@@ -113,17 +113,30 @@ function renderHeader(active) {
     </header>
     <div class="mobile-nav" id="mobileNav" onclick="if(event.target.id==='mobileNav')toggleMobileNav()">
       <div class="panel">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <b class="mono" style="letter-spacing:.2em;color:var(--text-mute)">MENÚ</b>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+          <img src="${root}assets/img/logo-trivium.svg" alt="Trivium" height="24">
           <button class="btn-burger" onclick="toggleMobileNav()">${ICONS.close}</button>
         </div>
-        <h5>Navegación</h5>
-        ${main.map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
-        <h5>Categorías</h5>
-        ${(main[0].sub||[]).map(([t,h]) => `<a href="${root}${h}">${t}</a>`).join('')}
-        <h5>Contacto</h5>
-        <a href="mailto:${TRIVIUM.email}">${TRIVIUM.email}</a>
-        <a href="${waLink()}">WhatsApp ${TRIVIUM.whatsappDisplay}</a>
+        
+        <div class="mobile-menu-section">
+          <h5>Categorías</h5>
+          <div class="mobile-cat-list">
+            ${(main[0].sub||[]).slice(0,4).map(([t,h]) => `<a href="${root}${h}" class="bold"><strong>${t}</strong></a>`).join('')}
+            <div class="sep"></div>
+            ${(main[0].sub||[]).slice(4).map(([t,h]) => `<a href="${root}${h}">${t}</a>`).join('')}
+          </div>
+        </div>
+
+        <div class="mobile-menu-section">
+          <h5>Trivium</h5>
+          ${main.slice(1).map(l => `<a href="${l.href}">${l.label}</a>`).join('')}
+        </div>
+
+        <div class="mobile-menu-section" style="margin-top:auto; padding-top:24px; border-top:1px solid var(--line);">
+          <h5>Contacto</h5>
+          <a href="mailto:${TRIVIUM.email}" class="contact-link">${ICONS.mail} ${TRIVIUM.email}</a>
+          <a href="${waLink()}" class="contact-link">${ICONS.wa} ${TRIVIUM.whatsappDisplay}</a>
+        </div>
       </div>
     </div>`;
 
@@ -151,15 +164,21 @@ function renderFooter() {
     <footer class="footer">
       <div class="container">
         <div class="grid">
-          <div>
-            <div class="brand" style="margin-bottom:12px">
-              <img src="${root}assets/img/logo-trivium.svg" alt="Trivium Center" height="32" style="display:block;width:auto">
+          <div class="footer-brand-col">
+            <div class="brand" style="margin-bottom:16px">
+              <img src="${root}assets/img/logo-trivium.svg" alt="Trivium Center" height="32" style="display:block;width:auto;filter:brightness(0) invert(1)">
             </div>
-            <p class="tagline">Soluciones para talleres y concesionarias. Importadores y distribuidores de equipamiento profesional en Argentina.</p>
+            <p class="tagline">Importadores y distribuidores oficiales de equipamiento profesional para talleres y concesionarias en Argentina.</p>
+            <div class="footer-socials">
+              <a href="https://instagram.com/triviumcenter" target="_blank" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+            </div>
           </div>
+          
           <div>
             <h5>Catálogo</h5>
-            <ul>
+            <ul class="footer-links">
               <li><a href="${root}categoria/elevadores/">Elevadores</a></li>
               <li><a href="${root}categoria/alineadoras/">Alineadoras</a></li>
               <li><a href="${root}categoria/balanceadoras/">Balanceadoras</a></li>
@@ -167,32 +186,54 @@ function renderFooter() {
               <li><a href="${root}categoria/muebles-taller/">Muebles de Taller</a></li>
             </ul>
           </div>
+
           <div>
-            <h5>Trivium</h5>
-            <ul>
+            <h5>La Empresa</h5>
+            <ul class="footer-links">
               <li><a href="${root}nosotros/">Nosotros</a></li>
               <li><a href="${root}marcas/">Marcas</a></li>
-              <li><a href="${root}instalacion-posventa-y-servicios/">Servicios</a></li>
+              <li><a href="${root}instalacion-posventa-y-servicios/">Servicios y Posventa</a></li>
               <li><a href="${root}contacto/">Contacto</a></li>
             </ul>
           </div>
-          <div>
-            <h5>Contacto</h5>
-            <ul>
-              <li><a href="mailto:${TRIVIUM.email}">${TRIVIUM.email}</a></li>
-              <li><a href="${waLink()}">${TRIVIUM.whatsappDisplay}</a></li>
-              <li><span class="muted">Lun–Vie · 9 a 18 h</span></li>
+
+          <div class="footer-contact-col">
+            <h5>Contacto Directo</h5>
+            <ul class="footer-contact-list">
+              <li>
+                <a href="mailto:${TRIVIUM.email}">
+                  <span class="icon">${ICONS.mail}</span>
+                  <span class="text">${TRIVIUM.email}</span>
+                </a>
+              </li>
+              <li>
+                <a href="${waLink()}">
+                  <span class="icon">${ICONS.wa}</span>
+                  <span class="text">${TRIVIUM.whatsappDisplay}</span>
+                </a>
+              </li>
+              <li>
+                <div class="hours">
+                  <span class="icon">${ICONS.pin}</span>
+                  <span class="text">Lunes a Viernes<br><b>9:00 a 18:00 hs</b></span>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
-        <div class="bottom">
-          <span>© ${new Date().getFullYear()} Trivium Center — Todos los derechos reservados</span>
-          <span>Sitio estático · Hecho en Argentina</span>
+        
+        <div class="footer-bottom">
+          <div class="legal">
+            © ${new Date().getFullYear()} Trivium Center — Todos los derechos reservados.
+          </div>
+          <div class="origin">
+            Equipamiento Industrial · Hecho en Argentina
+          </div>
         </div>
       </div>
     </footer>
     <a class="wa-float" href="${waLink('Hola, quiero hacer una consulta.')}" target="_blank" rel="noopener">
-      ${ICONS.wa} Consultar
+      ${ICONS.wa} Consultar por WhatsApp
     </a>`;
 }
 
