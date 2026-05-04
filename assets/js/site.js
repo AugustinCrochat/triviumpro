@@ -50,14 +50,14 @@ const BRAND_LOGOS = {
   'trivium-pro':  'assets/img/marcas/logo-trivium-pro.svg',
 };
 
-const MAIN_BRANDS = ['rotary-lift', 'hofmann', 'direct-lift', 'forward-lift', 'trivium-pro'];
+const MAIN_BRANDS = ['rotary-lift', 'hofmann', 'direct-lift', 'trivium-pro'];
 
 function renderBrandBar() {
   const root = rootPath();
   const items = MAIN_BRANDS.map(slug => {
     const logo = BRAND_LOGOS[slug];
     const name = { 'rotary-lift': 'Rotary Lift', 'hofmann': 'Hofmann', 'direct-lift': 'Direct Lift', 'forward-lift': 'Forward Lift', 'trivium-pro': 'Trivium Pro' }[slug];
-    return `<a class="brand-bar__item" href="${root}marca/${slug}/" aria-label="${name}">
+    return `<a class="brand-bar__item" href="${root}marca/${slug}/" aria-label="${name}" data-slug="${slug}">
       <img src="${root}${logo}" alt="${name}" loading="lazy">
     </a>`;
   }).join('');

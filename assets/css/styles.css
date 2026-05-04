@@ -226,6 +226,17 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   .brand-bar__item { padding: 4px 8px; }
   .brand-bar__item img { height: 18px; }
 }
+/* Logos más anchos / cortos: menos padding lateral para que se vean más grandes */
+.brand-bar__item[data-slug="rotary-lift"],
+.brand-bar__item[data-slug="trivium-pro"] {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.brand-bar__item[data-slug="rotary-lift"] img,
+.brand-bar__item[data-slug="trivium-pro"] img {
+  height: 30px;
+}
+
 
 .nav-cta {
   display: flex; gap: 10px; align-items: center;
