@@ -127,7 +127,7 @@ mountChrome('catalogo');
 
   // related
   const related = CATALOG.products
-    .filter(x => x.slug !== p.slug && (x.category === p.category || x.brand === p.brand))
+    .filter(x => x.slug !== p.slug && (x.category === p.category))
     .slice(0, 4);
   renderGrid('#related', related);
 })();
