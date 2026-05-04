@@ -2767,10 +2767,10 @@
       ]
     },
     {
-      "sku": "P-3405",
+      "sku": "1010290",
       "slug": "elevador-de-baterias-para-autos-electricos",
-      "name": "Elevador de Baterías para Autos Eléctricos",
-      "category": "elevadores",
+      "name": "Elevador de baterías para auto eléctricos",
+      "category": "equipamiento-taller",
       "brand": "trivium-pro",
       "capacity": "—",
       "lift_height": "1800 mm",
@@ -2784,8 +2784,10 @@
         "Ensamblaje con componentes de alta calidad para un trabajo rápido y preciso"
       ],
       "badges": [],
-      "image": "https://trivium.ar/wp-content/uploads/2024/06/elevador-de-baterias-de-autos-electricos.webp",
-      "images": []
+      "image": "assets/img/productos/elevador-de-baterias-para-autos-electricos.jpg",
+      "images": [
+        "assets/img/productos/elevador-de-baterias-para-autos-electricos.jpg"
+      ]
     },
     {
       "sku": "1010289",
