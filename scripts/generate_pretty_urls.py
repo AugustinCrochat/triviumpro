@@ -75,14 +75,6 @@ def main():
             # print(f"  -> producto/{slug}/") # too many to print
             create_index_file(os.path.join(BASE_DIR, 'producto', slug), prod_template, 2)
 
-    # 5. Ficha técnica pages (depth 3: /producto/<slug>/ficha/)
-    ficha_template = os.path.join(BASE_DIR, 'ficha.html')
-    if os.path.exists(ficha_template):
-        for prod in catalog['products']:
-            slug = prod['slug']
-            create_index_file(os.path.join(BASE_DIR, 'producto', slug, 'ficha'), ficha_template, 3)
-        print(f"  -> Generated {len(catalog['products'])} ficha pages")
-
     print(f"Done! Generated folders for {len(catalog['products'])} products and {len(catalog['categories'])} categories.")
 
 if __name__ == "__main__":

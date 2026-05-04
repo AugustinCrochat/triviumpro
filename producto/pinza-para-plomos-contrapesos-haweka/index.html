@@ -87,20 +87,11 @@ mountChrome('catalogo');
       <span class="sku">SKU · ${p.sku}</span>
       <div class="summary">${p.summary}</div>
 
-      ${p.category.includes('elevador') ? `
-      <div class="pd-specs">
-        <div class="row"><span>Capacidad</span><b>${p.capacity || '—'}</b></div>
-        <div class="row"><span>Altura de elevación</span><b>${p.lift_height || '—'}</b></div>
+      ${(p.capacity || p.lift_height) ? `
+      <div class="pd-spec-tiles">
+        ${p.capacity ? `<div class="pd-spec-tile"><div class="tile-label">Capacidad</div><div class="tile-value">${p.capacity}</div></div>` : ''}
+        ${p.lift_height ? `<div class="pd-spec-tile"><div class="tile-label">Altura de elevación</div><div class="tile-value">${p.lift_height}</div></div>` : ''}
       </div>` : ''}
-
-      <div class="pd-actions">
-        <a class="btn btn--primary btn--lg" href="${waLink(msg)}" target="_blank" rel="noopener">
-          <svg viewBox="0 0 32 32" fill="currentColor" style="width:18px;height:18px"><path d="M16.003 3C9.373 3 4 8.373 4 15.003c0 2.388.696 4.613 1.893 6.486L4 29l7.76-1.84A11.946 11.946 0 0016.003 28C22.633 28 28 22.633 28 16c0-3.185-1.245-6.18-3.505-8.44A11.933 11.933 0 0016.003 3z"/></svg>
-          Consultar por WhatsApp
-        </a>
-        <a class="btn btn--ghost btn--lg" href="mailto:${TRIVIUM.email}?subject=${encodeURIComponent('Consulta '+p.sku)}">Consultar por email</a>
-        <a class="btn btn--dark btn--lg" href="${productUrl(p)}ficha/">Ver Ficha Técnica</a>
-      </div>
 
       <ul class="pd-bullets">
         ${(p.bullets||[]).map(b => `<li>${b}</li>`).join('')}
@@ -125,6 +116,10 @@ mountChrome('catalogo');
     descEl.innerHTML = html;
     wrap.appendChild(descEl);
   }
+
+  // Update floating WhatsApp button with product-specific message
+  const floatBtn = document.querySelector('.wa-float');
+  if (floatBtn) floatBtn.href = waLink(msg);
 
   // related
   const related = CATALOG.products
