@@ -272,9 +272,7 @@ function productCard(p) {
       </div>`;
   }
 
-  const brandTag = brand.logo
-    ? `<a class="brand-tag brand-tag--logo" href="${rootPath()}marca/${brand.slug}/"><img src="${rootPath()}${brand.logo}" alt="${brand.name}"></a>`
-    : `<span class="brand-tag">${brand.name}</span>`;
+  const brandTag = `<span class="brand-tag">${brand.name}</span>`;
   return `
     <a class="prod-card" href="${productUrl(p)}">
       <div class="thumb">
