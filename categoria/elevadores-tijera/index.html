@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<link rel="icon" type="image/svg+xml" href="/assets/img/icono-trivium.svg">
+<link rel="icon" type="image/svg+xml" href="../../assets/img/icono-trivium.svg">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="tv-root" content="../../">
 <title>Categoría — Trivium Center</title>
@@ -58,7 +58,7 @@ mountChrome('catalogo');
     const cat = categoryById(catSlug);
     const subs = CATALOG.categories.filter(c => c.parent === catSlug).map(c => c.slug);
     results = CATALOG.products.filter(p => p.category === catSlug || subs.includes(p.category));
-    if (catSlug === 'elevadores') {
+    if (catSlug === 'elevadores' || brandSlug) {
       const order = ['elevadores-2-columnas', 'elevadores-4-columnas', 'elevadores-tijera', 'elevadores-pesados', 'elevadores-motos'];
       results.sort((a, b) => {
         const ia = order.indexOf(a.category);

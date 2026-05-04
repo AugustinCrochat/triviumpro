@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/svg+xml" href="assets/img/icono-trivium.svg">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="tv-root" content="">
+<title>Ficha de producto — Trivium Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<section>
+  <div class="container">
+    <div class="breadcrumbs" id="crumbs" style="margin-top:24px"></div>
+    <div class="pd-wrap" id="pd-wrap"></div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Relacionados</span>
+        <h2 style="margin-top:14px">Te puede <span style="color:var(--accent)">interesar.</span></h2>
+      </div>
+    </div>
+    <div class="prod-grid" id="related"></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script src="assets/js/site.js"></script>
+<script>
+mountChrome('catalogo');
+(async () => {
+  await loadCatalog();
+  const slug = getQuery('id');
+  const p = CATALOG.products.find(x => x.slug === slug);
+  if (!p) {
+    document.getElementById('pd-wrap').innerHTML = `<p>Producto no encontrado. <a href="${rootPath()}catalogo/" style="color:var(--accent)">Volver al catálogo</a>.</p>`;
+    return;
+  }
+  document.title = `${p.name} — Trivium Center`;
+  const cat = categoryById(p.category);
+  const parent = cat.parent ? categoryById(cat.parent) : null;
+  const brand = brandById(p.brand);
+
+  document.getElementById('crumbs').innerHTML = `
+    <a href="${rootPath()}">Inicio</a><span>/</span>
+    <a href="${rootPath()}catalogo/">Catálogo</a><span>/</span>
+    ${parent ? `<a href="${categoryUrl(parent.slug)}">${parent.name}</a><span>/</span>` : ''}
+    <a href="${categoryUrl(cat.slug)}">${cat.name}</a><span>/</span>
+    ${p.name}
+  `;
+
+  const msg = `Hola Trivium, me interesa el ${p.name} (SKU ${p.sku}). ¿Me pasan precio y disponibilidad?`;
+  const ribbons = (p.badges||[]).map(b => `<span class="chip chip--accent">${b}</span>`).join(' ');
+
+  document.getElementById('pd-wrap').innerHTML = `
+    <div class="pd-gallery">
+      <div class="main" id="pd-main">
+        ${p.image
+          ? `<img src="${rootPath()}${p.image}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;background:#fff" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span style="display:none">Imagen / ${p.sku}</span>`
+          : `<span>Imagen / ${p.sku}</span>`}
+      </div>
+      ${(p.images && p.images.length > 1) ? `
+      <div class="thumbs">
+        ${p.images.slice(0,6).map((src,i) => `
+          <div class="thumb ${i===0?'active':''}" style="background:#fff;padding:4px" onclick="document.getElementById('pd-main').innerHTML='<img src=&quot;${rootPath()}${src}&quot; style=&quot;width:100%;height:100%;object-fit:contain;background:#fff&quot;>';this.parentNode.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));this.classList.add('active')">
+            <img src="${rootPath()}${src}" style="width:100%;height:100%;object-fit:contain">
+          </div>`).join('')}
+      </div>` : ''}
+    </div>
+    <div class="pd-info">
+      <div class="brand-line">
+        ${brand.logo
+          ? `<a class="brand-chip" href="${rootPath()}marca/${brand.slug}/" title="${brand.name}"><img src="${rootPath()}${brand.logo}" alt="${brand.name}"></a>`
+          : `<span class="chip chip--accent">${brand.name}</span>`}
+        ${ribbons}
+      </div>
+      <h1>${p.name}</h1>
+      <span class="sku">SKU · ${p.sku}</span>
+      <div class="summary">${p.summary}</div>
+
+      ${p.category.includes('elevador') ? `
+      <div class="pd-specs">
+        <div class="row"><span>Capacidad</span><b>${p.capacity || '—'}</b></div>
+        <div class="row"><span>Altura de elevación</span><b>${p.lift_height || '—'}</b></div>
+      </div>` : ''}
+
+      <div class="pd-actions">
+        <a class="btn btn--primary btn--lg" href="${waLink(msg)}" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" fill="currentColor" style="width:18px;height:18px"><path d="M16.003 3C9.373 3 4 8.373 4 15.003c0 2.388.696 4.613 1.893 6.486L4 29l7.76-1.84A11.946 11.946 0 0016.003 28C22.633 28 28 22.633 28 16c0-3.185-1.245-6.18-3.505-8.44A11.933 11.933 0 0016.003 3z"/></svg>
+          Consultar por WhatsApp
+        </a>
+        <a class="btn btn--ghost btn--lg" href="mailto:${TRIVIUM.email}?subject=${encodeURIComponent('Consulta '+p.sku)}">Consultar por email</a>
+      </div>
+
+      <ul class="pd-bullets">
+        ${(p.bullets||[]).map(b => `<li>${b}</li>`).join('')}
+      </ul>
+    </div>
+  `;
+
+  if (p.html_description) {
+    const wrap = document.getElementById('pd-wrap');
+    const descEl = document.createElement('div');
+    descEl.className = 'rich-html';
+    descEl.style.gridColumn = '1 / -1';
+    descEl.style.marginTop = '20px';
+    
+    // Fix relative paths in WooCommerce HTML
+    let html = p.html_description;
+    const root = rootPath();
+    if (root) {
+      html = html.replace(/href="assets\//g, `href="${root}assets/`);
+      html = html.replace(/src="assets\//g, `src="${root}assets/`);
+    }
+    descEl.innerHTML = html;
+    wrap.appendChild(descEl);
+  }
+
+  // related
+  const related = CATALOG.products
+    .filter(x => x.slug !== p.slug && (x.category === p.category))
+    .slice(0, 4);
+  renderGrid('#related', related);
+})();
+</script>
+</body>
+</html>

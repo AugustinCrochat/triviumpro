@@ -52,11 +52,6 @@
       "tagline": "Pistolas, llaves, accesorios"
     },
     {
-      "slug": "lubricacion",
-      "name": "Lubricación",
-      "tagline": "Sistemas y equipos"
-    },
-    {
       "slug": "muebles-taller",
       "name": "Muebles de Taller",
       "tagline": "Carros, bancos, organizadores"
@@ -69,10 +64,6 @@
     {
       "slug": "accesorios-balanceo",
       "name": "Accesorios de Balanceo"
-    },
-    {
-      "slug": "alineacion-faros",
-      "name": "Alineación de Faros"
     }
   ],
   "brands": [
@@ -100,6 +91,11 @@
       "slug": "trivium-pro",
       "name": "Trivium Pro",
       "note": "Marca propia"
+    },
+    {
+      "slug": "haweka",
+      "name": "Haweka",
+      "note": "Alemania — Accesorios"
     }
   ],
   "products": [
@@ -466,7 +462,7 @@
       "slug": "espatula-para-despegar-contrapesos-adhesivos-en-llantas-de-aluminio-haweka",
       "name": "Espátula para Despegar Contrapesos Adhesivos en Llantas de Aluminio | Haweka",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Diseñada específicamente para despegar contrapesos adhesivos de llantas de aluminio. Evita daños en la superficie de las llantas durante la extracción. Ideal para uso en talleres mecánicos y servicios de balanceo de ruedas. Construida con…",
@@ -490,7 +486,7 @@
       "slug": "calibre-haweka-para-medir-la-distancia-entre-bulones-de-ruedas",
       "name": "Calibre Haweka para Medir la Distancia entre Bulones de Ruedas",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Herramienta precisa para medir la distancia entre bulones en ruedas de vehículos. Diseñado para asegurar un ajuste correcto en el montaje de ruedas. Compatible con una amplia variedad de vehículos y patrones de bulones. Fabricado con…",
@@ -514,7 +510,7 @@
       "slug": "kit-de-9-conos-para-balanceadora-52-5-122-mm",
       "name": "Kit de 9 Conos para Balanceadora (Ø 52,5 - Ø 122 mm)",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Rango de diámetros : Conos de 52,5 mm a 122 mm para adaptarse a distintas ruedas. Versatilidad : Compatible con varios modelos de balanceadoras. Alta precisión : Garantiza un centrado perfecto durante el balanceo. Durabilidad : Fabricados…",
@@ -537,7 +533,7 @@
       "slug": "conos-de-centrado-haweka",
       "name": "Conos de Centrado Haweka",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "—",
       "lift_height": "—",
       "summary": "150 400 049: Cono centrador 89-132 mm, 40 mm de diámetro del eje. 150 280 049: Cono centrador 4x4 89-132 mm, 28 mm de diámetro del eje. Alta precisión : Asegura el centrado exacto de las ruedas. Compatibilidad universal : Adecuado para una…",
@@ -560,7 +556,7 @@
       "slug": "tuerca-rapida-de-40-x-4-mm-progrip-haweka",
       "name": "Tuerca Rápida de 40 x 4 mm - ProGrip Haweka",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Diseño de alta precisión : Ajuste perfecto para balanceadoras de ruedas. Operación rápida : Permite fijar y aflojar rápidamente. Material duradero : Fabricada con materiales resistentes al desgaste. Compatibilidad : Ideal para la mayoría…",
@@ -583,7 +579,7 @@
       "slug": "tuerca-rapida-softgrip-para-eje-40x4mm-haweka",
       "name": "Tuerca Rápida SoftGrip para Eje 40x4mm Haweka",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Mango SoftGrip : Proporciona un agarre cómodo y antideslizante. Fijación rápida : Acelera el proceso de montaje en el eje. Compatibilidad : Diseñada específicamente para ejes de 40x4mm. Durabilidad : Resistente a la corrosión y al…",
@@ -606,7 +602,7 @@
       "slug": "conos-expandibles-haweka-54-86-mm",
       "name": "Conos Expandibles Haweka 54-86 mm",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Adaptador DuoExpert II, eje 40 mm. Rango 54 - 62 mm Rango 62 - 70 mm Rango 70 - 78 mm Rango 78 - 86 mm",
@@ -628,7 +624,7 @@
       "slug": "soporte-para-accesorios-haweka",
       "name": "Soporte para Accesorios Haweka",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Compatibilidad : Diseñado para paneles Haweka. Resistente : Material duradero y estable. Fácil de usar : Montaje y desmontaje sencillo. Portátil : Ideal para talleres y estaciones de trabajo móviles. Diseño compacto : Ahorro de espacio en…",
@@ -651,7 +647,7 @@
       "slug": "dispositivo-de-fijacion-probike-haweka",
       "name": "Dispositivo de Fijación ProBike Haweka",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Características: Resultados de equilibrado precisos Instalación fácil y rápida Rango de agarre de 360 mm a 740 mm Ideal tanto para las ruedas de 10 pulgadas y ruedas de camioneta El manejo es seguro y fácil",
@@ -668,61 +664,6 @@
         "assets/img/productos/centrado-de-ruedas-de-moto-probike.jpg"
       ],
       "html_description": "<embed src=\"assets/pdf/39-ficha-805-818-000-805-995-000-probike-haweka.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/39-ficha-805-818-000-805-995-000-probike-haweka.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010176",
-      "slug": "maquina-para-purga-de-cajas-de-cambio-automaticas-transmision-atf-brain-bee-agc-",
-      "name": "Máquina para Purga de Cajas de Cambio Automáticas Transmisión ATF - Brain Bee AGC 8200",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "TOTAL COBERTURA DE LA FLOTA DE VEHÍCULOS La estación AGC ha sido diseñada para cambiar todo el aceite del cambio automático y limpiar el circuito correspondiente en todos los modelos de coche. La base de datos que incorpora la estación…",
-      "bullets": [
-        "TIPO DE ACEITE",
-        "CAPACIDAD DE LA TRANSMISIÓN",
-        "CONEXIONES DE SERVICIO (drenaje de aceite; llenado/nivel de aceite)"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/maquina-de-purga-de-cajas-de-cambio-transmision-atf-brain-bee-agc-8200.jpg",
-      "images": [
-        "assets/img/productos/maquina-de-purga-de-cajas-de-cambio-transmision-atf-brain-bee-agc-8200.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/49-ficha-brain-bee-agc-8200-estacion-de-cambio-aceite-caja-automatica.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/49-ficha-brain-bee-agc-8200-estacion-de-cambio-aceite-caja-automatica.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "5010066",
-      "slug": "alineador-de-faros-tecnolux-2019",
-      "name": "Alineador de Faros Tecnolux 2019",
-      "category": "alineacion-faros",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Alineador mecánico de luces con luxómetro analógico graduado o digital, visor con espejo o láser visor línea y punto óptico láser, deslizamiento vertical con patines de precisión en nylon autolubrificado.",
-      "bullets": [],
-      "badges": [],
-      "image": "assets/img/productos/alineador-de-faros-tecnolux-2019.jpg",
-      "images": [
-        "assets/img/productos/alineador-de-faros-tecnolux-2019.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/49-ficha-alin-faro-2019-tecnolux.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/49-ficha-alin-faro-2019-tecnolux.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "5010067",
-      "slug": "alineador-de-faros-tecnolux-2350",
-      "name": "Alineador de Faros Tecnolux 2350",
-      "category": "alineacion-faros",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Alineador electrónico de luces disponible con múltiples opciones: base simple con railes, visor con espejo o visor y apuntamiento láser, columna giratoria. Alineador electrónico combinado para faros Americanos o Europeos.",
-      "bullets": [],
-      "badges": [],
-      "image": "assets/img/productos/alineador-de-faros-tecnolux-2350.jpg",
-      "images": [
-        "assets/img/productos/alineador-de-faros-tecnolux-2350.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/50-ficha-alin-faro-2350-tecnolux.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/50-ficha-alin-faro-2350-tecnolux.pdf\">Descargar PDF</a>."
     },
     {
       "sku": "1010151",
@@ -1601,114 +1542,6 @@
       "html_description": "<div style=\"text-align: center;\"><iframe style=\"border: none;\" src=\"assets/pdf/ficha-mueble-de-taller-movil-tbr0107x-deluxe.pdf\" width=\"100%\" height=\"600px\">\n</iframe><a href=\"assets/pdf/ficha-mueble-de-taller-movil-tbr0107x-deluxe.pdf\" download=\"\">Descargar PDF</a>\n\n</div>\n<style>\n    /* Ajuste para pantallas pequeñas */<br />\n    @media (max-width: 767px) {<br />\n        iframe {<br />\n            height: 300px; /* Ajusta el alto para pantallas móviles */<br />\n        }<br />\n    }<br />\n</style>"
     },
     {
-      "sku": "1010104",
-      "slug": "cuentalitros-digital-aceite-1-2-raasm",
-      "name": "Cuentalitros Digital Aceite 1/2'' Raasm",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Equipada con: Articulación de entrada H 1/2” Terminal flexible Boquilla semiautomática ø 16 mm",
-      "bullets": [
-        "Articulación de entrada H 1/2”",
-        "Terminal flexible",
-        "Boquilla semiautomática ø 16 mm"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/cuentalitros-digital-aceite-raasm-37794.jpg",
-      "images": [
-        "assets/img/productos/cuentalitros-digital-aceite-raasm-37794.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/80-ficha-raasm-37794-37704-pistolas.pdf\"width=\"100%\" height=\"700\" \n \n\n \n type=\"application/pdf\">\n \n\n \n <p>Clic para <a href=\"assets/pdf/80-ficha-raasm-37794-37704-pistolas.pdf\">Descargar PDF</a>.</p>"
-    },
-    {
-      "sku": "1010101",
-      "slug": "recuperador-neumatico-aceite",
-      "name": "Recuperador Neumático Aceite",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "33 kg",
-      "lift_height": "—",
-      "summary": "Características: 85 litros de capacidad máxima El recuperador pesa 33 kg Cárter de 15 litros",
-      "bullets": [
-        "85 litros de capacidad máxima",
-        "El recuperador pesa 33 kg",
-        "Cárter de 15 litros"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/recuperadora-profesional-aceite-usado.jpg",
-      "images": [
-        "assets/img/productos/recuperadora-profesional-aceite-usado.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/83-ficha-raasm-42085-recuperador.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/83-ficha-raasm-42085-recuperador.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010099",
-      "slug": "recuperador-neumatico-combinado-15-litros-raasm",
-      "name": "Recuperador Neumático Combinado 15 litros Raasm",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Características: Cárter orientable para aumentar el radio de acción Precámara de 8 litros transparente Tubo de 2 metros para el vaciado neumático del depósito Medidor de vacío para controlar la fuerza de aspiración",
-      "bullets": [
-        "Cárter orientable para aumentar el radio de acción",
-        "Precámara de 8 litros transparente",
-        "Tubo de 2 metros para el vaciado neumático del depósito",
-        "Medidor de vacío para controlar la fuerza de aspiración"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/recuperador-neumatico-combinado-15-litros-raasm.jpg",
-      "images": [
-        "assets/img/productos/recuperador-neumatico-combinado-15-litros-raasm.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/85-ficha-raasm-44065-recuperador-aspirador.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/85-ficha-raasm-44065-recuperador-aspirador.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010180",
-      "slug": "recuperador-neumatico-combinado-raasm",
-      "name": "Recuperador Neumático Combinado Raasm",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "41 kg",
-      "lift_height": "—",
-      "summary": "Características: Capacidad del depósito: 80 litros Presión por despresurización: 6.5 - 7 bar Ruido: 75 dB Peso 41 kg",
-      "bullets": [
-        "Capacidad del depósito: 80 litros",
-        "Presión por despresurización: 6.5 - 7 bar",
-        "Ruido: 75 dB",
-        "Peso 41 kg"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/recuperadora-aceite-combinado-usado-raasm-44085-.jpg",
-      "images": [
-        "assets/img/productos/recuperadora-aceite-combinado-usado-raasm-44085-.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/86-ficha-raasm-44085-recuperador-aspirador.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/86-ficha-raasm-44085-recuperador-aspirador.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010100",
-      "slug": "recuperador-para-aceite-usado",
-      "name": "Recuperador para Aceite Usado",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Características: Cuba con separador Precámara de 8 litros 97 litros de recuperación Luego de despresurización, no necesita conexión a red de aire comprimido",
-      "bullets": [
-        "Cuba con separador",
-        "Precámara de 8 litros",
-        "97 litros de recuperación",
-        "Luego de despresurización, no necesita conexión a red de aire comprimido"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/recuperador-aceite-neumatico-50-litros-raasm.jpg",
-      "images": [
-        "assets/img/productos/recuperador-aceite-neumatico-50-litros-raasm.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/87-ficha-raasm-46116-recuperador-aspirador.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/87-ficha-raasm-46116-recuperador-aspirador.pdf\">Descargar PDF</a>."
-    },
-    {
       "sku": "1010102",
       "slug": "bomba-manual-de-aceite-manguera-2-metros-raasm",
       "name": "Bomba Manual de Aceite Manguera 2 Metros Raasm",
@@ -1784,138 +1617,6 @@
         "assets/img/productos/distribuidor-manual-para-aceite-con-carro-cuatro-ruedas.jpg"
       ],
       "html_description": "<embed src=\"assets/pdf/72-ficha-raasm-30050-bomba-manual-con-carro.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/72-ficha-raasm-30050-bomba-manual-con-carro.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010107",
-      "slug": "enrollador-para-fluidos-150-bar-raasm",
-      "name": "Enrollador para Fluidos 150 bar Raasm",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Características: Enrolladores para fluidos. 150 bar - manguera 15 m ø 1/2\" Resistente a la corrosión: todos los componentes se tratan o pintan para poder trabajar en exteriores Fácil instalación en cualquier lugar: a pared, a suelo, a…",
-      "bullets": [
-        "Enrolladores para fluidos. 150 bar - manguera 15 m ø 1/2\"",
-        "Resistente a la corrosión: todos los componentes se tratan o pintan para poder trabajar en exteriores",
-        "Fácil instalación en cualquier lugar: a pared, a suelo, a techo, en vehículos, etc."
-      ],
-      "badges": [],
-      "image": "assets/img/productos/enrollador-para-fluidos-150-bar.jpg",
-      "images": [
-        "assets/img/productos/enrollador-para-fluidos-150-bar.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/64-ficha-raasm-8430-402-enrolladores.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/64-ficha-raasm-8430-402-enrolladores.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010108",
-      "slug": "enrollador-para-fluidos-raasm",
-      "name": "Enrollador para Fluidos Raasm",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Articulación en acero al carbono Juntas en poliuretano Equipados con: Tubos de goma sintética negra Empalmes en acero galvanizado Enrolladores para fluidos. 150 bar - manguera 15 m ø 1/2\"",
-      "bullets": [
-        "Articulación en acero al carbono",
-        "Juntas en poliuretano",
-        "Equipados con: Tubos de goma sintética negra",
-        "Empalmes en acero galvanizado",
-        "Enrolladores para fluidos. 150 bar - manguera 15 m ø 1/2\""
-      ],
-      "badges": [],
-      "image": "assets/img/productos/enrollador-para-fluidos-raasm.jpg",
-      "images": [
-        "assets/img/productos/enrollador-para-fluidos-raasm.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/65-ficha-raasm-9430-402-enrolladores.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/65-ficha-raasm-9430-402-enrolladores.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010109",
-      "slug": "purga-frenos-y-embragues-raasm",
-      "name": "Purga Frenos y Embragues Raasm",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "El purga frenos de tres cámaras, de funcionamiento neumático, es adecuado para la purga de frenos y embragues hidráulicos de todos los tipos de medios de locomoción. La operación de purga puede ser realizada en pocos minutos y por una sola…",
-      "bullets": [],
-      "badges": [],
-      "image": "assets/img/productos/purga-frenos-y-embrague-raasm.jpg",
-      "images": [
-        "assets/img/productos/purga-frenos-y-embrague-raasm.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/66-ficha-raasm-10805-purgador-freno.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/66-ficha-raasm-10805-purgador-freno.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010110",
-      "slug": "cuba-de-lavado-de-partes-automotrices-y-frenos-65-litros-raasm",
-      "name": "Cuba de Lavado de Partes Automotrices y Frenos 65 Litros Raasm",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Cuba de lavado universal para la limpieza rápida de partes mecánicas y de componentes en general. El sistema neumático a baja presión permite: lavado con cepillo de flujo continuo de líquido detergente para una operación minuciosa lavado…",
-      "bullets": [
-        "lavado con cepillo de flujo continuo de líquido detergente para una operación minuciosa",
-        "lavado por inmersión, con los componentes sumergidos en el líquido detergente dentro de la cuba."
-      ],
-      "badges": [],
-      "image": "assets/img/productos/cuba-de-lavado-lubricentro-raasm.jpg",
-      "images": [
-        "assets/img/productos/cuba-de-lavado-lubricentro-raasm.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/89-ficha-raasm-70365-cuba-lavado.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/89-ficha-raasm-70365-cuba-lavado.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010113",
-      "slug": "bandeja-colectora-de-goteo-modular-para-pared-raasm",
-      "name": "Bandeja Colectora de Goteo Modular para Pared Raasm",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "La Recogedora de Gotas Modular es la solución ideal para optimizar la recolección de gotas en diversos procesos industriales. Diseñada con un sistema modular, esta máquina permite una instalación y ajuste flexibles, adaptándose a…",
-      "bullets": [],
-      "badges": [],
-      "image": "assets/img/productos/bandeja-colectora-de-goteo-modular-para-pared-raasm.jpg",
-      "images": [
-        "assets/img/productos/bandeja-colectora-de-goteo-modular-para-pared-raasm.jpg"
-      ],
-      "html_description": "La Recogedora de Gotas Modular es la solución ideal para optimizar la recolección de gotas en diversos procesos industriales. Diseñada con un sistema modular, esta máquina permite una instalación y ajuste flexibles, adaptándose a diferentes necesidades y espacios de trabajo.\n\nCon materiales de alta calidad y una estructura robusta, garantiza una recolección eficiente y segura, minimizando el desperdicio y mejorando la productividad."
-    },
-    {
-      "sku": "1010115",
-      "slug": "bar-de-aceite-raasm",
-      "name": "Bar de Aceite Raasm",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Permite suministrar hasta 3 tipos distintos de fluidos como, por ejemplo, aceite motor, aceite de caja de cambio, líquido anticongelante u otros líquidos similares. La cantidad suministrada puede controlarse mediante el cuenta litros…",
-      "bullets": [],
-      "badges": [],
-      "image": "assets/img/productos/bar-de-aceite-para-suministrar-fluidos-raasm.jpg",
-      "images": [
-        "assets/img/productos/bar-de-aceite-para-suministrar-fluidos-raasm.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/78-ficha-raasm-37688-bar-de-aceite.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/78-ficha-raasm-37688-bar-de-aceite.pdf\">Descargar PDF</a>."
-    },
-    {
-      "sku": "1010184",
-      "slug": "columna-para-5-enrolladores-de-manguera-raasm",
-      "name": "Columna para 5 Enrolladores de Manguera Raasm",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Ubicaciones de servicio adecuadas para racionalizar los espacios dedicados al suministro. Si se montan a pared, conectadas a la instalación centralizada de distribución, resultan auténticas estaciones operativas autónomas. Se realizan con…",
-      "bullets": [],
-      "badges": [],
-      "image": "assets/img/productos/columna-para-5-enrolladores-de-manguera.jpg",
-      "images": [
-        "assets/img/productos/columna-para-5-enrolladores-de-manguera.jpg"
-      ],
-      "html_description": "<embed src=\"assets/pdf/69-ficha-raasm-39335-columna-de-servicio-para-5-carreteles.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/69-ficha-raasm-39335-columna-de-servicio-para-5-carreteles.pdf\">Descargar PDF</a>."
     },
     {
       "sku": "1010049",
@@ -2197,27 +1898,11 @@
       ]
     },
     {
-      "sku": "P-3059",
-      "slug": "kit-modular-con-enrollador-para-distribucion-de-aceite-raasm",
-      "name": "Kit Modular con Enrollador para Distribución de Aceite Raasm",
-      "category": "lubricacion",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Sistema de distribución de aceite con bomba aplicada al armazón o cisterna, con enrollador abierto y pistola cuentalitros digital. Permite desarrollar la operación de suministro de aceite desde una ubicación fija independiente.",
-      "bullets": [],
-      "badges": [],
-      "image": "assets/img/productos/kit-modular-con-enrolladora-para-distribucion-de-aceite-raasm.jpg",
-      "images": [
-        "assets/img/productos/kit-modular-con-enrolladora-para-distribucion-de-aceite-raasm.jpg"
-      ]
-    },
-    {
       "sku": "P-3135",
       "slug": "kit-haweka-duoexpert",
       "name": "Kit Haweka DuoExpert",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Aumenta la calidad del balanceo de ruedas. El conjunto cubre hasta el 95% de los coches existentes. Vida útil extendida - Calidad Alemana. El diámetro del orificio central del disco hasta 94 mm. El kit consta de: 3 adaptadores (54-78 mm)…",
@@ -2240,7 +1925,7 @@
       "slug": "indicador-de-nivel-de-volante-haweka",
       "name": "Indicador de Nivel de Volante Haweka",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "2 kg",
       "lift_height": "—",
       "summary": "Alta precisión : Mide el nivel del volante con exactitud. Diseño compacto : Fácil de usar y transportar. Compatibilidad universal : Apto para la mayoría de volantes. Construcción duradera : Materiales resistentes para un uso prolongado.…",
@@ -2262,7 +1947,7 @@
       "slug": "pinza-para-plomos-contrapesos-haweka",
       "name": "Pinza para Plomos Contrapesos Haweka",
       "category": "accesorios-balanceo",
-      "brand": "",
+      "brand": "haweka",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Función 3 en 1 : Remueve, instala y corta contrapesos de plomo. Mango ergonómico : Para un uso cómodo y preciso. Construcción robusta : Fabricada con materiales duraderos. Compatibilidad universal : Apta para la mayoría de ruedas y…",
@@ -2860,7 +2545,7 @@
       "slug": "alineadora-de-camiones-josam-cv-aligner",
       "name": "Alineadora de Camiones Josam CV-Aligner",
       "category": "alineadoras",
-      "brand": "",
+      "brand": "hofmann",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Ficha Técnica Alineación precisa y rápida: El JOSAM CV-Aligner permite la alineación de vehículos pesados (camiones, remolques, autobuses) utilizando tecnología de cámara avanzada, sin necesidad de levantar el vehículo. Mediciones…",
@@ -3026,27 +2711,6 @@
       "html_description": "<div class=\"product-page-description\">\n    <div class=\"product-page-button-container\">\n        <a class=\"product-page-btn product-page-btn-video\" href=\"https://www.youtube.com/watch?v=ctzMuGkUohI\" target=\"_blank\" rel=\"noopener\">Ver Video</a>\n        <a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/elevador-para-motos-mt07-trivium-center454-kilos.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a>\n    </div>\n    <div class=\"product-page-title\">\n        <h2>Rampa Elevadora para Moto PL-MT07</h2>\n        <span class=\"product-page-brand\">UNITE</span>\n    </div>\n    <div class=\"product-page-main-description\">\n        <p class=\"product-page-highlight\">Elevador para moto MT07 de alto rendimiento que soporta hasta 454 kilos. Sistema versátil con opción de ascenso manual o neumático para adaptarse a tus necesidades.</p>\n    </div>\n    <div class=\"product-page-specs-section\">\n        <h3 class=\"product-page-features-title\">Características Principales</h3>\n        <ul class=\"product-page-features-list\">\n            <li>Capacidad de carga de 454 kg (1000 lbs)</li>\n            <li>Sistema dual de ascenso: manual o neumático</li>\n            <li>Incluye prensa de rueda acolchada de goma</li>\n            <li>Plataforma amplia y resistente</li>\n            <li>Fácil de operar y mantener</li>\n            <li>Origen: China</li>\n        </ul>\n        <h3 class=\"product-page-features-title\">Especificaciones Técnicas</h3>\n        <div class=\"product-page-specs-grid\">\n            <div class=\"product-page-spec-group\">\n                <h4 class=\"product-page-spec-title\">Dimensiones</h4>\n                <ul>\n                    <li>Altura mínima: 200 mm</li>\n                    <li>Altura máxima: 800 mm</li>\n                    <li>A (longitud): 1830 mm</li>\n                    <li>B (ancho): 200 mm</li>\n                    <li>C (ancho): 490 mm</li>\n                    <li>D (largo): 660 mm</li>\n                </ul>\n            </div>\n            <div class=\"product-page-spec-group\">\n                <h4 class=\"product-page-spec-title\">Especificaciones Adicionales</h4>\n                <ul>\n                    <li>Peso: 158.5 kg</li>\n                    <li>Dimensiones de embalaje: 2100 x 610 x 260 mm</li>\n                    <li>Modelo: PL-MT07</li>\n                </ul>\n            </div>\n            <div class=\"product-page-spec-group\">\n                <h4 class=\"product-page-spec-title\">Compatibilidad</h4>\n                <ul>\n                    <li>Apto para diversos tipos de motocicletas</li>\n                    <li>Ideal para talleres profesionales</li>\n                    <li>Perfecto para mantenimiento y reparaciones</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>"
     },
     {
-      "sku": "1010120",
-      "slug": "alineadora-3d-para-autos-y-camionetas-u-va2023-auto-pro",
-      "name": "Alineadora 3D Para Autos y Camionetas U-VA2023 Auto Pro",
-      "category": "alineadoras",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Ficha Técnica Tecnología 3D con cámaras HD : Alineaciones rápidas y precisas gracias a su sistema de visión avanzada y pantalla gráfica. Ajuste automático de altura : Columna con ascenso rápido y altura mínima de solo 760 mm, alineado a…",
-      "bullets": [
-        "Tecnología 3D con cámaras HD : Alineaciones rápidas y precisas gracias a su sistema de visión avanzada y pantalla gráfica.",
-        "Ajuste automático de altura : Columna con ascenso rápido y altura mínima de solo 760 mm, alineado a nivel del suelo.",
-        "Software completo e intuitivo : Base de datos de vehículos, comparación en tiempo real y detección de distancia entre ejes y vías."
-      ],
-      "badges": [],
-      "image": "assets/img/productos/alineadora-3d-trivium-center.jpeg",
-      "images": [
-        "assets/img/productos/alineadora-3d-trivium-center.jpeg"
-      ],
-      "html_description": "<div class=\"product-page-description\">\n<div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-video\" href=\"//www.youtube.com/watch?v=1glfi9Vfh20\" target=\"_blank\" rel=\"noopener\">Ver Video</a>\n<a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/alineadora-u-va2023-auto-pro-alineadora-3d.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a></div>\n<div class=\"product-page-title\">\n<h2>Alineadora 3D U-VA2023 AUTO PRO</h2>\n<span class=\"product-page-brand\">UNITE</span>\n\n</div>\n<div class=\"product-page-main-description\">\n<p class=\"product-page-highlight\">El sistema de alineación de ruedas 3D U-VA2023 AUTO PRO es uno de los más rápidos y precisos de la industria, gracias a la tecnología avanzada de imágenes que permite alineaciones ágiles y confiables. Cuenta con cámaras HD y pantalla gráfica para una asistencia visual y direccional precisa.</p>\n\n</div>\n<div class=\"product-page-specs-section\">\n<h3 class=\"product-page-features-title\">Características Principales</h3>\n<ul class=\"product-page-features-list\">\n \t<li>Cámaras HD de grado industrial con cobertura total del vehículo y plataforma</li>\n \t<li>Pantalla gráfica dual de 32\" y 19\"</li>\n \t<li>Targets de fibra de vidrio resistentes, ligeros y duraderos</li>\n \t<li>Software con abundante base de datos de vehículos</li>\n \t<li>Detección precisa de distancia entre ejes y vías</li>\n \t<li>Comparación en tiempo real con datos estándar</li>\n \t<li>Columna alineada a nivel del suelo</li>\n \t<li>Ajuste automático de altura: mínimo 760 mm</li>\n</ul>\n<h3 class=\"product-page-features-title\">Especificaciones Técnicas</h3>\n<div class=\"product-page-specs-grid\">\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Parámetros Generales</h4>\n<ul>\n \t<li>Modelo: U-VA2023 AUTO PRO</li>\n \t<li>Fuente de alimentación: 110/220V, 50/60Hz</li>\n \t<li>Dimensiones de embalaje (columna y viga): 950 × 650 × 500 mm</li>\n \t<li>Dimensiones de embalaje (gabinete): 960 × 1160 × 1150 mm</li>\n \t<li>Altura mínima: 760 mm</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Rango de Medición</h4>\n<ul>\n \t<li>Ángulo de empuje: ±2°</li>\n \t<li>Ángulo de rueda: ±10°</li>\n \t<li>King Pin: ±20°</li>\n \t<li>Set Back: ±5°</li>\n \t<li>Ancho de vía: ≤1750 mm</li>\n \t<li>Distancia entre ejes: ≤3700 mm</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Precisión de Medición</h4>\n<ul>\n \t<li>Precisión de pantalla: 1° / 0.01 mm</li>\n \t<li>Ángulo de convergencia/divergencia: ±2′</li>\n \t<li>Ángulo de inclinación: ±2′</li>\n \t<li>Ángulo de avance: ±2′</li>\n \t<li>Ángulo de empuje: ±2′</li>\n \t<li>Set Back: ±2′</li>\n</ul>\n</div>\n</div>\n</div>\n</div>"
-    },
-    {
       "sku": "1010022",
       "slug": "elevador-dos-columnas-4082-kg-direct-lift-dl9-by-rotary-lift",
       "name": "Elevador Dos Columnas 4082 kg - Direct Lift DL9 by Rotary Lift",
@@ -3066,29 +2730,6 @@
         "assets/img/productos/elevador-dos-columnas-direct-lift-by-rotary-lift.jpg"
       ],
       "html_description": "<div class=\"product-page-description\">\n<div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/elevador-2-columnas-direct-lift-dl9-by-rotary-lift.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a></div>\n<div class=\"product-page-title\">\n<h2>Elevador DL9 de 2 Columnas</h2>\n<span class=\"product-page-brand\">Direct Lift</span>\n\n</div>\n<div class=\"product-page-main-description\">\n<p class=\"product-page-highlight\">Elevador de 2 columnas sin travesaños en el piso, libre de obstrucciones, lo que permite un tránsito libre evitando accidentes personales o desplazamiento del vehículo. Diseño asimétrico para máxima apertura de puertas.</p>\n\n</div>\n<div class=\"product-page-specs-section\">\n<h3 class=\"product-page-features-title\">Características de Productividad</h3>\n<ul class=\"product-page-features-list\">\n \t<li>Unidades de accionamiento diseñadas y fabricadas por VSG</li>\n \t<li>Sin travesaños en el piso, libre de obstrucciones</li>\n \t<li>Los cables o eslingas no soportan cargas, solo ecualizan brazos</li>\n \t<li>Libre de mantenimiento, sin componentes de alto desgaste</li>\n \t<li>Diseño asimétrico para máxima apertura de puertas</li>\n \t<li>Triple sistema de seguridad integrado</li>\n</ul>\n<h3 class=\"product-page-features-title\">Especificaciones Técnicas</h3>\n<div class=\"product-page-specs-grid\">\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Dimensiones y Capacidad</h4>\n<ul>\n \t<li>Capacidad: 4082 kg</li>\n \t<li>Elevación: 1930 mm</li>\n \t<li>Altura Total Columna: 3642 mm</li>\n \t<li>Ancho Entre columnas: 2769 mm</li>\n \t<li>Espacio libre para vehículo: 2515 mm</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Medidas Complementarias</h4>\n<ul>\n \t<li>Altura travesaño superior: 3455 mm</li>\n \t<li>Ancho Total de la base: 3353 mm</li>\n \t<li>Tamaño de la columna: 173 x 267 mm</li>\n \t<li>Base del elevador: 381 x 457 mm</li>\n \t<li>Altura mínima de Plataforma: 92 mm</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Especificaciones de Operación</h4>\n<ul>\n \t<li>Motor: 2 CV</li>\n \t<li>Voltage Monofásico: 208/230 V</li>\n \t<li>Tiempo de elevación total: 45 seg</li>\n \t<li>Altura de techo necesaria: 3690 mm</li>\n \t<li>Carga máxima por brazo: 1020 kg</li>\n</ul>\n</div>\n</div>\n<h3 class=\"product-page-features-title\">Sistemas de Seguridad</h3>\n<ul class=\"product-page-features-list\">\n \t<li>Sistema hidráulico de alta presión</li>\n \t<li>Traba mecánica con sistema manual de liberación de bloqueo a 2 manos</li>\n \t<li>Sensor eléctrico superior acojinado, resistente a la abrasión</li>\n \t<li>Seguros de los brazos con activación automática</li>\n</ul>\n<div class=\"product-page-warranty\">\n\nEquipo producido por VSG – Vehicle Service Group. Direct Lift es una de las distintas marcas que conforman VSG, una firma mundial y parte de DOVER CORPORATION. VSG cuenta con tres centros de operaciones, Asia, Europa y Norteamérica.\n\n<strong>GARANTÍA:</strong> 12 Meses por defectos de fabricación.\n\n</div>\n</div>\n</div>"
-    },
-    {
-      "sku": "P-4996",
-      "slug": "alineadora-3d-u-va2023",
-      "name": "Alineadora 3D U-VA2023",
-      "category": "alineadoras",
-      "brand": "",
-      "capacity": "—",
-      "lift_height": "—",
-      "summary": "Ficha Técnica Alineación rápida, precisa y confiable: Gracias a su sistema de cámaras HD y software visual intuitivo, la U-VA2023 ofrece alineaciones profesionales con gran velocidad y precisión. Tecnología avanzada con datos en tiempo…",
-      "bullets": [
-        "Alineación de ruedas de alta precisión",
-        "Pantalla gráfica con interfaz visual clara",
-        "Cámaras HD de grado industrial",
-        "Comparación en tiempo real con los estándares",
-        "Detección precisa de distancia entre ejes y vías",
-        "Targets de fibra de vidrio resistentes y livianos"
-      ],
-      "badges": [],
-      "image": "assets/img/productos/alineadora-3d-unite-u-va2023.jpg",
-      "images": [
-        "assets/img/productos/alineadora-3d-unite-u-va2023.jpg"
-      ]
     },
     {
       "sku": "P-5035",
