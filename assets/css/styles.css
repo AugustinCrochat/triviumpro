@@ -917,14 +917,21 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 
 .footer-socials { display: flex; gap: 16px; }
 .footer-socials a {
-  width: 36px; height: 36px;
+  width: 40px; height: 40px;
   display: grid; place-items: center;
-  border: 1px solid rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.12);
   border-radius: 50%;
-  color: rgba(255,255,255,.5);
-  transition: all .2s;
+  color: rgba(255,255,255,.6);
+  transition: all .25s ease;
 }
-.footer-socials a:hover { border-color: var(--accent); color: var(--accent); background: rgba(255,255,255,.05); }
+.footer-socials a svg { width: 18px; height: 18px; }
+.footer-socials a:hover { 
+  border-color: var(--accent); 
+  color: #fff; 
+  background: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 30%, transparent);
+}
 
 .footer-bottom {
   display: flex; justify-content: space-between; align-items: center;
