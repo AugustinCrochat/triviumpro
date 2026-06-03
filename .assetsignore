@@ -1,0 +1,10 @@
+.git
+scripts
+scratch
+data
+*.py
+*.sh
+*.md
+README*
+preview_icons.html
+preview_icons_inline.html
