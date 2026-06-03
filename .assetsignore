@@ -1,7 +1,6 @@
 .git
 scripts
 scratch
-data
 *.py
 *.sh
 *.md
