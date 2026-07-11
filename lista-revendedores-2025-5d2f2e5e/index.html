@@ -12,14 +12,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/styles.css">
 <style>
-  :root { --pl-gap: 20px; }
   body { background: var(--bg-2); }
 
   /* ---------- Top bar ---------- */
   .pl-top {
     position: sticky; top: 0; z-index: 40;
-    background: var(--bg); border-bottom: 1px solid var(--line);
-    box-shadow: var(--shadow);
+    background: var(--bg); border-bottom: 1px solid var(--line); box-shadow: var(--shadow);
   }
   .pl-top-inner {
     max-width: var(--maxw); margin: 0 auto; padding: 14px 24px;
@@ -29,29 +27,21 @@
   .pl-top-title { display: flex; flex-direction: column; line-height: 1.15; }
   .pl-top-title b { font-size: 15px; font-weight: 800; letter-spacing: -.01em; }
   .pl-top-title span { font-size: 12px; color: var(--text-dim); }
-  .pl-actions { margin-left: auto; display: flex; gap: 10px; align-items: center; }
-  .pl-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--accent); color: #fff; border: 0;
-    font: inherit; font-weight: 700; font-size: 14px;
-    padding: 10px 18px; border-radius: var(--radius); cursor: pointer;
-    text-decoration: none;
+  .pl-rate {
+    margin-left: auto; text-align: right; font-size: 12px; color: var(--text-dim); line-height: 1.35;
   }
-  .pl-btn:hover { background: var(--accent-hi); }
-  .pl-btn svg { width: 17px; height: 17px; }
+  .pl-rate b { font-size: 15px; color: var(--text); font-weight: 800; }
+  .pl-rate .live { color: var(--green); font-weight: 700; }
+  .pl-rate .ref { color: var(--yellow); font-weight: 700; }
 
   /* ---------- Header / meta ---------- */
   .pl-wrap { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px 64px; }
-  .pl-head { margin-bottom: 26px; }
   .pl-head h1 { font-size: clamp(26px, 4vw, 40px); font-weight: 800; letter-spacing: -.02em; margin: 0; }
   .pl-head h1 span { color: var(--accent); }
-  .pl-meta {
-    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
-  }
+  .pl-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .pl-tag {
     font-size: 12px; font-weight: 600; color: var(--text-dim);
-    background: var(--bg-3); border: 1px solid var(--line);
-    padding: 6px 12px; border-radius: 100px;
+    background: var(--bg-3); border: 1px solid var(--line); padding: 6px 12px; border-radius: 100px;
   }
   .pl-tag--warn { color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); border-color: color-mix(in srgb, var(--accent) 25%, transparent); }
 
@@ -65,14 +55,10 @@
   .pl-group-head .n { font-size: 13px; color: var(--text-mute); font-weight: 600; }
 
   /* ---------- Grid + cards ---------- */
-  .pl-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--pl-gap);
-  }
+  .pl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; }
   .pl-card {
     background: var(--bg); border: 1px solid var(--line); border-top: 2px solid var(--accent);
-    border-radius: var(--radius); overflow: hidden;
-    display: flex; flex-direction: column;
+    border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column;
   }
   .pl-thumb {
     aspect-ratio: 4/3; background: #fff; display: grid; place-items: center;
@@ -82,64 +68,49 @@
   .pl-thumb .ph { font-size: 12px; color: var(--text-mute); }
   .pl-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
   .pl-brand { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-mute); }
+  .pl-sku { font-size: 11px; color: var(--text-mute); font-family: var(--mono); }
   .pl-card h3 { font-size: 15px; font-weight: 700; margin: 0; line-height: 1.25; letter-spacing: -.01em; }
   .pl-desc { font-size: 13px; color: var(--text-dim); line-height: 1.4; margin: 0; }
-  .pl-spec { display: flex; gap: 14px; font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+  .pl-spec { display: flex; gap: 14px; font-size: 12px; color: var(--text-dim); }
   .pl-spec b { color: var(--text); font-weight: 700; }
-  .pl-price-row {
-    margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line);
-    display: flex; align-items: flex-end; justify-content: space-between; gap: 8px;
+
+  .pl-prices { margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line); display: flex; flex-direction: column; gap: 8px; }
+  .pl-plabel { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-mute); font-weight: 700; }
+  .pl-list-val { font-size: 15px; font-weight: 700; color: var(--text-dim); }
+  .pl-list-val .usd { font-size: 12px; font-weight: 600; color: var(--text-mute); }
+  .pl-res-val { font-size: 23px; font-weight: 800; letter-spacing: -.02em; color: var(--text); }
+  .pl-res-val .usd { font-size: 13px; font-weight: 600; color: var(--text-dim); }
+  .pl-iva { font-size: 11px; color: var(--text-mute); font-weight: 600; }
+
+  /* ---------- Per-item actions ---------- */
+  .pl-acts { display: flex; gap: 6px; margin-top: 12px; }
+  .pl-act {
+    flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    font: inherit; font-size: 12px; font-weight: 600; cursor: pointer;
+    padding: 8px 6px; border-radius: var(--radius); text-decoration: none;
+    background: var(--bg-3); color: var(--text); border: 1px solid var(--line);
   }
-  .pl-price-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-mute); font-weight: 600; }
-  .pl-price { font-size: 21px; font-weight: 800; letter-spacing: -.02em; }
-  .pl-price small { font-size: 12px; font-weight: 600; color: var(--text-dim); }
-  .pl-price--na { font-size: 15px; color: var(--text-dim); font-weight: 700; }
-  .pl-sku { font-size: 11px; color: var(--text-mute); font-family: var(--mono); }
+  .pl-act:hover { background: var(--surface-hi); border-color: var(--line-2); }
+  .pl-act svg { width: 15px; height: 15px; }
+  .pl-act--primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .pl-act--primary:hover { background: var(--accent-hi); border-color: var(--accent-hi); }
 
   .pl-foot { margin-top: 48px; font-size: 12px; color: var(--text-mute); line-height: 1.6; border-top: 1px solid var(--line); padding-top: 20px; }
 
-  /* Print header/footer only on print */
-  .pl-print-only { display: none; }
+  .pl-loading { padding: 60px 0; text-align: center; color: var(--text-mute); font-size: 14px; }
+
+  /* toast */
+  #pl-toast {
+    position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(20px);
+    background: #1c1c1c; color: #fff; padding: 12px 20px; border-radius: 100px; font-size: 14px; font-weight: 600;
+    opacity: 0; pointer-events: none; transition: .25s; z-index: 100;
+  }
+  #pl-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
   @media (max-width: 640px) {
     .pl-top-inner { padding: 12px 16px; }
     .pl-wrap { padding: 24px 16px 48px; }
-    .pl-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .pl-card h3 { font-size: 14px; }
-    .pl-price { font-size: 18px; }
-  }
-
-  /* ---------- PRINT ---------- */
-  @media print {
-    @page { size: A4; margin: 12mm 10mm 16mm; }
-    body { background: #fff !important; }
-    .pl-top, .pl-actions, .pl-foot .noprint { display: none !important; }
-    .pl-print-only { display: block; }
-    .pl-wrap { padding: 0; max-width: none; }
-    .pl-head { margin-bottom: 14px; }
-    .pl-head h1 { font-size: 22px; }
-    .pl-print-head {
-      display: flex; align-items: center; gap: 12px;
-      border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 6px;
-    }
-    .pl-print-head img { height: 26px; }
-    .pl-print-head .t { margin-left: auto; text-align: right; font-size: 10px; color: #555; }
-    .pl-group { margin-top: 16px; break-inside: avoid; }
-    .pl-group-head { margin-bottom: 10px; }
-    .pl-group-head h2 { font-size: 15px; }
-    .pl-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .pl-card { break-inside: avoid; border-top-width: 2px; box-shadow: none; }
-    .pl-thumb { aspect-ratio: 3/2; padding: 6px; }
-    .pl-body { padding: 8px 10px 10px; gap: 5px; }
-    .pl-card h3 { font-size: 11px; }
-    .pl-desc { font-size: 9.5px; }
-    .pl-spec { font-size: 9px; }
-    .pl-price { font-size: 15px; }
-    .pl-price small { font-size: 9px; }
-    .pl-price-lbl { font-size: 8px; }
-    .pl-sku { font-size: 8.5px; }
-    .pl-brand { font-size: 8.5px; }
-    a[href]:after { content: "" !important; }
+    .pl-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -153,41 +124,37 @@
       <b>Lista de precios · Revendedores</b>
       <span>Confidencial — solo para distribuidores</span>
     </div>
-    <div class="pl-actions">
-      <button class="pl-btn" onclick="window.print()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-        Descargar PDF
-      </button>
-    </div>
+    <div class="pl-rate" id="pl-rate">Cargando cotización…</div>
   </div>
 </div>
 
 <div class="pl-wrap">
-  <!-- Print-only branded header -->
-  <div class="pl-print-only pl-print-head">
-    <img src="../assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro">
-    <div class="t" id="print-meta"></div>
-  </div>
-
   <div class="pl-head">
     <h1>Lista de precios <span>Revendedores 2025.</span></h1>
     <div class="pl-meta" id="pl-meta"></div>
   </div>
 
-  <div id="pl-content"></div>
+  <div id="pl-content"><div class="pl-loading">Cargando productos y cotización…</div></div>
 
   <div class="pl-foot">
-    <p class="noprint"><strong>Confidencial.</strong> Esta lista es de uso exclusivo para revendedores de Trivium Pro. No compartir públicamente.</p>
-    <p>Precios de reventa en pesos argentinos, sin IVA. Sujetos a modificación sin previo aviso según cotización del dólar. Cotización de referencia: USD = $1.510. Consultas: <strong id="foot-wa"></strong>.</p>
+    <p><strong>Confidencial.</strong> Uso exclusivo para revendedores de Trivium Pro. No compartir públicamente.</p>
+    <p>Precios <strong>sin IVA</strong>, expresados en pesos y calculados con el <strong>dólar oficial (venta)</strong> del día. El IVA de las máquinas es <strong>10,5%</strong>. Valores de referencia, sujetos a la cotización vigente y a modificación sin previo aviso. Consultas: <strong id="foot-wa"></strong>.</p>
   </div>
 </div>
+
+<div id="pl-toast"></div>
 
 <script src="../assets/js/site.js"></script>
 <script src="prices.js"></script>
 <script>
-const fmtARS = (n) => '$ ' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(n);
+const DISCOUNT = RESELLER_PRICES.meta.reseller_discount; // 0.15
+const IVA = RESELLER_PRICES.meta.default_iva;            // 10.5
+let RATE = null;      // dólar oficial venta
+let RATE_LIVE = false;
 
-// Group order (top-level category name) + display labels
+const fmtARS = (n) => '$ ' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(Math.round(n));
+const fmtUSD = (n) => 'US$ ' + new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(Math.round(n));
+
 const GROUP_ORDER = ['Elevadores', 'Balanceadoras', 'Desarmadoras', 'Accesorios de Balanceo', 'Equipamiento de Taller'];
 
 function topCategoryName(p) {
@@ -196,75 +163,210 @@ function topCategoryName(p) {
   return (parent && parent.name) || (c && c.name) || 'Otros';
 }
 
+// USD reseller → all figures
+function priceSet(rec) {
+  const rUsd = rec.usd_reseller;
+  const lUsd = rUsd / (1 - DISCOUNT);   // lista sugerida = revendedor sin el 15% de descuento
+  return {
+    reseller_usd: rUsd, reseller_ars: rUsd * RATE,
+    list_usd: lUsd,      list_ars: lUsd * RATE
+  };
+}
+
+function fichaUrl(p) { return `${location.origin}/producto/${encodeURIComponent(p.slug)}/`; }
+
+function toast(msg) {
+  const t = document.getElementById('pl-toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 2200);
+}
+
 function priceCard(p) {
-  const rec = RESELLER_PRICES.items[p.sku] || {};
+  const rec = RESELLER_PRICES.items[p.sku];
+  const s = priceSet(rec);
   const img = p.image
     ? `<img src="${rootPath()}${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="ph" style="display:none">Sin imagen</span>`
     : `<span class="ph">Sin imagen</span>`;
-  const desc = rec.caracteristicas || '';
   const isLift = p.category.includes('elevador');
   const spec = isLift
     ? `<div class="pl-spec"><span>Cap. <b>${p.capacity || '—'}</b></span>${p.lift_height ? `<span>Alt. <b>${p.lift_height}</b></span>` : ''}</div>`
     : '';
-  const priceHtml = (rec.price_ars == null)
-    ? `<span class="pl-price pl-price--na">A consultar</span>`
-    : `<span class="pl-price">${fmtARS(rec.price_ars)} <small>+ IVA</small></span>`;
   return `
-    <article class="pl-card">
+    <article class="pl-card" data-sku="${p.sku}">
       <div class="pl-thumb">${img}</div>
       <div class="pl-body">
         <span class="pl-brand">Trivium Pro · <span class="pl-sku">${p.sku}</span></span>
         <h3>${p.name}</h3>
-        ${desc ? `<p class="pl-desc">${desc}</p>` : ''}
+        ${rec.caracteristicas ? `<p class="pl-desc">${rec.caracteristicas}</p>` : ''}
         ${spec}
-        <div class="pl-price-row">
-          <span class="pl-price-lbl">Reventa · pesos</span>
-          ${priceHtml}
+        <div class="pl-prices">
+          <div>
+            <div class="pl-plabel">Precio de lista sugerido</div>
+            <div class="pl-list-val">${fmtARS(s.list_ars)} <span class="usd">(${fmtUSD(s.list_usd)})</span></div>
+          </div>
+          <div>
+            <div class="pl-plabel">Precio revendedor</div>
+            <div class="pl-res-val">${fmtARS(s.reseller_ars)} <span class="usd">(${fmtUSD(s.reseller_usd)})</span></div>
+          </div>
+          <div class="pl-iva">Precios sin IVA · + IVA 10,5%</div>
+        </div>
+        <div class="pl-acts">
+          <a class="pl-act" href="${fichaUrl(p)}" target="_blank" rel="noopener" title="Ver ficha en la web">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M10 14 21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+            Ficha
+          </a>
+          <button class="pl-act" onclick="shareItem('${p.sku}')" title="Compartir">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
+            Compartir
+          </button>
+          <button class="pl-act pl-act--primary" onclick="downloadItem('${p.sku}')" title="Descargar placa (imagen)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+            Placa
+          </button>
         </div>
       </div>
     </article>`;
 }
 
+/* ---------- Placa (imagen resumen del producto) ---------- */
+function loadImg(src) {
+  return new Promise((res) => { const i = new Image(); i.onload = () => res(i); i.onerror = () => res(null); i.src = src; });
+}
+function wrapText(ctx, text, x, y, maxW, lh, maxLines) {
+  const words = String(text).split(' ');
+  let line = '', lines = 0;
+  for (let n = 0; n < words.length; n++) {
+    const test = line + words[n] + ' ';
+    if (ctx.measureText(test).width > maxW && line) {
+      ctx.fillText(line.trim(), x, y); line = words[n] + ' '; y += lh; lines++;
+      if (maxLines && lines >= maxLines - 1) {
+        // last allowed line: put the rest, ellipsize if needed
+        let rest = words.slice(n).join(' ');
+        while (ctx.measureText(rest + '…').width > maxW && rest.length) rest = rest.slice(0, -1);
+        ctx.fillText(rest + (words.slice(n).join(' ').length > rest.length ? '…' : ''), x, y);
+        return y + lh;
+      }
+    } else { line = test; }
+  }
+  ctx.fillText(line.trim(), x, y);
+  return y + lh;
+}
+async function buildPlaca(p) {
+  const rec = RESELLER_PRICES.items[p.sku]; const s = priceSet(rec);
+  const W = 1080, H = 1440, c = document.createElement('canvas');
+  c.width = W; c.height = H; const ctx = c.getContext('2d');
+  ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, W, H);
+  // header
+  ctx.fillStyle = '#ff1e00'; ctx.fillRect(0, 0, W, 150);
+  ctx.fillStyle = '#fff'; ctx.textBaseline = 'alphabetic';
+  ctx.font = '800 50px Archivo, sans-serif'; ctx.fillText('TRIVIUM PRO', 48, 78);
+  ctx.font = '600 24px Archivo, sans-serif'; ctx.fillText('Lista revendedores 2025 · precios sin IVA', 48, 116);
+  // image
+  const img = await loadImg(rootPath() + (p.image || ''));
+  const bx = 90, by = 200, bw = 900, bh = 540;
+  if (img) {
+    const r = Math.min(bw / img.width, bh / img.height);
+    const iw = img.width * r, ih = img.height * r;
+    ctx.drawImage(img, bx + (bw - iw) / 2, by + (bh - ih) / 2, iw, ih);
+  } else {
+    ctx.fillStyle = '#f0ede8'; ctx.fillRect(bx, by, bw, bh);
+  }
+  // name + desc
+  let y = 830; ctx.fillStyle = '#1c1c1c'; ctx.font = '800 44px Archivo, sans-serif';
+  y = wrapText(ctx, p.name, 48, y, 984, 52, 2);
+  y += 6; ctx.fillStyle = '#57534e'; ctx.font = '400 28px Archivo, sans-serif';
+  if (rec.caracteristicas) y = wrapText(ctx, rec.caracteristicas, 48, y, 984, 36, 2);
+  // price box
+  const boxY = 1040;
+  ctx.fillStyle = '#f7f6f3'; ctx.fillRect(48, boxY, 984, 300);
+  ctx.fillStyle = '#ff1e00'; ctx.fillRect(48, boxY, 6, 300);
+  ctx.fillStyle = '#a8a29e'; ctx.font = '700 22px Archivo, sans-serif';
+  ctx.fillText('PRECIO DE LISTA SUGERIDO', 80, boxY + 52);
+  ctx.fillStyle = '#57534e'; ctx.font = '700 34px Archivo, sans-serif';
+  ctx.fillText(`${fmtARS(s.list_ars)}  (${fmtUSD(s.list_usd)})`, 80, boxY + 94);
+  ctx.fillStyle = '#a8a29e'; ctx.font = '700 22px Archivo, sans-serif';
+  ctx.fillText('PRECIO REVENDEDOR', 80, boxY + 158);
+  ctx.fillStyle = '#ff1e00'; ctx.font = '800 50px Archivo, sans-serif';
+  ctx.fillText(fmtARS(s.reseller_ars), 80, boxY + 212);
+  ctx.fillStyle = '#57534e'; ctx.font = '600 26px Archivo, sans-serif';
+  ctx.fillText(`(${fmtUSD(s.reseller_usd)})   ·   + IVA 10,5%`, 80, boxY + 250);
+  // footer
+  const d = new Date().toLocaleDateString('es-AR');
+  ctx.fillStyle = '#a8a29e'; ctx.font = '600 22px Archivo, sans-serif';
+  ctx.fillText(`Dólar oficial venta ${fmtARS(RATE)} · ${d} · SKU ${p.sku}`, 48, H - 40);
+  return c;
+}
+function canvasToBlob(c) { return new Promise((res) => c.toBlob(res, 'image/png')); }
+
+async function downloadItem(sku) {
+  const p = CATALOG.products.find(x => x.sku === sku); if (!p) return;
+  toast('Generando placa…');
+  const c = await buildPlaca(p);
+  const blob = await canvasToBlob(c);
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `${sku}-trivium-pro.png`; a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+}
+async function shareItem(sku) {
+  const p = CATALOG.products.find(x => x.sku === sku); if (!p) return;
+  const rec = RESELLER_PRICES.items[sku]; const s = priceSet(rec);
+  const title = `${p.name} — Trivium Pro`;
+  const text = `${p.name}\nRevendedor: ${fmtARS(s.reseller_ars)} (${fmtUSD(s.reseller_usd)}) + IVA 10,5%`;
+  const url = fichaUrl(p);
+  try {
+    const c = await buildPlaca(p);
+    const blob = await canvasToBlob(c);
+    const file = new File([blob], `${sku}-trivium-pro.png`, { type: 'image/png' });
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({ files: [file], title, text: `${text}\n${url}` }); return;
+    }
+    if (navigator.share) { await navigator.share({ title, text, url }); return; }
+    await navigator.clipboard.writeText(`${text}\n${url}`); toast('Copiado al portapapeles');
+  } catch (e) { if (e && e.name === 'AbortError') return; toast('No se pudo compartir'); }
+}
+
+/* ---------- Dólar oficial venta ---------- */
+async function getRate() {
+  try {
+    const r = await fetch('https://dolarapi.com/v1/dolares/oficial', { cache: 'no-store' });
+    const j = await r.json();
+    if (j && j.venta) return { rate: j.venta, date: j.fechaActualizacion, live: true };
+  } catch (e) {}
+  return { rate: 1510, date: null, live: false };
+}
+
+/* ---------- Render ---------- */
 (async () => {
   await loadCatalog();
+  const info = await getRate();
+  RATE = info.rate; RATE_LIVE = info.live;
 
-  // Meta line
-  const today = new Date().toLocaleDateString('es-AR', { day: '2-digit', month: 'long', year: 'numeric' });
-  const meta = document.getElementById('pl-meta');
-  meta.innerHTML = `
+  const rateBox = document.getElementById('pl-rate');
+  const when = info.date ? new Date(info.date).toLocaleDateString('es-AR') : '';
+  rateBox.innerHTML = info.live
+    ? `Dólar oficial (venta)<br><b>${fmtARS(RATE)}</b> <span class="live">● en vivo</span>${when ? ` · ${when}` : ''}`
+    : `Dólar de referencia<br><b>${fmtARS(RATE)}</b> <span class="ref">● sin conexión</span>`;
+
+  document.getElementById('pl-meta').innerHTML = `
     <span class="pl-tag">Precios en pesos (ARS)</span>
-    <span class="pl-tag">Sin IVA</span>
-    <span class="pl-tag">Cotización ref. USD $1.510</span>
+    <span class="pl-tag">Sin IVA · + IVA 10,5%</span>
+    <span class="pl-tag">Base USD · dólar oficial venta</span>
     <span class="pl-tag pl-tag--warn">Confidencial — uso interno</span>`;
-  document.getElementById('print-meta').innerHTML =
-    `Lista Revendedores 2025 · sin IVA · Cotización ref. USD $1.510<br>Emitido: ${today}`;
   document.getElementById('foot-wa').textContent = TRIVIUM.whatsappDisplay;
 
-  // Only Trivium Pro products
-  const items = CATALOG.products.filter(p => p.brand === 'trivium-pro');
+  // Solo productos con precio en prices.js (fuente de verdad del listado)
+  const items = CATALOG.products.filter(p => p.brand === 'trivium-pro' && RESELLER_PRICES.items[p.sku]);
 
-  // Bucket by top-level category
   const buckets = {};
-  items.forEach(p => {
-    const g = topCategoryName(p);
-    (buckets[g] = buckets[g] || []).push(p);
-  });
-
+  items.forEach(p => { const g = topCategoryName(p); (buckets[g] = buckets[g] || []).push(p); });
   const orderedGroups = [
     ...GROUP_ORDER.filter(g => buckets[g]),
     ...Object.keys(buckets).filter(g => !GROUP_ORDER.includes(g))
   ];
 
-  const content = document.getElementById('pl-content');
-  content.innerHTML = orderedGroups.map(g => {
+  document.getElementById('pl-content').innerHTML = orderedGroups.map(g => {
     const list = buckets[g];
-    // priced items first, "a consultar" last; keep catalog order otherwise
-    list.sort((a, b) => {
-      const pa = RESELLER_PRICES.items[a.sku]?.price_ars;
-      const pb = RESELLER_PRICES.items[b.sku]?.price_ars;
-      if ((pa == null) !== (pb == null)) return pa == null ? 1 : -1;
-      return 0;
-    });
     return `
       <section class="pl-group">
         <div class="pl-group-head"><h2>${g}</h2><span class="n">${list.length} equipos</span></div>
