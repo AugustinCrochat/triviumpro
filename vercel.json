@@ -2,7 +2,7 @@
   "trailingSlash": true,
   "headers": [
     {
-      "source": "/lista-revendedores-2025-5d2f2e5e/(.*)",
+      "source": "/lista-revendedores-5d2f2e5e/(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",
@@ -55,6 +55,11 @@
     {
       "source": "/producto/elevador-tijera-unite-pl-h45-4500kg/",
       "destination": "/producto/elevador-tijera-gomeria-4500-kg-pl-45h/",
+      "permanent": true
+    },
+    {
+      "source": "/lista-revendedores-2025-5d2f2e5e/:path*",
+      "destination": "/lista-revendedores-5d2f2e5e/:path*",
       "permanent": true
     }
   ]
