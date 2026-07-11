@@ -21,7 +21,6 @@ window.RESELLER_PRICES = {
     "1010124": { usd_reseller: 1640, caracteristicas: "Elevador 2 columnas 4000 kg — travesaño al piso" },
     "1010144": { usd_reseller: 1700, caracteristicas: "Elevador 2 columnas 4000 kg — travesaño arriba" },
     "1010271": { usd_reseller: 4246, caracteristicas: "Elevador 2 columnas 5000 kg — travesaño arriba alto" },
-    "1010289": { usd_reseller: 4407, caracteristicas: "Elevador 2 columnas 6000 kg — travesaño arriba" },
     // Elevadores 4 columnas
     "1010261": { usd_reseller: 6035, caracteristicas: "Elevador 4 columnas 5T — kit de alineación + Rolling Jack" },
     // Elevadores tijera

@@ -15,55 +15,34 @@
   body { background: var(--bg-2); }
 
   /* ---------- Top bar ---------- */
-  .pl-top {
-    position: sticky; top: 0; z-index: 40;
-    background: var(--bg); border-bottom: 1px solid var(--line); box-shadow: var(--shadow);
-  }
-  .pl-top-inner {
-    max-width: var(--maxw); margin: 0 auto; padding: 14px 24px;
-    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-  }
+  .pl-top { position: sticky; top: 0; z-index: 40; background: var(--bg); border-bottom: 1px solid var(--line); box-shadow: var(--shadow); }
+  .pl-top-inner { max-width: var(--maxw); margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
   .pl-logo { height: 34px; width: auto; }
   .pl-top-title { display: flex; flex-direction: column; line-height: 1.15; }
   .pl-top-title b { font-size: 15px; font-weight: 800; letter-spacing: -.01em; }
   .pl-top-title span { font-size: 12px; color: var(--text-dim); }
-  .pl-rate {
-    margin-left: auto; text-align: right; font-size: 12px; color: var(--text-dim); line-height: 1.35;
-  }
+  .pl-rate { margin-left: auto; text-align: right; font-size: 12px; color: var(--text-dim); line-height: 1.35; }
   .pl-rate b { font-size: 15px; color: var(--text); font-weight: 800; }
   .pl-rate .live { color: var(--green); font-weight: 700; }
   .pl-rate .ref { color: var(--yellow); font-weight: 700; }
 
-  /* ---------- Header / meta ---------- */
-  .pl-wrap { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px 64px; }
+  /* ---------- Header ---------- */
+  .pl-wrap { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px 120px; }
   .pl-head h1 { font-size: clamp(26px, 4vw, 40px); font-weight: 800; letter-spacing: -.02em; margin: 0; }
   .pl-head h1 span { color: var(--accent); }
-  .pl-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-  .pl-tag {
-    font-size: 12px; font-weight: 600; color: var(--text-dim);
-    background: var(--bg-3); border: 1px solid var(--line); padding: 6px 12px; border-radius: 100px;
-  }
-  .pl-tag--warn { color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); border-color: color-mix(in srgb, var(--accent) 25%, transparent); }
+  .pl-head p { color: var(--text-dim); margin: 10px 0 0; font-size: 14px; }
 
   /* ---------- Group ---------- */
   .pl-group { margin-top: 40px; }
-  .pl-group-head {
-    display: flex; align-items: baseline; gap: 12px;
-    border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 22px;
-  }
+  .pl-group-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 22px; }
   .pl-group-head h2 { font-size: 20px; font-weight: 800; margin: 0; letter-spacing: -.01em; }
   .pl-group-head .n { font-size: 13px; color: var(--text-mute); font-weight: 600; }
 
   /* ---------- Grid + cards ---------- */
   .pl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; }
-  .pl-card {
-    background: var(--bg); border: 1px solid var(--line); border-top: 2px solid var(--accent);
-    border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column;
-  }
-  .pl-thumb {
-    aspect-ratio: 4/3; background: #fff; display: grid; place-items: center;
-    padding: 14px; border-bottom: 1px solid var(--line);
-  }
+  .pl-card { background: var(--bg); border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+  .pl-card.is-sel { border-color: var(--accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 35%, transparent); }
+  .pl-thumb { aspect-ratio: 4/3; background: #fff; display: grid; place-items: center; padding: 14px; border-bottom: 1px solid var(--line); }
   .pl-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
   .pl-thumb .ph { font-size: 12px; color: var(--text-mute); }
   .pl-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
@@ -74,42 +53,48 @@
   .pl-spec { display: flex; gap: 14px; font-size: 12px; color: var(--text-dim); }
   .pl-spec b { color: var(--text); font-weight: 700; }
 
-  .pl-prices { margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line); display: flex; flex-direction: column; gap: 8px; }
-  .pl-plabel { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-mute); font-weight: 700; }
-  .pl-list-val { font-size: 15px; font-weight: 700; color: var(--text-dim); }
-  .pl-list-val .usd { font-size: 12px; font-weight: 600; color: var(--text-mute); }
-  .pl-res-val { font-size: 23px; font-weight: 800; letter-spacing: -.02em; color: var(--text); }
+  .pl-prices { margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line); display: flex; flex-direction: column; gap: 10px; }
+  .pl-plabel { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-mute); font-weight: 700; display: block; margin-bottom: 3px; }
+  .pl-res-val { font-size: 22px; font-weight: 800; letter-spacing: -.02em; color: var(--text); }
   .pl-res-val .usd { font-size: 13px; font-weight: 600; color: var(--text-dim); }
-  .pl-iva { font-size: 11px; color: var(--text-mute); font-weight: 600; }
 
-  /* ---------- Per-item actions ---------- */
+  .pl-input-wrap { display: flex; align-items: center; gap: 6px; border: 1px solid var(--line-2); border-radius: var(--radius); padding: 8px 10px; background: var(--bg); }
+  .pl-input-wrap:focus-within { border-color: var(--accent); }
+  .pl-input-wrap .cur { font-weight: 800; color: var(--text-dim); }
+  .pl-price-input { border: 0; outline: 0; font: inherit; font-size: 18px; font-weight: 800; width: 100%; color: var(--text); background: transparent; letter-spacing: -.01em; }
+
+  .pl-iva { font-size: 14px; font-weight: 800; color: var(--accent); }
+
+  /* ---------- Actions ---------- */
   .pl-acts { display: flex; gap: 6px; margin-top: 12px; }
-  .pl-act {
-    flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-    font: inherit; font-size: 12px; font-weight: 600; cursor: pointer;
-    padding: 8px 6px; border-radius: var(--radius); text-decoration: none;
-    background: var(--bg-3); color: var(--text); border: 1px solid var(--line);
-  }
+  .pl-act { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; padding: 8px 6px; border-radius: var(--radius); text-decoration: none; background: var(--bg-3); color: var(--text); border: 1px solid var(--line); }
   .pl-act:hover { background: var(--surface-hi); border-color: var(--line-2); }
   .pl-act svg { width: 15px; height: 15px; }
-  .pl-act--primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .pl-act--primary:hover { background: var(--accent-hi); border-color: var(--accent-hi); }
+  .pl-add { margin-top: 6px; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; padding: 10px; border-radius: var(--radius); background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+  .pl-add:hover { background: var(--accent-hi); }
+  .pl-add.added { background: var(--bg); color: var(--green); border-color: var(--green); }
+  .pl-add svg { width: 16px; height: 16px; }
 
   .pl-foot { margin-top: 48px; font-size: 12px; color: var(--text-mute); line-height: 1.6; border-top: 1px solid var(--line); padding-top: 20px; }
 
   .pl-loading { padding: 60px 0; text-align: center; color: var(--text-mute); font-size: 14px; }
 
-  /* toast */
-  #pl-toast {
-    position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(20px);
-    background: #1c1c1c; color: #fff; padding: 12px 20px; border-radius: 100px; font-size: 14px; font-weight: 600;
-    opacity: 0; pointer-events: none; transition: .25s; z-index: 100;
-  }
+  /* ---------- Cotización bar ---------- */
+  .pl-cart { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%) translateY(140%); transition: transform .28s cubic-bezier(.2,.7,.3,1); z-index: 60; background: #1c1c1c; color: #fff; border-radius: 100px; box-shadow: 0 8px 30px rgba(0,0,0,.28); display: flex; align-items: center; gap: 14px; padding: 10px 12px 10px 22px; max-width: calc(100vw - 32px); }
+  .pl-cart.show { transform: translateX(-50%) translateY(0); }
+  .pl-cart-txt { font-size: 14px; font-weight: 700; white-space: nowrap; }
+  .pl-cart-txt small { display: block; font-size: 11px; font-weight: 500; color: #bbb; }
+  .pl-cart-clear { background: transparent; border: 0; color: #bbb; font: inherit; font-size: 13px; cursor: pointer; text-decoration: underline; }
+  .pl-cart-go { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; border: 0; font: inherit; font-size: 14px; font-weight: 700; padding: 11px 20px; border-radius: 100px; cursor: pointer; }
+  .pl-cart-go:hover { background: var(--accent-hi); }
+  .pl-cart-go svg { width: 16px; height: 16px; }
+
+  #pl-toast { position: fixed; left: 50%; bottom: 90px; transform: translateX(-50%) translateY(20px); background: #1c1c1c; color: #fff; padding: 12px 20px; border-radius: 100px; font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none; transition: .25s; z-index: 100; }
   #pl-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
   @media (max-width: 640px) {
     .pl-top-inner { padding: 12px 16px; }
-    .pl-wrap { padding: 24px 16px 48px; }
+    .pl-wrap { padding: 24px 16px 120px; }
     .pl-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -131,15 +116,24 @@
 <div class="pl-wrap">
   <div class="pl-head">
     <h1>Lista de precios <span>Revendedores 2025.</span></h1>
-    <div class="pl-meta" id="pl-meta"></div>
+    <p>Tu precio de revendedor (costo) y un precio sugerido editable para tus clientes. Seleccioná equipos para armar una cotización compartible. <strong>Precios sin IVA — <span style="color:var(--accent)">+ IVA 10,5%</span></strong>.</p>
   </div>
 
   <div id="pl-content"><div class="pl-loading">Cargando productos y cotización…</div></div>
 
   <div class="pl-foot">
     <p><strong>Confidencial.</strong> Uso exclusivo para revendedores de Trivium Pro. No compartir públicamente.</p>
-    <p>Precios <strong>sin IVA</strong>, expresados en pesos y calculados con el <strong>dólar oficial (venta)</strong> del día. El IVA de las máquinas es <strong>10,5%</strong>. Valores de referencia, sujetos a la cotización vigente y a modificación sin previo aviso. Consultas: <strong id="foot-wa"></strong>.</p>
+    <p>Precios <strong>sin IVA</strong>, en pesos, calculados con el <strong>dólar oficial (venta)</strong> del día. IVA de las máquinas: <strong>10,5%</strong>. Valores de referencia, sujetos a la cotización vigente. Consultas: <strong id="foot-wa"></strong>.</p>
   </div>
+</div>
+
+<div class="pl-cart" id="pl-cart">
+  <div class="pl-cart-txt" id="pl-cart-txt">0 equipos</div>
+  <button class="pl-cart-clear" onclick="clearQuote()">Vaciar</button>
+  <button class="pl-cart-go" onclick="openQuote()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/></svg>
+    Ver cotización
+  </button>
 </div>
 
 <div id="pl-toast"></div>
@@ -148,31 +142,27 @@
 <script src="prices.js"></script>
 <script>
 const DISCOUNT = RESELLER_PRICES.meta.reseller_discount; // 0.15
-const IVA = RESELLER_PRICES.meta.default_iva;            // 10.5
-let RATE = null;      // dólar oficial venta
-let RATE_LIVE = false;
+let RATE = null, RATE_LIVE = false;
 
 const fmtARS = (n) => '$ ' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(Math.round(n));
 const fmtUSD = (n) => 'US$ ' + new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(Math.round(n));
+const numAR  = (n) => new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(Math.round(n));
+const parseARS = (s) => parseInt(String(s).replace(/[^\d]/g, ''), 10) || 0;
 
 const GROUP_ORDER = ['Elevadores', 'Balanceadoras', 'Desarmadoras', 'Accesorios de Balanceo', 'Equipamiento de Taller'];
+const LS_KEY = 'tv_quote_v1';
+
+// State
+let PRICES_SHOWN = {};      // sku -> precio cliente (ARS) vigente en pantalla
+let EDITED = {};            // sku -> precio SOLO si el revendedor lo editó a mano (se persiste)
+const SELECTED = new Set(); // skus en la cotización
 
 function topCategoryName(p) {
   const c = categoryById(p.category);
   const parent = c && c.parent ? categoryById(c.parent) : null;
   return (parent && parent.name) || (c && c.name) || 'Otros';
 }
-
-// USD reseller → all figures
-function priceSet(rec) {
-  const rUsd = rec.usd_reseller;
-  const lUsd = rUsd / (1 - DISCOUNT);   // lista sugerida = revendedor sin el 15% de descuento
-  return {
-    reseller_usd: rUsd, reseller_ars: rUsd * RATE,
-    list_usd: lUsd,      list_ars: lUsd * RATE
-  };
-}
-
+function suggestedARS(rec) { return Math.round(rec.usd_reseller / (1 - DISCOUNT) * RATE); }
 function fichaUrl(p) { return `${location.origin}/producto/${encodeURIComponent(p.slug)}/`; }
 
 function toast(msg) {
@@ -181,9 +171,22 @@ function toast(msg) {
   clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 2200);
 }
 
+function saveState() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify({ sel: [...SELECTED], prices: EDITED })); } catch (e) {}
+}
+function loadState() {
+  try {
+    const s = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+    if (s.prices) Object.assign(EDITED, s.prices);
+    (s.sel || []).forEach(x => SELECTED.add(x));
+  } catch (e) {}
+}
+
 function priceCard(p) {
   const rec = RESELLER_PRICES.items[p.sku];
-  const s = priceSet(rec);
+  const resAars = rec.usd_reseller * RATE;
+  const shown = EDITED[p.sku] != null ? EDITED[p.sku] : suggestedARS(rec);
+  PRICES_SHOWN[p.sku] = shown;
   const img = p.image
     ? `<img src="${rootPath()}${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="ph" style="display:none">Sin imagen</span>`
     : `<span class="ph">Sin imagen</span>`;
@@ -191,8 +194,9 @@ function priceCard(p) {
   const spec = isLift
     ? `<div class="pl-spec"><span>Cap. <b>${p.capacity || '—'}</b></span>${p.lift_height ? `<span>Alt. <b>${p.lift_height}</b></span>` : ''}</div>`
     : '';
+  const sel = SELECTED.has(p.sku);
   return `
-    <article class="pl-card" data-sku="${p.sku}">
+    <article class="pl-card${sel ? ' is-sel' : ''}" data-sku="${p.sku}">
       <div class="pl-thumb">${img}</div>
       <div class="pl-body">
         <span class="pl-brand">Trivium Pro · <span class="pl-sku">${p.sku}</span></span>
@@ -201,14 +205,18 @@ function priceCard(p) {
         ${spec}
         <div class="pl-prices">
           <div>
-            <div class="pl-plabel">Precio de lista sugerido</div>
-            <div class="pl-list-val">${fmtARS(s.list_ars)} <span class="usd">(${fmtUSD(s.list_usd)})</span></div>
+            <span class="pl-plabel">Precio revendedor (tu costo)</span>
+            <span class="pl-res-val">${fmtARS(resAars)} <span class="usd">(${fmtUSD(rec.usd_reseller)})</span></span>
           </div>
           <div>
-            <div class="pl-plabel">Precio revendedor</div>
-            <div class="pl-res-val">${fmtARS(s.reseller_ars)} <span class="usd">(${fmtUSD(s.reseller_usd)})</span></div>
+            <label class="pl-plabel" for="in-${p.sku}">Precio sugerido para tu cliente (editable)</label>
+            <div class="pl-input-wrap">
+              <span class="cur">$</span>
+              <input class="pl-price-input" id="in-${p.sku}" type="text" inputmode="numeric"
+                     value="${numAR(shown)}" oninput="onPriceInput('${p.sku}', this)" onblur="onPriceBlur('${p.sku}', this)">
+            </div>
           </div>
-          <div class="pl-iva">Precios sin IVA · + IVA 10,5%</div>
+          <div class="pl-iva">+ IVA 10,5%</div>
         </div>
         <div class="pl-acts">
           <a class="pl-act" href="${fichaUrl(p)}" target="_blank" rel="noopener" title="Ver ficha en la web">
@@ -219,28 +227,64 @@ function priceCard(p) {
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
             Compartir
           </button>
-          <button class="pl-act pl-act--primary" onclick="downloadItem('${p.sku}')" title="Descargar placa (imagen)">
+          <button class="pl-act" onclick="downloadItem('${p.sku}')" title="Descargar placa (imagen)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
             Placa
           </button>
         </div>
+        <button class="pl-add${sel ? ' added' : ''}" onclick="toggleSelect('${p.sku}', this)">
+          ${sel ? addedSvg() + ' En la cotización' : plusSvg() + ' Agregar a cotización'}
+        </button>
       </div>
     </article>`;
 }
+function plusSvg()  { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>'; }
+function addedSvg() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>'; }
 
-/* ---------- Placa (imagen resumen del producto) ---------- */
-function loadImg(src) {
-  return new Promise((res) => { const i = new Image(); i.onload = () => res(i); i.onerror = () => res(null); i.src = src; });
+/* ---------- Price input ---------- */
+function onPriceInput(sku, el) { const v = parseARS(el.value); PRICES_SHOWN[sku] = v; EDITED[sku] = v; saveState(); }
+function onPriceBlur(sku, el)  { el.value = numAR(PRICES_SHOWN[sku] || 0); }
+
+/* ---------- Selección / cotización ---------- */
+function toggleSelect(sku, btn) {
+  if (SELECTED.has(sku)) SELECTED.delete(sku); else SELECTED.add(sku);
+  const on = SELECTED.has(sku);
+  btn.classList.toggle('added', on);
+  btn.innerHTML = on ? addedSvg() + ' En la cotización' : plusSvg() + ' Agregar a cotización';
+  btn.closest('.pl-card').classList.toggle('is-sel', on);
+  saveState(); updateCart();
 }
+function updateCart() {
+  const cart = document.getElementById('pl-cart');
+  const n = SELECTED.size;
+  cart.classList.toggle('show', n > 0);
+  document.getElementById('pl-cart-txt').innerHTML =
+    `${n} ${n === 1 ? 'equipo' : 'equipos'}<small>en tu cotización</small>`;
+}
+function clearQuote() {
+  SELECTED.clear(); saveState(); updateCart();
+  document.querySelectorAll('.pl-card.is-sel').forEach(c => {
+    c.classList.remove('is-sel');
+    const b = c.querySelector('.pl-add'); if (b) { b.classList.remove('added'); b.innerHTML = plusSvg() + ' Agregar a cotización'; }
+  });
+}
+function encodeQuote(arr) { return btoa(unescape(encodeURIComponent(JSON.stringify(arr)))); }
+function openQuote() {
+  if (!SELECTED.size) return;
+  const arr = [...SELECTED].map(s => ({ s, p: PRICES_SHOWN[s] || 0, c: (RESELLER_PRICES.items[s] || {}).caracteristicas || '' }));
+  const url = `${location.origin}/cotizacion/#q=${encodeQuote(arr)}`;
+  window.open(url, '_blank');
+}
+
+/* ---------- Placa (imagen resumen — precio al cliente, sin costo revendedor) ---------- */
+function loadImg(src) { return new Promise((res) => { const i = new Image(); i.onload = () => res(i); i.onerror = () => res(null); i.src = src; }); }
 function wrapText(ctx, text, x, y, maxW, lh, maxLines) {
-  const words = String(text).split(' ');
-  let line = '', lines = 0;
+  const words = String(text).split(' '); let line = '', lines = 0;
   for (let n = 0; n < words.length; n++) {
     const test = line + words[n] + ' ';
     if (ctx.measureText(test).width > maxW && line) {
       ctx.fillText(line.trim(), x, y); line = words[n] + ' '; y += lh; lines++;
       if (maxLines && lines >= maxLines - 1) {
-        // last allowed line: put the rest, ellipsize if needed
         let rest = words.slice(n).join(' ');
         while (ctx.measureText(rest + '…').width > maxW && rest.length) rest = rest.slice(0, -1);
         ctx.fillText(rest + (words.slice(n).join(' ').length > rest.length ? '…' : ''), x, y);
@@ -248,79 +292,56 @@ function wrapText(ctx, text, x, y, maxW, lh, maxLines) {
       }
     } else { line = test; }
   }
-  ctx.fillText(line.trim(), x, y);
-  return y + lh;
+  ctx.fillText(line.trim(), x, y); return y + lh;
 }
 async function buildPlaca(p) {
-  const rec = RESELLER_PRICES.items[p.sku]; const s = priceSet(rec);
-  const W = 1080, H = 1440, c = document.createElement('canvas');
+  const price = PRICES_SHOWN[p.sku] || 0;
+  const rec = RESELLER_PRICES.items[p.sku];
+  const W = 1080, H = 1350, c = document.createElement('canvas');
   c.width = W; c.height = H; const ctx = c.getContext('2d');
   ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, W, H);
-  // header
   ctx.fillStyle = '#ff1e00'; ctx.fillRect(0, 0, W, 150);
-  ctx.fillStyle = '#fff'; ctx.textBaseline = 'alphabetic';
-  ctx.font = '800 50px Archivo, sans-serif'; ctx.fillText('TRIVIUM PRO', 48, 78);
-  ctx.font = '600 24px Archivo, sans-serif'; ctx.fillText('Lista revendedores 2025 · precios sin IVA', 48, 116);
-  // image
+  ctx.fillStyle = '#fff'; ctx.font = '800 50px Archivo, sans-serif'; ctx.fillText('TRIVIUM PRO', 48, 78);
+  ctx.font = '600 24px Archivo, sans-serif'; ctx.fillText('Equipamiento para taller', 48, 116);
   const img = await loadImg(rootPath() + (p.image || ''));
-  const bx = 90, by = 200, bw = 900, bh = 540;
-  if (img) {
-    const r = Math.min(bw / img.width, bh / img.height);
-    const iw = img.width * r, ih = img.height * r;
-    ctx.drawImage(img, bx + (bw - iw) / 2, by + (bh - ih) / 2, iw, ih);
-  } else {
-    ctx.fillStyle = '#f0ede8'; ctx.fillRect(bx, by, bw, bh);
-  }
-  // name + desc
-  let y = 830; ctx.fillStyle = '#1c1c1c'; ctx.font = '800 44px Archivo, sans-serif';
-  y = wrapText(ctx, p.name, 48, y, 984, 52, 2);
+  const bx = 90, by = 200, bw = 900, bh = 560;
+  if (img) { const r = Math.min(bw / img.width, bh / img.height); const iw = img.width * r, ih = img.height * r; ctx.drawImage(img, bx + (bw - iw) / 2, by + (bh - ih) / 2, iw, ih); }
+  else { ctx.fillStyle = '#f0ede8'; ctx.fillRect(bx, by, bw, bh); }
+  let y = 850; ctx.fillStyle = '#1c1c1c'; ctx.font = '800 46px Archivo, sans-serif';
+  y = wrapText(ctx, p.name, 48, y, 984, 54, 2);
   y += 6; ctx.fillStyle = '#57534e'; ctx.font = '400 28px Archivo, sans-serif';
   if (rec.caracteristicas) y = wrapText(ctx, rec.caracteristicas, 48, y, 984, 36, 2);
-  // price box
-  const boxY = 1040;
-  ctx.fillStyle = '#f7f6f3'; ctx.fillRect(48, boxY, 984, 300);
-  ctx.fillStyle = '#ff1e00'; ctx.fillRect(48, boxY, 6, 300);
-  ctx.fillStyle = '#a8a29e'; ctx.font = '700 22px Archivo, sans-serif';
-  ctx.fillText('PRECIO DE LISTA SUGERIDO', 80, boxY + 52);
-  ctx.fillStyle = '#57534e'; ctx.font = '700 34px Archivo, sans-serif';
-  ctx.fillText(`${fmtARS(s.list_ars)}  (${fmtUSD(s.list_usd)})`, 80, boxY + 94);
-  ctx.fillStyle = '#a8a29e'; ctx.font = '700 22px Archivo, sans-serif';
-  ctx.fillText('PRECIO REVENDEDOR', 80, boxY + 158);
-  ctx.fillStyle = '#ff1e00'; ctx.font = '800 50px Archivo, sans-serif';
-  ctx.fillText(fmtARS(s.reseller_ars), 80, boxY + 212);
-  ctx.fillStyle = '#57534e'; ctx.font = '600 26px Archivo, sans-serif';
-  ctx.fillText(`(${fmtUSD(s.reseller_usd)})   ·   + IVA 10,5%`, 80, boxY + 250);
-  // footer
+  // price box (solo precio al cliente + IVA)
+  const boxY = 1080;
+  ctx.fillStyle = '#f7f6f3'; ctx.fillRect(48, boxY, 984, 210);
+  ctx.fillStyle = '#ff1e00'; ctx.fillRect(48, boxY, 6, 210);
+  ctx.fillStyle = '#a8a29e'; ctx.font = '700 24px Archivo, sans-serif'; ctx.fillText('PRECIO', 80, boxY + 56);
+  ctx.fillStyle = '#1c1c1c'; ctx.font = '800 68px Archivo, sans-serif'; ctx.fillText(fmtARS(price), 80, boxY + 132);
+  ctx.fillStyle = '#ff1e00'; ctx.font = '800 34px Archivo, sans-serif'; ctx.fillText('+ IVA 10,5%', 80, boxY + 182);
   const d = new Date().toLocaleDateString('es-AR');
   ctx.fillStyle = '#a8a29e'; ctx.font = '600 22px Archivo, sans-serif';
-  ctx.fillText(`Dólar oficial venta ${fmtARS(RATE)} · ${d} · SKU ${p.sku}`, 48, H - 40);
+  ctx.fillText(`Cotización válida al ${d}`, 48, H - 34);
   return c;
 }
 function canvasToBlob(c) { return new Promise((res) => c.toBlob(res, 'image/png')); }
-
 async function downloadItem(sku) {
   const p = CATALOG.products.find(x => x.sku === sku); if (!p) return;
   toast('Generando placa…');
-  const c = await buildPlaca(p);
-  const blob = await canvasToBlob(c);
+  const blob = await canvasToBlob(await buildPlaca(p));
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = `${sku}-trivium-pro.png`; a.click();
+  const a = document.createElement('a'); a.href = url; a.download = `${sku}-trivium-pro.png`; a.click();
   setTimeout(() => URL.revokeObjectURL(url), 4000);
 }
 async function shareItem(sku) {
   const p = CATALOG.products.find(x => x.sku === sku); if (!p) return;
-  const rec = RESELLER_PRICES.items[sku]; const s = priceSet(rec);
+  const price = PRICES_SHOWN[sku] || 0;
   const title = `${p.name} — Trivium Pro`;
-  const text = `${p.name}\nRevendedor: ${fmtARS(s.reseller_ars)} (${fmtUSD(s.reseller_usd)}) + IVA 10,5%`;
+  const text = `${p.name}\nPrecio: ${fmtARS(price)} + IVA 10,5%`;
   const url = fichaUrl(p);
   try {
-    const c = await buildPlaca(p);
-    const blob = await canvasToBlob(c);
+    const blob = await canvasToBlob(await buildPlaca(p));
     const file = new File([blob], `${sku}-trivium-pro.png`, { type: 'image/png' });
-    if (navigator.canShare && navigator.canShare({ files: [file] })) {
-      await navigator.share({ files: [file], title, text: `${text}\n${url}` }); return;
-    }
+    if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title, text: `${text}\n${url}` }); return; }
     if (navigator.share) { await navigator.share({ title, text, url }); return; }
     await navigator.clipboard.writeText(`${text}\n${url}`); toast('Copiado al portapapeles');
   } catch (e) { if (e && e.name === 'AbortError') return; toast('No se pudo compartir'); }
@@ -331,9 +352,9 @@ async function getRate() {
   try {
     const r = await fetch('https://dolarapi.com/v1/dolares/oficial', { cache: 'no-store' });
     const j = await r.json();
-    if (j && j.venta) return { rate: j.venta, date: j.fechaActualizacion, live: true };
+    if (j && j.venta) return { rate: j.venta, live: true };
   } catch (e) {}
-  return { rate: 1510, date: null, live: false };
+  return { rate: 1510, live: false };
 }
 
 /* ---------- Render ---------- */
@@ -341,38 +362,29 @@ async function getRate() {
   await loadCatalog();
   const info = await getRate();
   RATE = info.rate; RATE_LIVE = info.live;
+  loadState();
 
-  const rateBox = document.getElementById('pl-rate');
-  const when = info.date ? new Date(info.date).toLocaleDateString('es-AR') : '';
-  rateBox.innerHTML = info.live
-    ? `Dólar oficial (venta)<br><b>${fmtARS(RATE)}</b> <span class="live">● en vivo</span>${when ? ` · ${when}` : ''}`
-    : `Dólar de referencia<br><b>${fmtARS(RATE)}</b> <span class="ref">● sin conexión</span>`;
-
-  document.getElementById('pl-meta').innerHTML = `
-    <span class="pl-tag">Precios en pesos (ARS)</span>
-    <span class="pl-tag">Sin IVA · + IVA 10,5%</span>
-    <span class="pl-tag">Base USD · dólar oficial venta</span>
-    <span class="pl-tag pl-tag--warn">Confidencial — uso interno</span>`;
+  const today = new Date().toLocaleDateString('es-AR');
+  document.getElementById('pl-rate').innerHTML = info.live
+    ? `Dólar oficial (venta)<br><b>${fmtARS(RATE)}</b> <span class="live">● en vivo</span> · ${today}`
+    : `Dólar de referencia<br><b>${fmtARS(RATE)}</b> <span class="ref">● sin conexión</span> · ${today}`;
   document.getElementById('foot-wa').textContent = TRIVIUM.whatsappDisplay;
 
-  // Solo productos con precio en prices.js (fuente de verdad del listado)
   const items = CATALOG.products.filter(p => p.brand === 'trivium-pro' && RESELLER_PRICES.items[p.sku]);
-
   const buckets = {};
   items.forEach(p => { const g = topCategoryName(p); (buckets[g] = buckets[g] || []).push(p); });
-  const orderedGroups = [
-    ...GROUP_ORDER.filter(g => buckets[g]),
-    ...Object.keys(buckets).filter(g => !GROUP_ORDER.includes(g))
-  ];
+  const orderedGroups = [...GROUP_ORDER.filter(g => buckets[g]), ...Object.keys(buckets).filter(g => !GROUP_ORDER.includes(g))];
 
   document.getElementById('pl-content').innerHTML = orderedGroups.map(g => {
     const list = buckets[g];
     return `
       <section class="pl-group">
-        <div class="pl-group-head"><h2>${g}</h2><span class="n">${list.length} equipos</span></div>
+        <div class="pl-group-head"><h2>${g}</h2><span class="n">${list.length} ${list.length === 1 ? 'equipo' : 'equipos'}</span></div>
         <div class="pl-grid">${list.map(priceCard).join('')}</div>
       </section>`;
   }).join('');
+
+  updateCart();
 })();
 </script>
 </body>

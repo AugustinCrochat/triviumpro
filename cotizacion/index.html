@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="tv-root" content="../">
+<link rel="icon" type="image/svg+xml" href="../assets/img/icono-trivium.svg">
+<title>Cotización — Trivium Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  body { background: var(--bg-2); }
+  .q-top { position: sticky; top: 0; z-index: 40; background: var(--bg); border-bottom: 1px solid var(--line); box-shadow: var(--shadow); }
+  .q-top-inner { max-width: 960px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 16px; }
+  .q-logo { height: 32px; }
+  .q-top b { font-size: 15px; font-weight: 800; }
+  .q-actions { margin-left: auto; display: flex; gap: 8px; }
+  .q-btn { display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; padding: 10px 16px; border-radius: var(--radius); text-decoration: none; border: 1px solid var(--line); background: var(--bg-3); color: var(--text); }
+  .q-btn:hover { background: var(--surface-hi); }
+  .q-btn--primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .q-btn--primary:hover { background: var(--accent-hi); }
+  .q-btn svg { width: 16px; height: 16px; }
+
+  .q-wrap { max-width: 960px; margin: 0 auto; padding: 32px 24px 80px; }
+  .q-doc { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+  .q-head { padding: 28px 32px; border-bottom: 3px solid var(--accent); display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+  .q-head img { height: 40px; }
+  .q-head .meta { margin-left: auto; text-align: right; font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+  .q-head h1 { font-size: 26px; font-weight: 800; margin: 6px 0 0; letter-spacing: -.02em; }
+
+  .q-item { display: flex; gap: 18px; padding: 20px 32px; border-bottom: 1px solid var(--line); align-items: center; }
+  .q-item .thumb { width: 120px; height: 90px; flex: none; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); display: grid; place-items: center; padding: 6px; }
+  .q-item .thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .q-item .info { flex: 1; min-width: 0; }
+  .q-item .info h3 { font-size: 16px; font-weight: 700; margin: 0 0 4px; letter-spacing: -.01em; }
+  .q-item .info a { color: inherit; text-decoration: none; }
+  .q-item .info a:hover { color: var(--accent); }
+  .q-item .info p { font-size: 13px; color: var(--text-dim); margin: 0; line-height: 1.4; }
+  .q-item .info .sku { font-size: 11px; color: var(--text-mute); font-family: var(--mono); }
+  .q-item .price { text-align: right; flex: none; }
+  .q-item .price .val { font-size: 20px; font-weight: 800; letter-spacing: -.02em; white-space: nowrap; }
+  .q-item .price .iva { font-size: 12px; font-weight: 800; color: var(--accent); }
+
+  .q-totals { padding: 22px 32px; background: var(--bg-2); display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+  .q-totals .row { display: flex; gap: 40px; font-size: 14px; color: var(--text-dim); min-width: 320px; justify-content: space-between; }
+  .q-totals .row.total { font-size: 22px; font-weight: 800; color: var(--text); border-top: 1px solid var(--line-2); padding-top: 10px; margin-top: 4px; }
+  .q-totals .row b { color: var(--text); font-weight: 700; }
+
+  .q-note { padding: 20px 32px; font-size: 12px; color: var(--text-mute); line-height: 1.6; }
+  .q-empty { text-align: center; padding: 80px 24px; color: var(--text-dim); }
+  .q-empty h2 { font-size: 20px; margin: 0 0 8px; color: var(--text); }
+
+  @media (max-width: 640px) {
+    .q-item { flex-wrap: wrap; }
+    .q-item .price { text-align: left; width: 100%; }
+    .q-head .meta { margin-left: 0; text-align: left; width: 100%; }
+  }
+  @media print {
+    @page { size: A4; margin: 12mm; }
+    body { background: #fff; }
+    .q-top, .q-actions { display: none !important; }
+    .q-wrap { padding: 0; max-width: none; }
+    .q-doc { border: 0; }
+    .q-item, .q-head, .q-totals { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="q-top">
+  <div class="q-top-inner">
+    <img class="q-logo" src="../assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"
+         onerror="this.replaceWith(Object.assign(document.createElement('b'),{textContent:'Trivium Pro'}))">
+    <b>Cotización</b>
+    <div class="q-actions" id="q-actions" style="display:none">
+      <button class="q-btn" onclick="shareQuote()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
+        Compartir
+      </button>
+      <button class="q-btn q-btn--primary" onclick="window.print()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Imprimir / PDF
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="q-wrap" id="q-wrap"><div class="q-empty">Cargando…</div></div>
+
+<script src="../assets/js/site.js"></script>
+<script>
+const IVA_RATE = 0.105;
+const fmtARS = (n) => '$ ' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(Math.round(n));
+function decodeQuote(str) { return JSON.parse(decodeURIComponent(escape(atob(str)))); }
+function fichaUrl(slug) { return `${location.origin}/producto/${encodeURIComponent(slug)}/`; }
+
+function getItems() {
+  const m = location.hash.match(/q=([^&]+)/);
+  if (!m) return null;
+  try { const arr = decodeQuote(decodeURIComponent(m[1])); return Array.isArray(arr) ? arr : null; }
+  catch (e) { return null; }
+}
+
+async function shareQuote() {
+  const url = location.href;
+  const title = 'Cotización — Trivium Pro';
+  try {
+    if (navigator.share) { await navigator.share({ title, url }); return; }
+    await navigator.clipboard.writeText(url);
+    alert('Link de la cotización copiado.');
+  } catch (e) {}
+}
+
+(async () => {
+  await loadCatalog();
+  const raw = getItems();
+  const wrap = document.getElementById('q-wrap');
+
+  if (!raw || !raw.length) {
+    wrap.innerHTML = `<div class="q-empty"><h2>Cotización vacía</h2><p>Este link no contiene equipos. Armá una cotización desde la lista de precios.</p></div>`;
+    return;
+  }
+
+  const byId = {}; CATALOG.products.forEach(p => { byId[p.sku] = p; });
+  const rows = raw.map(it => {
+    const p = byId[it.s] || {};
+    const isLift = (p.category || '').includes('elevador');
+    const specParts = [];
+    if (isLift && p.capacity) specParts.push(`Cap. ${p.capacity}`);
+    if (isLift && p.lift_height) specParts.push(`Alt. ${p.lift_height}`);
+    const img = p.image
+      ? `<img src="${rootPath()}${p.image}" alt="" onerror="this.remove()">` : '';
+    const name = p.name || it.s;
+    const nameHtml = p.slug ? `<a href="${fichaUrl(p.slug)}" target="_blank" rel="noopener">${name}</a>` : name;
+    return `
+      <div class="q-item">
+        <div class="thumb">${img}</div>
+        <div class="info">
+          <h3>${nameHtml}</h3>
+          ${it.c ? `<p>${it.c}</p>` : ''}
+          <p class="sku">${specParts.join(' · ')}${specParts.length ? ' · ' : ''}SKU ${it.s}</p>
+        </div>
+        <div class="price">
+          <div class="val">${fmtARS(it.p)}</div>
+          <div class="iva">+ IVA 10,5%</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  const subtotal = raw.reduce((a, it) => a + (Number(it.p) || 0), 0);
+  const iva = subtotal * IVA_RATE;
+  const total = subtotal + iva;
+  const today = new Date().toLocaleDateString('es-AR');
+
+  document.getElementById('q-actions').style.display = 'flex';
+  wrap.innerHTML = `
+    <div class="q-doc">
+      <div class="q-head">
+        <img src="${rootPath()}assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro" onerror="this.remove()">
+        <div>
+          <h1>Cotización</h1>
+        </div>
+        <div class="meta">
+          Fecha: <b>${today}</b><br>
+          ${raw.length} ${raw.length === 1 ? 'equipo' : 'equipos'}<br>
+          Precios en pesos
+        </div>
+      </div>
+      ${rows}
+      <div class="q-totals">
+        <div class="row"><span>Subtotal (sin IVA)</span><b>${fmtARS(subtotal)}</b></div>
+        <div class="row"><span>IVA 10,5%</span><b>${fmtARS(iva)}</b></div>
+        <div class="row total"><span>Total</span><span>${fmtARS(total)}</span></div>
+      </div>
+      <div class="q-note">
+        Precios expresados en pesos argentinos. Cotización válida a la fecha de emisión, sujeta a modificación sin previo aviso y a confirmación de stock.
+        Trivium Pro · ${TRIVIUM.whatsappDisplay} · ${TRIVIUM.email}
+      </div>
+    </div>`;
+})();
+</script>
+</body>
+</html>
