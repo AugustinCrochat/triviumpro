@@ -40,8 +40,8 @@ window.RESELLER_PRICES = {
     // Desarmadoras
     "1010265": { usd_reseller: 1012, caracteristicas: "Desarmadora rueda moto/auto" },
     "1010267": { usd_reseller: 2763, caracteristicas: "Desarmadora de neumáticos pro c/brazo p/run flat" },
-    // Accesorios / equipamiento
-    "1010034": { usd_reseller: 421,  caracteristicas: "Elevador (lift) para balanceadora" },
-    "P-4451":  { usd_reseller: 421,  caracteristicas: "Inflador automático para neumáticos" }
+    // Accesorios / equipamiento (IVA 21%)
+    "1010034": { usd_reseller: 421,  iva: 21, caracteristicas: "Elevador (lift) para balanceadora" },
+    "P-4451":  { usd_reseller: 421,  iva: 21, caracteristicas: "Inflador automático para neumáticos" }
   }
 };

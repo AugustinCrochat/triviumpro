@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="tv-root" content="../">
 <link rel="icon" type="image/svg+xml" href="../assets/img/icono-trivium.svg">
-<title>Lista de precios · Revendedores 2025 — Trivium Pro</title>
+<title>Lista de precios · Revendedores — Trivium Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -94,8 +94,15 @@
 
   @media (max-width: 640px) {
     .pl-top-inner { padding: 12px 16px; }
-    .pl-wrap { padding: 24px 16px 120px; }
-    .pl-grid { grid-template-columns: 1fr; }
+    .pl-wrap { padding: 24px 14px 120px; }
+    .pl-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pl-body { padding: 12px 12px 14px; gap: 6px; }
+    .pl-card h3 { font-size: 13px; }
+    .pl-desc { font-size: 12px; }
+    .pl-res-val { font-size: 18px; }
+    .pl-price-input { font-size: 16px; }
+    .pl-acts { flex-wrap: wrap; }
+    .pl-act { font-size: 11px; padding: 7px 4px; }
   }
 </style>
 </head>
@@ -115,8 +122,8 @@
 
 <div class="pl-wrap">
   <div class="pl-head">
-    <h1>Lista de precios <span>Revendedores 2025.</span></h1>
-    <p>Tu precio de revendedor (costo) y un precio sugerido editable para tus clientes. Seleccioná equipos para armar una cotización compartible. <strong>Precios sin IVA — <span style="color:var(--accent)">+ IVA 10,5%</span></strong>.</p>
+    <h1>Lista de precios <span>Revendedores.</span></h1>
+    <p>Tu precio de revendedor (costo) y un precio sugerido editable para tus clientes. Seleccioná equipos para armar una cotización compartible. <strong>Precios sin IVA — <span style="color:var(--accent)">+ IVA según equipo (10,5% / 21%)</span></strong>.</p>
   </div>
 
   <div id="pl-content"><div class="pl-loading">Cargando productos y cotización…</div></div>
@@ -163,6 +170,8 @@ function topCategoryName(p) {
   return (parent && parent.name) || (c && c.name) || 'Otros';
 }
 function suggestedARS(rec) { return Math.round(rec.usd_reseller / (1 - DISCOUNT) * RATE); }
+function ivaOf(rec) { return rec.iva || RESELLER_PRICES.meta.default_iva; }
+function ivaLbl(r) { return (Number.isInteger(r) ? r : String(r).replace('.', ',')) + '%'; }
 function fichaUrl(p) { return `${location.origin}/producto/${encodeURIComponent(p.slug)}/`; }
 
 function toast(msg) {
@@ -216,7 +225,7 @@ function priceCard(p) {
                      value="${numAR(shown)}" oninput="onPriceInput('${p.sku}', this)" onblur="onPriceBlur('${p.sku}', this)">
             </div>
           </div>
-          <div class="pl-iva">+ IVA 10,5%</div>
+          <div class="pl-iva">+ IVA ${ivaLbl(ivaOf(rec))}</div>
         </div>
         <div class="pl-acts">
           <a class="pl-act" href="${fichaUrl(p)}" target="_blank" rel="noopener" title="Ver ficha en la web">
@@ -271,7 +280,7 @@ function clearQuote() {
 function encodeQuote(arr) { return btoa(unescape(encodeURIComponent(JSON.stringify(arr)))); }
 function openQuote() {
   if (!SELECTED.size) return;
-  const arr = [...SELECTED].map(s => ({ s, p: PRICES_SHOWN[s] || 0, c: (RESELLER_PRICES.items[s] || {}).caracteristicas || '' }));
+  const arr = [...SELECTED].map(s => { const r = RESELLER_PRICES.items[s] || {}; return { s, p: PRICES_SHOWN[s] || 0, c: r.caracteristicas || '', i: ivaOf(r) }; });
   const url = `${location.origin}/cotizacion/#q=${encodeQuote(arr)}`;
   window.open(url, '_blank');
 }
@@ -317,7 +326,7 @@ async function buildPlaca(p) {
   ctx.fillStyle = '#ff1e00'; ctx.fillRect(48, boxY, 6, 210);
   ctx.fillStyle = '#a8a29e'; ctx.font = '700 24px Archivo, sans-serif'; ctx.fillText('PRECIO', 80, boxY + 56);
   ctx.fillStyle = '#1c1c1c'; ctx.font = '800 68px Archivo, sans-serif'; ctx.fillText(fmtARS(price), 80, boxY + 132);
-  ctx.fillStyle = '#ff1e00'; ctx.font = '800 34px Archivo, sans-serif'; ctx.fillText('+ IVA 10,5%', 80, boxY + 182);
+  ctx.fillStyle = '#ff1e00'; ctx.font = '800 34px Archivo, sans-serif'; ctx.fillText('+ IVA ' + ivaLbl(ivaOf(rec)), 80, boxY + 182);
   const d = new Date().toLocaleDateString('es-AR');
   ctx.fillStyle = '#a8a29e'; ctx.font = '600 22px Archivo, sans-serif';
   ctx.fillText(`Cotización válida al ${d}`, 48, H - 34);
@@ -335,8 +344,9 @@ async function downloadItem(sku) {
 async function shareItem(sku) {
   const p = CATALOG.products.find(x => x.sku === sku); if (!p) return;
   const price = PRICES_SHOWN[sku] || 0;
+  const rec = RESELLER_PRICES.items[sku] || {};
   const title = `${p.name} — Trivium Pro`;
-  const text = `${p.name}\nPrecio: ${fmtARS(price)} + IVA 10,5%`;
+  const text = `${p.name}\nPrecio: ${fmtARS(price)} + IVA ${ivaLbl(ivaOf(rec))}`;
   const url = fichaUrl(p);
   try {
     const blob = await canvasToBlob(await buildPlaca(p));
