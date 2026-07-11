@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="tv-root" content="../">
+<link rel="icon" type="image/svg+xml" href="../assets/img/icono-trivium.svg">
+<title>Lista de precios · Revendedores 2025 — Trivium Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  :root { --pl-gap: 20px; }
+  body { background: var(--bg-2); }
+
+  /* ---------- Top bar ---------- */
+  .pl-top {
+    position: sticky; top: 0; z-index: 40;
+    background: var(--bg); border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .pl-top-inner {
+    max-width: var(--maxw); margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .pl-logo { height: 34px; width: auto; }
+  .pl-top-title { display: flex; flex-direction: column; line-height: 1.15; }
+  .pl-top-title b { font-size: 15px; font-weight: 800; letter-spacing: -.01em; }
+  .pl-top-title span { font-size: 12px; color: var(--text-dim); }
+  .pl-actions { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+  .pl-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff; border: 0;
+    font: inherit; font-weight: 700; font-size: 14px;
+    padding: 10px 18px; border-radius: var(--radius); cursor: pointer;
+    text-decoration: none;
+  }
+  .pl-btn:hover { background: var(--accent-hi); }
+  .pl-btn svg { width: 17px; height: 17px; }
+
+  /* ---------- Header / meta ---------- */
+  .pl-wrap { max-width: var(--maxw); margin: 0 auto; padding: 32px 24px 64px; }
+  .pl-head { margin-bottom: 26px; }
+  .pl-head h1 { font-size: clamp(26px, 4vw, 40px); font-weight: 800; letter-spacing: -.02em; margin: 0; }
+  .pl-head h1 span { color: var(--accent); }
+  .pl-meta {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px;
+  }
+  .pl-tag {
+    font-size: 12px; font-weight: 600; color: var(--text-dim);
+    background: var(--bg-3); border: 1px solid var(--line);
+    padding: 6px 12px; border-radius: 100px;
+  }
+  .pl-tag--warn { color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); border-color: color-mix(in srgb, var(--accent) 25%, transparent); }
+
+  /* ---------- Group ---------- */
+  .pl-group { margin-top: 40px; }
+  .pl-group-head {
+    display: flex; align-items: baseline; gap: 12px;
+    border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 22px;
+  }
+  .pl-group-head h2 { font-size: 20px; font-weight: 800; margin: 0; letter-spacing: -.01em; }
+  .pl-group-head .n { font-size: 13px; color: var(--text-mute); font-weight: 600; }
+
+  /* ---------- Grid + cards ---------- */
+  .pl-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--pl-gap);
+  }
+  .pl-card {
+    background: var(--bg); border: 1px solid var(--line); border-top: 2px solid var(--accent);
+    border-radius: var(--radius); overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .pl-thumb {
+    aspect-ratio: 4/3; background: #fff; display: grid; place-items: center;
+    padding: 14px; border-bottom: 1px solid var(--line);
+  }
+  .pl-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .pl-thumb .ph { font-size: 12px; color: var(--text-mute); }
+  .pl-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .pl-brand { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--text-mute); }
+  .pl-card h3 { font-size: 15px; font-weight: 700; margin: 0; line-height: 1.25; letter-spacing: -.01em; }
+  .pl-desc { font-size: 13px; color: var(--text-dim); line-height: 1.4; margin: 0; }
+  .pl-spec { display: flex; gap: 14px; font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+  .pl-spec b { color: var(--text); font-weight: 700; }
+  .pl-price-row {
+    margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line);
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 8px;
+  }
+  .pl-price-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-mute); font-weight: 600; }
+  .pl-price { font-size: 21px; font-weight: 800; letter-spacing: -.02em; }
+  .pl-price small { font-size: 12px; font-weight: 600; color: var(--text-dim); }
+  .pl-price--na { font-size: 15px; color: var(--text-dim); font-weight: 700; }
+  .pl-sku { font-size: 11px; color: var(--text-mute); font-family: var(--mono); }
+
+  .pl-foot { margin-top: 48px; font-size: 12px; color: var(--text-mute); line-height: 1.6; border-top: 1px solid var(--line); padding-top: 20px; }
+
+  /* Print header/footer only on print */
+  .pl-print-only { display: none; }
+
+  @media (max-width: 640px) {
+    .pl-top-inner { padding: 12px 16px; }
+    .pl-wrap { padding: 24px 16px 48px; }
+    .pl-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pl-card h3 { font-size: 14px; }
+    .pl-price { font-size: 18px; }
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print {
+    @page { size: A4; margin: 12mm 10mm 16mm; }
+    body { background: #fff !important; }
+    .pl-top, .pl-actions, .pl-foot .noprint { display: none !important; }
+    .pl-print-only { display: block; }
+    .pl-wrap { padding: 0; max-width: none; }
+    .pl-head { margin-bottom: 14px; }
+    .pl-head h1 { font-size: 22px; }
+    .pl-print-head {
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 6px;
+    }
+    .pl-print-head img { height: 26px; }
+    .pl-print-head .t { margin-left: auto; text-align: right; font-size: 10px; color: #555; }
+    .pl-group { margin-top: 16px; break-inside: avoid; }
+    .pl-group-head { margin-bottom: 10px; }
+    .pl-group-head h2 { font-size: 15px; }
+    .pl-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .pl-card { break-inside: avoid; border-top-width: 2px; box-shadow: none; }
+    .pl-thumb { aspect-ratio: 3/2; padding: 6px; }
+    .pl-body { padding: 8px 10px 10px; gap: 5px; }
+    .pl-card h3 { font-size: 11px; }
+    .pl-desc { font-size: 9.5px; }
+    .pl-spec { font-size: 9px; }
+    .pl-price { font-size: 15px; }
+    .pl-price small { font-size: 9px; }
+    .pl-price-lbl { font-size: 8px; }
+    .pl-sku { font-size: 8.5px; }
+    .pl-brand { font-size: 8.5px; }
+    a[href]:after { content: "" !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pl-top">
+  <div class="pl-top-inner">
+    <img class="pl-logo" src="../assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"
+         onerror="this.replaceWith(Object.assign(document.createElement('b'),{textContent:'Trivium Pro'}))">
+    <div class="pl-top-title">
+      <b>Lista de precios · Revendedores</b>
+      <span>Confidencial — solo para distribuidores</span>
+    </div>
+    <div class="pl-actions">
+      <button class="pl-btn" onclick="window.print()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Descargar PDF
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="pl-wrap">
+  <!-- Print-only branded header -->
+  <div class="pl-print-only pl-print-head">
+    <img src="../assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro">
+    <div class="t" id="print-meta"></div>
+  </div>
+
+  <div class="pl-head">
+    <h1>Lista de precios <span>Revendedores 2025.</span></h1>
+    <div class="pl-meta" id="pl-meta"></div>
+  </div>
+
+  <div id="pl-content"></div>
+
+  <div class="pl-foot">
+    <p class="noprint"><strong>Confidencial.</strong> Esta lista es de uso exclusivo para revendedores de Trivium Pro. No compartir públicamente.</p>
+    <p>Precios de reventa en pesos argentinos, sin IVA. Sujetos a modificación sin previo aviso según cotización del dólar. Cotización de referencia: USD = $1.510. Consultas: <strong id="foot-wa"></strong>.</p>
+  </div>
+</div>
+
+<script src="../assets/js/site.js"></script>
+<script src="prices.js"></script>
+<script>
+const fmtARS = (n) => '$ ' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(n);
+
+// Group order (top-level category name) + display labels
+const GROUP_ORDER = ['Elevadores', 'Balanceadoras', 'Desarmadoras', 'Accesorios de Balanceo', 'Equipamiento de Taller'];
+
+function topCategoryName(p) {
+  const c = categoryById(p.category);
+  const parent = c && c.parent ? categoryById(c.parent) : null;
+  return (parent && parent.name) || (c && c.name) || 'Otros';
+}
+
+function priceCard(p) {
+  const rec = RESELLER_PRICES.items[p.sku] || {};
+  const img = p.image
+    ? `<img src="${rootPath()}${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="ph" style="display:none">Sin imagen</span>`
+    : `<span class="ph">Sin imagen</span>`;
+  const desc = rec.caracteristicas || '';
+  const isLift = p.category.includes('elevador');
+  const spec = isLift
+    ? `<div class="pl-spec"><span>Cap. <b>${p.capacity || '—'}</b></span>${p.lift_height ? `<span>Alt. <b>${p.lift_height}</b></span>` : ''}</div>`
+    : '';
+  const priceHtml = (rec.price_ars == null)
+    ? `<span class="pl-price pl-price--na">A consultar</span>`
+    : `<span class="pl-price">${fmtARS(rec.price_ars)} <small>+ IVA</small></span>`;
+  return `
+    <article class="pl-card">
+      <div class="pl-thumb">${img}</div>
+      <div class="pl-body">
+        <span class="pl-brand">Trivium Pro · <span class="pl-sku">${p.sku}</span></span>
+        <h3>${p.name}</h3>
+        ${desc ? `<p class="pl-desc">${desc}</p>` : ''}
+        ${spec}
+        <div class="pl-price-row">
+          <span class="pl-price-lbl">Reventa · pesos</span>
+          ${priceHtml}
+        </div>
+      </div>
+    </article>`;
+}
+
+(async () => {
+  await loadCatalog();
+
+  // Meta line
+  const today = new Date().toLocaleDateString('es-AR', { day: '2-digit', month: 'long', year: 'numeric' });
+  const meta = document.getElementById('pl-meta');
+  meta.innerHTML = `
+    <span class="pl-tag">Precios en pesos (ARS)</span>
+    <span class="pl-tag">Sin IVA</span>
+    <span class="pl-tag">Cotización ref. USD $1.510</span>
+    <span class="pl-tag pl-tag--warn">Confidencial — uso interno</span>`;
+  document.getElementById('print-meta').innerHTML =
+    `Lista Revendedores 2025 · sin IVA · Cotización ref. USD $1.510<br>Emitido: ${today}`;
+  document.getElementById('foot-wa').textContent = TRIVIUM.whatsappDisplay;
+
+  // Only Trivium Pro products
+  const items = CATALOG.products.filter(p => p.brand === 'trivium-pro');
+
+  // Bucket by top-level category
+  const buckets = {};
+  items.forEach(p => {
+    const g = topCategoryName(p);
+    (buckets[g] = buckets[g] || []).push(p);
+  });
+
+  const orderedGroups = [
+    ...GROUP_ORDER.filter(g => buckets[g]),
+    ...Object.keys(buckets).filter(g => !GROUP_ORDER.includes(g))
+  ];
+
+  const content = document.getElementById('pl-content');
+  content.innerHTML = orderedGroups.map(g => {
+    const list = buckets[g];
+    // priced items first, "a consultar" last; keep catalog order otherwise
+    list.sort((a, b) => {
+      const pa = RESELLER_PRICES.items[a.sku]?.price_ars;
+      const pb = RESELLER_PRICES.items[b.sku]?.price_ars;
+      if ((pa == null) !== (pb == null)) return pa == null ? 1 : -1;
+      return 0;
+    });
+    return `
+      <section class="pl-group">
+        <div class="pl-group-head"><h2>${g}</h2><span class="n">${list.length} equipos</span></div>
+        <div class="pl-grid">${list.map(priceCard).join('')}</div>
+      </section>`;
+  }).join('');
+})();
+</script>
+</body>
+</html>
