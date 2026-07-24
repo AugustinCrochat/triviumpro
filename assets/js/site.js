@@ -281,6 +281,41 @@ async function loadCatalog() {
   });
 }
 
+// ---------- Precios públicos (fichas de producto) ----------
+let PUBLIC_PRICES = null;
+async function loadPublicPrices() {
+  if (PUBLIC_PRICES) return PUBLIC_PRICES;
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = rootPath() + 'data/prices-publico.js';
+    script.onload = () => { PUBLIC_PRICES = window.PUBLIC_PRICES; resolve(PUBLIC_PRICES); };
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+async function getOfficialRate() {
+  try {
+    const r = await fetch('https://dolarapi.com/v1/dolares/oficial', { cache: 'no-store' });
+    const j = await r.json();
+    if (j && j.venta) return j.venta;
+  } catch (e) {}
+  return 1520; // valor de referencia si falla la consulta en vivo
+}
+function ppFmtARS(n) { return '$' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(Math.round(n)); }
+function ppIvaLbl(r) { return (Number.isInteger(r) ? r : String(r).replace('.', ',')) + '%'; }
+function renderPriceBlock(sku, rate) {
+  const rec = PUBLIC_PRICES && PUBLIC_PRICES.items[sku];
+  if (!rec) return '';
+  const ars = rec.fixed_ars != null ? rec.fixed_ars : rec.usd * rate;
+  const iva = rec.iva != null ? rec.iva : PUBLIC_PRICES.meta.default_iva;
+  return `
+    <div class="pd-price">
+      <div class="pd-price-label">Precio de lista (sin IVA)</div>
+      <div class="pd-price-val">${ppFmtARS(ars)}</div>
+      <div class="pd-price-iva">+ IVA ${ppIvaLbl(iva)}</div>
+    </div>`;
+}
+
 function productUrl(p) { return `${rootPath()}producto/${encodeURIComponent(p.slug)}/`; }
 function categoryUrl(slug) { return `${rootPath()}categoria/${encodeURIComponent(slug)}/`; }
 function brandUrl(slug) { return `${rootPath()}marca/${encodeURIComponent(slug)}/`; }

@@ -814,6 +814,23 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.2;
 }
 .pd-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+
+.pd-price {
+  margin: 4px 0 20px;
+  padding: 16px 18px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.pd-price-label {
+  font-size: .68rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .09em;
+  color: var(--text-mute); margin-bottom: 4px;
+}
+.pd-price-val { font-size: 1.7rem; font-weight: 800; letter-spacing: -.02em; color: var(--text); }
+.pd-price-iva { font-size: .85rem; font-weight: 700; color: var(--accent); margin-top: 2px; }
+
 @media (max-width: 900px) { .pd-wrap { grid-template-columns: 1fr; gap: 28px; } }
 
 /* ---------- Contact ---------- */
