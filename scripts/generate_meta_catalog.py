@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+"""Genera el feed de catálogo de Meta (Facebook/Instagram Commerce Manager)
+a partir de data/catalog.json + data/prices-publico.js.
+
+Solo incluye productos Trivium Pro que tienen precio público cargado.
+El precio del feed es el PRECIO FINAL (con IVA incluido), en ARS, calculado
+con el dólar oficial venta del día (dolarapi.com) — salvo los ítems con
+"fixed_ars" en prices-publico.js, que usan ese valor fijo como base.
+
+Como es un archivo estático, hay que volver a correr este script cada vez
+que se quiera actualizar el feed con la cotización del día:
+
+    python3 scripts/generate_meta_catalog.py
+
+Salida: feeds/meta-catalogo.csv
+"""
+import csv
+import json
+import re
+import sys
+from pathlib import Path
+
+import requests
+
+ROOT = Path(__file__).resolve().parent.parent
+SITE_URL = "https://trivium.ar"
+FALLBACK_RATE = 1520  # valor de referencia si falla la consulta en vivo
+
+
+def load_prices_publico():
+    text = (ROOT / "data" / "prices-publico.js").read_text(encoding="utf-8")
+    text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)
+    m = re.search(r"window\.PUBLIC_PRICES\s*=\s*(\{.*\});", text, re.S)
+    if not m:
+        raise RuntimeError("No se pudo encontrar PUBLIC_PRICES en prices-publico.js")
+    obj_text = m.group(1)
+    obj_text = re.sub(r"//.*", "", obj_text)
+    obj_text = re.sub(r'\b([A-Za-z_]\w*)\s*:', r'"\1":', obj_text)
+    obj_text = re.sub(r",(\s*[}\]])", r"\1", obj_text)  # trailing commas
+    return json.loads(obj_text)
+
+
+def get_official_rate():
+    try:
+        r = requests.get("https://dolarapi.com/v1/dolares/oficial", timeout=10)
+        r.raise_for_status()
+        j = r.json()
+        if j.get("venta"):
+            return j["venta"], True
+    except Exception as e:
+        print(f"Aviso: no se pudo obtener el dólar en vivo ({e}); uso {FALLBACK_RATE}", file=sys.stderr)
+    return FALLBACK_RATE, False
+
+
+def abs_url(path):
+    if not path:
+        return ""
+    return f"{SITE_URL}/{path.lstrip('/')}"
+
+
+def main():
+    catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
+    prices = load_prices_publico()
+    rate, live = get_official_rate()
+    print(f"Dólar oficial venta: {rate} ({'en vivo' if live else 'referencia'})")
+
+    by_sku = {p["sku"]: p for p in catalog["products"]}
+    items = prices["items"]
+    default_iva = prices["meta"]["default_iva"]
+
+    rows = []
+    for sku, rec in items.items():
+        p = by_sku.get(sku)
+        if not p:
+            print(f"Aviso: SKU {sku} en prices-publico.js no existe en catalog.json, se omite", file=sys.stderr)
+            continue
+
+        base_ars = rec["fixed_ars"] if rec.get("fixed_ars") is not None else rec["usd"] * rate
+        iva = rec.get("iva", default_iva)
+        total_ars = round(base_ars * (1 + iva / 100), 2)
+
+        bullets = p.get("bullets") or []
+        description = " ".join(bullets) if bullets else p["name"]
+
+        images = [p["image"]] if p.get("image") else []
+        images += [im for im in (p.get("images") or []) if im not in images]
+
+        rows.append({
+            "id": sku,
+            "title": p["name"],
+            "description": description,
+            "availability": "in stock",
+            "condition": "new",
+            "price": f"{total_ars:.2f} ARS",
+            "link": f"{SITE_URL}/producto/{p['slug']}/",
+            "image_link": abs_url(images[0]) if images else "",
+            "additional_image_link": ",".join(abs_url(im) for im in images[1:5]),
+            "brand": "Trivium Pro",
+        })
+
+    rows.sort(key=lambda r: r["id"])
+
+    out_dir = ROOT / "feeds"
+    out_dir.mkdir(exist_ok=True)
+    out_path = out_dir / "meta-catalogo.csv"
+    fieldnames = ["id", "title", "description", "availability", "condition",
+                  "price", "link", "image_link", "additional_image_link", "brand"]
+    with out_path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+    print(f"Escrito {out_path} con {len(rows)} productos")
+
+
+if __name__ == "__main__":
+    main()
