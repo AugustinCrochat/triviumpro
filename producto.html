@@ -39,6 +39,8 @@
 mountChrome('catalogo');
 (async () => {
   await loadCatalog();
+  await loadPublicPrices();
+  const priceRate = await getOfficialRate();
   const slug = getQuery('id');
   const p = CATALOG.products.find(x => x.slug === slug);
   if (!p) {
@@ -97,6 +99,8 @@ mountChrome('catalogo');
       </div>
       <h1>${p.name}</h1>
       <span class="sku">SKU · ${p.sku}</span>
+
+      ${renderPriceBlock(p.sku, priceRate)}
 
       ${p.category.includes('elevador') ? `
       <div class="pd-spec-tiles">
