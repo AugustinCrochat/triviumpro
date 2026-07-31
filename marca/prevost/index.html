@@ -2,25 +2,38 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<link rel="icon" type="image/svg+xml" href="/assets/img/icono-trivium.svg">
+<link rel="icon" type="image/svg+xml" href="../../assets/img/icono-trivium.svg">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="tv-root" content="../../">
-<title>Categoría — Trivium Center</title>
+<title>Prevost Argentina — Trivium Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/styles.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Trivium Center">
+<meta property="og:title" content="Prevost en Argentina">
+<meta property="og:description" content="Prevost en Argentina: 1 equipos disponibles. Francia — Aire comprimido. Venta, instalación y servicio post-venta en todo el país por Trivium Center.">
+<meta property="og:image" content="https://trivium.ar/assets/img/logo-trivium.svg">
+<meta property="og:url" content="https://trivium.ar/marca/prevost/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prevost en Argentina">
+<meta name="twitter:description" content="Prevost en Argentina: 1 equipos disponibles. Francia — Aire comprimido. Venta, instalación y servicio post-venta en todo el país por Trivium Center.">
+<meta name="twitter:image" content="https://trivium.ar/assets/img/logo-trivium.svg">
+<link rel="canonical" href="https://trivium.ar/marca/prevost/">
+<meta name="description" content="Prevost en Argentina: 1 equipos disponibles. Francia — Aire comprimido. Venta, instalación y servicio post-venta en todo el país por Trivium Center.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://trivium.ar/"},{"@type":"ListItem","position":2,"name":"Marcas","item":"https://trivium.ar/marcas/"},{"@type":"ListItem","position":3,"name":"Prevost","item":"https://trivium.ar/marca/prevost/"}]}</script>
 </head>
 <body>
 <div id="site-header"></div>
 
 <section class="cat-hero">
   <div class="container">
-    <div class="breadcrumbs" id="crumbs"></div>
-    <h1 id="cat-title">—</h1>
+    <div class="breadcrumbs" id="crumbs"><span>Inicio</span> <span class="sep">/</span> <a href="../../marcas/">Marcas</a> <span class="sep">/</span> <span>Prevost</span></div>
+    <h1 id="cat-title">Prevost</h1>
     <div class="sub">
-      <span class="chip" id="cat-tag">—</span>
-      <span class="mono muted" id="cat-count">—</span>
+      <span class="chip" id="cat-tag">Francia — Aire comprimido</span>
+      <span class="mono muted" id="cat-count">1 productos</span>
     </div>
   </div>
 </section>
@@ -29,16 +42,16 @@
   <div class="container cat-layout">
     <aside class="sidebar">
       <h4>Categorías</h4>
-      <ul id="cat-list"></ul>
+      <ul id="cat-list"><li><a href="../../categoria/elevadores/">Elevadores</a></li><li><a href="../../categoria/elevadores-2-columnas/">2 Columnas</a></li><li><a href="../../categoria/elevadores-4-columnas/">4 Columnas</a></li><li><a href="../../categoria/elevadores-tijera/">Tijera</a></li><li><a href="../../categoria/elevadores-pesados/">Pesados</a></li><li><a href="../../categoria/elevadores-motos/">Motos</a></li><li><a href="../../categoria/alineadoras/">Alineadoras</a></li><li><a href="../../categoria/balanceadoras/">Balanceadoras</a></li><li><a href="../../categoria/desarmadoras/">Desarmadoras</a></li><li><a href="../../categoria/herramientas-neumaticas/">Herramientas Neumáticas</a></li><li><a href="../../categoria/muebles-taller/">Muebles de Taller</a></li><li><a href="../../categoria/equipamiento-taller/">Equipamiento de Taller</a></li><li><a href="../../categoria/accesorios-balanceo/">Accesorios de Balanceo</a></li><li><a href="../../categoria/aire-comprimido/">Aire Comprimido</a></li></ul>
       <h4>Marcas</h4>
-      <ul id="brand-list"></ul>
+      <ul id="brand-list"><li><a href="../../marca/rotary-lift/">Rotary Lift</a></li><li><a href="../../marca/hofmann/">Hofmann</a></li><li><a href="../../marca/direct-lift/">Direct Lift</a></li><li><a href="../../marca/forward-lift/">Forward Lift</a></li><li><a href="../../marca/trivium-pro/">Trivium Pro</a></li><li><a href="../../marca/haweka/">Haweka</a></li><li><a href="../../marca/prevost/">Prevost</a></li></ul>
     </aside>
     <div>
       <div class="results-head">
-        <span class="count" id="count">—</span>
+        <span class="count" id="count">1 productos</span>
         <span class="mono muted">Ordenar: recomendados</span>
       </div>
-      <div class="prod-grid" id="grid"></div>
+      <div class="prod-grid" id="grid"><a class="prod-card" href="../../producto/red-de-aire-comprimido-prevost-piping-system/"><div class="thumb"><img src="../../assets/img/red-aire-comprimido-prevost-piping-system.webp" alt="Red de Aire Comprimido - Prevost Piping System" loading="lazy" width="400" height="300"></div><div class="body"><span class="brand-tag">Prevost</span><h3>Red de Aire Comprimido - Prevost Piping System</h3></div></a></div>
     </div>
   </div>
 </section>
@@ -74,15 +87,36 @@ mountChrome('catalogo');
   } else if (brandSlug) {
     const br = brandById(brandSlug);
     results = CATALOG.products.filter(p => p.brand === brandSlug);
+    if (brandSlug === 'direct-lift') {
+      results.sort((a, b) => {
+        if (a.slug.includes('dl9')) return -1;
+        if (b.slug.includes('dl9')) return 1;
+        const isMotoA = a.category === 'elevadores-motos';
+        const isMotoB = b.category === 'elevadores-motos';
+        if (isMotoA && !isMotoB) return 1;
+        if (!isMotoA && isMotoB) return -1;
+        return 0;
+      });
+    }
     title = br.name; sub = br.note || ''; crumb = br.name;
     document.title = `${br.name} — Trivium Center`;
   }
 
   document.getElementById('cat-title').innerHTML = title.replace(/(\S+)$/, '<span style="color:var(--accent)">$1</span>');
-  document.getElementById('cat-tag').textContent = sub || 'Trivium';
   document.getElementById('cat-count').textContent = `${results.length} productos`;
   document.getElementById('count').textContent = `${results.length} resultados`;
-  document.getElementById('crumbs').innerHTML = `<a href="${rootPath()}">Inicio</a><span>/</span><a href="${rootPath()}catalogo/">Catálogo</a><span>/</span>${crumb}`;
+
+  if (brandSlug) {
+    document.getElementById('crumbs').innerHTML = '';
+    document.querySelector('.cat-hero').style.padding = '28px 0 24px';
+    const origin = sub.split(' — ')[0];
+    const tagEl = document.getElementById('cat-tag');
+    tagEl.textContent = origin;
+    tagEl.className = 'chip chip--yellow';
+  } else {
+    document.getElementById('cat-tag').textContent = sub || 'Trivium';
+    document.getElementById('crumbs').innerHTML = `<a href="${rootPath()}">Inicio</a><span>/</span><a href="${rootPath()}catalogo/">Catálogo</a><span>/</span>${crumb}`;
+  }
 
   // Sidebar
   const topCats = CATALOG.categories.filter(c => !c.parent);

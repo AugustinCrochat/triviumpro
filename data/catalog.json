@@ -64,6 +64,11 @@
     {
       "slug": "accesorios-balanceo",
       "name": "Accesorios de Balanceo"
+    },
+    {
+      "slug": "aire-comprimido",
+      "name": "Aire Comprimido",
+      "tagline": "Redes Prevost 100% aluminio"
     }
   ],
   "brands": [
@@ -96,6 +101,11 @@
       "slug": "haweka",
       "name": "Haweka",
       "note": "Alemania — Accesorios"
+    },
+    {
+      "slug": "prevost",
+      "name": "Prevost",
+      "note": "Francia — Aire comprimido"
     }
   ],
   "products": [
@@ -2429,6 +2439,27 @@
         "assets/img/productos/balanceadora-de-ruedas-unite-u-659.webp"
       ],
       "html_description": "<div class=\"product-page-description\">\n<div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/balanceadora-de-ruedas-unite-u-659.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a></div>\n<div class=\"product-page-title\">\n<h2>Balanceadora de Ruedas Unite U-659</h2>\n<span class=\"product-page-brand\">Unite®</span>\n</div>\n<div class=\"product-page-main-description\">\n<p class=\"product-page-highlight\">La evolución de la línea U-579: pantalla LED tipo \"monitor\" de gran tamaño, ingreso de datos completamente automático y función de peso dividido y oculto para un balanceo rápido, preciso y estético en llantas de alta gama.</p>\n</div>\n<div class=\"product-page-specs-section\">\n<h3 class=\"product-page-features-title\">Características principales</h3>\n<ul class=\"product-page-features-list\">\n\t<li>Freno electromagnético con posicionamiento automático del desbalanceo interno y externo, sin girar la rueda a mano.</li>\n\t<li>Puntero láser que señala automáticamente el lugar exacto para colocar el contrapeso.</li>\n\t<li>Luz LED que ilumina el interior de la llanta al momento de aplicar los pesos.</li>\n\t<li>Función de peso dividido y oculto: ubica los contrapesos detrás de los rayos para que no se vean desde el exterior.</li>\n\t<li>Medición automática de distancia y diámetro con brazo de medición interno, más brazo externo para el ancho de llanta.</li>\n\t<li>Interfaz con animación 3D, indicador dinámico de balanceo y botones de símbolos rápidos de interpretar.</li>\n\t<li>Soporte multi-idioma: 20 idiomas disponibles, con posibilidad de personalización.</li>\n</ul>\n<h3 class=\"product-page-features-title\">Especificaciones Técnicas</h3>\n<div class=\"product-page-specs-grid\">\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Balanceo</h4>\n<ul>\n<li>Modos de balanceo: 6</li>\n<li>Velocidad de equilibrado: 200 r.p.m.</li>\n<li>Precisión de equilibrado: ±1 g (±0,04 oz)</li>\n<li>Tiempo de medición: 8 segundos</li>\n<li>Peso dividido y oculto: Sí</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Capacidades</h4>\n<ul>\n<li>Diámetro de llanta: 252 - 610 mm (10\" - 24\")</li>\n<li>Ancho de llanta: 40 - 510 mm (1.5\" - 20\")</li>\n<li>Peso máximo de rueda: 65 kg (143 lbs)</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Motor y alimentación</h4>\n<ul>\n<li>Alimentación: 220V, monofásico</li>\n<li>Potencia del motor (opcional): 0.2 kW / 0.25 kW</li>\n<li>Nivel de ruido: &lt; 70 dB</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Dimensiones</h4>\n<ul>\n<li>Peso neto/bruto: 105 / 126 kg</li>\n<li>Dimensión del embalaje: 960 x 760 x 1250 mm</li>\n</ul>\n</div>\n</div>\n</div>\n</div>"
+    },
+    {
+      "sku": "PREVOST-PPS",
+      "slug": "red-de-aire-comprimido-prevost-piping-system",
+      "name": "Red de Aire Comprimido - Prevost Piping System",
+      "category": "aire-comprimido",
+      "brand": "prevost",
+      "capacity": "",
+      "lift_height": "",
+      "summary": "Red de aire comprimido en aluminio Prevost: modular, sin soldadura, sin óxido y con garantía de 10 años. Proyecto e instalación en todo el país.",
+      "bullets": [
+        "Sistema modular 100% aluminio, sin óxido y con interior liso que reduce la pérdida de carga.",
+        "Montaje sin soldadura: la red se amplía o reconfigura sin rehacer la instalación.",
+        "Garantía de 10 años. Relevamiento, proyecto e instalación a cargo de Trivium Center."
+      ],
+      "badges": [],
+      "image": "assets/img/red-aire-comprimido-prevost-piping-system.webp",
+      "images": [
+        "assets/img/red-aire-comprimido-prevost-piping-system.webp"
+      ],
+      "html_description": "<div class=\"product-page-description\">\n<div class=\"product-page-title\">\n<h2>Prevost Piping System — Red de aire comprimido</h2>\n<span class=\"product-page-brand\">Prevost</span>\n</div>\n<div class=\"product-page-main-description\">\n<p class=\"product-page-highlight\">Sistema modular de distribución de aire comprimido en aluminio, para instalar una red completa de taller sin soldadura y con posibilidad de ampliarla o reconfigurarla en cualquier momento.</p>\n</div>\n<div class=\"product-page-specs-section\">\n<h3 class=\"product-page-features-title\">Por qué una red de aluminio</h3>\n<ul class=\"product-page-features-list\">\n<li>100% aluminio: no se oxida, y el aire llega limpio al punto de uso.</li>\n<li>Montaje sin soldadura: se corta, se inserta y queda operativo.</li>\n<li>Interior liso, que reduce la pérdida de carga frente al caño de hierro.</li>\n<li>Modular y desmontable: la red se amplía o se reconfigura sin rehacerla.</li>\n<li>Garantía de 10 años del fabricante.</li>\n<li>Compatible con la línea Prevost de racores, enrolladores y pistolas.</li>\n</ul>\n<h3 class=\"product-page-features-title\">Composición del sistema</h3>\n<div class=\"product-page-specs-grid\">\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Red</h4>\n<ul>\n<li>Caño de aluminio calibrado</li>\n<li>Racores de conexión rápida</li>\n<li>Derivaciones y bajadas a punto de uso</li>\n<li>Soportes y accesorios de montaje</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Servicio</h4>\n<ul>\n<li>Relevamiento del taller y dimensionado</li>\n<li>Proyecto de la red y cómputo de materiales</li>\n<li>Instalación y puesta en marcha</li>\n<li>Cobertura en todo el país</li>\n</ul>\n</div>\n</div>\n<p>Cada instalación se cotiza según la superficie del taller, la cantidad de puntos de uso y el caudal requerido. Escribinos y armamos la propuesta.</p>\n</div>\n</div>"
     }
   ]
 }

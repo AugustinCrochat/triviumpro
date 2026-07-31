@@ -936,6 +936,21 @@
       "source": "/producto/vlxs7/",
       "destination": "/categoria/equipamiento-taller/",
       "permanent": true
+    },
+    {
+      "source": "/red-de-aire-compirmido-prevost-piping-system/",
+      "destination": "/producto/red-de-aire-comprimido-prevost-piping-system/",
+      "permanent": true
+    },
+    {
+      "source": "/sistema-de-air-comprimido-prevost/",
+      "destination": "/producto/red-de-aire-comprimido-prevost-piping-system/",
+      "permanent": true
+    },
+    {
+      "source": "/sistema-de-aire-comprimido/",
+      "destination": "/producto/red-de-aire-comprimido-prevost-piping-system/",
+      "permanent": true
     }
   ]
 }
