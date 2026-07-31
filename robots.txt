@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-# Secciones privadas (además con X-Robots-Tag noindex en vercel.json)
-Disallow: /cotizacion/
-Disallow: /lista-revendedores-5d2f2e5e/
-
 Sitemap: https://trivium.ar/sitemap.xml

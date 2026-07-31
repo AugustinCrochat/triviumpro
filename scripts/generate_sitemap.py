@@ -89,13 +89,14 @@ def main():
     with open(sitemap_path, "w", encoding="utf-8") as f:
         f.write(xml)
 
+    # Sin Disallow a propósito. Las secciones privadas se sacan del índice con
+    # X-Robots-Tag: noindex desde _headers, y para que Google lea ese header
+    # necesita poder rastrear la página: un Disallow se lo impediría y la URL
+    # quedaría indexada igual. Además robots.txt es público, así que listar
+    # /lista-revendedores-<slug>/ acá publicaría el slug que se busca ocultar.
     robots = (
         "User-agent: *\n"
         "Allow: /\n"
-        "\n"
-        "# Secciones privadas (además con X-Robots-Tag noindex en vercel.json)\n"
-        "Disallow: /cotizacion/\n"
-        "Disallow: /lista-revendedores-5d2f2e5e/\n"
         "\n"
         f"Sitemap: {SITE_URL}/sitemap.xml\n"
     )
