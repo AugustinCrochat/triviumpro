@@ -286,6 +286,656 @@
       "source": "/categoria/maquinas-de-taller/",
       "destination": "/categoria/equipamiento-taller/",
       "permanent": true
+    },
+    {
+      "source": "/producto/143-404-003/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/144-404-000/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/150-400-095/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/150-400-110/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/165-400-005/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/2350/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/39335/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/490-008-002/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/805-818-000/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/88630/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/900-008-006/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/900e008-089/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/900e008-190/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/921-001-000/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/9430402/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/agc-8200/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/alineadora-3d-para-autos-y-camionetas-va2023-trivium-center/",
+      "destination": "/categoria/elevadores-pesados/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/alineadora-3d-u-va2023/",
+      "destination": "/categoria/alineadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/axis-4000/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/axis-500/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/baja-ruedas-hwq-100/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/balanceadora-geodyna-7400l/",
+      "destination": "/producto/balanceadora-de-ruedas-hofmann-geodyna-7400l/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/balanceadora-geodyna-7600p/",
+      "destination": "/producto/balanceadora-de-ruedas-hofmann-geodyna-7600p/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/bar-de-aceite-raasm/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/bomba-manual-aceite-raasm/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/bomba-neumatica-de-distribucion/",
+      "destination": "/categoria/herramientas-neumaticas/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/bomba-neumatica-distribucion-raasm-s605/",
+      "destination": "/categoria/herramientas-neumaticas/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/carro-para-balde-de-20l-con-bomba-manual/",
+      "destination": "/categoria/muebles-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/conos-expandibles-54-86-mm/",
+      "destination": "/categoria/accesorios-balanceo/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/cuba-de-lavado-raasm/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/cuentalitros-digital-aceite-raasm-2/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/desarmadora-de-ruedas-con-brazo-auxiliar-unite-pl-1236/",
+      "destination": "/categoria/desarmadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/desarmadora-hofmann-monty-8800/",
+      "destination": "/producto/desarmadora-de-neumaticos-hofmann-monty-8800/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/desarmadora-monty-cuadriga-1-gp/",
+      "destination": "/categoria/desarmadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/desarmadora-pl-1256s-trivium-center/",
+      "destination": "/producto/desarmadora-de-ruedas-con-brazo-auxiliar-pl-1256s-trivium-center/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/easymont-para-monty-1270/",
+      "destination": "/categoria/desarmadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-2-columnas-spo16-rotary-lift/",
+      "destination": "/producto/elevador-dos-columnas-7250-kg-rotary-lift-spo16-cargo/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-2-columnas-unite-piso-libre/",
+      "destination": "/categoria/elevadores-2-columnas/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-2-columnas-unite-travesano-al-piso/",
+      "destination": "/categoria/elevadores-2-columnas/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-4-cloumnas-cr4t-forward-lift-rotary/",
+      "destination": "/producto/elevador-cuatro-cloumnas-4082kg-forward-lift-by-rotary-cr4t/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-4-columnas-unite-con-kit-para-alineacion/",
+      "destination": "/categoria/elevadores-4-columnas/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-cuatro-columnas-rotary-lift-sm14l/",
+      "destination": "/producto/elevador-cuatro-columnas-6350-kg-rotary-lift-sm14l/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-dos-columnas-5000-kg-piso-libre-trivium-pro-u-t50msd/",
+      "destination": "/producto/elevador-dos-columnas-5000-kg-trivium-pro-u-t50msd/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-dos-columnas-pl-6-0-2deb-vehiculos-electricos/",
+      "destination": "/categoria/elevadores-2-columnas/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-estacionamiento-pp8s-direct-lift/",
+      "destination": "/categoria/elevadores/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-motos-procycle-dt/",
+      "destination": "/categoria/elevadores-motos/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-motos-procycle-xlt-dt/",
+      "destination": "/categoria/elevadores-motos/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-para-moto-454-kg-mt07-trivium-center/",
+      "destination": "/producto/elevador-para-moto-454-kg-mt07-trivium-pro/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-portatil-direct-lift-pro-6mr/",
+      "destination": "/producto/elevador-tijera-portatil-2722-kg-rotary-lift-pro-6mr/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-rotary-lift-xa10/",
+      "destination": "/producto/elevador-tijera-para-alineacion-4500-kg-rotary-lift-xa10/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-tijera-portatil-trivium-pro-b30m/",
+      "destination": "/producto/elevador-tijera-portatil-3000-kg-pl-b30m/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-tijera-ultradelgado-unite-pl-b30y/",
+      "destination": "/producto/elevador-tijera-3000-kg-pl-b30y/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-tijera-unite-corto/",
+      "destination": "/categoria/elevadores-tijera/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-tijera-unite-largo-con-kit-de-alineacion/",
+      "destination": "/categoria/elevadores-tijera/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/elevador-tijera-unite-portatil/",
+      "destination": "/categoria/elevadores-tijera/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/enrollador-para-fluidos-150-bar/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/geodyna-7100/",
+      "destination": "/categoria/balanceadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/geodyna-7200vci/",
+      "destination": "/categoria/balanceadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/geodyna-7800-2p/",
+      "destination": "/categoria/balanceadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/geodyna-9000p/",
+      "destination": "/categoria/balanceadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/geoliner-320/",
+      "destination": "/categoria/alineadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/geoliner-630/",
+      "destination": "/categoria/alineadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/geoliner-670/",
+      "destination": "/categoria/alineadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/geoliner-770-hofmann/",
+      "destination": "/categoria/alineadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/indicador-nivel-volante-haweka/",
+      "destination": "/producto/indicador-de-nivel-de-volante-haweka/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/inflador-de-neumaticos-por-nitrogeno/",
+      "destination": "/categoria/herramientas-neumaticas/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/inflador-de-neumaticos-unite/",
+      "destination": "/categoria/herramientas-neumaticas/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/ki-79d01/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/kit-modular-con-enrollador-para-distribucion/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/lift-para-balanceadoras-wb2010/",
+      "destination": "/categoria/balanceadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/llave-de-impacto-neumatica-kuani-ki-1488-2/",
+      "destination": "/producto/llave-de-impacto-neumatica-kuani-ki-1488/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/monty-1270/",
+      "destination": "/categoria/desarmadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/monty-3300-20/",
+      "destination": "/categoria/desarmadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/monty-3300-24/",
+      "destination": "/categoria/desarmadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/purga-frenos-embragues/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/qjyj020/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/recuperador-neumatico-aceite-usado-raasm/",
+      "destination": "/categoria/herramientas-neumaticas/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/recuperador-neumatico-combinado/",
+      "destination": "/categoria/herramientas-neumaticas/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/recuperador-neumatico-combinado-15-litros-raasm/",
+      "destination": "/categoria/herramientas-neumaticas/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/recuperador-para-aceite-usado-raasm/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/rlp35/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/rolling-jack/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/sistema-de-calibracion-ez-adas-hofmann/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/sm18/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/sm30s/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/spoa10/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/spoa10-eh2/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/spoa10-trio/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/t26801/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/t32002x/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/t43001c/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/t830018/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/t83508/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/t84008/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/t90403s/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/t93204/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tbr0107-x/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tbr3006-x/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tbr6903-x/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tbt3004-x/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tc302/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tc310g/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tc323/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tc333-x/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tecnolux-2019/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tel05005/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tel10001/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tp04001/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tr150001/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tr6340/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tra40-3al/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tre15001/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tre61353-2/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tre64007/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/trf20501/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/trf42009/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/trh6802-2/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/trhs-e1301/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/trhs-e3318b/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/trx10001/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/trx31002/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/trx31005/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tsc5911/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tsc5911j/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tsc79111/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tsc79111j/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/tw05001/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/ty20002/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/ty30021/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/producto/vlxs7/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
     }
   ]
 }
