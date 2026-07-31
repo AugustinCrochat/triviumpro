@@ -1,0 +1,30 @@
+# Headers de Cloudflare. Generado desde vercel.json por el mismo motivo
+# que _redirects: ese archivo no se lee en producción, así que el noindex
+# de la lista de revendedores y el caché de assets no se estaban aplicando.
+
+# Ojo con esta: robots.txt ya tiene "Disallow: /lista-revendedores-5d2f2e5e/",
+# así que Google no rastrea la página y por lo tanto nunca va a leer este
+# header. Se deja igual como red de seguridad para el día que se saque el
+# Disallow. Si lo que se busca es sacarla del índice de verdad (y no sólo
+# evitar el rastreo), hay que hacer lo contrario: permitir el rastreo en
+# robots.txt para que Google pueda ver este noindex.
+/lista-revendedores-5d2f2e5e/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: private, no-store
+
+/cotizacion/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/uploads/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# El origen en vercel.json era la regex "/(.*)\.html". Cloudflare no acepta
+# regex acá, sólo comodines, así que queda como /*.html. Ojo: el sitio sirve
+# las páginas con URL de directorio ("/blog/foo/"), no con ".html" a la vista,
+# así que esta regla probablemente tampoco hacía nada en Vercel. Se traduce
+# tal cual para no cambiar la intención original, pero conviene revisarla.
+/*.html
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400

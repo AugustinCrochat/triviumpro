@@ -1,6 +1,13 @@
 .git
 scripts
 scratch
+# vercel.json se estaba sirviendo público en https://trivium.ar/vercel.json y
+# adentro figura el slug de /lista-revendedores-5d2f2e5e/, que es justamente la
+# URL que robots.txt intenta mantener fuera del índice. Además ya no manda: los
+# redirects y headers reales viven en _redirects y _headers (Cloudflare no lee
+# el formato de Vercel). Conviene borrarlo del repo para que no vuelva a quedar
+# como fuente de verdad falsa.
+vercel.json
 *.py
 *.sh
 *.md
