@@ -266,6 +266,26 @@
       "source": "/categoria/muebles-de-taller/",
       "destination": "/categoria/muebles-taller/",
       "permanent": true
+    },
+    {
+      "source": "/categoria/gomeria/",
+      "destination": "/categoria/desarmadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/categoria/lubricacion/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
+    },
+    {
+      "source": "/categoria/alineacion-de-faros/",
+      "destination": "/categoria/alineadoras/",
+      "permanent": true
+    },
+    {
+      "source": "/categoria/maquinas-de-taller/",
+      "destination": "/categoria/equipamiento-taller/",
+      "permanent": true
     }
   ]
 }
