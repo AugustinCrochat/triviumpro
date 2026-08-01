@@ -396,6 +396,14 @@ def main():
             if brand:
                 brand_line = (f'<p class="pd-brand"><a href="{root2}marca/{esc(brand["slug"])}/">'
                               f'{esc(brand["name"])}</a></p>')
+
+            # html_description viene de WooCommerce con rutas relativas
+            # ("assets/pdf/..."), que desde /producto/<slug>/ apuntan dos niveles
+            # más abajo y dan 404. producto.html las reescribe al hidratar, pero
+            # el HTML servido también tiene que salir correcto.
+            rich = prod.get("html_description", "")
+            rich = rich.replace('href="assets/', f'href="{root2}assets/')
+            rich = rich.replace('src="assets/', f'src="{root2}assets/')
             pd_html = (
                 f'<article class="pd-static">'
                 f'{gallery}'
@@ -404,7 +412,7 @@ def main():
                 f'{brand_line}'
                 f'<p class="pd-summary">{esc(strip_tags(raw_desc))}</p>'
                 f'{specs}{bullets}'
-                f'{prod.get("html_description", "")}'
+                f'{rich}'
                 f'</div></article>'
             )
 
