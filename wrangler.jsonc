@@ -1,0 +1,15 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "triviumpro",
+	"main": "worker.js",
+	"compatibility_date": "2026-08-01",
+	"observability": {
+		"enabled": true
+	},
+	// El Worker sólo resuelve redirects; todo lo demás lo sirve el binding de
+	// assets. Ver worker.js (generado desde redirects.map).
+	"assets": {
+		"directory": ".",
+		"binding": "ASSETS"
+	}
+}

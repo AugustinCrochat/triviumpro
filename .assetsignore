@@ -7,3 +7,12 @@ scratch
 README*
 preview_icons.html
 preview_icons_inline.html
+
+# Config y código del deploy: no son contenido del sitio y no deben servirse.
+# wrangler.jsonc se estaba subiendo como asset y quedaba público en
+# /wrangler.jsonc, igual que había pasado con vercel.json.
+wrangler.jsonc
+worker.js
+redirects.map
+.wrangler
+.gitignore

@@ -1,9 +1,8 @@
-# Redirects de Cloudflare. Generado desde los 180 redirects que vivían en
-# vercel.json, que en producción no se aplicaban: el sitio se sirve desde
-# Cloudflare y ese archivo es formato de Vercel, así que quedaba ignorado.
-# Todas las URLs viejas devolvían 404 duro en vez de 301.
+# Fuente de verdad de los redirects. La resuelve worker.js, que se genera con
+# scripts/generate_worker.py — no se usa el formato _redirects de Cloudflare
+# porque en Workers con assets estáticos el tope es de 100 reglas y acá hay 426.
 #
-# Formato: <origen> <destino> <código>
+# Formato: <origen> <destino> <código>. Un "*" al final del origen es prefijo.
 
 # --- Comodines ---
 /lista-revendedores-2025-5d2f2e5e/* /lista-revendedores-5d2f2e5e/:splat 301
