@@ -806,6 +806,26 @@
   </div>
 </section>
 
+<!-- Enlace al otro sitio del grupo.
+     Va acá, en el HTML servido, y no dentro del footer: #site-footer lo inyecta
+     site.js en el cliente, así que todo lo que viva ahí sólo lo ve un crawler
+     en la segunda pasada de renderizado, con menos garantías. Este bloque se
+     lee en el HTML crudo. -->
+<section class="section section--tight" style="background:var(--bg-2)">
+  <div class="container">
+    <h2>También vendemos neumáticos al público</h2>
+    <p>
+      Además del equipamiento para talleres, Trivium Center opera
+      <a href="https://neumaticos.trivium.ar/">Neumáticos Trivium</a>, su outlet de neumáticos
+      con local propio en Av. Donato Álvarez 7971, Córdoba. Importación directa, stock y precios
+      publicados, y taller de alineación y balanceo en el mismo local.
+    </p>
+    <p>
+      <a class="btn btn--dark" href="https://neumaticos.trivium.ar/">Ver Neumáticos Trivium</a>
+    </p>
+  </div>
+</section>
+
 <div id="site-footer"></div>
 
 <script src="assets/js/site.js"></script>
