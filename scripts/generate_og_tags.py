@@ -12,7 +12,7 @@ import html
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent.parent
-from site_config import SITE_URL, ORG_NAME
+from site_config import SITE_URL, ORG_NAME, load_chrome
 
 
 def strip_html(text):
@@ -196,11 +196,19 @@ def update_blog():
             make_og_block(title, description, image_url, url, 'article'),
             make_seo_block(url, description, [article_ld, crumbs_ld]),
         )
+        # Header y footer: sin esto el crawler ve el artículo sin navegación.
+        chrome_h, chrome_f = load_chrome(root)
+        if chrome_h:
+            content = replace_empty_el(content, 'site-header', chrome_h)
+            content = replace_empty_el(content, 'site-footer', chrome_f)
         content = replace_empty_el(content, 'crumbs', crumbs_html)
         content = replace_empty_el(content, 'post-title', esc(title))
         content = replace_empty_el(content, 'post-date', esc(pretty_date))
         content = replace_empty_el(content, 'post-content', body_html)
         content = replace_empty_el(content, 'more-posts', more_html)
+        # El script inline usa ${root} sin declararlo: lanzaba ReferenceError
+        # al armar las migas y abortaba antes de renderizar "Más noticias".
+        content = content.replace('${root}', '${rootPath()}')
         page_path.write_text(content, encoding='utf-8')
         count += 1
 

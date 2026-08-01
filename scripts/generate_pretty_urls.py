@@ -7,7 +7,7 @@ import shutil
 # Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(BASE_DIR, 'data', 'catalog.json')
-from site_config import SITE_URL, ORG_NAME
+from site_config import SITE_URL, ORG_NAME, load_chrome
 
 
 def esc(s):
@@ -181,6 +181,13 @@ def create_index_file(target_dir, template_path, root_depth, title=None, descrip
     if seo:
         content = content.replace('</head>', seo + '\n</head>', 1)
 
+    # Header y footer: los inyecta site.js en el cliente, así que sin esto el
+    # crawler ve la página sin navegación ni enlaces internos.
+    header, footer = load_chrome(root_val)
+    if header:
+        content = replace_empty_el(content, 'site-header', header)
+        content = replace_empty_el(content, 'site-footer', footer)
+
     # Contenido prerenderizado dentro de los contenedores que hidrata el JS
     for el_id, inner in (body or {}).items():
         content = replace_empty_el(content, el_id, inner)
@@ -188,6 +195,84 @@ def create_index_file(target_dir, template_path, root_depth, title=None, descrip
     target_path = os.path.join(target_dir, 'index.html')
     with open(target_path, 'w', encoding='utf-8') as f:
         f.write(content)
+
+def update_static_pages(catalog):
+    """Completa las páginas sueltas: chrome, canonical, description y JSON-LD.
+
+    index.html, /catalogo/, /marcas/, /blog/ y las institucionales no salen de
+    ninguna plantilla — sus templates ya no existen en la raíz, así que el
+    generador las salteaba y quedaban sin nada. Se editan a mano, así que acá
+    sólo se agrega lo que falta, de forma idempotente: se limpia lo inyectado
+    antes y se vuelve a poner. El contenido editorial no se toca.
+    """
+    n_prod = len(catalog['products'])
+    n_cat = len(catalog['categories'])
+    n_marcas = len(catalog['brands'])
+
+    paginas = {
+        '': (None, f"Equipamiento para talleres mecánicos y gomerías en todo el país: "
+                   f"elevadores, alineadoras, balanceadoras y desarmadoras. Representantes "
+                   f"oficiales de Rotary Lift y Hofmann en Argentina."),
+        'catalogo': ("Catálogo", f"Catálogo completo: {n_prod} equipos para taller en "
+                     f"{n_cat} categorías. Elevadores, alineadoras, balanceadoras y "
+                     f"desarmadoras, con instalación y servicio en todo el país."),
+        'marcas': ("Marcas", f"Las {n_marcas} marcas que representamos: Rotary Lift, Hofmann, "
+                   f"Forward Lift, Direct Lift, Haweka y Trivium Pro. Distribuidores "
+                   f"oficiales en Argentina, con repuestos y soporte técnico."),
+        'instalacion-posventa-y-servicios': ("Servicios",
+                   "Instalación, puesta en marcha, mantenimiento preventivo y servicio "
+                   "post-venta de equipamiento de taller en todo el país."),
+        'nosotros': ("Nosotros", f"{ORG_NAME}: equipamiento para talleres y gomerías en "
+                     f"Argentina. Representantes oficiales de Rotary Lift y Hofmann, con "
+                     f"servicio técnico e instalación propios."),
+        'contacto': ("Contacto", "Pedí tu cotización de equipamiento para taller. "
+                     "Atendemos consultas técnicas y comerciales en todo el país."),
+        'blog': ("Blog", "Notas técnicas sobre equipamiento de taller: cómo elegir "
+                 "elevadores y alineadoras, montar una gomería y mantener tus equipos."),
+    }
+
+    for carpeta, (nombre, desc) in paginas.items():
+        path = os.path.join(BASE_DIR, carpeta, 'index.html') if carpeta else os.path.join(BASE_DIR, 'index.html')
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding='utf-8') as fh:
+            content = fh.read()
+
+        root_val = '../' if carpeta else ''
+        header, footer = load_chrome(root_val)
+        if header:
+            content = replace_empty_el(content, 'site-header', header)
+            content = replace_empty_el(content, 'site-footer', footer)
+
+        content = re.sub(r'\n?<link rel="canonical"[^>]*>', '', content)
+        content = re.sub(r'\n?<meta name="description"[^>]*>', '', content)
+        content = re.sub(r'\n?<script type="application/ld\+json">.*?</script>', '',
+                         content, flags=re.S)
+
+        url = f"{SITE_URL}/{carpeta}/" if carpeta else f"{SITE_URL}/"
+        if carpeta:
+            jsonld = [breadcrumb_jsonld([("Inicio", f"{SITE_URL}/"), (nombre, url)])]
+        else:
+            jsonld = [{
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": ORG_NAME,
+                "url": f"{SITE_URL}/",
+                "logo": f"{SITE_URL}/assets/img/logo-trivium.svg",
+                "description": desc,
+                "areaServed": {"@type": "Country", "name": "Argentina"},
+                "sameAs": [
+                    "https://www.instagram.com/trivium.center/",
+                    "https://www.facebook.com/profile.php?id=61571497817317",
+                    "https://www.youtube.com/channel/UCkyhOuIT5A9nZ7qCAszVIaQ",
+                ],
+            }]
+
+        content = content.replace('</head>', make_seo_block(url, desc, jsonld) + '\n</head>', 1)
+        with open(path, 'w', encoding='utf-8') as fh:
+            fh.write(content)
+    print(f"  -> {len(paginas)} páginas sueltas con chrome, canonical, description y JSON-LD")
+
 
 def main():
     print("Generating pretty URLs...")
@@ -432,6 +517,8 @@ def main():
                     'related': related_html,
                 },
             )
+
+    update_static_pages(catalog)
 
     print(f"Done! Generated folders for {len(catalog['products'])} products and {len(catalog['categories'])} categories.")
 
