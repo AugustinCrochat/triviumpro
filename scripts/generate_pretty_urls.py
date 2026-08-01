@@ -209,29 +209,46 @@ def update_static_pages(catalog):
     n_cat = len(catalog['categories'])
     n_marcas = len(catalog['brands'])
 
+    # carpeta: (nombre para las migas, descripción, título completo).
+    # El título va explícito y no derivado del que había: la home usaba el
+    # formato "Sitio — Bajada", así que reescribir sólo el sufijo la dejaba en
+    # "Trivium Center — Trivium Pro".
     paginas = {
-        '': (None, f"Equipamiento para talleres mecánicos y gomerías en todo el país: "
-                   f"elevadores, alineadoras, balanceadoras y desarmadoras. Representantes "
-                   f"oficiales de Rotary Lift y Hofmann en Argentina."),
-        'catalogo': ("Catálogo", f"Catálogo completo: {n_prod} equipos para taller en "
-                     f"{n_cat} categorías. Elevadores, alineadoras, balanceadoras y "
-                     f"desarmadoras, con instalación y servicio en todo el país."),
-        'marcas': ("Marcas", f"Las {n_marcas} marcas que representamos: Rotary Lift, Hofmann, "
-                   f"Forward Lift, Direct Lift, Haweka y Trivium Pro. Distribuidores "
-                   f"oficiales en Argentina, con repuestos y soporte técnico."),
+        '': (None,
+             f"Equipamiento para talleres mecánicos y gomerías en todo el país: "
+             f"elevadores, alineadoras, balanceadoras y desarmadoras. Representantes "
+             f"oficiales de Rotary Lift y Hofmann en Argentina.",
+             f"{ORG_NAME} — Equipamiento para talleres mecánicos en Argentina"),
+        'catalogo': ("Catálogo",
+             f"Catálogo completo: {n_prod} equipos para taller en {n_cat} categorías. "
+             f"Elevadores, alineadoras, balanceadoras y desarmadoras, con instalación "
+             f"y servicio en todo el país.",
+             f"Catálogo completo — {ORG_NAME}"),
+        'marcas': ("Marcas",
+             f"Las {n_marcas} marcas que representamos: Rotary Lift, Hofmann, Forward "
+             f"Lift, Direct Lift, Haweka y Trivium Pro. Distribuidores oficiales en "
+             f"Argentina, con repuestos y soporte técnico.",
+             f"Marcas que representamos — {ORG_NAME}"),
         'instalacion-posventa-y-servicios': ("Servicios",
-                   "Instalación, puesta en marcha, mantenimiento preventivo y servicio "
-                   "post-venta de equipamiento de taller en todo el país."),
-        'nosotros': ("Nosotros", f"{ORG_NAME}: equipamiento para talleres y gomerías en "
-                     f"Argentina. Representantes oficiales de Rotary Lift y Hofmann, con "
-                     f"servicio técnico e instalación propios."),
-        'contacto': ("Contacto", "Pedí tu cotización de equipamiento para taller. "
-                     "Atendemos consultas técnicas y comerciales en todo el país."),
-        'blog': ("Blog", "Notas técnicas sobre equipamiento de taller: cómo elegir "
-                 "elevadores y alineadoras, montar una gomería y mantener tus equipos."),
+             "Instalación, puesta en marcha, mantenimiento preventivo y servicio "
+             "post-venta de equipamiento de taller en todo el país.",
+             f"Instalación y posventa — {ORG_NAME}"),
+        'nosotros': ("Nosotros",
+             f"{ORG_NAME}: equipamiento para talleres y gomerías en Argentina. "
+             f"Representantes oficiales de Rotary Lift y Hofmann, con servicio "
+             f"técnico e instalación propios.",
+             f"Nosotros — {ORG_NAME}"),
+        'contacto': ("Contacto",
+             "Pedí tu cotización de equipamiento para taller. Atendemos consultas "
+             "técnicas y comerciales en todo el país.",
+             f"Contacto — {ORG_NAME}"),
+        'blog': ("Blog",
+             "Notas técnicas sobre equipamiento de taller: cómo elegir elevadores "
+             "y alineadoras, montar una gomería y mantener tus equipos.",
+             f"Blog y noticias — {ORG_NAME}"),
     }
 
-    for carpeta, (nombre, desc) in paginas.items():
+    for carpeta, (nombre, desc, titulo) in paginas.items():
         path = os.path.join(BASE_DIR, carpeta, 'index.html') if carpeta else os.path.join(BASE_DIR, 'index.html')
         if not os.path.exists(path):
             continue
@@ -244,6 +261,13 @@ def update_static_pages(catalog):
             content = replace_empty_el(content, 'site-header', header)
             content = replace_empty_el(content, 'site-footer', footer)
 
+        # El <title> y los OG están escritos a mano en cada archivo: hay que
+        # reescribirlos o queda el nombre viejo del sitio tras el rebranding.
+        content = re.sub(r'<title>.*?</title>',
+                         f'<title>{html_lib.escape(titulo)}</title>',
+                         content, count=1, flags=re.S)
+        content = re.sub(r'\n?<meta property="og:[^>]*>', '', content)
+        content = re.sub(r'\n?<meta name="twitter:[^>]*>', '', content)
         content = re.sub(r'\n?<link rel="canonical"[^>]*>', '', content)
         content = re.sub(r'\n?<meta name="description"[^>]*>', '', content)
         content = re.sub(r'\n?<script type="application/ld\+json">.*?</script>', '',
@@ -268,7 +292,9 @@ def update_static_pages(catalog):
                 ],
             }]
 
-        content = content.replace('</head>', make_seo_block(url, desc, jsonld) + '\n</head>', 1)
+        og = make_og_block(titulo, desc,
+                           f"{SITE_URL}/assets/img/og-trivium.png", url)
+        content = content.replace('</head>', og + '\n' + make_seo_block(url, desc, jsonld) + '\n</head>', 1)
         with open(path, 'w', encoding='utf-8') as fh:
             fh.write(content)
     print(f"  -> {len(paginas)} páginas sueltas con chrome, canonical, description y JSON-LD")

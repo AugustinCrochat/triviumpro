@@ -1,4 +1,4 @@
-/* Trivium Center — shared site JS
+/* Trivium Pro — shared site JS
    - injects header/footer/wa-float partials
    - renders catalog data dynamically
    - builds WhatsApp consultation links
@@ -8,7 +8,7 @@ window.TRIVIUM = {
   whatsapp: "5491127015294",
   whatsappDisplay: "+54 9 11 2701-5294",
   email: "info@trivium.ar",
-  brand: "Trivium Center",
+  brand: "Trivium Pro",
   cityLine: "Importadores y distribuidores oficiales — Argentina",
   env: (function() {
     const h = window.location.hostname;
@@ -112,8 +112,8 @@ function renderHeader(active) {
     <header class="header" id="main-header">
       <div class="container nav">
         <button class="btn-burger" aria-label="Menú" onclick="toggleMobileNav()">${ICONS.menu}</button>
-        <a class="brand" href="${root}" aria-label="Trivium Center">
-          <img src="${root}assets/img/logo-trivium.svg" alt="Trivium Center" class="logo-img">
+        <a class="brand" href="${root}" aria-label="Trivium Pro">
+          <img src="${root}assets/img/logo-trivium.svg" alt="Trivium Pro" class="logo-img">
         </a>
         <ul class="nav-links">${links}</ul>
         <div class="nav-cta">
@@ -180,7 +180,7 @@ function renderFooter() {
         <div class="grid">
           <div class="footer-brand-col">
             <div class="brand" style="margin-bottom:16px">
-              <img src="${root}assets/img/logo-trivium.svg" alt="Trivium Center" height="32" style="display:block;width:auto;">
+              <img src="${root}assets/img/logo-trivium.svg" alt="Trivium Pro" height="32" style="display:block;width:auto;">
             </div>
             <p class="tagline">Importadores y distribuidores oficiales de equipamiento profesional para talleres y concesionarias en Argentina.</p>
             <div class="footer-socials">
@@ -245,10 +245,12 @@ function renderFooter() {
         
         <div class="footer-bottom">
           <div class="legal">
-            © ${new Date().getFullYear()} Trivium Center — Todos los derechos reservados.
+            © ${new Date().getFullYear()} Trivium Pro — Una unidad de
+            <a href="https://trivium.ar/" style="color:inherit">Trivium Center</a>.
           </div>
           <div class="origin">
-            Equipamiento Industrial · Hecho en Argentina
+            Equipamiento Industrial · Hecho en Argentina ·
+            <a href="https://neumaticos.trivium.ar/" style="color:inherit">Neumáticos Trivium</a>
           </div>
         </div>
       </div>

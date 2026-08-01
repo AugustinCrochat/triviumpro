@@ -5,12 +5,13 @@ JSON-LD, el sitemap y los links del feed de Meta. Estaba repetido en cuatro
 scripts, así que migrar de dominio eran cuatro ediciones que podían quedar
 desincronizadas — y una sola mal puesta manda a Google señales contradictorias.
 
-Para migrar a pro.trivium.ar se cambia acá y se regenera todo.
+Migrado a pro.trivium.ar el 2026-08-01. trivium.ar quedó como el
+institucional del grupo, en el repo trivium-center.
 """
 
-SITE_URL = "https://trivium.ar"
+SITE_URL = "https://pro.trivium.ar"
 
-ORG_NAME = "Trivium Center"
+ORG_NAME = "Trivium Pro"
 
 
 def load_chrome(root_val):

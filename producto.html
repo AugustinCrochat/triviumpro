@@ -5,7 +5,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/img/icono-trivium.svg">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="tv-root" content="">
-<title>Ficha de producto — Trivium Center</title>
+<title>Ficha de producto — Trivium Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@ mountChrome('catalogo');
     document.getElementById('pd-wrap').innerHTML = `<p>Producto no encontrado. <a href="${rootPath()}catalogo/" style="color:var(--accent)">Volver al catálogo</a>.</p>`;
     return;
   }
-  document.title = `${p.name} — Trivium Center`;
+  document.title = `${p.name} — Trivium Pro`;
   const cat = categoryById(p.category);
   const parent = cat.parent ? categoryById(cat.parent) : null;
   const brand = brandById(p.brand);

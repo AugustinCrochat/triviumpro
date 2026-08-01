@@ -5,7 +5,7 @@
 <link rel="icon" type="image/svg+xml" href="assets/img/icono-trivium.svg">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="tv-root" content="">
-<title>Categoría — Trivium Center</title>
+<title>Categoría — Trivium Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -73,7 +73,7 @@ mountChrome('catalogo');
     // name es el corto del menú, donde ya cuelga de "Elevadores".
     const largo = cat.seo_name || cat.name;
     title = largo; sub = cat.tagline || ''; crumb = cat.name;
-    document.title = `${largo} — Trivium Center`;
+    document.title = `${largo} — Trivium Pro`;
   } else if (brandSlug) {
     const br = brandById(brandSlug);
     results = CATALOG.products.filter(p => p.brand === brandSlug);
@@ -89,7 +89,7 @@ mountChrome('catalogo');
       });
     }
     title = br.name; sub = br.note || ''; crumb = br.name;
-    document.title = `${br.name} — Trivium Center`;
+    document.title = `${br.name} — Trivium Pro`;
   }
 
   document.getElementById('cat-title').innerHTML = title.replace(/(\S+)$/, '<span style="color:var(--accent)">$1</span>');

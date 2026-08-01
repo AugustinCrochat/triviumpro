@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://trivium.ar/sitemap.xml
+Sitemap: https://pro.trivium.ar/sitemap.xml
