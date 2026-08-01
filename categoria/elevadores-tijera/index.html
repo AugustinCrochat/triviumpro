@@ -5,23 +5,23 @@
 <link rel="icon" type="image/svg+xml" href="../../assets/img/icono-trivium.svg">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="tv-root" content="../../">
-<title>Tijera — Trivium Center</title>
+<title>Elevadores de Tijera — Trivium Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/styles.css">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Trivium Center">
-<meta property="og:title" content="Tijera — Equipamiento de taller">
-<meta property="og:description" content="Tijera para taller: 11 equipos en stock y a pedido. Representantes oficiales Rotary Lift y Hofmann en Argentina. Envíos a todo el país.">
+<meta property="og:title" content="Elevadores de Tijera — Equipamiento de taller">
+<meta property="og:description" content="Elevadores de Tijera para taller: 11 equipos en stock y a pedido. Representantes oficiales Rotary Lift y Hofmann en Argentina. Envíos a todo el país.">
 <meta property="og:image" content="https://trivium.ar/assets/img/logo-trivium.svg">
 <meta property="og:url" content="https://trivium.ar/categoria/elevadores-tijera/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tijera — Equipamiento de taller">
-<meta name="twitter:description" content="Tijera para taller: 11 equipos en stock y a pedido. Representantes oficiales Rotary Lift y Hofmann en Argentina. Envíos a todo el país.">
+<meta name="twitter:title" content="Elevadores de Tijera — Equipamiento de taller">
+<meta name="twitter:description" content="Elevadores de Tijera para taller: 11 equipos en stock y a pedido. Representantes oficiales Rotary Lift y Hofmann en Argentina. Envíos a todo el país.">
 <meta name="twitter:image" content="https://trivium.ar/assets/img/logo-trivium.svg">
 <link rel="canonical" href="https://trivium.ar/categoria/elevadores-tijera/">
-<meta name="description" content="Tijera para taller: 11 equipos en stock y a pedido. Representantes oficiales Rotary Lift y Hofmann en Argentina. Envíos a todo el país.">
+<meta name="description" content="Elevadores de Tijera para taller: 11 equipos en stock y a pedido. Representantes oficiales Rotary Lift y Hofmann en Argentina. Envíos a todo el país.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://trivium.ar/"},{"@type":"ListItem","position":2,"name":"Catálogo","item":"https://trivium.ar/catalogo/"},{"@type":"ListItem","position":3,"name":"Elevadores","item":"https://trivium.ar/categoria/elevadores/"},{"@type":"ListItem","position":4,"name":"Tijera","item":"https://trivium.ar/categoria/elevadores-tijera/"}]}</script>
 </head>
 <body>
@@ -30,7 +30,7 @@
 <section class="cat-hero">
   <div class="container">
     <div class="breadcrumbs" id="crumbs"><span>Inicio</span> <span class="sep">/</span> <a href="../../catalogo/">Catálogo</a> <span class="sep">/</span> <a href="../../categoria/elevadores/">Elevadores</a> <span class="sep">/</span> <span>Tijera</span></div>
-    <h1 id="cat-title">Tijera</h1>
+    <h1 id="cat-title">Elevadores de Tijera</h1>
     <div class="sub">
       <span class="chip" id="cat-tag"></span>
       <span class="mono muted" id="cat-count">11 productos</span>
@@ -82,8 +82,11 @@ mountChrome('catalogo');
         return ia - ib;
       });
     }
-    title = cat.name; sub = cat.tagline || ''; crumb = cat.name;
-    document.title = `${cat.name} — Trivium Center`;
+    // seo_name es el nombre largo para H1 y <title> ("Elevadores de Tijera");
+    // name es el corto del menú, donde ya cuelga de "Elevadores".
+    const largo = cat.seo_name || cat.name;
+    title = largo; sub = cat.tagline || ''; crumb = cat.name;
+    document.title = `${largo} — Trivium Center`;
   } else if (brandSlug) {
     const br = brandById(brandSlug);
     results = CATALOG.products.filter(p => p.brand === brandSlug);

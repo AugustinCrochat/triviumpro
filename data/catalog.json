@@ -9,27 +9,32 @@
     {
       "slug": "elevadores-2-columnas",
       "name": "2 Columnas",
-      "parent": "elevadores"
+      "parent": "elevadores",
+      "seo_name": "Elevadores de 2 Columnas"
     },
     {
       "slug": "elevadores-4-columnas",
       "name": "4 Columnas",
-      "parent": "elevadores"
+      "parent": "elevadores",
+      "seo_name": "Elevadores de 4 Columnas"
     },
     {
       "slug": "elevadores-tijera",
       "name": "Tijera",
-      "parent": "elevadores"
+      "parent": "elevadores",
+      "seo_name": "Elevadores de Tijera"
     },
     {
       "slug": "elevadores-pesados",
       "name": "Pesados",
-      "parent": "elevadores"
+      "parent": "elevadores",
+      "seo_name": "Elevadores para Camiones y Pesados"
     },
     {
       "slug": "elevadores-motos",
       "name": "Motos",
-      "parent": "elevadores"
+      "parent": "elevadores",
+      "seo_name": "Elevadores para Motos"
     },
     {
       "slug": "alineadoras",

@@ -240,8 +240,12 @@ def main():
             prods = [p for p in catalog['products'] if p.get('category') in fam]
             url = f"{SITE_URL}/categoria/{slug}/"
             tagline = cat.get('tagline') or ''
+            # Las subcategorías de elevadores se llaman "Tijera" o "2 Columnas"
+            # porque en el menú cuelgan de "Elevadores", pero como <title> y H1
+            # no compiten por nada: ahí va el nombre largo.
+            nombre = cat.get('seo_name') or cat['name']
             desc = clamp(
-                f"{cat['name']} para taller: {len(prods)} equipos en stock y a pedido. "
+                f"{nombre} para taller: {len(prods)} equipos en stock y a pedido. "
                 f"{tagline} Representantes oficiales Rotary Lift y Hofmann en Argentina. "
                 f"Envíos a todo el país."
             )
@@ -257,14 +261,14 @@ def main():
             grid = ''.join(product_card_html(p, brands_by_slug, root2) for p in prods)
             create_index_file(
                 os.path.join(BASE_DIR, 'categoria', slug), cat_template, 2,
-                title=cat['name'],
-                og={'type': 'website', 'title': f"{cat['name']} — Equipamiento de taller",
+                title=nombre,
+                og={'type': 'website', 'title': f"{nombre} — Equipamiento de taller",
                     'description': desc, 'image': f"{SITE_URL}/assets/img/logo-trivium.svg",
                     'url': url},
                 seo=make_seo_block(url, desc, jsonld),
                 body={
                     'crumbs': breadcrumb_html(crumbs, root2),
-                    'cat-title': esc(cat['name']),
+                    'cat-title': esc(nombre),
                     'cat-tag': esc(tagline),
                     'cat-count': f"{len(prods)} productos",
                     'count': f"{len(prods)} productos",

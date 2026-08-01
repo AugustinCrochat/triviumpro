@@ -69,8 +69,11 @@ mountChrome('catalogo');
         return ia - ib;
       });
     }
-    title = cat.name; sub = cat.tagline || ''; crumb = cat.name;
-    document.title = `${cat.name} — Trivium Center`;
+    // seo_name es el nombre largo para H1 y <title> ("Elevadores de Tijera");
+    // name es el corto del menú, donde ya cuelga de "Elevadores".
+    const largo = cat.seo_name || cat.name;
+    title = largo; sub = cat.tagline || ''; crumb = cat.name;
+    document.title = `${largo} — Trivium Center`;
   } else if (brandSlug) {
     const br = brandById(brandSlug);
     results = CATALOG.products.filter(p => p.brand === brandSlug);
