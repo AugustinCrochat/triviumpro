@@ -7,9 +7,7 @@ import shutil
 # Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(BASE_DIR, 'data', 'catalog.json')
-SITE_URL = "https://trivium.ar"
-
-ORG_NAME = "Trivium Center"
+from site_config import SITE_URL, ORG_NAME
 
 
 def esc(s):
@@ -140,7 +138,7 @@ def make_og_block(title, description, image_url, url, og_type="website"):
     u = html_lib.escape(url, quote=True)
     return (
         f'<meta property="og:type" content="{og_type}">\n'
-        f'<meta property="og:site_name" content="Trivium Center">\n'
+        f'<meta property="og:site_name" content="{ORG_NAME}">\n'
         f'<meta property="og:title" content="{t}">\n'
         f'<meta property="og:description" content="{d}">\n'
         f'<meta property="og:image" content="{img}">\n'
@@ -172,7 +170,7 @@ def create_index_file(target_dir, template_path, root_depth, title=None, descrip
 
     # Update title
     if title:
-        content = re.sub(r'<title>[^<]*</title>', f'<title>{html_lib.escape(title)} — Trivium Center</title>', content, count=1)
+        content = re.sub(r'<title>[^<]*</title>', f'<title>{html_lib.escape(title)} — {ORG_NAME}</title>', content, count=1)
 
     # Inject OG tags
     if og:

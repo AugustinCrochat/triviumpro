@@ -16,7 +16,7 @@ from datetime import date
 from xml.sax.saxutils import escape
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE_URL = "https://trivium.ar"
+from site_config import SITE_URL
 
 # Páginas estáticas: (ruta, prioridad, frecuencia)
 STATIC_PAGES = [

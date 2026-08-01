@@ -23,7 +23,7 @@ from pathlib import Path
 import requests
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE_URL = "https://trivium.ar"
+from site_config import SITE_URL
 FALLBACK_RATE = 1520  # valor de referencia si falla la consulta en vivo
 
 

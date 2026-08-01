@@ -12,8 +12,7 @@ import html
 from pathlib import Path
 
 BASE_DIR = Path(__file__).parent.parent
-SITE_URL = "https://trivium.ar"
-ORG_NAME = "Trivium Center"
+from site_config import SITE_URL, ORG_NAME
 
 
 def strip_html(text):
