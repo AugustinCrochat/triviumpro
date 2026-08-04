@@ -234,6 +234,12 @@ function renderFooter() {
                 </a>
               </li>
               <li>
+                <a href="https://wa.me/5493513994200" target="_blank" rel="noopener">
+                  <span class="icon">${ICONS.wa}</span>
+                  <span class="text">+54 9 351 399-4200 (Ventas)</span>
+                </a>
+              </li>
+              <li>
                 <div class="hours">
                   <span class="icon">${ICONS.pin}</span>
                   <span class="text">Lunes a Viernes<br><b>9:00 a 18:00 hs</b></span>
