@@ -15,8 +15,15 @@
 /cotizacion/*
   X-Robots-Tag: noindex, nofollow, noarchive
 
+# Ojo: "immutable" es una promesa de que el archivo en esta URL no cambia
+# nunca, y sólo vale cuando el nombre lleva un hash del contenido. Acá los
+# assets se editan en el lugar (se reemplaza una foto, se regenera una ficha,
+# se toca site.js), así que estaba dejando copias viejas pegadas un año en el
+# navegador de quien ya las había abierto. Un día fresco + una semana de
+# stale-while-revalidate: el visitante recibe la copia cacheada al instante y
+# el navegador la refresca de fondo, así el cambio entra solo al día siguiente.
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /uploads/*
   Cache-Control: public, max-age=31536000, immutable
