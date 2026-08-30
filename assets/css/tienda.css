@@ -1,0 +1,105 @@
+/* Ecommerce compartido — carrito, checkout y bloque de compra.
+ *
+ * Lo usan /tienda/, las fichas de los equipos Trivium Pro con precio y
+ * /marca/trivium-pro/. Vive acá y no dentro de tienda/index.html porque el
+ * carrito tiene que ser el mismo en todo el recorrido: si el visitante agrega
+ * un elevador desde la ficha y después va a la tienda, el carrito lo sigue.
+ *
+ * Depende de los tokens de styles.css (--accent, --line, --bg, ...).
+ */
+
+/* ---------- Botón flotante del carrito ----------
+   Va a la izquierda a propósito: .wa-float del sitio ocupa la esquina derecha
+   con el mismo z-index y se tapaban. */
+.tn-fab {
+  position: fixed; left: 20px; bottom: 20px; z-index: 60;
+  background: var(--text); color: #fff; border-radius: 100px;
+  padding: 12px 20px; font-size: 14px; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.28);
+  transform: translateY(140%); transition: transform .28s cubic-bezier(.2,.7,.3,1);
+}
+.tn-fab.show { transform: translateY(0); }
+.tn-fab svg { width: 17px; height: 17px; }
+.tn-fab .b { background: var(--accent); border-radius: 100px; padding: 1px 8px; font-size: 12px; }
+
+/* ---------- Drawer ----------
+   z-index alto a propósito: #site-header es sticky con z-index 1000 y si no
+   el drawer queda por debajo y no se ven ni el título ni el botón de cerrar. */
+.tn-scrim { position: fixed; inset: 0; background: rgba(0,0,0,.45); opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 1090; }
+.tn-scrim.show { opacity: 1; pointer-events: auto; }
+.tn-drawer { position: fixed; top: 0; right: 0; height: 100%; width: min(420px, 100vw); background: var(--bg); z-index: 1100; display: flex; flex-direction: column; transform: translateX(100%); transition: transform .28s cubic-bezier(.2,.7,.3,1); }
+.tn-drawer.show { transform: none; }
+.tn-dhead { padding: 18px 20px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 12px; }
+.tn-dhead h2 { font-size: 17px; font-weight: 800; margin: 0; }
+.tn-dhead button { margin-left: auto; color: var(--text-mute); font-size: 22px; line-height: 1; }
+.tn-dbody { flex: 1; overflow-y: auto; padding: 8px 20px; }
+.tn-line { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.tn-line-img { width: 62px; height: 62px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); display: grid; place-items: center; padding: 5px; flex: none; }
+.tn-line-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.tn-line-info { flex: 1; min-width: 0; }
+.tn-line-info h4 { font-size: 13px; font-weight: 600; margin: 0 0 4px; line-height: 1.3; }
+.tn-line-price { font-size: 15px; font-weight: 700; }
+.tn-qty { display: inline-flex; align-items: center; border: 1px solid var(--line-2); border-radius: var(--radius); margin-top: 6px; }
+.tn-qty button { width: 28px; height: 26px; font-size: 15px; font-weight: 700; color: var(--text-dim); }
+.tn-qty button:hover { color: var(--accent); }
+.tn-qty span { min-width: 26px; text-align: center; font-size: 13px; font-weight: 700; }
+.tn-rm { font-size: 12px; color: var(--text-mute); text-decoration: underline; margin-top: 6px; display: block; }
+.tn-dfoot { border-top: 1px solid var(--line); padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 12px; }
+.tn-total { display: flex; justify-content: space-between; align-items: baseline; }
+.tn-total span { font-size: 14px; color: var(--text-dim); }
+.tn-total b { font-size: 24px; font-weight: 800; letter-spacing: -.02em; }
+.tn-note { font-size: 12px; color: var(--text-dim); background: var(--bg-2); border-left: 3px solid var(--accent); padding: 10px 12px; line-height: 1.5; border-radius: 0 var(--radius) var(--radius) 0; }
+.tn-go { background: var(--accent); color: #fff; font-size: 15px; font-weight: 700; padding: 13px; border-radius: var(--radius); text-align: center; width: 100%; }
+.tn-go:hover { background: var(--accent-hi); }
+.tn-go[disabled] { opacity: .55; cursor: not-allowed; }
+.tn-wa { text-align: center; font-size: 13px; color: var(--text-dim); }
+.tn-wa a { color: var(--accent); font-weight: 600; text-decoration: underline; }
+.tn-empty { padding: 40px 0; text-align: center; color: var(--text-mute); font-size: 14px; }
+
+/* ---------- Formulario del checkout ---------- */
+.tn-form { display: flex; flex-direction: column; gap: 10px; }
+.tn-form label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--text-mute); display: block; margin-bottom: 3px; }
+.tn-form input { width: 100%; font: inherit; font-size: 14px; padding: 9px 11px; border: 1px solid var(--line-2); border-radius: var(--radius); background: var(--bg); color: var(--text); }
+.tn-form input:focus { outline: 0; border-color: var(--accent); }
+/* .tn-check es un <label> dentro de .tn-form: sin este override hereda las
+   mayúsculas y el bold de los labels del formulario. */
+.tn-form .tn-check { display: flex; gap: 9px; align-items: flex-start; font-size: 12.5px; color: var(--text-dim); line-height: 1.45; text-transform: none; letter-spacing: normal; font-weight: 400; margin-bottom: 0; }
+.tn-form .tn-check input { margin-top: 2px; flex: none; width: 15px; height: 15px; accent-color: var(--accent); }
+.tn-err { font-size: 13px; color: var(--accent); font-weight: 600; }
+
+/* ---------- Toast ---------- */
+#tn-toast { position: fixed; left: 50%; bottom: 90px; transform: translateX(-50%) translateY(20px); background: #1c1c1c; color: #fff; padding: 12px 20px; border-radius: 100px; font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none; transition: .25s; z-index: 1200; }
+#tn-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ---------- Bloque de compra en la ficha de producto ---------- */
+.pd-buy { border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: var(--radius-lg); padding: 20px; margin: 20px 0; background: var(--bg); box-shadow: var(--shadow); }
+.pd-buy-price { font-size: 34px; font-weight: 400; letter-spacing: -.025em; line-height: 1.05; }
+.pd-buy-iva { font-size: 13px; color: var(--text-mute); margin-top: 2px; }
+.pd-buy-cuotas { font-size: 14px; color: var(--green); font-weight: 600; margin-top: 8px; }
+.pd-buy-envio { font-size: 14px; color: var(--green); font-weight: 700; margin-top: 4px; }
+.pd-buy-envio span { display: block; font-size: 12.5px; color: var(--text-dim); font-weight: 400; margin-top: 2px; }
+.pd-buy-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.pd-buy-row .tn-qty { margin-top: 0; }
+.pd-buy-acts { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+.pd-buy-now { background: var(--accent); color: #fff; font-size: 15px; font-weight: 700; padding: 13px; border-radius: var(--radius); text-align: center; }
+.pd-buy-now:hover { background: var(--accent-hi); }
+.pd-buy-add { background: color-mix(in srgb, var(--accent) 10%, #fff); color: var(--accent); font-size: 15px; font-weight: 700; padding: 13px; border-radius: var(--radius); text-align: center; border: 1px solid transparent; }
+.pd-buy-add:hover { background: color-mix(in srgb, var(--accent) 18%, #fff); }
+.pd-buy-add.on { background: var(--bg); color: var(--green); border-color: var(--green); }
+.pd-buy-trust { margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 7px; font-size: 12.5px; color: var(--text-dim); }
+.pd-buy-trust div { display: flex; align-items: flex-start; gap: 8px; }
+.pd-buy-trust svg { width: 15px; height: 15px; color: var(--green); flex: none; margin-top: 2px; }
+.pd-buy-trust b { color: var(--text); font-weight: 700; }
+.pd-buy-rate { font-size: 11.5px; color: var(--text-mute); margin-top: 12px; }
+
+/* Ficha sin precio cargado: no se inventa un botón de compra. */
+.pd-ask { border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 20px; margin: 20px 0; background: var(--bg-2); }
+.pd-ask b { display: block; font-size: 16px; margin-bottom: 4px; }
+.pd-ask p { margin: 0 0 14px; font-size: 13.5px; color: var(--text-dim); line-height: 1.5; }
+.pd-ask a { display: inline-block; background: var(--accent); color: #fff; font-size: 14px; font-weight: 700; padding: 11px 20px; border-radius: var(--radius); }
+
+@media (max-width: 640px) {
+  .pd-buy { padding: 16px; }
+  .pd-buy-price { font-size: 28px; }
+}

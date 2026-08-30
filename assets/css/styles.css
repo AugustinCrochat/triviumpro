@@ -1104,3 +1104,14 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 .rich-html .product-page-spec-group ul { padding-left: 16px; margin: 0; font-size: .9rem; }
 .rich-html strong { color: var(--text); }
 @media (max-width: 600px) { .rich-html .product-page-specs-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Carrito del header ----------
+   Vive acá y no en tienda.css porque el header lo dibuja site.js en TODAS las
+   páginas: si la regla estuviera sólo en tienda.css, en las páginas que no la
+   cargan el botón aparecería sin estilo y siempre visible. Lo enciende
+   tienda.js agregando .show, y sólo cuando el carrito tiene algo. */
+.tn-navcart { display: none; align-items: center; gap: 7px; background: var(--bg-3); border: 1px solid var(--line); color: var(--text); border-radius: 100px; padding: 7px 14px; font-size: 13px; font-weight: 700; cursor: pointer; }
+.tn-navcart.show { display: inline-flex; }
+.tn-navcart:hover { background: var(--surface-hi); }
+.tn-navcart svg { width: 15px; height: 15px; }
+.tn-navcart .b { background: var(--accent); color: #fff; border-radius: 100px; padding: 0 7px; font-size: 11px; }

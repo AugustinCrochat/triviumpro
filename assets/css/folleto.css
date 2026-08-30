@@ -1,0 +1,88 @@
+/* Folleto de equipos — hoja compartida por /folleto/ (marca propia, público) y
+ * /folleto-<secreto>/ (todas las marcas, privado).
+ *
+ * Está pensado para dos usos a la vez: mirarlo en pantalla y mandarlo en PDF.
+ * Por eso el bloque .fo-doc es "la hoja" y @media print le saca el chrome del
+ * sitio, los filtros y los botones. El PDF lo hace window.print(): el navegador
+ * ya sabe guardar en PDF y evita cargar una librería para lo mismo.
+ */
+body { background: var(--bg-2); }
+
+/* ---------- Barra de acciones (no se imprime) ---------- */
+.fo-actions { position: sticky; top: 0; z-index: 30; background: var(--bg); border-bottom: 1px solid var(--line); }
+.fo-actions-in { max-width: 1080px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.fo-actions p { margin: 0; font-size: 13px; color: var(--text-dim); }
+.fo-actions .sp { margin-left: auto; }
+.fo-btn { font-size: 13.5px; font-weight: 700; padding: 10px 18px; border-radius: var(--radius); display: inline-flex; align-items: center; gap: 8px; }
+.fo-btn svg { width: 16px; height: 16px; }
+.fo-primary { background: var(--accent); color: #fff; }
+.fo-primary:hover { background: var(--accent-hi); }
+.fo-ghost { background: var(--bg-3); color: var(--text); border: 1px solid var(--line); }
+.fo-ghost:hover { background: var(--surface-hi); }
+
+.fo-warn { background: #fff4ed; border-bottom: 1px solid #f3c9ad; color: #8a4b1d; font-size: 12.5px; font-weight: 600; text-align: center; padding: 8px 16px; }
+
+/* ---------- Filtros (no se imprimen) ---------- */
+.fo-filters { max-width: 1080px; margin: 0 auto; padding: 16px 24px 0; display: flex; gap: 6px; flex-wrap: wrap; }
+.fo-filters button { font-size: 13px; font-weight: 600; color: var(--text-dim); border: 1px solid var(--line); background: var(--bg); padding: 6px 13px; border-radius: 100px; }
+.fo-filters button:hover { border-color: var(--line-2); color: var(--text); }
+.fo-filters button.on { background: var(--text); border-color: var(--text); color: #fff; }
+
+/* ---------- La hoja ---------- */
+.fo-doc { max-width: 1080px; margin: 20px auto 80px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 38px 40px 44px; box-shadow: var(--shadow); }
+
+.fo-head { display: flex; align-items: flex-start; gap: 22px; border-bottom: 3px solid var(--accent); padding-bottom: 16px; margin-bottom: 8px; }
+.fo-head img { height: 40px; width: auto; }
+.fo-head h1 { font-size: 23px; font-weight: 800; letter-spacing: -.02em; margin: 0; }
+.fo-head p { margin: 3px 0 0; font-size: 13px; color: var(--text-dim); }
+.fo-meta { margin-left: auto; text-align: right; font-size: 11.5px; color: var(--text-dim); line-height: 1.6; }
+.fo-meta b { color: var(--text); font-weight: 700; }
+
+.fo-group { margin-top: 26px; }
+.fo-group > h2 { font-size: 12.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); margin: 0 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--line); break-after: avoid; }
+
+.fo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.fo-card { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; background: #fff; break-inside: avoid; }
+.fo-thumb { aspect-ratio: 4/3; background: #fff; display: grid; place-items: center; padding: 12px; border-bottom: 1px solid var(--line); position: relative; }
+.fo-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.fo-thumb .ph { font-size: 11px; color: var(--text-mute); }
+.fo-brand { position: absolute; top: 8px; left: 8px; font-size: 9.5px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; background: var(--bg-3); color: var(--text-dim); padding: 2px 6px; border-radius: 3px; }
+.fo-body { padding: 11px 13px 13px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.fo-name { font-size: 13px; font-weight: 700; line-height: 1.28; margin: 0; color: var(--text); }
+.fo-model { font-size: 11px; color: var(--text-mute); }
+.fo-spec { font-size: 11.5px; color: var(--text-dim); display: flex; gap: 10px; flex-wrap: wrap; margin-top: 2px; }
+.fo-spec b { color: var(--text); font-weight: 700; }
+.fo-price { margin-top: auto; padding-top: 9px; border-top: 1px dashed var(--line); }
+.fo-final { font-size: 19px; font-weight: 800; letter-spacing: -.02em; line-height: 1.15; }
+.fo-sub { font-size: 11px; color: var(--text-mute); margin-top: 1px; }
+.fo-ask { font-size: 13.5px; font-weight: 700; color: var(--accent); }
+.fo-ask span { display: block; font-size: 11px; color: var(--text-mute); font-weight: 400; margin-top: 1px; }
+
+.fo-foot { margin-top: 30px; border-top: 1px solid var(--line); padding-top: 15px; font-size: 11px; color: var(--text-dim); line-height: 1.65; break-inside: avoid; }
+.fo-foot b { color: var(--text); }
+.fo-loading { padding: 60px 0; text-align: center; color: var(--text-mute); font-size: 14px; }
+
+@media (max-width: 900px) { .fo-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+  .fo-doc { padding: 20px 14px 28px; margin: 12px; }
+  .fo-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .fo-head { flex-wrap: wrap; gap: 12px; }
+  .fo-meta { margin-left: 0; text-align: left; }
+  .fo-final { font-size: 16px; }
+}
+
+@media print {
+  @page { size: A4 portrait; margin: 11mm 9mm; }
+  body { background: #fff; }
+  #site-header, #site-footer, .wa-float, .fo-actions, .fo-filters, .fo-warn, .tn-fab { display: none !important; }
+  .fo-doc { max-width: none; margin: 0; padding: 0; border: 0; border-radius: 0; box-shadow: none; }
+  .fo-grid { grid-template-columns: repeat(3, 1fr); gap: 9px; }
+  .fo-card { break-inside: avoid; }
+  .fo-thumb { aspect-ratio: 3/2; padding: 7px; }
+  .fo-body { padding: 8px 9px 9px; }
+  .fo-name { font-size: 10.5px; }
+  .fo-model, .fo-spec, .fo-sub { font-size: 9px; }
+  .fo-final { font-size: 14px; }
+  .fo-group { break-inside: auto; }
+  a { text-decoration: none; color: inherit; }
+}

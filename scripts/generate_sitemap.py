@@ -22,6 +22,9 @@ from site_config import SITE_URL
 STATIC_PAGES = [
     ("/", "1.0", "weekly"),
     ("/catalogo/", "0.9", "weekly"),
+    ("/tienda/", "0.9", "daily"),
+    ("/lista-precios/", "0.8", "daily"),
+    ("/folleto/", "0.8", "daily"),
     ("/marcas/", "0.7", "monthly"),
     ("/instalacion-posventa-y-servicios/", "0.7", "monthly"),
     ("/nosotros/", "0.5", "yearly"),

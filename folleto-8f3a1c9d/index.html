@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="tv-root" content="../">
+<link rel="icon" type="image/svg+xml" href="../assets/img/icono-trivium.svg">
+<title>Folleto completo · todas las marcas — Trivium Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/styles.css">
+<link rel="stylesheet" href="../assets/css/folleto.css">
+</head>
+<body>
+<div class="fo-warn">Página privada · precios de todas las marcas. No está indexada: compartí el link solo con quien corresponda.</div>
+<div id="site-header"></div>
+
+<div class="fo-actions">
+  <div class="fo-actions-in">
+    <p>Catálogo completo con precios de todas las marcas representadas.</p>
+    <span class="sp"></span>
+    <a class="fo-btn fo-ghost" href="../folleto/">Ver folleto público</a>
+    <button class="fo-btn fo-primary" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></svg>
+      Descargar PDF
+    </button>
+  </div>
+</div>
+
+<div class="fo-filters" id="fo-filters"></div>
+<main class="fo-doc" id="fo-doc"><div class="fo-loading">Cargando equipos y precios del día…</div></main>
+
+<div id="site-footer"></div>
+
+<script src="../assets/js/site.js"></script>
+<script src="../assets/js/folleto.js"></script>
+<script>mountChrome('');</script>
+<script src="precios.js"></script>
+<script>
+FOLLETO.render({
+  productos: (cat) => cat.products,          // las 109 del catálogo
+  items: FOLLETO_PRECIOS.items,
+  defaultIva: FOLLETO_PRECIOS.meta.default_iva,
+  mostrarMarca: true,
+  titulo: 'Folleto completo de equipos',
+  bajada: 'Todas las marcas representadas · precio final con IVA incluido',
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="tv-root" content="../../">
+<link rel="icon" type="image/svg+xml" href="../../assets/img/icono-trivium.svg">
+<title>Tu compra — Trivium Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/styles.css">
+<style>
+  /* Vuelta desde Mercado Pago. Es la misma página para los tres back_urls
+     (success / pending / failure): MP agrega collection_status en la query y
+     acá se decide qué mostrar. */
+  body { background: var(--bg-2); }
+  .gr { max-width: 620px; margin: 0 auto; padding: 56px 20px 90px; }
+  .gr-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 36px 32px; box-shadow: var(--shadow); }
+  .gr-icon { width: 58px; height: 58px; border-radius: 100px; display: grid; place-items: center; margin-bottom: 20px; }
+  .gr-icon svg { width: 30px; height: 30px; color: #fff; }
+  .gr-ok   { background: var(--green); }
+  .gr-wait { background: var(--yellow); }
+  .gr-bad  { background: var(--accent); }
+  .gr h1 { font-size: 26px; font-weight: 800; letter-spacing: -.02em; margin: 0 0 10px; }
+  .gr p { color: var(--text-dim); font-size: 15px; line-height: 1.6; margin: 0 0 14px; }
+  .gr-ref { font-size: 13px; color: var(--text-dim); background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; margin: 20px 0; }
+  .gr-ref b { color: var(--text); font-weight: 700; }
+  .gr-ref div + div { margin-top: 5px; }
+  .gr-steps { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 20px; }
+  .gr-steps h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--text-mute); font-weight: 800; margin: 0 0 12px; }
+  .gr-steps ol { margin: 0; padding-left: 20px; color: var(--text-dim); font-size: 14px; line-height: 1.7; }
+  .gr-acts { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+  .gr-btn { font-size: 14px; font-weight: 700; padding: 12px 20px; border-radius: var(--radius); }
+  .gr-primary { background: var(--accent); color: #fff; }
+  .gr-primary:hover { background: var(--accent-hi); }
+  .gr-ghost { background: var(--bg-3); color: var(--text); border: 1px solid var(--line); }
+  .gr-ghost:hover { background: var(--surface-hi); }
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<main class="gr"><div class="gr-card" id="gr-card"></div></main>
+
+<div id="site-footer"></div>
+
+<script src="../../assets/js/site.js"></script>
+<script>
+mountChrome('');
+
+const q = new URLSearchParams(location.search);
+// MP manda collection_status en la vuelta de Checkout Pro; status es el alias
+// nuevo. Se leen los dos porque conviven según la versión del checkout.
+const estado = q.get('collection_status') || q.get('status') || 'unknown';
+const pago = q.get('payment_id') || q.get('collection_id') || '';
+const ref = q.get('external_reference') || '';
+
+const ICON = {
+  ok:   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
+  wait: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  bad:  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+};
+
+const VISTAS = {
+  approved: {
+    cls: 'gr-ok', icon: 'ok',
+    titulo: '¡Listo! Recibimos tu pago',
+    texto: 'Tu compra quedó confirmada. Te llega el comprobante de Mercado Pago por mail y nosotros te escribimos dentro de las próximas 24 horas hábiles para coordinar la entrega.',
+    pasos: ['Te contactamos para acordar el envío y su costo según tu localidad.',
+            'Coordinamos la fecha de entrega y, si corresponde, la instalación.',
+            'Recibís el equipo con su garantía y la ficha técnica.'],
+  },
+  pending: {
+    cls: 'gr-wait', icon: 'wait',
+    titulo: 'Tu pago está pendiente',
+    texto: 'Mercado Pago todavía está procesando la operación — es normal si pagaste con efectivo, transferencia o débito en cuotas. Cuando se acredite te avisamos y coordinamos la entrega.',
+    pasos: ['Mercado Pago te avisa por mail cuando el pago se acredita.',
+            'Ahí te escribimos para coordinar el envío y su costo.'],
+  },
+  rejected: {
+    cls: 'gr-bad', icon: 'bad',
+    titulo: 'El pago no se completó',
+    texto: 'Mercado Pago rechazó la operación y no se te cobró nada. Podés intentar de nuevo con otro medio de pago, o cerrar la compra con nosotros por WhatsApp.',
+    pasos: null,
+  },
+};
+VISTAS.in_process = VISTAS.pending;
+VISTAS.failure = VISTAS.rejected;
+VISTAS.null = VISTAS.rejected;
+VISTAS.unknown = {
+  cls: 'gr-wait', icon: 'wait',
+  titulo: 'No pudimos leer el estado del pago',
+  texto: 'Si completaste el pago, Mercado Pago te va a mandar el comprobante por mail igual. Escribinos con el número de operación y lo verificamos al momento.',
+  pasos: null,
+};
+
+const v = VISTAS[estado] || VISTAS.unknown;
+const aprobado = estado === 'approved';
+const msg = aprobado
+  ? `Hola, acabo de hacer una compra en la tienda${ref ? ' (referencia ' + ref + ')' : ''} y quiero coordinar el envío.`
+  : `Hola, tuve un problema con el pago en la tienda${ref ? ' (referencia ' + ref + ')' : ''}.`;
+
+document.getElementById('gr-card').innerHTML = `
+  <div class="gr-icon ${v.cls}">${ICON[v.icon]}</div>
+  <h1>${v.titulo}</h1>
+  <p>${v.texto}</p>
+  ${(ref || pago) ? `<div class="gr-ref">
+      ${ref ? `<div>Referencia de la orden: <b>${ref}</b></div>` : ''}
+      ${pago ? `<div>Número de operación de Mercado Pago: <b>${pago}</b></div>` : ''}
+    </div>` : ''}
+  ${v.pasos ? `<div class="gr-steps"><h2>Qué sigue</h2><ol>${v.pasos.map(s => `<li>${s}</li>`).join('')}</ol></div>` : ''}
+  <div class="gr-acts">
+    <a class="gr-btn gr-primary" href="${waLink(msg)}" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+    <a class="gr-btn gr-ghost" href="${rootPath()}tienda/">${aprobado ? 'Volver a la tienda' : 'Intentar de nuevo'}</a>
+  </div>`;
+</script>
+</body>
+</html>

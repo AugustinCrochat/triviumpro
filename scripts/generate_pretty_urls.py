@@ -242,6 +242,21 @@ def update_static_pages(catalog):
              "Pedí tu cotización de equipamiento para taller. Atendemos consultas "
              "técnicas y comerciales en todo el país.",
              f"Contacto — {ORG_NAME}"),
+        'tienda': ("Tienda",
+             f"Comprá online equipamiento para taller con Mercado Pago: elevadores, "
+             f"balanceadoras y desarmadoras Trivium Pro con precio final e IVA incluido. "
+             f"Envío e instalación a coordinar en todo el país.",
+             f"Tienda online — {ORG_NAME}"),
+        'folleto': ("Folleto",
+             f"Folleto de equipos {ORG_NAME} con precios actualizados: elevadores, "
+             f"balanceadoras y desarmadoras de marca propia, con precio final e IVA "
+             f"incluido. Listo para imprimir o descargar en PDF.",
+             f"Folleto de equipos — {ORG_NAME}"),
+        'lista-precios': ("Lista de precios",
+             f"Lista de precios actualizada de equipamiento para taller {ORG_NAME}: "
+             f"precio de lista y precio final con IVA de cada equipo, lista para "
+             f"imprimir o descargar en PDF.",
+             f"Lista de precios — {ORG_NAME}"),
         'blog': ("Blog",
              "Notas técnicas sobre equipamiento de taller: cómo elegir elevadores "
              "y alineadoras, montar una gomería y mantener tus equipos.",

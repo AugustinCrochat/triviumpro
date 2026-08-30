@@ -84,6 +84,7 @@ function renderHeader(active) {
         ['Muebles de Taller', 'categoria/muebles-taller/']
       ]
     },
+    { href: `${root}tienda/`, label: 'Tienda', key: 'tienda' },
     { href: `${root}marcas/`, label: 'Marcas', key: 'marcas' },
     { href: `${root}instalacion-posventa-y-servicios/`, label: 'Servicios', key: 'servicios' },
     { href: `${root}nosotros/`, label: 'Nosotros', key: 'nosotros' },
@@ -117,6 +118,13 @@ function renderHeader(active) {
         </a>
         <ul class="nav-links">${links}</ul>
         <div class="nav-cta">
+          <!-- El carrito sólo se muestra cuando tiene algo: lo prende
+               tienda.js. En las páginas donde no se vende nada, un carrito
+               vacío en el header es ruido. -->
+          <button class="tn-navcart" id="tn-navcart" aria-label="Ver carrito">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+            <span class="b">0</span>
+          </button>
           <a class="btn btn--ghost btn--sm hide-sm" href="${root}contacto/">Pedir cotización</a>
           <a class="btn btn--primary btn--sm btn--wa-red" href="${waLink('Hola, quiero hacer una consulta.')}">${ICONS.wa}<span class="nav-wa-text"> WhatsApp</span></a>
         </div>
@@ -293,13 +301,9 @@ async function loadCatalog() {
 let PUBLIC_PRICES = null;
 async function loadPublicPrices() {
   if (PUBLIC_PRICES) return PUBLIC_PRICES;
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = rootPath() + 'data/prices-publico.js';
-    script.onload = () => { PUBLIC_PRICES = window.PUBLIC_PRICES; resolve(PUBLIC_PRICES); };
-    script.onerror = reject;
-    document.head.appendChild(script);
-  });
+  const r = await fetch(rootPath() + 'data/prices-publico.json');
+  PUBLIC_PRICES = await r.json();
+  return PUBLIC_PRICES;
 }
 async function getOfficialRate() {
   try {
@@ -308,20 +312,6 @@ async function getOfficialRate() {
     if (j && j.venta) return j.venta;
   } catch (e) {}
   return 1520; // valor de referencia si falla la consulta en vivo
-}
-function ppFmtARS(n) { return '$' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(Math.round(n)); }
-function ppIvaLbl(r) { return (Number.isInteger(r) ? r : String(r).replace('.', ',')) + '%'; }
-function renderPriceBlock(sku, rate) {
-  const rec = PUBLIC_PRICES && PUBLIC_PRICES.items[sku];
-  if (!rec) return '';
-  const ars = rec.fixed_ars != null ? rec.fixed_ars : rec.usd * rate;
-  const iva = rec.iva != null ? rec.iva : PUBLIC_PRICES.meta.default_iva;
-  return `
-    <div class="pd-price">
-      <div class="pd-price-label">Precio de lista (sin IVA)</div>
-      <div class="pd-price-val">${ppFmtARS(ars)}</div>
-      <div class="pd-price-iva">+ IVA ${ppIvaLbl(iva)}</div>
-    </div>`;
 }
 
 function productUrl(p) { return `${rootPath()}producto/${encodeURIComponent(p.slug)}/`; }
