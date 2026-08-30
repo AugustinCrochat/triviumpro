@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Genera el feed de catálogo de Meta (Facebook/Instagram Commerce Manager)
-a partir de data/catalog.json + data/prices-publico.js.
+a partir de data/catalog.json + data/prices-publico.json.
 
 Solo incluye productos Trivium Pro que tienen precio público cargado.
 El precio del feed es el PRECIO FINAL (con IVA incluido), en ARS, calculado
 con el dólar oficial venta del día (dolarapi.com) — salvo los ítems con
-"fixed_ars" en prices-publico.js, que usan ese valor fijo como base.
+"fixed_ars" en prices-publico.json, que usan ese valor fijo como base.
 
 Como es un archivo estático, hay que volver a correr este script cada vez
 que se quiera actualizar el feed con la cotización del día:
@@ -16,7 +16,6 @@ Salida: feeds/meta-catalogo.csv
 """
 import csv
 import json
-import re
 import sys
 from pathlib import Path
 
@@ -28,16 +27,7 @@ FALLBACK_RATE = 1520  # valor de referencia si falla la consulta en vivo
 
 
 def load_prices_publico():
-    text = (ROOT / "data" / "prices-publico.js").read_text(encoding="utf-8")
-    text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)
-    m = re.search(r"window\.PUBLIC_PRICES\s*=\s*(\{.*\});", text, re.S)
-    if not m:
-        raise RuntimeError("No se pudo encontrar PUBLIC_PRICES en prices-publico.js")
-    obj_text = m.group(1)
-    obj_text = re.sub(r"//.*", "", obj_text)
-    obj_text = re.sub(r'\b([A-Za-z_]\w*)\s*:', r'"\1":', obj_text)
-    obj_text = re.sub(r",(\s*[}\]])", r"\1", obj_text)  # trailing commas
-    return json.loads(obj_text)
+    return json.loads((ROOT / "data" / "prices-publico.json").read_text(encoding="utf-8"))
 
 
 def get_official_rate():
@@ -72,7 +62,7 @@ def main():
     for sku, rec in items.items():
         p = by_sku.get(sku)
         if not p:
-            print(f"Aviso: SKU {sku} en prices-publico.js no existe en catalog.json, se omite", file=sys.stderr)
+            print(f"Aviso: SKU {sku} en prices-publico.json no existe en catalog.json, se omite", file=sys.stderr)
             continue
 
         base_ars = rec["fixed_ars"] if rec.get("fixed_ars") is not None else rec["usd"] * rate

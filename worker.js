@@ -3,6 +3,12 @@
 //
 // Existe porque _redirects no sirve acá: Cloudflare limita a 100 las reglas en
 // Workers con assets estáticos, y el build fallaba al superarlo.
+//
+// La tienda (/api/tienda/*) se atiende desde api/mercadopago.js, que sí se
+// edita a mano. Se resuelve antes que los redirects para que ninguna regla de
+// redirects.map pueda tapar un endpoint.
+
+import { handleApi } from "./api/mercadopago.js";
 
 const EXACT = {
  "/010-ficha-puli-pl-fs50-elevador-4-columnas/": "/assets/pdf/010-ficha-puli-pl-fs50-elevador-4-columnas.pdf",
@@ -453,9 +459,11 @@ function destinoPara(pathname) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     try {
       const url = new URL(request.url);
+      if (url.pathname.startsWith("/api/")) return handleApi(request, env, url, ctx);
+
       const destino = destinoPara(decodeURIComponent(url.pathname));
       if (destino) {
         const salida = new URL(destino, url.origin);

@@ -16,3 +16,10 @@ worker.js
 redirects.map
 .wrangler
 .gitignore
+
+# El código de la API de la tienda lo bundlea el Worker (import en worker.js);
+# como asset serviría el fuente en /api/mercadopago.js, que no es contenido.
+api
+
+# El folleto de todas las marcas se sirve como página, pero su CSV fuente no:
+# scripts/ ya está ignorado arriba, así que scripts/precios/*.csv no se publica.

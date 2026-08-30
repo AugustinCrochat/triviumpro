@@ -2,6 +2,20 @@
 # que _redirects: ese archivo no se lee en producción, así que el noindex
 # de la lista de revendedores y el caché de assets no se estaban aplicando.
 
+# Folleto con precios de todas las marcas. Igual criterio que la lista de
+# revendedores: no se lista en robots.txt porque robots.txt es público y
+# publicaría el slug que se busca ocultar. Se bloquea con noindex (meta + este
+# header), que sí requiere que el crawler pueda leer la página.
+/folleto-8f3a1c9d/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: private, no-store
+
+# La vuelta de Mercado Pago lleva el id de pago en la query: no tiene por qué
+# entrar al índice ni quedar cacheada en un proxy compartido.
+/tienda/gracias/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: private, no-store
+
 # Ojo con esta: robots.txt ya tiene "Disallow: /lista-revendedores-5d2f2e5e/",
 # así que Google no rastrea la página y por lo tanto nunca va a leer este
 # header. Se deja igual como red de seguridad para el día que se saque el

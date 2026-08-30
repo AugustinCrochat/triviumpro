@@ -1,0 +1,165 @@
+#!/usr/bin/env python3
+"""Importa la lista de precios interna (CSV exportado de la planilla) y genera
+los dos archivos de precios que consume el sitio.
+
+    python3 scripts/import_precios_csv.py [ruta/al.csv]
+
+Salidas:
+  data/prices-publico.json          Solo marca propia (Trivium Pro). PÚBLICO:
+                                    lo leen las fichas, /tienda/, /folleto/,
+                                    el feed de Meta y el Worker.
+  <FOLLETO_DIR>/precios.js          Todas las marcas. NO público: vive dentro
+                                    de la carpeta de slug secreto, igual que
+                                    lista-revendedores-5d2f2e5e/prices.js.
+
+Por qué la separación: publicar en /data/ los precios de Rotary, Hofmann o
+Josam los deja a un fetch de distancia de cualquiera, incluida la competencia.
+Todo lo que no sea marca propia se sirve solo desde la carpeta secreta.
+
+El CSV fuente se guarda en scripts/precios/ y no en la raíz: 'scripts' está en
+.assetsignore, así que Cloudflare no lo sirve. En la raíz quedaría público.
+
+Columnas del CSV (0-indexed), según el export de la planilla:
+    5 SKU · 6 marca · 7 modelo · 8 características
+    9 'Precio Venta CONTADO U$D sin IVA' · 13 alícuota de IVA
+"""
+import csv
+import json
+import re
+import sys
+from collections import defaultdict
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+CSV_DEFAULT = ROOT / "scripts" / "precios" / "precios-dolar.csv"
+FOLLETO_DIR = ROOT / "folleto-8f3a1c9d"     # slug secreto, igual criterio que revendedores
+MARCA_PROPIA = "trivium-pro"
+
+COL_SKU, COL_MARCA, COL_MODELO, COL_DESC, COL_USD, COL_IVA = 5, 6, 7, 8, 9, 13
+
+# Precios en pesos fijados a mano: la BASE sin IVA queda clavada en este valor
+# y no se recalcula con el dólar; el IVA se suma aparte como en cualquier otro
+# ítem. Se respetan aunque el CSV traiga un USD para ese SKU.
+#
+# 1010124 (PL-4.2D): confirmado el 2026-08-30 — va $2.750.000 + IVA 10,5%
+# ($3.038.750 final). El CSV lo trae a USD 1929, que daría ~$3.270.000; ese
+# valor se ignora a propósito.
+FIXED_ARS = {"1010124": 2750000}
+
+
+def parse_usd(v):
+    v = (v or "").strip()
+    if not v or "#" in v:            # '#N/A' de la planilla
+        return None
+    m = re.search(r"([\d,]+\.?\d*)", v.replace("USD", "").strip())
+    return float(m.group(1).replace(",", "")) if m else None
+
+
+def parse_iva(v):
+    m = re.search(r"([\d.]+)", (v or "").strip())
+    return float(m.group(1)) if m else None
+
+
+def norm(s):
+    return re.sub(r"[^a-z0-9]", "", (s or "").lower())
+
+
+def leer_csv(path):
+    """sku -> lista de filas candidatas (hay SKUs repetidos con productos distintos)."""
+    filas = defaultdict(list)
+    with open(path, encoding="utf-8") as f:
+        for r in csv.reader(f):
+            if len(r) <= COL_IVA:
+                continue
+            sku = r[COL_SKU].strip()
+            if not re.fullmatch(r"\d{7}", sku):
+                continue
+            usd = parse_usd(r[COL_USD])
+            if usd is None:
+                continue
+            filas[sku].append({
+                "usd": usd,
+                "iva": parse_iva(r[COL_IVA]),
+                "marca": r[COL_MARCA].strip(),
+                "modelo": r[COL_MODELO].strip(),
+                "desc": r[COL_DESC].strip(),
+            })
+    return filas
+
+
+def elegir(candidatas, producto):
+    """La planilla reusa algunos SKU para dos productos distintos (por ejemplo
+    1010223 es un elevador de moto y también un comprobador de baterías). Se
+    elige la fila cuyo modelo aparezca en el nombre del producto del sitio."""
+    if len(candidatas) == 1:
+        return candidatas[0]
+    nombre = norm(producto["name"])
+    for c in candidatas:
+        m = norm(c["modelo"])
+        if m and len(m) >= 3 and m in nombre:
+            return c
+    return candidatas[0]
+
+
+def main():
+    csv_path = Path(sys.argv[1]) if len(sys.argv) > 1 else CSV_DEFAULT
+    if not csv_path.exists():
+        raise SystemExit(f"No encuentro el CSV: {csv_path}")
+
+    catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
+    filas = leer_csv(csv_path)
+
+    publico, privado, sin_precio, ambiguos = {}, {}, [], []
+    for p in sorted(catalog["products"], key=lambda x: x["sku"]):
+        sku = p["sku"]
+        cands = filas.get(sku)
+        if not cands:
+            sin_precio.append(p)
+            continue
+        if len(cands) > 1:
+            ambiguos.append((sku, p["name"], [c["modelo"] for c in cands]))
+        c = elegir(cands, p)
+
+        item = {"modelo": c["modelo"] or None, "iva": c["iva"]}
+        if sku in FIXED_ARS:
+            item["fixed_ars"] = FIXED_ARS[sku]
+        else:
+            item["usd"] = c["usd"]
+
+        privado[sku] = {**item, "marca": p["brand"] or c["marca"]}
+        if p["brand"] == MARCA_PROPIA:
+            publico[sku] = item
+
+    # ---- público: solo marca propia ----
+    destino_pub = ROOT / "data" / "prices-publico.json"
+    doc = json.loads(destino_pub.read_text(encoding="utf-8"))["_doc"]
+    destino_pub.write_text(json.dumps({
+        "_doc": doc,
+        "meta": {"default_iva": 10.5},
+        "items": publico,
+    }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    # ---- privado: todas las marcas, dentro de la carpeta secreta ----
+    FOLLETO_DIR.mkdir(exist_ok=True)
+    (FOLLETO_DIR / "precios.js").write_text(
+        "/* Precios de TODAS las marcas — CONFIDENCIAL.\n"
+        "   Generado por scripts/import_precios_csv.py; no editar a mano.\n"
+        "   Vive acá y no en /data/ porque /data/ es público: esto incluye los\n"
+        "   precios de Rotary, Hofmann, Haweka y Josam.\n"
+        "   'usd' es el precio de venta contado SIN IVA. */\n"
+        "window.FOLLETO_PRECIOS = "
+        + json.dumps({"meta": {"default_iva": 10.5}, "items": privado},
+                     ensure_ascii=False, indent=2)
+        + ";\n", encoding="utf-8")
+
+    print(f"✔ data/prices-publico.json — {len(publico)} equipos {MARCA_PROPIA}")
+    print(f"✔ {FOLLETO_DIR.name}/precios.js — {len(privado)} equipos, todas las marcas")
+    print(f"  sin precio en el CSV: {len(sin_precio)} (van como 'Consultar')")
+    if ambiguos:
+        print(f"  SKU repetidos en la planilla, resueltos por modelo: {len(ambiguos)}")
+        for sku, nombre, modelos in ambiguos:
+            print(f"    {sku} {nombre[:45]} ← {modelos}")
+
+
+if __name__ == "__main__":
+    main()
