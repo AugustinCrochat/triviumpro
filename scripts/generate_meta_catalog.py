@@ -60,6 +60,11 @@ def main():
 
     rows = []
     for sku, rec in items.items():
+        # 'tienda': false = no se vende online. El feed alimenta anuncios de
+        # compra, así que tampoco se publica ahí (típicamente son precios
+        # todavía sin confirmar).
+        if rec.get("tienda") is False:
+            continue
         p = by_sku.get(sku)
         if not p:
             print(f"Aviso: SKU {sku} en prices-publico.json no existe en catalog.json, se omite", file=sys.stderr)

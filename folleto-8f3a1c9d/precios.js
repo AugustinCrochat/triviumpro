@@ -146,6 +146,12 @@ window.FOLLETO_PRECIOS = {
       "usd": 175.0,
       "marca": "HAWEKA"
     },
+    "1010053": {
+      "modelo": "ki-2422",
+      "iva": 10.5,
+      "usd": 137.35,
+      "marca": "Kuani"
+    },
     "1010054": {
       "modelo": "900 008 006",
       "iva": 21.0,
@@ -475,6 +481,31 @@ window.FOLLETO_PRECIOS = {
       "iva": 10.5,
       "usd": 8900.0,
       "marca": "forward-lift"
+    },
+    "P-3041": {
+      "modelo": "SM18",
+      "iva": 10.5,
+      "usd": 16764.0,
+      "marca": "rotary-lift"
+    },
+    "P-3338": {
+      "modelo": "Monty 8800",
+      "iva": 10.5,
+      "usd": 41500.0,
+      "marca": "hofmann"
+    },
+    "P-4371": {
+      "modelo": "DIG30",
+      "iva": 10.5,
+      "usd": 6150.0,
+      "marca": "direct-lift"
+    },
+    "P-5406": {
+      "modelo": "U-850",
+      "iva": 10.5,
+      "tienda": false,
+      "usd": 1950.0,
+      "marca": "trivium-pro"
     }
   }
 };

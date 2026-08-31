@@ -46,6 +46,33 @@ COL_SKU, COL_MARCA, COL_MODELO, COL_DESC, COL_USD, COL_IVA = 5, 6, 7, 8, 9, 13
 # valor se ignora a propósito.
 FIXED_ARS = {"1010124": 2750000}
 
+# Equipos cuyo SKU del sitio no existe en la planilla, mapeados a mano contra la
+# fila correcta del CSV. Cuatro de ellos quedaron en el catálogo con un SKU
+# provisorio ("P-3041" y compañía) y por eso nunca cruzaron.
+#
+# Se hace con un mapa explícito y NO adivinando por parecido de nombre: un match
+# difuso equivocado le pone a una máquina el precio de otra, y eso se descubre
+# recién cuando un cliente reclama.
+#
+#   SKU del sitio -> SKU en el CSV
+MATCH_MANUAL = {
+    "P-3041":  "1010171",   # Elevador 4 columnas 8165 kg → ROTARY SM18 (la ficha del CSV dice 8165 kg)
+    "P-4371":  "1010010",   # Elevador tijera corto 3000 kg → DIRECT LIFT DIG30
+    "P-3338":  "1010118",   # Desarmadora Hofmann Monty 8800 → HOFMANN Monty 8800
+    "1010053": "4010059",   # Llave crique neumática KI-2422 → Kuani ki-2422
+    # OJO: el modelo coincide (U-850) pero la descripción del CSV habla de una
+    # PL-2900 14-26". Confirmar con la lista antes de publicarlo como definitivo.
+    "P-5406":  "1010300",   # Balanceadora de camión U-850
+}
+
+# Equipos que se muestran en el folleto con precio pero NO se venden online.
+# 'tienda': false los saca de /tienda/ y del checkout. Se usa cuando el precio
+# todavía no está confirmado: mostrarlo como referencia es barato, cobrarlo mal
+# no.
+SIN_VENTA_ONLINE = {
+    "P-5406",   # precio mapeado a mano, pendiente de confirmar (ver arriba)
+}
+
 
 def parse_usd(v):
     v = (v or "").strip()
@@ -112,7 +139,7 @@ def main():
     publico, privado, sin_precio, ambiguos = {}, {}, [], []
     for p in sorted(catalog["products"], key=lambda x: x["sku"]):
         sku = p["sku"]
-        cands = filas.get(sku)
+        cands = filas.get(MATCH_MANUAL.get(sku, sku))
         if not cands:
             sin_precio.append(p)
             continue
@@ -121,6 +148,8 @@ def main():
         c = elegir(cands, p)
 
         item = {"modelo": c["modelo"] or None, "iva": c["iva"]}
+        if sku in SIN_VENTA_ONLINE:
+            item["tienda"] = False
         if sku in FIXED_ARS:
             item["fixed_ars"] = FIXED_ARS[sku]
         else:
