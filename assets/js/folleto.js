@@ -61,7 +61,7 @@ window.FOLLETO = (function () {
         <div class="fo-thumb">${img}${marcaLabel ? `<span class="fo-brand">${marcaLabel}</span>` : ''}</div>
         <div class="fo-body">
           <h3 class="fo-name">${p.name}</h3>
-          <div class="fo-model">${[pr && pr.modelo, 'SKU ' + p.sku].filter(Boolean).join(' · ')}</div>
+          <div class="fo-model">${[pr && pr.modelo, /^\d{7}$/.test(p.sku) ? 'SKU ' + p.sku : null].filter(Boolean).join(' · ')}</div>
           ${spec ? `<div class="fo-spec">${spec}</div>` : ''}
           <div class="fo-price">${bloque}</div>
         </div>

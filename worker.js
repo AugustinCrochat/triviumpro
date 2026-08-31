@@ -1,5 +1,5 @@
 // GENERADO por scripts/generate_worker.py — no editar a mano.
-// La fuente de verdad es redirects.map (426 reglas).
+// La fuente de verdad es redirects.map (427 reglas).
 //
 // Existe porque _redirects no sirve acá: Cloudflare limita a 100 las reglas en
 // Workers con assets estáticos, y el build fallaba al superarlo.
@@ -194,6 +194,7 @@ const EXACT = {
  "/ficha-unite-pl-b30m-rlevador-tijera-movil/": "/assets/pdf/ficha-unite-pl-b30m-rlevador-tijera-movil.pdf",
  "/ficha-unite-pl-c55-elevador-tijera-largo-con-kit-alineacion/": "/assets/pdf/ficha-unite-pl-c55-elevador-tijera-largo-con-kit-alineacion.pdf",
  "/ficha-unite-pl-u-dp5-elevador-bateria-auto-electrico/": "/categoria/elevadores/",
+ "/folleto/": "/lista-precios/",
  "/formacion-tecnica-en-alineadora-3d-geoliner-630-en-neumaticos-pons-cordoba/": "/blog/formacion-tecnica-en-alineadora-3d-geoliner-630-en-neumaticos-pons-cordoba/",
  "/geoliner-630-la-alineadora-3d-compacta-que-revoluciona-los-talleres/": "/blog/geoliner-630-la-alineadora-3d-compacta-que-revoluciona-los-talleres/",
  "/geoliner-770/": "/categoria/alineadoras/",
