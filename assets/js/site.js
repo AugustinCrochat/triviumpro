@@ -84,7 +84,6 @@ function renderHeader(active) {
         ['Muebles de Taller', 'categoria/muebles-taller/']
       ]
     },
-    { href: `${root}tienda/`, label: 'Tienda', key: 'tienda' },
     { href: `${root}marcas/`, label: 'Marcas', key: 'marcas' },
     { href: `${root}instalacion-posventa-y-servicios/`, label: 'Servicios', key: 'servicios' },
     { href: `${root}nosotros/`, label: 'Nosotros', key: 'nosotros' },

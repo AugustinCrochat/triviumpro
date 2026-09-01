@@ -60,8 +60,8 @@ def main():
         "",
         f"- [Lista de precios]({SITE_URL}/lista-precios/): todos los equipos con precio "
         f"publicado, para ver en pantalla o descargar en PDF.",
-        f"- [Tienda online]({SITE_URL}/tienda/): compra directa con Mercado Pago para los "
-        f"equipos de marca propia Trivium Pro.",
+        f"- Compra online con Mercado Pago disponible en cada ficha de producto "
+        f"({SITE_URL}/catalogo/) para los equipos de marca propia Trivium Pro."
         "",
         "## Empresa",
         "",

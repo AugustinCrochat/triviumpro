@@ -30,8 +30,7 @@ Catálogo completo: 109 equipos en 9 categorías. Los precios publicados son de 
 ## Precios
 
 - [Lista de precios](https://pro.trivium.ar/lista-precios/): todos los equipos con precio publicado, para ver en pantalla o descargar en PDF.
-- [Tienda online](https://pro.trivium.ar/tienda/): compra directa con Mercado Pago para los equipos de marca propia Trivium Pro.
-
+- Compra online con Mercado Pago disponible en cada ficha de producto (https://pro.trivium.ar/catalogo/) para los equipos de marca propia Trivium Pro.
 ## Empresa
 
 - [Nosotros](https://pro.trivium.ar/nosotros/)

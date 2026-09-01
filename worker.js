@@ -1,5 +1,5 @@
 // GENERADO por scripts/generate_worker.py — no editar a mano.
-// La fuente de verdad es redirects.map (427 reglas).
+// La fuente de verdad es redirects.map (428 reglas).
 //
 // Existe porque _redirects no sirve acá: Cloudflare limita a 100 las reglas en
 // Workers con assets estáticos, y el build fallaba al superarlo.
@@ -406,6 +406,7 @@ const EXACT = {
  "/servicios-integrales-para-tus-maquinas-instalacion-mantenimiento-y-mas-en-toda-argentina/": "/blog/servicios-integrales-para-tus-maquinas-instalacion-mantenimiento-y-mas-en-toda-argentina/",
  "/sistema-de-air-comprimido-prevost/": "/producto/red-de-aire-comprimido-prevost-piping-system/",
  "/sistema-de-aire-comprimido/": "/producto/red-de-aire-comprimido-prevost-piping-system/",
+ "/tienda/": "/lista-precios/",
  "/tre64007-elevador-para-moto-360kg/": "/categoria/elevadores-motos/",
  "/unite-u-l01-lift-elevador-para-balanceadora-portatil/": "/categoria/balanceadoras/",
  "/ventajas-de-la-alineacion-de-camiones-para-empresas-de-mantenimiento/": "/blog/ventajas-de-la-alineacion-de-camiones-para-empresas-de-mantenimiento/",
