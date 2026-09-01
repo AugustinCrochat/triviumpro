@@ -56,6 +56,7 @@ def make_seo_block(canonical, description, jsonld):
     out = [
         f'<link rel="canonical" href="{esc(canonical)}">',
         f'<meta name="description" content="{esc(description)}">',
+        '<meta name="robots" content="index, follow, max-image-preview:large">',
     ]
     for block in jsonld:
         payload = json.dumps(block, ensure_ascii=False, separators=(',', ':'))
@@ -103,6 +104,7 @@ def inject_head(content, title, og_block, seo_block):
     content = re.sub(r'\n?<meta name="twitter:[^>]*>', '', content)
     content = re.sub(r'\n?<link rel="canonical"[^>]*>', '', content)
     content = re.sub(r'\n?<meta name="description"[^>]*>', '', content)
+    content = re.sub(r'\n?<meta name="robots"[^>]*>', '', content)
     content = re.sub(
         r'\n?<script type="application/ld\+json">.*?</script>', '', content, flags=re.S
     )

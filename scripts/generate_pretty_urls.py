@@ -30,11 +30,55 @@ def clamp(text, limit=158):
     return cut + '…'
 
 
+def load_public_offers():
+    """Precios públicos + dólar del día, para las offers del Product schema.
+
+    Sólo entra lo que ya es público en data/prices-publico.json y visible en la
+    ficha (tienda != false): el schema nunca puede mostrar un precio que la
+    página no muestra. El dólar se pide en vivo con fallback fijo, igual que
+    generate_meta_catalog.py: sin red, el generador sigue andando.
+    """
+    import urllib.request
+    from datetime import date, timedelta
+
+    path = os.path.join(BASE_DIR, 'data', 'prices-publico.json')
+    if not os.path.exists(path):
+        return {}, None
+    with open(path, encoding='utf-8') as f:
+        prices = json.load(f)
+
+    rate = 1535
+    try:
+        with urllib.request.urlopen('https://dolarapi.com/v1/dolares/oficial', timeout=8) as r:
+            j = json.load(r)
+            if j.get('venta'):
+                rate = j['venta']
+    except Exception:
+        pass
+
+    valid = (date.today() + timedelta(days=30)).isoformat()
+    out = {}
+    for sku, rec in prices['items'].items():
+        if rec.get('tienda') is False:
+            continue
+        base = rec['fixed_ars'] if rec.get('fixed_ars') is not None else rec['usd'] * rate
+        iva = rec.get('iva', prices['meta']['default_iva'])
+        out[sku] = {
+            'price': round(base * (1 + iva / 100), 2),
+            'modelo': rec.get('modelo'),
+            'valid': valid,
+        }
+    return out, rate
+
+
 def make_seo_block(canonical, description, jsonld=None):
     """canonical + meta description + JSON-LD. Los OG se agregan aparte."""
     out = [
         f'<link rel="canonical" href="{esc(canonical)}">',
         f'<meta name="description" content="{esc(description)}">',
+        # max-image-preview:large habilita las vistas previas grandes en Google
+        # (Discover incluido); sin esto Google recorta la imagen a thumbnail.
+        '<meta name="robots" content="index, follow, max-image-preview:large">',
     ]
     for block in (jsonld or []):
         payload = json.dumps(block, ensure_ascii=False, separators=(',', ':'))
@@ -42,6 +86,22 @@ def make_seo_block(canonical, description, jsonld=None):
         payload = payload.replace('</', '<\\/')
         out.append(f'<script type="application/ld+json">{payload}</script>')
     return '\n'.join(out)
+
+
+def itemlist_jsonld(products, brands_by_slug=None):
+    """ItemList de una categoría o marca: ayuda a Google (y a un asistente de
+    compras) a entender que la página es un listado de productos concretos, no
+    sólo texto — mismo criterio que las 'rich results' de listados de e-commerce."""
+    items = []
+    for i, p in enumerate(products, 1):
+        items.append({
+            "@type": "ListItem",
+            "position": i,
+            "url": f"{SITE_URL}/producto/{p['slug']}/",
+            "name": p['name'],
+        })
+    return {"@context": "https://schema.org", "@type": "ItemList",
+            "itemListElement": items}
 
 
 def breadcrumb_jsonld(items):
@@ -280,6 +340,7 @@ def update_static_pages(catalog):
         content = re.sub(r'\n?<meta name="twitter:[^>]*>', '', content)
         content = re.sub(r'\n?<link rel="canonical"[^>]*>', '', content)
         content = re.sub(r'\n?<meta name="description"[^>]*>', '', content)
+        content = re.sub(r'\n?<meta name="robots"[^>]*>', '', content)
         content = re.sub(r'\n?<script type="application/ld\+json">.*?</script>', '',
                          content, flags=re.S)
 
@@ -287,6 +348,8 @@ def update_static_pages(catalog):
         if carpeta:
             jsonld = [breadcrumb_jsonld([("Inicio", f"{SITE_URL}/"), (nombre, url)])]
         else:
+            # No hay SearchAction: el sitio no tiene buscador. Declarar uno que no
+            # funciona es peor que no declarar nada — Google lo detecta al probarlo.
             jsonld = [{
                 "@context": "https://schema.org",
                 "@type": "Organization",
@@ -300,6 +363,11 @@ def update_static_pages(catalog):
                     "https://www.facebook.com/profile.php?id=61571497817317",
                     "https://www.youtube.com/channel/UCkyhOuIT5A9nZ7qCAszVIaQ",
                 ],
+            }, {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": ORG_NAME,
+                "url": f"{SITE_URL}/",
             }]
 
         og = make_og_block(titulo, desc,
@@ -315,6 +383,9 @@ def main():
     
     with open(DATA_PATH, 'r', encoding='utf-8') as f:
         catalog = json.load(f)
+
+    offers_by_sku, dolar_rate = load_public_offers()
+    print(f"  ({len(offers_by_sku)} equipos con precio público para el schema Offer)")
 
     # 1. Main Pages
     main_pages = {
@@ -377,6 +448,8 @@ def main():
                 (n, SITE_URL + '/' + (h or '')) if h is not None else (n, url)
                 for n, h in crumbs
             ])]
+            if prods:
+                jsonld.append(itemlist_jsonld(prods))
             grid = ''.join(product_card_html(p, brands_by_slug, root2) for p in prods)
             create_index_file(
                 os.path.join(BASE_DIR, 'categoria', slug), cat_template, 2,
@@ -414,6 +487,8 @@ def main():
                 (n, SITE_URL + '/' + (h or '')) if h is not None else (n, url)
                 for n, h in crumbs
             ])]
+            if prods:
+                jsonld.append(itemlist_jsonld(prods))
             grid = ''.join(product_card_html(p, brands_by_slug, root2) for p in prods)
             create_index_file(
                 os.path.join(BASE_DIR, 'marca', slug), cat_template, 2,
@@ -492,6 +567,18 @@ def main():
                               "value": prod['lift_height']})
             if props:
                 product_ld["additionalProperty"] = props
+            offer = offers_by_sku.get(prod.get('sku'))
+            if offer:
+                product_ld["offers"] = {
+                    "@type": "Offer",
+                    "url": url,
+                    "priceCurrency": "ARS",
+                    "price": offer['price'],
+                    "priceValidUntil": offer['valid'],
+                    "availability": "https://schema.org/InStock",
+                    "itemCondition": "https://schema.org/NewCondition",
+                    "seller": {"@type": "Organization", "name": ORG_NAME},
+                }
             jsonld = [product_ld, breadcrumb_jsonld([
                 (n, SITE_URL + '/' + (h or '')) if h is not None else (n, url)
                 for n, h in crumbs

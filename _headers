@@ -10,6 +10,16 @@
   X-Robots-Tag: noindex, nofollow, noarchive
   Cache-Control: private, no-store
 
+# Plantillas crudas de producto.html?id=X y categoria.html?c=X: el contenido
+# real y canónico vive en /producto/<slug>/ y /categoria/<slug>/, generados a
+# partir de estas mismas plantillas. Nada linkea a la forma cruda, pero si un
+# crawler la encuentra igual, no debe competir como duplicado.
+/producto.html
+  X-Robots-Tag: noindex, follow
+
+/categoria.html
+  X-Robots-Tag: noindex, follow
+
 # La vuelta de Mercado Pago lleva el id de pago en la query: no tiene por qué
 # entrar al índice ni quedar cacheada en un proxy compartido.
 /tienda/gracias/*

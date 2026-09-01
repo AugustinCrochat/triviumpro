@@ -71,7 +71,10 @@ console.log('\nGET /api/tienda/precios');
   const t = await r.json();
   ok(r.status === 200, 'responde 200');
   ok(t.rate === 1535 && t.rate_live, 'toma el dólar de dolarapi (1535, en vivo)');
-  ok(Object.keys(t.items).length === Object.keys(PRECIOS.items).length, `devuelve ${Object.keys(PRECIOS.items).length} SKUs (${Object.keys(t.items).length})`);
+  // 'tienda: false' (precio no confirmado, ver U-850) se filtra en la API,
+  // así que el conteo esperado es el de vendibles, no el del JSON crudo.
+  const vendibles = Object.values(PRECIOS.items).filter(r => r.tienda !== false).length;
+  ok(Object.keys(t.items).length === vendibles, `devuelve ${vendibles} SKUs vendibles (${Object.keys(t.items).length})`);
   const e30 = t.items['1010127'];   // PL-E30: usd 4100, iva 10.5
   ok(e30.base_ars === E30.base, `PL-E30 sin IVA = ${e30.base_ars}`);
   ok(e30.total_ars === E30.total, `PL-E30 final con IVA = ${e30.total_ars}`);
