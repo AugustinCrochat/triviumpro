@@ -103,8 +103,11 @@ a.fo-card:hover .fo-go { background: var(--accent); color: #fff; }
   body { background: #fff; }
   #site-header, #site-footer, .wa-float, .fo-actions, .fo-filters, .tn-fab { display: none !important; }
   .fo-doc { max-width: none; margin: 0; box-shadow: none; }
-  .fo-cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 34px 36px 28px; }
-  .fo-cover-band { margin: 24px -36px -28px; padding: 13px 36px; }
+  .fo-cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 26px 36px 22px; }
+  .fo-cover img { height: 34px; margin-bottom: 16px; }
+  .fo-cover h1 { font-size: 34px; }
+  .fo-cover .sub { font-size: 13px; margin-top: 8px; }
+  .fo-cover-band { margin: 18px -36px -22px; padding: 11px 36px; }
   .fo-chip { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .fo-inner { padding: 0 11mm 12mm; }
   .fo-group { padding-top: 22px; }
@@ -112,7 +115,14 @@ a.fo-card:hover .fo-go { background: var(--accent); color: #fff; }
      salía a 2 columnas: acá se fuerzan las 3 de nuevo. */
   .fo-grid { grid-template-columns: repeat(3, 1fr); gap: 9px; }
   .fo-card { border-radius: 4px; }
-  .fo-thumb { padding: 8px; }
+  /* Altura fija + imagen absoluta: al paginar, Chrome no respeta bien ni
+     aspect-ratio ni el max-height relativo — las fotos verticales estiraban la
+     ficha (una sola fila por hoja) o desbordaban tapando el texto. Con la foto
+     posicionada absoluta dentro de la miniatura el alto queda determinístico. */
+  .fo-thumb { aspect-ratio: auto; height: 34mm; padding: 0; position: relative; overflow: hidden; }
+  /* Sólo la foto del producto (hijo directo): el logo del chip también es un
+     <img> dentro de la miniatura y quedaba centrado encima de la foto. */
+  .fo-thumb > img { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: calc(100% - 12px); max-height: calc(100% - 12px); }
   .fo-body { padding: 8px 10px 10px; gap: 3px; }
   .fo-name { font-size: 10.5px; }
   .fo-model, .fo-sub { font-size: 8.5px; }
