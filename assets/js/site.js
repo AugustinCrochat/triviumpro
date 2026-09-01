@@ -316,6 +316,30 @@ async function getOfficialRate() {
   return 1520; // valor de referencia si falla la consulta en vivo
 }
 
+// Precio final (con IVA) para las tarjetas de grilla. null si el equipo no
+// tiene precio público o está marcado 'tienda: false' (precio sin confirmar,
+// ver data/prices-publico.json) — no se muestra un número que no se sostiene.
+let PRICE_RATE = null;
+async function ensureCardPrices() {
+  if (PRICE_RATE != null) return;
+  await loadPublicPrices();
+  PRICE_RATE = await getOfficialRate();
+}
+function cardPrice(sku) {
+  const rec = PUBLIC_PRICES && PUBLIC_PRICES.items[sku];
+  if (!rec || rec.tienda === false || PRICE_RATE == null) return null;
+  const base = rec.fixed_ars != null ? rec.fixed_ars : rec.usd * PRICE_RATE;
+  const iva = rec.iva != null ? rec.iva : PUBLIC_PRICES.meta.default_iva;
+  return { total: Math.round(base * (1 + iva / 100)), iva };
+}
+function cardPriceHtml(sku) {
+  const pr = cardPrice(sku);
+  if (!pr) return '';
+  const monto = '$ ' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(pr.total);
+  const ivaLbl = (Number.isInteger(pr.iva) ? pr.iva : String(pr.iva).replace('.', ',')) + '%';
+  return `<div class="price-tag">${monto}<span>IVA ${ivaLbl} incluido</span></div>`;
+}
+
 function productUrl(p) { return `${rootPath()}producto/${encodeURIComponent(p.slug)}/`; }
 function categoryUrl(slug) { return `${rootPath()}categoria/${encodeURIComponent(slug)}/`; }
 function brandUrl(slug) { return `${rootPath()}marca/${encodeURIComponent(slug)}/`; }
@@ -367,17 +391,21 @@ function productCard(p) {
         ${brandTag}
         <h3>${p.name}</h3>
         ${specHtml}
+        ${cardPriceHtml(p.sku)}
       </div>
     </a>`;
 }
 
-function renderGrid(containerSel, products) {
+async function renderGrid(containerSel, products) {
   const el = document.querySelector(containerSel);
   if (!el) return;
   if (!products.length) {
     el.innerHTML = `<p class="muted">No hay productos en esta categoría todavía. <a href="${waLink('Hola, quiero consultar por productos.')}" style="color:var(--accent)">Consultá por WhatsApp</a>.</p>`;
     return;
   }
+  // Se cargan precios y dólar antes de pintar: así ninguna tarjeta parpadea
+  // sin precio y después lo agrega.
+  await ensureCardPrices();
   el.innerHTML = products.map(productCard).join('');
 }
 

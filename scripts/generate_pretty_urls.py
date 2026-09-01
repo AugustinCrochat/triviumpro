@@ -65,6 +65,7 @@ def load_public_offers():
         iva = rec.get('iva', prices['meta']['default_iva'])
         out[sku] = {
             'price': round(base * (1 + iva / 100), 2),
+            'iva': iva,
             'modelo': rec.get('modelo'),
             'valid': valid,
         }
@@ -140,7 +141,18 @@ def brand_logo_rel(slug):
     return rel if os.path.exists(os.path.join(BASE_DIR, rel)) else None
 
 
-def product_card_html(prod, brands_by_slug, root):
+def price_tag_html(sku, offers_by_sku):
+    """Réplica estática de cardPriceHtml() de site.js."""
+    offer = (offers_by_sku or {}).get(sku)
+    if not offer:
+        return ''
+    monto = '$ ' + f"{round(offer['price']):,}".replace(',', '.')
+    iva = offer['iva']
+    iva_lbl = (str(int(iva)) if float(iva).is_integer() else str(iva).replace('.', ',')) + '%'
+    return f'<div class="price-tag">{monto}<span>IVA {iva_lbl} incluido</span></div>'
+
+
+def product_card_html(prod, brands_by_slug, root, offers_by_sku=None):
     """Réplica estática de productCard() de site.js, para que el HTML traiga los links."""
     brand = brands_by_slug.get(prod.get('brand'), {})
     brand_name = brand.get('name', '')
@@ -157,6 +169,7 @@ def product_card_html(prod, brands_by_slug, root):
                  f'<span>Capacidad <b>{esc(prod.get("capacity", "—"))}</b></span>'
                  f'<span>Altura <b>{esc(prod.get("lift_height", "—"))}</b></span>'
                  '</div>')
+    price = price_tag_html(prod.get('sku', ''), offers_by_sku)
     return (
         f'<a class="prod-card" href="{esc(root)}producto/{esc(prod["slug"])}/">'
         f'<div class="thumb">{img}{thumb_brand}</div>'
@@ -164,6 +177,7 @@ def product_card_html(prod, brands_by_slug, root):
         f'<span class="brand-tag">{esc(brand_name)}</span>'
         f'<h3>{esc(prod["name"])}</h3>'
         f'{specs}'
+        f'{price}'
         f'</div></a>'
     )
 
@@ -458,7 +472,7 @@ def main():
             ])]
             if prods:
                 jsonld.append(itemlist_jsonld(prods))
-            grid = ''.join(product_card_html(p, brands_by_slug, root2) for p in prods)
+            grid = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in prods)
             create_index_file(
                 os.path.join(BASE_DIR, 'categoria', slug), cat_template, 2,
                 title=nombre,
@@ -497,7 +511,7 @@ def main():
             ])]
             if prods:
                 jsonld.append(itemlist_jsonld(prods))
-            grid = ''.join(product_card_html(p, brands_by_slug, root2) for p in prods)
+            grid = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in prods)
             create_index_file(
                 os.path.join(BASE_DIR, 'marca', slug), cat_template, 2,
                 title=f"{brand['name']} Argentina",
@@ -636,7 +650,7 @@ def main():
 
             related = [p for p in catalog['products']
                        if p.get('category') == prod.get('category') and p['slug'] != slug][:8]
-            related_html = ''.join(product_card_html(p, brands_by_slug, root2) for p in related)
+            related_html = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in related)
 
             create_index_file(
                 os.path.join(BASE_DIR, 'producto', slug), prod_template, 2,
