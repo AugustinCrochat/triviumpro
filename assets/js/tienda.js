@@ -94,9 +94,12 @@ window.TIENDA = (function () {
 
   /* ---------- UI ---------- */
   const ICON_CART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6"/></svg>';
-  // "Pagar con [logo de Mercado Pago]": el logo oficial, no un ícono propio
-  // — es la misma convención que neumaticos-trivium en el botón de pago.
-  const PAGAR_HTML = `Pagar con <img src="${rootPath()}assets/img/mercadopago-logo.svg" alt="Mercado Pago">`;
+  // Logo oficial de Mercado Pago, no un ícono propio — misma convención que
+  // neumaticos-trivium en sus botones de pago. Se reusa en "Comprar ahora" y
+  // en "Pagar con Mercado Pago": es el mismo botón (mismo estilo .tn-go/
+  // .pd-buy-now, mismo logo), aparece en dos pasos distintos del flujo.
+  const MP_LOGO = `<img src="${rootPath()}assets/img/mercadopago-logo.svg" alt="Mercado Pago">`;
+  const PAGAR_HTML = `Pagar con ${MP_LOGO}`;
   const ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
 
   function mount() {
@@ -251,7 +254,7 @@ window.TIENDA = (function () {
       <div class="pd-buy-iva">IVA ${String(pr.iva).replace('.', ',')}% incluido · precio final</div>
       <div class="pd-buy-envio">Envío e instalación a coordinar<span>Los cotizamos según tu localidad después de la compra.</span></div>
       <div class="pd-buy-acts">
-        <button class="pd-buy-now" onclick="TIENDA.buyNow('${sku}')">Comprar ahora</button>
+        <button class="pd-buy-now" onclick="TIENDA.buyNow('${sku}')">Comprar ahora con ${MP_LOGO}</button>
         <button class="pd-buy-add${dentro ? ' on' : ''}" id="pd-add-${sku}" onclick="TIENDA.toggleFrom('${sku}', this)">${dentro ? 'En el carrito' : 'Agregar al carrito'}</button>
       </div>
       <div class="pd-buy-trust">

@@ -93,8 +93,9 @@
 .pd-buy-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
 .pd-buy-row .tn-qty { margin-top: 0; }
 .pd-buy-acts { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
-.pd-buy-now { background: var(--mp-yellow); color: var(--mp-ink); font-size: 15px; font-weight: 800; padding: 13px; border-radius: var(--radius); text-align: center; }
+.pd-buy-now { background: var(--mp-yellow); color: var(--mp-ink); font-size: 15px; font-weight: 800; padding: 13px; border-radius: var(--radius); text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
 .pd-buy-now:hover { background: var(--mp-yellow-hi); }
+.pd-buy-now img { height: 22px; width: auto; display: block; }
 .pd-buy-add { background: color-mix(in srgb, var(--accent) 10%, #fff); color: var(--accent); font-size: 15px; font-weight: 700; padding: 13px; border-radius: var(--radius); text-align: center; border: 1px solid transparent; }
 .pd-buy-add:hover { background: color-mix(in srgb, var(--accent) 18%, #fff); }
 .pd-buy-add.on { background: var(--bg); color: var(--green); border-color: var(--green); }
