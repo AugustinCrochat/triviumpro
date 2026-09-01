@@ -45,7 +45,7 @@ window.FOLLETO = (function () {
 
   const ICON_GO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
 
-  function card(p, pr, marcaLabel) {
+  function card(p, pr, chip) {
     const img = p.image
       ? `<img src="${rootPath()}${p.image}" alt="${p.name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'Sin imagen'}))">`
       : `<span class="ph">Sin imagen</span>`;
@@ -62,7 +62,7 @@ window.FOLLETO = (function () {
 
     return `
       <a class="fo-card" href="${productUrl(p)}">
-        <div class="fo-thumb">${img}${marcaLabel ? `<span class="fo-chip">${marcaLabel}</span>` : ''}</div>
+        <div class="fo-thumb">${img}${chip}</div>
         <div class="fo-body">
           <h3 class="fo-name">${p.name}</h3>
           ${modelo ? `<div class="fo-model">${modelo}</div>` : ''}
@@ -79,13 +79,30 @@ window.FOLLETO = (function () {
 
     const lista = opts.productos(cat);
     const marcaDe = Object.fromEntries((cat.brands || []).map(b => [b.slug, b.name]));
+    // Con logo cuando la marca lo tiene (BRAND_LOGOS de site.js); si no, texto.
+    const chipDe = (slug) => {
+      if (!slug || !marcaDe[slug]) return '';
+      const logo = (typeof BRAND_LOGOS !== 'undefined') && BRAND_LOGOS[slug];
+      return logo
+        ? `<span class="fo-chip fo-chip-logo"><img src="${rootPath()}${logo}" alt="${marcaDe[slug]}"></span>`
+        : `<span class="fo-chip">${marcaDe[slug]}</span>`;
+    };
 
-    // Secciones en el orden de catalog.categories; adentro, el orden del catálogo.
+    // Secciones en el orden de catalog.categories; adentro, el mismo criterio
+    // que /categoria/: primero por subcategoría en el orden en que están
+    // declaradas (2 columnas, 4 columnas, tijera, pesados, motos...), y dentro
+    // de cada subcategoría el orden del catálogo. El sort es estable, así que
+    // el desempate lo da solo.
+    // Sólo las subcategorías entran al orden: un producto colgado directo de la
+    // categoría padre va al final, igual que en /categoria/ (allá ia === -1).
+    const subOrden = Object.fromEntries(cat.categories.filter(c => c.parent).map((c, i) => [c.slug, i]));
     const buckets = {};
     lista.forEach(p => {
       const t = topCategory(p);
       (buckets[t.name] = buckets[t.name] || { slug: t.slug, items: [] }).items.push(p);
     });
+    Object.values(buckets).forEach(b =>
+      b.items.sort((a, x) => (subOrden[a.category] ?? 999) - (subOrden[x.category] ?? 999)));
     const ordenCat = cat.categories.filter(c => !c.parent).map(c => c.name);
     const grupos = [...ordenCat.filter(g => buckets[g]), ...Object.keys(buckets).filter(g => !ordenCat.includes(g))];
 
@@ -99,7 +116,7 @@ window.FOLLETO = (function () {
       return `<section class="fo-group" data-grupo="${g}">
           <div class="fo-group-head">${icon}<h2>${g}</h2><span class="n">${items.length} ${items.length === 1 ? 'equipo' : 'equipos'}</span><span class="rule"></span></div>
           <div class="fo-grid">${items.map(p =>
-            card(p, precio(opts.items[p.sku], rate, opts.defaultIva), opts.mostrarMarca ? (marcaDe[p.brand] || '') : '')
+            card(p, precio(opts.items[p.sku], rate, opts.defaultIva), opts.mostrarMarca ? chipDe(p.brand) : '')
           ).join('')}</div>
         </section>`;
     };

@@ -62,6 +62,9 @@ a.fo-card:hover .fo-go { background: var(--accent); color: #fff; }
 .fo-thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
 .fo-thumb .ph { font-size: 11px; color: var(--text-mute); }
 .fo-chip { position: absolute; top: 10px; left: 10px; font-size: 9.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; background: #191919; color: #fff; padding: 3px 8px; border-radius: 3px; }
+/* Marca con logo: chip claro con borde para que el logo se lea sobre la foto */
+.fo-chip-logo { background: #fff; border: 1px solid var(--line); padding: 4px 8px; display: inline-flex; align-items: center; }
+.fo-chip-logo img { height: 14px; width: auto; display: block; }
 
 .fo-body { padding: 13px 15px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1; }
 .fo-name { font-size: 14px; font-weight: 700; line-height: 1.3; margin: 0; color: var(--text); transition: color .15s; }
