@@ -241,13 +241,11 @@ window.TIENDA = (function () {
       return;
     }
 
-    const cuota = Math.round(pr.total_ars / 12);
     const dentro = has(sku);
     el.className = 'pd-buy';
     el.innerHTML = `
       <div class="pd-buy-price">${fmt(pr.total_ars)}</div>
       <div class="pd-buy-iva">IVA ${String(pr.iva).replace('.', ',')}% incluido · precio final</div>
-      <div class="pd-buy-cuotas">Hasta 12 cuotas de ${fmt(cuota)} con Mercado Pago</div>
       <div class="pd-buy-envio">Envío e instalación a coordinar<span>Los cotizamos según tu localidad después de la compra.</span></div>
       <div class="pd-buy-acts">
         <button class="pd-buy-now" onclick="TIENDA.buyNow('${sku}')">Comprar ahora</button>
