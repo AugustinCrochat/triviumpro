@@ -94,6 +94,9 @@ window.TIENDA = (function () {
 
   /* ---------- UI ---------- */
   const ICON_CART = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 7H6"/></svg>';
+  // "Pagar con [logo de Mercado Pago]": el logo oficial, no un ícono propio
+  // — es la misma convención que neumaticos-trivium en el botón de pago.
+  const PAGAR_HTML = `Pagar con <img src="${rootPath()}assets/img/mercadopago-logo.svg" alt="Mercado Pago">`;
   const ICON_OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
 
   function mount() {
@@ -186,7 +189,7 @@ window.TIENDA = (function () {
             Entiendo que el costo de envío e instalación se acuerda por separado, después de la compra.</label>
         </div>
         <div class="tn-err" id="tn-err" hidden></div>
-        <button class="tn-go" id="tn-go" disabled onclick="TIENDA.pagar()">Pagar con Mercado Pago</button>
+        <button class="tn-go" id="tn-go" disabled onclick="TIENDA.pagar()">${PAGAR_HTML}</button>
         <p class="tn-wa">¿Preferís coordinarlo con una persona? <a href="${wa}" target="_blank" rel="noopener">Escribinos por WhatsApp</a>.</p>`
       : `
         <p class="tn-note">El pago online está momentáneamente fuera de servicio. Cerramos la compra por WhatsApp con el mismo precio.</p>
@@ -222,7 +225,7 @@ window.TIENDA = (function () {
       location.href = data.init_point;
     } catch (e) {
       err.textContent = e.message; err.hidden = false;
-      btn.disabled = false; btn.textContent = 'Pagar con Mercado Pago';
+      btn.disabled = false; btn.innerHTML = PAGAR_HTML;
     }
   }
 

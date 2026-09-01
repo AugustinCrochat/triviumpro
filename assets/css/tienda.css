@@ -1,12 +1,23 @@
 /* Ecommerce compartido — carrito, checkout y bloque de compra.
  *
- * Lo usan /tienda/, las fichas de los equipos Trivium Pro con precio y
- * /marca/trivium-pro/. Vive acá y no dentro de tienda/index.html porque el
- * carrito tiene que ser el mismo en todo el recorrido: si el visitante agrega
- * un elevador desde la ficha y después va a la tienda, el carrito lo sigue.
+ * Lo usan las fichas de los equipos Trivium Pro con precio. El carrito tiene
+ * que ser el mismo en todo el recorrido, por eso vive en un módulo aparte y no
+ * dentro de una página puntual: si el visitante agrega un elevador desde una
+ * ficha y sigue navegando, el carrito lo sigue.
  *
  * Depende de los tokens de styles.css (--accent, --line, --bg, ...).
+ *
+ * Los botones que llevan directo al pago (Comprar ahora / Pagar con Mercado
+ * Pago) usan el amarillo oficial de Mercado Pago en vez del rojo de marca:
+ * mismo criterio que neumaticos-trivium (apps/neumaticos-trivium), donde ese
+ * amarillo + texto oscuro es la señal visual de "esto te lleva a MP". El resto
+ * del carrito (cantidad, quitar, notas) sigue con los tokens del sitio.
  */
+:root {
+  --mp-yellow: #FFE600;
+  --mp-yellow-hi: #f5dc00;
+  --mp-ink: #001f52; /* mismo tono que usa el botón oficial de MP sobre amarillo */
+}
 
 /* ---------- Botón flotante del carrito ----------
    Va a la izquierda a propósito: .wa-float del sitio ocupa la esquina derecha
@@ -50,9 +61,10 @@
 .tn-total span { font-size: 14px; color: var(--text-dim); }
 .tn-total b { font-size: 24px; font-weight: 800; letter-spacing: -.02em; }
 .tn-note { font-size: 12px; color: var(--text-dim); background: var(--bg-2); border-left: 3px solid var(--accent); padding: 10px 12px; line-height: 1.5; border-radius: 0 var(--radius) var(--radius) 0; }
-.tn-go { background: var(--accent); color: #fff; font-size: 15px; font-weight: 700; padding: 13px; border-radius: var(--radius); text-align: center; width: 100%; }
-.tn-go:hover { background: var(--accent-hi); }
+.tn-go { background: var(--mp-yellow); color: var(--mp-ink); font-size: 15px; font-weight: 800; padding: 13px; border-radius: var(--radius); text-align: center; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.tn-go:hover { background: var(--mp-yellow-hi); }
 .tn-go[disabled] { opacity: .55; cursor: not-allowed; }
+.tn-go img { height: 22px; width: auto; display: block; }
 .tn-wa { text-align: center; font-size: 13px; color: var(--text-dim); }
 .tn-wa a { color: var(--accent); font-weight: 600; text-decoration: underline; }
 .tn-empty { padding: 40px 0; text-align: center; color: var(--text-mute); font-size: 14px; }
@@ -81,8 +93,8 @@
 .pd-buy-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
 .pd-buy-row .tn-qty { margin-top: 0; }
 .pd-buy-acts { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
-.pd-buy-now { background: var(--accent); color: #fff; font-size: 15px; font-weight: 700; padding: 13px; border-radius: var(--radius); text-align: center; }
-.pd-buy-now:hover { background: var(--accent-hi); }
+.pd-buy-now { background: var(--mp-yellow); color: var(--mp-ink); font-size: 15px; font-weight: 800; padding: 13px; border-radius: var(--radius); text-align: center; }
+.pd-buy-now:hover { background: var(--mp-yellow-hi); }
 .pd-buy-add { background: color-mix(in srgb, var(--accent) 10%, #fff); color: var(--accent); font-size: 15px; font-weight: 700; padding: 13px; border-radius: var(--radius); text-align: center; border: 1px solid transparent; }
 .pd-buy-add:hover { background: color-mix(in srgb, var(--accent) 18%, #fff); }
 .pd-buy-add.on { background: var(--bg); color: var(--green); border-color: var(--green); }
