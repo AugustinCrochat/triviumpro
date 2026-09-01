@@ -48,6 +48,9 @@ const BRAND_LOGOS = {
   'direct-lift':  'assets/img/marcas/logo-direct-lift.svg',
   'forward-lift': 'assets/img/marcas/logo-forward-lift.svg',
   'trivium-pro':  'assets/img/marcas/logo-trivium-pro.svg',
+  // Existía el archivo en assets/img/marcas/ pero faltaba acá: Prevost nunca
+  // mostraba su logo en ningún lado por este olvido.
+  'prevost':      'assets/img/marcas/logo-prevost.svg',
 };
 
 const MAIN_BRANDS = ['rotary-lift', 'hofmann', 'direct-lift', 'trivium-pro'];
@@ -349,10 +352,16 @@ function productCard(p) {
   }
 
   const brandTag = `<span class="brand-tag">${brand.name}</span>`;
+  // Logo de marca sobre la foto, cuando la marca tiene uno (BRAND_LOGOS). Las
+  // que no tienen (Haweka, Josam, Prevost...) se quedan con el brandTag de
+  // texto de abajo, que ya existía.
+  const thumbBrand = brand.logo
+    ? `<span class="thumb-brand"><img src="${rootPath()}${brand.logo}" alt="${brand.name}"></span>` : '';
   return `
     <a class="prod-card" href="${productUrl(p)}">
       <div class="thumb">
         ${img}
+        ${thumbBrand}
       </div>
       <div class="body">
         ${brandTag}

@@ -130,6 +130,16 @@ def breadcrumb_html(items, root):
     return ' <span class="sep">/</span> '.join(parts)
 
 
+def brand_logo_rel(slug):
+    """'assets/img/marcas/logo-<slug>.svg' si el archivo existe, si no None.
+
+    Fuente de verdad = el archivo en disco, no un mapa a mano: así no puede
+    desincronizarse del BRAND_LOGOS de site.js (pasó con Prevost: tenía el
+    archivo pero faltaba en el mapa y nunca mostraba su logo)."""
+    rel = f'assets/img/marcas/logo-{slug}.svg'
+    return rel if os.path.exists(os.path.join(BASE_DIR, rel)) else None
+
+
 def product_card_html(prod, brands_by_slug, root):
     """Réplica estática de productCard() de site.js, para que el HTML traiga los links."""
     brand = brands_by_slug.get(prod.get('brand'), {})
@@ -138,6 +148,9 @@ def product_card_html(prod, brands_by_slug, root):
     if prod.get('image'):
         img = (f'<img src="{esc(root + prod["image"])}" alt="{esc(prod["name"])}" '
                f'loading="lazy" width="400" height="300">')
+    logo = brand_logo_rel(prod.get('brand', ''))
+    thumb_brand = (f'<span class="thumb-brand"><img src="{esc(root + logo)}" alt="{esc(brand_name)}"></span>'
+                   if logo else '')
     specs = ''
     if prod.get('capacity') or prod.get('lift_height'):
         specs = ('<div class="spec">'
@@ -146,7 +159,7 @@ def product_card_html(prod, brands_by_slug, root):
                  '</div>')
     return (
         f'<a class="prod-card" href="{esc(root)}producto/{esc(prod["slug"])}/">'
-        f'<div class="thumb">{img}</div>'
+        f'<div class="thumb">{img}{thumb_brand}</div>'
         f'<div class="body">'
         f'<span class="brand-tag">{esc(brand_name)}</span>'
         f'<h3>{esc(prod["name"])}</h3>'

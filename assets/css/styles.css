@@ -504,6 +504,17 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   position: absolute; top: 10px; left: 10px;
   display: flex; gap: 6px;
 }
+/* Logo de marca sobre la foto, en la grilla de catálogo/categoría/marca. Fondo
+   blanco propio (no depende de que la foto tenga fondo claro) y a todo color:
+   la variante gris/opacidad baja de .brand-tag--logo de abajo es apenas un
+   watermark, no cumple "que se vea el logo". */
+.prod-card .thumb-brand {
+  position: absolute; top: 10px; left: 10px;
+  background: #fff; border: 1px solid var(--line); border-radius: 4px;
+  padding: 4px 8px; display: inline-flex; align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+.prod-card .thumb-brand img { height: 16px; max-width: 72px; width: auto; display: block; object-fit: contain; }
 .prod-card .body {
   padding: 16px 18px 18px;
   display: flex; flex-direction: column; gap: 4px;
