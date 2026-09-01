@@ -1,25 +1,24 @@
-/* Folleto de equipos — renderer compartido.
+/* Folleto/catálogo de equipos — renderer de /folleto-<secreto>/.
  *
- * Lo usan dos páginas con el mismo código y distinto alcance:
- *   /folleto/               marca propia, público
- *   /folleto-<secreto>/     todas las marcas, privado (noindex + Disallow)
+ * Se configura con FOLLETO.render({...}) desde la página. Depende de site.js
+ * (loadCatalog, categoryById, productUrl, rootPath, TRIVIUM, CAT_ICONS) y de
+ * assets/css/folleto.css.
  *
- * Se configura con FOLLETO.render({...}) desde cada página. Depende de site.js
- * (loadCatalog, categoryById, rootPath, TRIVIUM) y de assets/css/folleto.css.
+ * El orden NO se reordena acá: las secciones siguen el orden de
+ * catalog.categories y dentro de cada una los productos quedan como están en
+ * catalog.json, igual que en /catalogo/. Cada ficha es un link a su página de
+ * producto.
  */
 window.FOLLETO = (function () {
-  const GROUP_ORDER = ['Elevadores', 'Alineadoras', 'Balanceadoras', 'Desarmadoras',
-                       'Accesorios de Balanceo', 'Herramientas Neumáticas',
-                       'Equipamiento de Taller', 'Muebles de Taller'];
-
   const fmtARS = (n) => '$ ' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(Math.round(n));
   // El catálogo usa '' y '—' indistintamente para "sin dato".
   const dato = (v) => (v && v !== '—' && v !== '-') ? v : null;
 
-  function topCategoryName(p) {
+  function topCategory(p) {
     const c = categoryById(p.category);
     const parent = c && c.parent ? categoryById(c.parent) : null;
-    return (parent && parent.name) || (c && c.name) || 'Otros';
+    const top = parent || c || {};
+    return { slug: top.slug || '', name: top.name || 'Otros' };
   }
 
   /* Cotización: se prefiere la del Worker para que el folleto muestre el mismo
@@ -41,14 +40,16 @@ window.FOLLETO = (function () {
     const base = rec.fixed_ars != null ? rec.fixed_ars : rec.usd * rate;
     if (base == null || isNaN(base)) return null;
     const iva = rec.iva != null ? rec.iva : defaultIva;
-    return { base: Math.round(base), iva, total: Math.round(base * (1 + iva / 100)) };
+    return { base: Math.round(base), iva, total: Math.round(base * (1 + iva / 100)), modelo: rec.modelo || null };
   }
+
+  const ICON_GO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
 
   function card(p, pr, marcaLabel) {
     const img = p.image
       ? `<img src="${rootPath()}${p.image}" alt="${p.name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'Sin imagen'}))">`
       : `<span class="ph">Sin imagen</span>`;
-    const spec = [dato(p.capacity) && `Cap. <b>${p.capacity}</b>`, dato(p.lift_height) && `Alt. <b>${p.lift_height}</b>`]
+    const spec = [dato(p.capacity) && `Cap. ${p.capacity}`, dato(p.lift_height) && `Alt. ${p.lift_height}`]
       .filter(Boolean).map(s => `<span>${s}</span>`).join('');
 
     const bloque = pr
@@ -56,22 +57,22 @@ window.FOLLETO = (function () {
          <div class="fo-sub">IVA ${String(pr.iva).replace('.', ',')}% incluido · sin IVA ${fmtARS(pr.base)}</div>`
       : `<div class="fo-ask">Consultar precio<span>Disponibilidad a confirmar</span></div>`;
 
+    // Los SKU provisorios del catálogo ("P-3041") no se imprimen.
+    const modelo = [pr && pr.modelo, /^\d{7}$/.test(p.sku) ? 'SKU ' + p.sku : null].filter(Boolean).join(' · ');
+
     return `
-      <article class="fo-card">
-        <div class="fo-thumb">${img}${marcaLabel ? `<span class="fo-brand">${marcaLabel}</span>` : ''}</div>
+      <a class="fo-card" href="${productUrl(p)}">
+        <div class="fo-thumb">${img}${marcaLabel ? `<span class="fo-chip">${marcaLabel}</span>` : ''}</div>
         <div class="fo-body">
           <h3 class="fo-name">${p.name}</h3>
-          <div class="fo-model">${[pr && pr.modelo, /^\d{7}$/.test(p.sku) ? 'SKU ' + p.sku : null].filter(Boolean).join(' · ')}</div>
+          ${modelo ? `<div class="fo-model">${modelo}</div>` : ''}
           ${spec ? `<div class="fo-spec">${spec}</div>` : ''}
-          <div class="fo-price">${bloque}</div>
+          <div class="fo-price"><div class="fo-price-txt">${bloque}</div><span class="fo-go">${ICON_GO}</span></div>
         </div>
-      </article>`;
+      </a>`;
   }
 
-  /* opts:
-       productos(catalog) -> lista de productos a mostrar
-       items              -> { sku: {usd|fixed_ars, iva, modelo} }
-       defaultIva, titulo, bajada, mostrarMarca (bool) */
+  /* opts: productos(catalog), items, defaultIva, titulo, bajada, mostrarMarca */
   async function render(opts) {
     const cat = await loadCatalog();
     const { rate, live } = await getRate();
@@ -79,60 +80,65 @@ window.FOLLETO = (function () {
     const lista = opts.productos(cat);
     const marcaDe = Object.fromEntries((cat.brands || []).map(b => [b.slug, b.name]));
 
+    // Secciones en el orden de catalog.categories; adentro, el orden del catálogo.
     const buckets = {};
-    lista.forEach(p => { const g = topCategoryName(p); (buckets[g] = buckets[g] || []).push(p); });
-    const grupos = [...GROUP_ORDER.filter(g => buckets[g]), ...Object.keys(buckets).filter(g => !GROUP_ORDER.includes(g))];
+    lista.forEach(p => {
+      const t = topCategory(p);
+      (buckets[t.name] = buckets[t.name] || { slug: t.slug, items: [] }).items.push(p);
+    });
+    const ordenCat = cat.categories.filter(c => !c.parent).map(c => c.name);
+    const grupos = [...ordenCat.filter(g => buckets[g]), ...Object.keys(buckets).filter(g => !ordenCat.includes(g))];
 
     const conPrecio = lista.filter(p => opts.items[p.sku]).length;
     const hoy = new Date().toLocaleDateString('es-AR', { day: '2-digit', month: 'long', year: 'numeric' });
 
     const seccion = (g) => {
-      const items = buckets[g].slice().sort((a, b) => a.name.localeCompare(b.name, 'es'));
+      const { slug, items } = buckets[g];
+      const icon = (typeof CAT_ICONS !== 'undefined' && CAT_ICONS[slug])
+        ? `<img src="${rootPath()}${CAT_ICONS[slug]}" alt="">` : '';
       return `<section class="fo-group" data-grupo="${g}">
-          <h2>${g} <span style="color:var(--text-mute);font-weight:600">· ${items.length}</span></h2>
-          <div class="fo-grid">${items.map(p => {
-            const rec = opts.items[p.sku];
-            const pr = precio(rec, rate, opts.defaultIva);
-            if (pr && rec.modelo) pr.modelo = rec.modelo;
-            return card(p, pr, opts.mostrarMarca ? (marcaDe[p.brand] || '') : '');
-          }).join('')}</div>
+          <div class="fo-group-head">${icon}<h2>${g}</h2><span class="n">${items.length} ${items.length === 1 ? 'equipo' : 'equipos'}</span><span class="rule"></span></div>
+          <div class="fo-grid">${items.map(p =>
+            card(p, precio(opts.items[p.sku], rate, opts.defaultIva), opts.mostrarMarca ? (marcaDe[p.brand] || '') : '')
+          ).join('')}</div>
         </section>`;
     };
 
     document.getElementById('fo-doc').innerHTML = `
-      <div class="fo-head">
+      <header class="fo-cover">
         <img src="${rootPath()}assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"
              onerror="this.replaceWith(Object.assign(document.createElement('b'),{textContent:'Trivium Pro'}))">
-        <div>
-          <h1>${opts.titulo}</h1>
-          <p>${opts.bajada}</p>
+        <h1>${opts.titulo}</h1>
+        <p class="sub">${opts.bajada}</p>
+        <div class="fo-cover-band">
+          <div>Vigencia<b>${hoy}</b></div>
+          <div>Dólar oficial venta<b>${fmtARS(rate)}${live ? '' : ' (ref.)'}</b></div>
+          <div>Equipos<b>${lista.length} · ${conPrecio} con precio</b></div>
+          <div>Contacto<b>${TRIVIUM.whatsappDisplay}</b></div>
+          <div>Web<b>pro.trivium.ar</b></div>
         </div>
-        <div class="fo-meta">
-          <div>Vigente al <b>${hoy}</b></div>
-          <div>Dólar oficial venta: <b>${fmtARS(rate)}</b>${live ? '' : ' (referencia)'}</div>
-          <div>${TRIVIUM.whatsappDisplay} · ${TRIVIUM.email}</div>
+      </header>
+      <div class="fo-inner">
+        ${grupos.map(seccion).join('')}
+        <div class="fo-foot">
+          <b>Condiciones.</b> Precios de lista en pesos argentinos, calculados con el dólar oficial venta del día
+          (${fmtARS(rate)}) y sujetos a modificación sin previo aviso. Los precios <b>no incluyen envío ni
+          instalación</b>, que se cotizan aparte según la localidad de entrega. Los equipos sin precio publicado se
+          cotizan a pedido. Consultá disponibilidad antes de cerrar la operación.<br>
+          <b>${TRIVIUM.brand}</b> — ${TRIVIUM.cityLine} · ${TRIVIUM.whatsappDisplay} · ${TRIVIUM.email} · pro.trivium.ar
         </div>
-      </div>
-      ${grupos.map(seccion).join('')}
-      <div class="fo-foot">
-        <b>Condiciones.</b> ${conPrecio} de ${lista.length} equipos con precio de lista publicado; el resto se cotiza a pedido.
-        Precios en pesos argentinos calculados con el dólar oficial venta del día (${fmtARS(rate)}), sujetos a modificación sin previo aviso.
-        <b>No incluyen envío ni instalación</b>, que se cotizan aparte según la localidad de entrega. Consultá disponibilidad antes de cerrar la operación.<br>
-        <b>${TRIVIUM.brand}</b> — ${TRIVIUM.cityLine} · ${TRIVIUM.whatsappDisplay} · ${TRIVIUM.email} · pro.trivium.ar
       </div>`;
 
     // Filtros por rubro: sólo esconden secciones, así el PDF sale con lo que se ve.
     const cont = document.getElementById('fo-filters');
     if (cont) {
       const btn = (v, l, n) => `<button data-f="${v}" class="${v === 'todas' ? 'on' : ''}">${l}${n != null ? ` (${n})` : ''}</button>`;
-      cont.innerHTML = btn('todas', 'Todos los rubros', lista.length) + grupos.map(g => btn(g, g, buckets[g].length)).join('');
+      cont.innerHTML = btn('todas', 'Todos los rubros', lista.length) + grupos.map(g => btn(g, g, buckets[g].items.length)).join('');
       cont.addEventListener('click', (e) => {
         const b = e.target.closest('button'); if (!b) return;
         cont.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
         const f = b.dataset.f;
-        document.querySelectorAll('.fo-group').forEach(s => {
-          s.hidden = !(f === 'todas' || s.dataset.grupo === f);
-        });
+        document.querySelectorAll('.fo-group').forEach(s => { s.hidden = !(f === 'todas' || s.dataset.grupo === f); });
       });
     }
   }
