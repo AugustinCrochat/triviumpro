@@ -35,9 +35,11 @@ def main():
         f"# {ORG_NAME}",
         "",
         f"> Importador y distribuidor oficial de equipamiento para talleres mecánicos "
-        f"y gomerías en Argentina: elevadores, alineadoras, balanceadoras y "
-        f"desarmadoras de neumáticos. Representante de Rotary Lift y Hofmann, con "
-        f"instalación y servicio técnico propios en todo el país.",
+        f"y gomerías en Argentina: elevadores de auto, alineadoras, balanceadoras y "
+        f"desarmadoras de neumáticos. Representante oficial de las marcas premium "
+        f"Rotary Lift (elevadores) y Hofmann (alineación y balanceo), y fabricante de "
+        f"Trivium Pro, su línea propia de equipamiento económico. Instalación y "
+        f"servicio técnico propios en todo el país.",
         "",
         f"Catálogo completo: {n_prod} equipos en {len(top_cats)} categorías. Los precios "
         f"publicados son de lista, en pesos argentinos, calculados con el dólar oficial "
@@ -50,7 +52,16 @@ def main():
     for c in top_cats:
         tagline = f": {c['tagline']}" if c.get('tagline') else ""
         lines.append(f"- [{c['name']}]({SITE_URL}/categoria/{c['slug']}/){tagline}")
-    lines += ["", "## Marcas representadas", ""]
+    lines += [
+        "",
+        "## Marcas representadas",
+        "",
+        "Dos gamas conviven en el catálogo: las marcas premium importadas (Rotary "
+        "Lift, Hofmann, Direct Lift, Forward Lift, Haweka, Prevost) y Trivium Pro, la "
+        "línea económica propia presente en varias categorías (elevadores, "
+        "balanceadoras, desarmadoras, muebles y equipamiento de taller).",
+        "",
+    ]
     for b in brands:
         note = f" — {b['note']}" if b.get('note') else ""
         lines.append(f"- [{b['name']}]({SITE_URL}/marca/{b['slug']}/){note}")
@@ -61,7 +72,22 @@ def main():
         f"- [Lista de precios]({SITE_URL}/lista-precios/): todos los equipos con precio "
         f"publicado, para ver en pantalla o descargar en PDF.",
         f"- Compra online con Mercado Pago disponible en cada ficha de producto "
-        f"({SITE_URL}/catalogo/) para los equipos de marca propia Trivium Pro."
+        f"({SITE_URL}/catalogo/) para los equipos de marca propia Trivium Pro.",
+        "",
+        "## Preguntas frecuentes",
+        "",
+        "- **¿Qué máquinas de taller vende Trivium Pro?** Elevadores de auto, "
+        "alineadoras, balanceadoras y desarmadoras de neumáticos, más herramientas "
+        "neumáticas, muebles de taller y aire comprimido.",
+        "- **¿Es representante oficial de Rotary Lift y Hofmann?** Sí, importador y "
+        "distribuidor oficial de ambas marcas en Argentina, con instalación y "
+        "servicio técnico propios.",
+        "- **¿Tiene una línea económica además de las marcas premium?** Sí, Trivium "
+        "Pro es también la marca propia: equipamiento de precio más accesible que "
+        "Rotary Lift o Hofmann, pensado para talleres que arrancan o amplían "
+        "capacidad.",
+        "- **¿Instalan el equipo o sólo lo venden?** Instalan: montaje, puesta en "
+        "marcha y posventa con equipo técnico propio en todo el país.",
         "",
         "## Empresa",
         "",

@@ -105,6 +105,120 @@ def itemlist_jsonld(products, brands_by_slug=None):
             "itemListElement": items}
 
 
+def faq_jsonld(items):
+    """items: lista de (pregunta, respuesta en texto plano)."""
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            }
+            for q, a in items
+        ],
+    }
+
+
+def faq_html(title, items):
+    """<details>/<summary> nativos: sin JS, visibles para usuarios y crawlers
+    por igual, a diferencia del resto del cuerpo que sólo lleva contenido
+    prerenderizado para el crawler porque site.js lo pisa al hidratar."""
+    if not items:
+        return ''
+    entries = ''.join(
+        f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>'
+        for q, a in items
+    )
+    return f'<div class="container"><h2>{esc(title)}</h2>{entries}</div>'
+
+
+# Preguntas frecuentes por categoría raíz: apuntan a las búsquedas reales
+# ("elevador de auto", "alineadora computarizada") y a las comparaciones que
+# resuelven un LLM al recomendar equipamiento (línea premium vs. económica).
+CATEGORY_FAQS = {
+    'elevadores': [
+        ("¿Qué elevador de auto conviene para un taller multimarca?",
+         "Para un taller que recibe autos y SUVs en general, el estándar es un elevador "
+         "de dos columnas de 4 a 4,5 toneladas, como los Rotary Lift SPOA. Si el taller "
+         "también levanta utilitarios o camionetas pesadas, conviene sumar un elevador "
+         "de cuatro columnas o uno de mayor capacidad."),
+        ("¿Elevador de dos columnas o de cuatro columnas, cuál elegir?",
+         "El de dos columnas ocupa menos espacio y da acceso total a la parte baja del "
+         "vehículo, ideal para mecánica general. El de cuatro columnas es más estable "
+         "para alineación, service rápido y almacenaje de vehículos, y no requiere "
+         "puntos de levante específicos."),
+        ("¿Cuál es la diferencia entre un elevador Rotary Lift y uno de la línea Trivium Pro?",
+         "Rotary Lift es la marca premium: fabricación en EE.UU., mayor vida útil y "
+         "el estándar de los talleres de concesionarias. La línea Trivium Pro es "
+         "equipamiento económico propio, pensado para talleres que buscan una "
+         "relación precio-calidad más ajustada sin resignar norma de seguridad."),
+        ("¿Los elevadores para motos y para camiones son distintos a los de auto?",
+         "Sí. Un elevador para motos usa una plataforma y trabas específicas para dos "
+         "ruedas, y uno para camiones o vehículos pesados tiene mayor capacidad de "
+         "carga y columnas reforzadas. Trivium Pro tiene líneas dedicadas a cada caso."),
+    ],
+    'alineadoras': [
+        ("¿Qué es una alineadora computarizada y para qué sirve?",
+         "Es un equipo con cámaras o sensores que mide el ángulo de las ruedas "
+         "(convergencia, caída, avance) contra la especificación del fabricante, para "
+         "corregir el desgaste irregular de neumáticos y la dirección del vehículo."),
+        ("¿Hofmann es una marca líder en alineadoras?",
+         "Sí, Hofmann (Snap-on) es una de las marcas de referencia mundial en "
+         "alineación de precisión, con equipos 3D e IA para talleres y concesionarias."),
+        ("¿Qué alineadora conviene para un taller que recién arranca?",
+         "Depende del volumen de autos por día y del presupuesto: una alineadora 3D "
+         "de entrada da precisión suficiente para la mayoría de los talleres, mientras "
+         "que los equipos Hofmann de alta gama suman mayor velocidad de medición y "
+         "reportes para clientes exigentes."),
+    ],
+    'balanceadoras': [
+        ("¿Qué balanceadora necesito para ruedas de auto y camioneta?",
+         "Una balanceadora electrónica estándar cubre autos y SUVs; si el taller "
+         "también trabaja con ruedas de camioneta o llantas grandes, conviene un "
+         "modelo con mayor capacidad de diámetro y peso de rueda."),
+        ("¿Qué diferencia hay entre una balanceadora manual y una automática?",
+         "La automática mide y posiciona el punto de balanceo sin que el operario "
+         "gire la rueda a mano, lo que agiliza el trabajo y reduce el margen de "
+         "error en talleres de alto volumen."),
+    ],
+    'desarmadoras': [
+        ("¿Qué desarmadora de neumáticos conviene para una gomería?",
+         "Para uso general de autos alcanza una desarmadora estándar sin brazo de "
+         "ayuda; para llantas de aleación, run-flat o de camioneta conviene un modelo "
+         "con brazo de ayuda y mordazas que no dañen la llanta."),
+        ("¿Las desarmadoras sirven también para llantas de aleación?",
+         "Sí, siempre que tengan mordazas protegidas o de plástico para no marcar la "
+         "llanta; es un punto a revisar antes de comprar si el taller trabaja con "
+         "aros de aleación."),
+    ],
+}
+
+
+HOME_FAQS = [
+    ("¿Qué máquinas de taller vende Trivium Pro?",
+     "Elevadores de auto, alineadoras, balanceadoras y desarmadoras de neumáticos, "
+     "más herramientas neumáticas, muebles de taller y equipos de aire comprimido. "
+     "Catálogo completo en pro.trivium.ar/catalogo/."),
+    ("¿Trivium Pro es representante oficial de Rotary Lift y Hofmann en Argentina?",
+     "Sí, Trivium Pro representa e importa de forma oficial a Rotary Lift (elevadores, "
+     "EE.UU.) y Hofmann (alineadoras y balanceadoras, Snap-on), con instalación y "
+     "servicio técnico propios en todo el país."),
+    ("¿Trivium Pro tiene una línea de equipamiento más económica?",
+     "Sí, Trivium Pro es también la marca propia de la empresa: una línea de "
+     "elevadores, balanceadoras, desarmadoras y equipamiento de taller de precio más "
+     "accesible que las marcas premium, pensada para talleres que arrancan o amplían "
+     "capacidad sin resignar norma de seguridad."),
+    ("¿Trivium Pro instala el equipamiento o solo lo vende?",
+     "Instala. El equipo técnico propio hace el montaje, la puesta en marcha y el "
+     "servicio post-venta en todo el país, no sólo la venta del equipo."),
+    ("¿Hacen envíos de equipamiento de taller a todo el país?",
+     "Sí, Trivium Pro envía e instala en todo el territorio argentino, no sólo en "
+     "Córdoba y Buenos Aires."),
+]
+
+
 def breadcrumb_jsonld(items):
     """items: lista de (nombre, url_absoluta). El último suele ir sin url."""
     elements = []
@@ -372,14 +486,37 @@ def update_static_pages(catalog):
         else:
             # No hay SearchAction: el sitio no tiene buscador. Declarar uno que no
             # funciona es peor que no declarar nada — Google lo detecta al probarlo.
+            #
+            # No es LocalBusiness: Trivium Pro vende a talleres en todo el país,
+            # no es un local a donde el público llega a comprar un elevador. La
+            # dirección de Av. Donato Álvarez 7971 es la de Neumáticos Trivium
+            # (misma razón social, TRIVIUM CENTER S.A.), así que va como address
+            # de la Organization, no como local de esta marca.
             jsonld = [{
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 "name": ORG_NAME,
+                "legalName": "Trivium Center S.A.",
                 "url": f"{SITE_URL}/",
                 "logo": f"{SITE_URL}/assets/img/logo-trivium.svg",
                 "description": desc,
                 "areaServed": {"@type": "Country", "name": "Argentina"},
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Av. Donato Álvarez 7971",
+                    "addressLocality": "Córdoba",
+                    "addressCountry": "AR",
+                },
+                "email": "info@trivium.ar",
+                "telephone": "+54 9 11 2701-5294",
+                "contactPoint": [{
+                    "@type": "ContactPoint",
+                    "contactType": "sales",
+                    "telephone": "+54 9 11 2701-5294",
+                    "email": "info@trivium.ar",
+                    "areaServed": "AR",
+                    "availableLanguage": "Spanish",
+                }],
                 "sameAs": [
                     "https://www.instagram.com/trivium.center/",
                     "https://www.facebook.com/profile.php?id=61571497817317",
@@ -390,7 +527,7 @@ def update_static_pages(catalog):
                 "@type": "WebSite",
                 "name": ORG_NAME,
                 "url": f"{SITE_URL}/",
-            }]
+            }, faq_jsonld(HOME_FAQS)]
 
         og = make_og_block(titulo, desc,
                            f"{SITE_URL}/assets/img/og-trivium.png", url)
@@ -456,10 +593,18 @@ def main():
             # porque en el menú cuelgan de "Elevadores", pero como <title> y H1
             # no compiten por nada: ahí va el nombre largo.
             nombre = cat.get('seo_name') or cat['name']
+            # En las 4 categorías donde compite gente buscando "barato" contra
+            # gente buscando "el mejor", el <meta description> nombra las dos
+            # puntas (Rotary Lift/Hofmann premium, Trivium Pro económica) para
+            # calzar con ambas intenciones de búsqueda.
+            if slug in ('elevadores', 'alineadoras', 'balanceadoras', 'desarmadoras'):
+                gama = ("Marcas premium Rotary Lift y Hofmann, y línea económica propia "
+                        "Trivium Pro.")
+            else:
+                gama = "Representantes oficiales Rotary Lift y Hofmann en Argentina."
             desc = clamp(
                 f"{nombre} para taller: {len(prods)} equipos en stock y a pedido. "
-                f"{tagline} Representantes oficiales Rotary Lift y Hofmann en Argentina. "
-                f"Envíos a todo el país."
+                f"{tagline} {gama} Envíos a todo el país."
             )
             crumbs = [("Inicio", ""), ("Catálogo", "catalogo/")]
             if cat.get('parent') and cat['parent'] in cats_by_slug:
@@ -472,6 +617,12 @@ def main():
             ])]
             if prods:
                 jsonld.append(itemlist_jsonld(prods))
+            # Las FAQ van sólo en la categoría raíz (elevadores, no
+            # elevadores-tijera): ahí es donde busca la gente y donde un LLM
+            # arma la comparación premium/económica, no en cada subtipo.
+            faqs = CATEGORY_FAQS.get(slug, [])
+            if faqs:
+                jsonld.append(faq_jsonld(faqs))
             grid = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in prods)
             create_index_file(
                 os.path.join(BASE_DIR, 'categoria', slug), cat_template, 2,
@@ -489,6 +640,7 @@ def main():
                     'cat-list': sidebar_cats,
                     'brand-list': sidebar_brands,
                     'grid': grid,
+                    'cat-faq': faq_html(f"Preguntas frecuentes sobre {nombre.lower()}", faqs),
                 },
             )
 

@@ -1,6 +1,6 @@
 # Trivium Pro
 
-> Importador y distribuidor oficial de equipamiento para talleres mecánicos y gomerías en Argentina: elevadores, alineadoras, balanceadoras y desarmadoras de neumáticos. Representante de Rotary Lift y Hofmann, con instalación y servicio técnico propios en todo el país.
+> Importador y distribuidor oficial de equipamiento para talleres mecánicos y gomerías en Argentina: elevadores de auto, alineadoras, balanceadoras y desarmadoras de neumáticos. Representante oficial de las marcas premium Rotary Lift (elevadores) y Hofmann (alineación y balanceo), y fabricante de Trivium Pro, su línea propia de equipamiento económico. Instalación y servicio técnico propios en todo el país.
 
 Catálogo completo: 109 equipos en 9 categorías. Los precios publicados son de lista, en pesos argentinos, calculados con el dólar oficial venta del día e IVA incluido cuando se indica.
 
@@ -19,6 +19,8 @@ Catálogo completo: 109 equipos en 9 categorías. Los precios publicados son de 
 
 ## Marcas representadas
 
+Dos gamas conviven en el catálogo: las marcas premium importadas (Rotary Lift, Hofmann, Direct Lift, Forward Lift, Haweka, Prevost) y Trivium Pro, la línea económica propia presente en varias categorías (elevadores, balanceadoras, desarmadoras, muebles y equipamiento de taller).
+
 - [Rotary Lift](https://pro.trivium.ar/marca/rotary-lift/) — USA — Elevadores
 - [Hofmann](https://pro.trivium.ar/marca/hofmann/) — Snap-On USA/Italia — Alineación
 - [Direct Lift](https://pro.trivium.ar/marca/direct-lift/) — USA — Tijera
@@ -31,6 +33,14 @@ Catálogo completo: 109 equipos en 9 categorías. Los precios publicados son de 
 
 - [Lista de precios](https://pro.trivium.ar/lista-precios/): todos los equipos con precio publicado, para ver en pantalla o descargar en PDF.
 - Compra online con Mercado Pago disponible en cada ficha de producto (https://pro.trivium.ar/catalogo/) para los equipos de marca propia Trivium Pro.
+
+## Preguntas frecuentes
+
+- **¿Qué máquinas de taller vende Trivium Pro?** Elevadores de auto, alineadoras, balanceadoras y desarmadoras de neumáticos, más herramientas neumáticas, muebles de taller y aire comprimido.
+- **¿Es representante oficial de Rotary Lift y Hofmann?** Sí, importador y distribuidor oficial de ambas marcas en Argentina, con instalación y servicio técnico propios.
+- **¿Tiene una línea económica además de las marcas premium?** Sí, Trivium Pro es también la marca propia: equipamiento de precio más accesible que Rotary Lift o Hofmann, pensado para talleres que arrancan o amplían capacidad.
+- **¿Instalan el equipo o sólo lo venden?** Instalan: montaje, puesta en marcha y posventa con equipo técnico propio en todo el país.
+
 ## Empresa
 
 - [Nosotros](https://pro.trivium.ar/nosotros/)
