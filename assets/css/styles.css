@@ -426,6 +426,12 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 .cat-faq details[open] summary::after { content: '−'; }
 .cat-faq details p { margin-top: 10px; color: var(--muted, #666); line-height: 1.55; }
 
+/* ---------- Guías del blog relacionadas (en categoría) ---------- */
+.cat-blog-links { padding: 56px 0 72px; }
+.cat-blog-links:empty { display: none; }
+.cat-blog-links .container { max-width: 1100px; }
+.cat-blog-links h2 { margin-bottom: 24px; }
+
 /* ---------- Category grid ---------- */
 .cat-grid {
   display: grid;

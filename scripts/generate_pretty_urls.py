@@ -219,6 +219,57 @@ HOME_FAQS = [
 ]
 
 
+# Notas técnicas del blog que ya existen y responden justo lo que busca
+# alguien en esa categoría — evita escribir contenido nuevo redundante:
+# el blog ya tiene guías profundas, sólo faltaba enlazarlas desde acá.
+CATEGORY_BLOG_POSTS = {
+    'elevadores': [
+        'como-elegir-el-elevador-adecuado-para-hacer-alineacion',
+        'diferencias-entre-elevadores-de-2-columnas-de-piso-libre-y-travesano-al-piso',
+        'elevador-de-4-columnas-vs-elevador-de-tijera-largo-cual-elegir-para-alineacion',
+        'que-tipo-de-elevador-elegir-para-cambio-de-aceite',
+        'por-que-elegir-un-elevador-con-brazos-all-vehicle-de-rotary-lift',
+        'especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas',
+    ],
+    'alineadoras': [
+        'como-elegir-la-alineadora-de-autos-ideal-para-tu-taller',
+        'como-funciona-una-alineadora-y-su-importancia-en-talleres-y-gomerias',
+        'como-se-alinea-un-vehiculo-con-una-alineadora-3d',
+        'alineadoras-5d-el-mito-de-las-dimensiones-en-equipos-de-alineacion',
+        'los-beneficios-de-tener-una-alineadora-en-tu-taller-o-gomeria',
+        'como-funciona-la-alineacion-3d-de-autos-tecnologia-y-beneficios',
+    ],
+    'balanceadoras': [
+        'balanceadoras-de-ruedas-con-o-sin-monitor-cual-elegir',
+        'autocalibracion-en-una-balanceadora-de-ruedas-que-es-y-por-que-es-importante',
+        'errores-comunes-al-usar-una-balanceadora-y-como-evitarlos',
+        'por-que-incorporar-una-balanceadora-de-ruedas-en-tu-gomeria-es-una-decision-inteligente',
+        'la-importancia-de-balancear-ruedas-beneficios-clave-para-talleres-y-gomerias',
+    ],
+    'desarmadoras': [
+        'para-que-sirve-el-brazo-auxiliar-en-una-desarmadora-de-neumaticos',
+        'como-funcionan-las-desarmadoras-para-neumaticos-runflat-guia-para-talleres-y-gomerias',
+        'como-mantener-tu-desarmadora-trivium-center-en-optimas-condiciones',
+        'equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos',
+    ],
+}
+
+
+def blog_links_html(title, slugs, blog_by_slug, root):
+    """Grilla de notas del blog relacionadas, con las mismas clases prod-card
+    que usa el blog para 'Más noticias': no suma CSS nueva."""
+    posts = [blog_by_slug[s] for s in slugs if s in blog_by_slug]
+    if not posts:
+        return ''
+    cards = ''.join(
+        f'<a class="prod-card" href="{esc(root)}blog/{esc(p["slug"])}/">'
+        f'<div class="body"><h3>{esc(html_lib.unescape(p["title"]))}</h3></div></a>'
+        for p in posts
+    )
+    return (f'<div class="container"><h2>{esc(title)}</h2>'
+            f'<div class="prod-grid">{cards}</div></div>')
+
+
 def breadcrumb_jsonld(items):
     """items: lista de (nombre, url_absoluta). El último suele ir sin url."""
     elements = []
@@ -546,6 +597,12 @@ def main():
     offers_by_sku, dolar_rate = load_public_offers()
     print(f"  ({len(offers_by_sku)} equipos con precio público para el schema Offer)")
 
+    blog_path = os.path.join(BASE_DIR, 'data', 'blog.json')
+    blog_by_slug = {}
+    if os.path.exists(blog_path):
+        with open(blog_path, encoding='utf-8') as f:
+            blog_by_slug = {p['slug']: p for p in json.load(f)}
+
     # 1. Main Pages
     main_pages = {
         'nosotros.html': 'nosotros',
@@ -623,6 +680,8 @@ def main():
             faqs = CATEGORY_FAQS.get(slug, [])
             if faqs:
                 jsonld.append(faq_jsonld(faqs))
+            posts_html = blog_links_html(
+                "Guías relacionadas", CATEGORY_BLOG_POSTS.get(slug, []), blog_by_slug, root2)
             grid = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in prods)
             create_index_file(
                 os.path.join(BASE_DIR, 'categoria', slug), cat_template, 2,
@@ -641,6 +700,7 @@ def main():
                     'brand-list': sidebar_brands,
                     'grid': grid,
                     'cat-faq': faq_html(f"Preguntas frecuentes sobre {nombre.lower()}", faqs),
+                    'cat-posts': posts_html,
                 },
             )
 

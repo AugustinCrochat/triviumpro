@@ -118,6 +118,46 @@ def inject_head(content, title, og_block, seo_block):
     return content.replace('</head>', og_block + '\n' + seo_block + '\n</head>', 1)
 
 
+# Inverso de scripts/generate_pretty_urls.py:CATEGORY_BLOG_POSTS — qué
+# categoría linkear al pie de cada nota, para que el lector (o un crawler)
+# pueda ir de la guía a los equipos reales sin buscar. Mantenido a mano acá
+# porque este script no importa el otro (son independientes en el pipeline).
+POST_CATEGORY = {}
+for _cat_slug, _cat_name, _posts in [
+    ('elevadores', 'Elevadores', [
+        'como-elegir-el-elevador-adecuado-para-hacer-alineacion',
+        'diferencias-entre-elevadores-de-2-columnas-de-piso-libre-y-travesano-al-piso',
+        'elevador-de-4-columnas-vs-elevador-de-tijera-largo-cual-elegir-para-alineacion',
+        'que-tipo-de-elevador-elegir-para-cambio-de-aceite',
+        'por-que-elegir-un-elevador-con-brazos-all-vehicle-de-rotary-lift',
+        'especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas',
+    ]),
+    ('alineadoras', 'Alineadoras', [
+        'como-elegir-la-alineadora-de-autos-ideal-para-tu-taller',
+        'como-funciona-una-alineadora-y-su-importancia-en-talleres-y-gomerias',
+        'como-se-alinea-un-vehiculo-con-una-alineadora-3d',
+        'alineadoras-5d-el-mito-de-las-dimensiones-en-equipos-de-alineacion',
+        'los-beneficios-de-tener-una-alineadora-en-tu-taller-o-gomeria',
+        'como-funciona-la-alineacion-3d-de-autos-tecnologia-y-beneficios',
+    ]),
+    ('balanceadoras', 'Balanceadoras', [
+        'balanceadoras-de-ruedas-con-o-sin-monitor-cual-elegir',
+        'autocalibracion-en-una-balanceadora-de-ruedas-que-es-y-por-que-es-importante',
+        'errores-comunes-al-usar-una-balanceadora-y-como-evitarlos',
+        'por-que-incorporar-una-balanceadora-de-ruedas-en-tu-gomeria-es-una-decision-inteligente',
+        'la-importancia-de-balancear-ruedas-beneficios-clave-para-talleres-y-gomerias',
+    ]),
+    ('desarmadoras', 'Desarmadoras', [
+        'para-que-sirve-el-brazo-auxiliar-en-una-desarmadora-de-neumaticos',
+        'como-funcionan-las-desarmadoras-para-neumaticos-runflat-guia-para-talleres-y-gomerias',
+        'como-mantener-tu-desarmadora-trivium-center-en-optimas-condiciones',
+        'equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos',
+    ]),
+]:
+    for _slug in _posts:
+        POST_CATEGORY[_slug] = (_cat_slug, _cat_name)
+
+
 def update_blog():
     with open(BASE_DIR / 'data' / 'blog.json', encoding='utf-8') as f:
         posts = json.load(f)
@@ -179,6 +219,13 @@ def update_blog():
             hero = (f'<p><img src="{esc(root + image_path)}" alt="{esc(title)}" '
                     f'width="1200" height="630"></p>')
         body_html = hero + (post.get('content') or post.get('excerpt') or '')
+        cat = POST_CATEGORY.get(slug)
+        if cat:
+            cat_slug, cat_name = cat
+            body_html += (
+                f'<p class="post-cat-cta"><a href="{esc(root)}categoria/{esc(cat_slug)}/">'
+                f'Ver equipos de {esc(cat_name.lower())} en Trivium Pro →</a></p>'
+            )
 
         more = [p for p in by_date if p['slug'] != slug][:6]
         more_html = ''.join(
