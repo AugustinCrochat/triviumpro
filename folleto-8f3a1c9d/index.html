@@ -11,16 +11,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/styles.css">
-<link rel="stylesheet" href="../assets/css/folleto.css?v=20260831e">
+<link rel="stylesheet" href="../assets/css/folleto.css?v=20260907a">
 </head>
 <body>
 <div id="site-header"></div>
 
 <div class="fo-actions">
   <div class="fo-actions-in">
-    <p>Catálogo completo con precios de todas las marcas representadas.</p>
+    <p id="fo-actions-txt">Catálogo completo con precios de todas las marcas representadas.</p>
     <span class="sp"></span>
     <a class="fo-btn fo-ghost" href="../catalogo/">Ver catálogo</a>
+    <button class="fo-btn fo-ghost" id="fo-share-toggle" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 10.5 6.8-3.9M8.6 13.5l6.8 3.9"/></svg>
+      Compartir con un cliente
+    </button>
     <button class="fo-btn fo-primary" onclick="window.print()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/></svg>
       Descargar PDF
@@ -28,13 +32,15 @@
   </div>
 </div>
 
+<div class="fo-share-panel" id="fo-share-panel" hidden></div>
+
 <div class="fo-filters" id="fo-filters"></div>
 <main class="fo-doc" id="fo-doc"><div class="fo-loading">Cargando equipos y precios del día…</div></main>
 
 <div id="site-footer"></div>
 
-<script src="../assets/js/site.js?v=20260831e"></script>
-<script src="../assets/js/folleto.js?v=20260831e"></script>
+<script src="../assets/js/site.js?v=20260907a"></script>
+<script src="../assets/js/folleto.js?v=20260907a"></script>
 <script>mountChrome('');</script>
 <script src="precios.js"></script>
 <script>
