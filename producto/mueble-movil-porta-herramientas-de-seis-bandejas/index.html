@@ -105,6 +105,7 @@
 
 <section>
   <div class="container">
+    <div id="pd-back-folleto"></div>
     <div class="breadcrumbs" id="crumbs" style="margin-top:24px"><span>Inicio</span> <span class="sep">/</span> <a href="../../catalogo/">Catálogo</a> <span class="sep">/</span> <a href="../../categoria/muebles-taller/">Muebles de Taller</a> <span class="sep">/</span> <span>Mueble Móvil Porta Herramientas de Seis Bandejas</span></div>
     <div class="pd-wrap" id="pd-wrap"><article class="pd-static"><div class="pd-media"><img src="../../assets/img/productos/tbr3006-x.webp" alt="Mueble Móvil Porta Herramientas de Seis Bandejas" width="800" height="600"></div><div class="pd-info"><h1>Mueble Móvil Porta Herramientas de Seis Bandejas</h1><p class="pd-summary">Clic para Descargar PDF .</p><dl class="pd-specs"><dt>Capacidad</dt><dd>—</dd><dt>Altura de elevación</dt><dd>—</dd><dt>SKU</dt><dd>1010046</dd></dl><embed src="../../assets/pdf/mesa-tbr3006-x-6-cajones-para-taller.pdf" type="application/pdf" width="100%" height="700"></embed>
 
@@ -218,6 +219,22 @@ Clic para <a href="../../assets/pdf/mesa-tbr3006-x-6-cajones-para-taller.pdf">De
 <script src="../../assets/js/tienda.js"></script>
 <script>
 mountChrome('catalogo');
+
+// Si se llegó acá desde el folleto (catálogo imprimible o un link de
+// selección compartido), un botón para volver evita depender del botón
+// "atrás" del navegador — y como usa el referrer completo, vuelve a la
+// misma selección/filtro en la que estaba, no al folleto en blanco.
+try {
+  const ref = document.referrer;
+  if (ref) {
+    const refUrl = new URL(ref);
+    if (refUrl.origin === location.origin && /^\/folleto-/.test(refUrl.pathname)) {
+      document.getElementById('pd-back-folleto').innerHTML =
+        `<a class="pd-back-link" href="${ref}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Volver al folleto</a>`;
+    }
+  }
+} catch (e) {}
+
 (async () => {
   await loadCatalog();
   const slug = getQuery('id');

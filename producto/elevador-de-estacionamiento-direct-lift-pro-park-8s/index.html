@@ -105,6 +105,7 @@
 
 <section>
   <div class="container">
+    <div id="pd-back-folleto"></div>
     <div class="breadcrumbs" id="crumbs" style="margin-top:24px"><span>Inicio</span> <span class="sep">/</span> <a href="../../catalogo/">Catálogo</a> <span class="sep">/</span> <a href="../../categoria/elevadores/">Elevadores</a> <span class="sep">/</span> <a href="../../categoria/elevadores-4-columnas/">4 Columnas</a> <span class="sep">/</span> <span>Elevador de Estacionamiento - Direct Lift Pro Park 8S</span></div>
     <div class="pd-wrap" id="pd-wrap"><article class="pd-static"><div class="pd-media"><img src="../../assets/img/productos/elevador-estacionamiento-direct-lift-pro-park-8s.webp" alt="Elevador de Estacionamiento - Direct Lift Pro Park 8S" width="800" height="600"></div><div class="pd-info"><h1>Elevador de Estacionamiento - Direct Lift Pro Park 8S</h1><p class="pd-brand"><a href="../../marca/direct-lift/">Direct Lift</a></p><p class="pd-summary">Capacidad de 3630 kg y diseño móvil , ideal para cocheras o garajes. · 9 posiciones de bloqueo y rampas de acero incluidas , ofreciendo versatilidad y seguridad. · Acabado duradero y sistema de doble cerradura , garantiza máxima resistencia y estabilidad.</p><dl class="pd-specs"><dt>Capacidad</dt><dd>3630 kg</dd><dt>Altura de elevación</dt><dd>—</dd><dt>SKU</dt><dd>1010009</dd></dl><ul class="pd-bullets"><li>Capacidad de 3630 kg y diseño móvil , ideal para cocheras o garajes.</li><li>9 posiciones de bloqueo y rampas de acero incluidas , ofreciendo versatilidad y seguridad.</li><li>Acabado duradero y sistema de doble cerradura , garantiza máxima resistencia y estabilidad.</li></ul><div class="product-page-description">
 <div class="product-page-button-container"><a class="product-page-btn product-page-btn-video" href="https://www.youtube.com/watch?v=ICQS3XJ-6Lo" target="_blank" rel="noopener">Ver Video</a>
@@ -263,6 +264,22 @@
 <script src="../../assets/js/tienda.js"></script>
 <script>
 mountChrome('catalogo');
+
+// Si se llegó acá desde el folleto (catálogo imprimible o un link de
+// selección compartido), un botón para volver evita depender del botón
+// "atrás" del navegador — y como usa el referrer completo, vuelve a la
+// misma selección/filtro en la que estaba, no al folleto en blanco.
+try {
+  const ref = document.referrer;
+  if (ref) {
+    const refUrl = new URL(ref);
+    if (refUrl.origin === location.origin && /^\/folleto-/.test(refUrl.pathname)) {
+      document.getElementById('pd-back-folleto').innerHTML =
+        `<a class="pd-back-link" href="${ref}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Volver al folleto</a>`;
+    }
+  }
+} catch (e) {}
+
 (async () => {
   await loadCatalog();
   const slug = getQuery('id');

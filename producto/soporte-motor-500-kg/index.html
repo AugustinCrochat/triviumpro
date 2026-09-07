@@ -105,6 +105,7 @@
 
 <section>
   <div class="container">
+    <div id="pd-back-folleto"></div>
     <div class="breadcrumbs" id="crumbs" style="margin-top:24px"><span>Inicio</span> <span class="sep">/</span> <a href="../../catalogo/">Catálogo</a> <span class="sep">/</span> <a href="../../categoria/equipamiento-taller/">Equipamiento de Taller</a> <span class="sep">/</span> <span>Soporte Motor 500 kg</span></div>
     <div class="pd-wrap" id="pd-wrap"><article class="pd-static"><div class="pd-media"><img src="../../assets/img/productos/tw05001.webp" alt="Soporte Motor 500 kg" width="800" height="600"></div><div class="pd-info"><h1>Soporte Motor 500 kg</h1><p class="pd-summary">Soporta el motor o la transmisión en su lugar durante las reparaciones · Montajes de doble gancho para un soporte equilibrado · Tornillo de ajuste para nivelación de carga</p><dl class="pd-specs"><dt>Capacidad</dt><dd>500 kg</dd><dt>Altura de elevación</dt><dd>—</dd><dt>SKU</dt><dd>1010214</dd></dl><ul class="pd-bullets"><li>Soporta el motor o la transmisión en su lugar durante las reparaciones</li><li>Montajes de doble gancho para un soporte equilibrado</li><li>Tornillo de ajuste para nivelación de carga</li><li>Patas de apoyo acolchadas de goma que evitan daños en la pintura</li><li>Toda la construcción de acero</li><li>Acabado en polvo</li></ul><embed src="../../assets/pdf/124-ficha-tw05001-soporte-de-motor.pdf"width="100%" height="700" 
 
@@ -224,6 +225,22 @@
 <script src="../../assets/js/tienda.js"></script>
 <script>
 mountChrome('catalogo');
+
+// Si se llegó acá desde el folleto (catálogo imprimible o un link de
+// selección compartido), un botón para volver evita depender del botón
+// "atrás" del navegador — y como usa el referrer completo, vuelve a la
+// misma selección/filtro en la que estaba, no al folleto en blanco.
+try {
+  const ref = document.referrer;
+  if (ref) {
+    const refUrl = new URL(ref);
+    if (refUrl.origin === location.origin && /^\/folleto-/.test(refUrl.pathname)) {
+      document.getElementById('pd-back-folleto').innerHTML =
+        `<a class="pd-back-link" href="${ref}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Volver al folleto</a>`;
+    }
+  }
+} catch (e) {}
+
 (async () => {
   await loadCatalog();
   const slug = getQuery('id');

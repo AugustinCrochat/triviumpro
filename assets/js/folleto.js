@@ -123,7 +123,10 @@ window.FOLLETO = (function () {
     const ve = (getQuery('ve') || '').trim();
     const vf = (getQuery('vf') || '').trim();
     const shared = !!(sel.length || vn || vp || ve || vf);
-    return { shared, sel, vendor: (vn || vp || ve || vf) ? { name: vn, phone: vp, email: ve, photo: vf } : null };
+    // vf viaja sin el prefijo "data:image/jpeg;base64," para ahorrar esos
+    // caracteres en cada link — se reconstruye acá, del único lado que lo lee.
+    const photo = vf ? PHOTO_PREFIX + vf : '';
+    return { shared, sel, vendor: (vn || vp || ve || vf) ? { name: vn, phone: vp, email: ve, photo } : null };
   }
 
   function loadSavedVendor() {
@@ -133,10 +136,13 @@ window.FOLLETO = (function () {
     try { localStorage.setItem(LS_VENDOR, JSON.stringify(v)); } catch (e) {}
   }
 
+  const PHOTO_PREFIX = 'data:image/jpeg;base64,';
+
   /* Recorta la foto al cuadrado central y la reduce a un JPEG chico: va
      codificada entera en la URL del link (no hay backend/almacenamiento), así
-     que tiene que pesar poco. 80px a calidad .6 da unos 3-6 KB en base64. */
-  function fileToSquareDataUri(file, size = 80, quality = 0.6) {
+     que tiene que pesar lo menos posible. 56px a calidad .55 da ~1.5-3 KB en
+     base64 (el link entero suele quedar bajo los 3000 caracteres). */
+  function fileToSquareDataUri(file, size = 56, quality = 0.55) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onerror = reject;
@@ -164,7 +170,7 @@ window.FOLLETO = (function () {
       ? `<img class="fo-vendor-photo" src="${esc(v.photo)}" alt="">`
       : `<span class="fo-vendor-photo fo-vendor-photo-fb">${esc(initials || 'TP')}</span>`;
     const links = [
-      v.phone && `<a class="fo-vendor-pill" href="https://wa.me/${v.phone.replace(/[^\d]/g, '')}" target="_blank" rel="noopener">${ICONS.wa}<span>${esc(v.phone)}</span></a>`,
+      v.phone && `<a class="fo-vendor-pill fo-vendor-pill--wa" href="https://wa.me/${v.phone.replace(/[^\d]/g, '')}" target="_blank" rel="noopener">${ICONS.wa}<span>${esc(v.phone)}</span></a>`,
       v.email && `<a class="fo-vendor-pill" href="mailto:${esc(v.email)}">${ICONS.mail}<span>${esc(v.email)}</span></a>`,
     ].filter(Boolean).join('');
     return `
@@ -370,6 +376,14 @@ window.FOLLETO = (function () {
     const searchInput = panel.querySelector('#fo-search-input');
     searchInput.addEventListener('input', () => {
       filterState.query = normalize(searchInput.value);
+      // Buscar tiene que mirar todo el catálogo: si quedó un pill de rubro
+      // marcado, "alineadora" no debería devolver cero resultados sólo
+      // porque el pill activo dice "Elevadores".
+      if (filterState.query && filterState.rubro !== 'todas') {
+        filterState.rubro = 'todas';
+        const filtCont = document.getElementById('fo-filters');
+        filtCont?.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.f === 'todas'));
+      }
       applyFilters();
     });
 
@@ -434,7 +448,7 @@ window.FOLLETO = (function () {
       if (name) qs.set('vn', name);
       if (phone) qs.set('vp', phone);
       if (email) qs.set('ve', email);
-      if (vendorPhoto) qs.set('vf', vendorPhoto);
+      if (vendorPhoto) qs.set('vf', vendorPhoto.startsWith(PHOTO_PREFIX) ? vendorPhoto.slice(PHOTO_PREFIX.length) : vendorPhoto);
 
       const url = new URL(window.location.href);
       url.search = qs.toString();

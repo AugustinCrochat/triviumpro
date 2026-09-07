@@ -105,6 +105,7 @@
 
 <section>
   <div class="container">
+    <div id="pd-back-folleto"></div>
     <div class="breadcrumbs" id="crumbs" style="margin-top:24px"><span>Inicio</span> <span class="sep">/</span> <a href="../../catalogo/">Catálogo</a> <span class="sep">/</span> <a href="../../categoria/balanceadoras/">Balanceadoras</a> <span class="sep">/</span> <span>Balanceadora para Ruedas de Camión Hofmann Geodyna 980L</span></div>
     <div class="pd-wrap" id="pd-wrap"><article class="pd-static"><div class="pd-media"><img src="../../assets/img/productos/balanceadora-para-ruedas-de-camion-geodyna-980l.webp" alt="Balanceadora para Ruedas de Camión Hofmann Geodyna 980L" width="800" height="600"></div><div class="pd-info"><h1>Balanceadora para Ruedas de Camión Hofmann Geodyna 980L</h1><p class="pd-brand"><a href="../../marca/hofmann/">Hofmann</a></p><p class="pd-summary">Alta Precisión: Equilibrio estático y dinámico con tecnología VPM patentada para máxima exactitud. · Automatización Avanzada: Captura automática de distancia y diámetro de llantas. Compatible con ruedas de aleación y acero. · Diseño Robusto: Soporta ruedas de hasta 250 kg y cuenta con freno electrónico y pantalla VGA de 15&quot;.</p><dl class="pd-specs"><dt>Capacidad</dt><dd>250 kg</dd><dt>Altura de elevación</dt><dd>—</dd><dt>SKU</dt><dd>1010077</dd></dl><ul class="pd-bullets"><li>Alta Precisión: Equilibrio estático y dinámico con tecnología VPM patentada para máxima exactitud.</li><li>Automatización Avanzada: Captura automática de distancia y diámetro de llantas. Compatible con ruedas de aleación y acero.</li><li>Diseño Robusto: Soporta ruedas de hasta 250 kg y cuenta con freno electrónico y pantalla VGA de 15&quot;.</li></ul><div class="product-page-description">
 <div class="product-page-button-container">
@@ -258,6 +259,22 @@ Dimensión del embalaje: 1470 x 1168 x 1575 mm – Peso: 222 kg + caja elevador 
 <script src="../../assets/js/tienda.js"></script>
 <script>
 mountChrome('catalogo');
+
+// Si se llegó acá desde el folleto (catálogo imprimible o un link de
+// selección compartido), un botón para volver evita depender del botón
+// "atrás" del navegador — y como usa el referrer completo, vuelve a la
+// misma selección/filtro en la que estaba, no al folleto en blanco.
+try {
+  const ref = document.referrer;
+  if (ref) {
+    const refUrl = new URL(ref);
+    if (refUrl.origin === location.origin && /^\/folleto-/.test(refUrl.pathname)) {
+      document.getElementById('pd-back-folleto').innerHTML =
+        `<a class="pd-back-link" href="${ref}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Volver al folleto</a>`;
+    }
+  }
+} catch (e) {}
+
 (async () => {
   await loadCatalog();
   const slug = getQuery('id');

@@ -715,6 +715,15 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 }
 .breadcrumbs a { color: var(--text-mute); }
 .breadcrumbs a:hover { color: var(--text); }
+
+.pd-back-link {
+  display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700;
+  color: var(--text-dim); background: var(--bg-2); border: 1px solid var(--line);
+  border-radius: 100px; padding: 8px 16px 8px 12px; margin-bottom: 14px;
+}
+.pd-back-link svg { width: 15px; height: 15px; }
+.pd-back-link:hover { border-color: var(--accent); color: var(--accent); }
+#pd-back-folleto:empty { display: none; }
 .breadcrumbs span { color: var(--line-2); margin: 0 8px; }
 .cat-hero h1 {
   font-size: clamp(2rem, 4vw, 3.4rem);

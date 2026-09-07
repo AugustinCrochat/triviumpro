@@ -105,6 +105,7 @@
 
 <section>
   <div class="container">
+    <div id="pd-back-folleto"></div>
     <div class="breadcrumbs" id="crumbs" style="margin-top:24px"><span>Inicio</span> <span class="sep">/</span> <a href="../../catalogo/">Catálogo</a> <span class="sep">/</span> <a href="../../categoria/accesorios-balanceo/">Accesorios de Balanceo</a> <span class="sep">/</span> <span>Conos de Centrado Haweka</span></div>
     <div class="pd-wrap" id="pd-wrap"><article class="pd-static"><div class="pd-media"><img src="../../assets/img/productos/set-de-4-conos-de-centrado-haweka.webp" alt="Conos de Centrado Haweka" width="800" height="600"></div><div class="pd-info"><h1>Conos de Centrado Haweka</h1><p class="pd-brand"><a href="../../marca/haweka/">Haweka</a></p><p class="pd-summary">Alta precisión : Asegura el centrado exacto de las ruedas. · Compatibilidad universal : Adecuado para una amplia gama de vehículos. · Construcción robusta : Fabricados con materiales duraderos para uso prolongado.</p><dl class="pd-specs"><dt>Capacidad</dt><dd>—</dd><dt>Altura de elevación</dt><dd>—</dd><dt>SKU</dt><dd>1010062</dd></dl><ul class="pd-bullets"><li>Alta precisión : Asegura el centrado exacto de las ruedas.</li><li>Compatibilidad universal : Adecuado para una amplia gama de vehículos.</li><li>Construcción robusta : Fabricados con materiales duraderos para uso prolongado.</li><li>Fácil de usar : Diseño intuitivo para un montaje y desmontaje rápidos.</li><li>Incluye 4 tamaños : Conos de diferentes diámetros para mayor versatilidad en el taller.</li></ul><embed src="../../assets/pdf/web-ficha-conos-y-mangas.pdf" type="application/pdf" width="100%" height="700"></embed>
 
@@ -218,6 +219,22 @@ Clic para <a href="../../assets/pdf/web-ficha-conos-y-mangas.pdf">Descargar PDF<
 <script src="../../assets/js/tienda.js"></script>
 <script>
 mountChrome('catalogo');
+
+// Si se llegó acá desde el folleto (catálogo imprimible o un link de
+// selección compartido), un botón para volver evita depender del botón
+// "atrás" del navegador — y como usa el referrer completo, vuelve a la
+// misma selección/filtro en la que estaba, no al folleto en blanco.
+try {
+  const ref = document.referrer;
+  if (ref) {
+    const refUrl = new URL(ref);
+    if (refUrl.origin === location.origin && /^\/folleto-/.test(refUrl.pathname)) {
+      document.getElementById('pd-back-folleto').innerHTML =
+        `<a class="pd-back-link" href="${ref}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Volver al folleto</a>`;
+    }
+  }
+} catch (e) {}
+
 (async () => {
   await loadCatalog();
   const slug = getQuery('id');

@@ -115,28 +115,32 @@ body { background: #ebe9e4; }
 
 /* ---------- Tarjeta del vendedor (link personalizado) ---------- */
 .fo-vendor {
-  display: flex; align-items: center; gap: 18px; margin-top: 28px; padding: 20px 24px;
+  display: flex; align-items: center; gap: 24px; margin-top: 32px; padding: 28px 32px;
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
   box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 28px rgba(0,0,0,.06);
 }
 .fo-vendor-photo {
-  flex: none; width: 60px; height: 60px; border-radius: 100px; object-fit: cover;
+  flex: none; width: 84px; height: 84px; border-radius: 100px; object-fit: cover;
   background: #191919; color: #fff; display: grid; place-items: center;
-  font-size: 18px; font-weight: 800; letter-spacing: -.02em;
+  font-size: 24px; font-weight: 800; letter-spacing: -.02em;
 }
-.fo-vendor-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-.fo-vendor-name { font-size: 17px; font-weight: 800; letter-spacing: -.01em; }
-.fo-vendor-role { font-size: 12px; font-weight: 600; color: var(--text-mute); }
-.fo-vendor-links { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+.fo-vendor-info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.fo-vendor-name { font-size: 20px; font-weight: 800; letter-spacing: -.01em; }
+.fo-vendor-role { font-size: 13px; font-weight: 600; color: var(--text-mute); }
+.fo-vendor-links { display: flex; gap: 10px; flex-wrap: wrap; margin-left: auto; }
 .fo-vendor-pill {
-  display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 7px; font-size: 13.5px; font-weight: 700;
   color: var(--text); background: var(--bg-2); border: 1px solid var(--line); border-radius: 100px;
-  padding: 8px 14px 8px 11px; transition: background .15s, border-color .15s, color .15s;
+  padding: 10px 18px 10px 14px; transition: background .15s, border-color .15s, color .15s;
 }
-.fo-vendor-pill svg { width: 14px; height: 14px; }
+.fo-vendor-pill svg { width: 15px; height: 15px; }
 .fo-vendor-pill:hover { background: #fff; border-color: var(--accent); color: var(--accent); }
+/* El WhatsApp del vendedor va sólido en el color de marca: es la vía de
+   contacto principal, tiene que saltar más que el mail. */
+.fo-vendor-pill--wa { background: var(--accent); border-color: var(--accent); color: #fff; }
+.fo-vendor-pill--wa:hover { background: var(--accent-hi); border-color: var(--accent-hi); color: #fff; }
 @media (max-width: 560px) {
-  .fo-vendor { flex-wrap: wrap; padding: 16px 18px; }
+  .fo-vendor { flex-wrap: wrap; padding: 20px 20px; gap: 16px; }
   .fo-vendor-links { margin-left: 0; width: 100%; }
 }
 
@@ -151,6 +155,10 @@ body { background: #ebe9e4; }
 /* ---------- Fichas ---------- */
 .fo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .fo-card { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; color: inherit; transition: box-shadow .18s, transform .18s, border-color .18s; break-inside: avoid; }
+/* El buscador oculta fichas con .hidden = true (atributo [hidden]): sin esto,
+   "display: flex" de arriba (regla de autor) le gana a la regla por defecto
+   del navegador para [hidden] (regla de user-agent) y la ficha no se oculta. */
+.fo-card[hidden] { display: none; }
 a.fo-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,.12); border-color: var(--line-2); }
 a.fo-card:hover .fo-name { color: var(--accent); }
 a.fo-card:hover .fo-go { background: var(--accent); color: #fff; }
@@ -218,7 +226,8 @@ a.fo-card:hover .fo-go { background: var(--accent); color: #fff; }
   @page { size: A4 portrait; margin: 0; }
   body { background: #fff; }
   #site-header, #site-footer, .wa-float, .fo-actions, .fo-filters, .fo-share-panel, .fo-float-bar, .fo-check, .tn-fab { display: none !important; }
-  .fo-vendor { -webkit-print-color-adjust: exact; print-color-adjust: exact; break-inside: avoid; }
+  .fo-vendor, .fo-vendor-pill--wa { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .fo-vendor { break-inside: avoid; }
   .fo-card-picked { outline: none; } /* el anillo de "elegido" es sólo para armar el link, no para el PDF */
   .fo-doc { max-width: none; margin: 0; box-shadow: none; }
   .fo-cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 26px 36px 22px; }
@@ -249,4 +258,13 @@ a.fo-card:hover .fo-go { background: var(--accent); color: #fff; }
   .fo-ask { font-size: 11px; }
   .fo-go { display: none; }
   a { text-decoration: none; color: inherit; }
+  /* Las condiciones no ameritan una hoja aparte: se achican y se le pide al
+     motor de paginado que evite mandarlas solas a la página siguiente.
+     "avoid" es un pedido, no una garantía — si el último grupo llena la
+     hoja igual pasa, pero con el texto chico entra en la enorme mayoría de
+     los casos (sobre todo en una selección de pocos equipos). */
+  .fo-foot {
+    margin-top: 12px; padding-top: 8px; font-size: 8px; line-height: 1.45;
+    break-before: avoid; page-break-before: avoid;
+  }
 }
