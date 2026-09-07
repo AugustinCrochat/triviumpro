@@ -423,7 +423,7 @@ window.FOLLETO = (function () {
       }
     });
 
-    panel.querySelector('#fo-share-generate').addEventListener('click', () => {
+    function generateLink() {
       const name = panel.querySelector('#fo-v-name').value.trim();
       const phone = panel.querySelector('#fo-v-phone').value.trim();
       const email = panel.querySelector('#fo-v-email').value.trim();
@@ -450,6 +450,49 @@ window.FOLLETO = (function () {
       }).catch(() => {
         linkInput.select();
       });
+
+      // Si generaron el link desde la barra flotante, volvemos arriba a
+      // buscar el link ya cargado y el aviso de "copiado".
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    panel.querySelector('#fo-share-generate').addEventListener('click', generateLink);
+
+    setupFloatBar(doc, panel, generateLink);
+  }
+
+  /* ---------- Barra flotante: aparece cuando el panel se scrollea fuera de vista ---------- */
+  function setupFloatBar(doc, panel, generateLink) {
+    const bar = document.getElementById('fo-float-bar');
+    if (!bar || typeof IntersectionObserver === 'undefined') return;
+
+    bar.innerHTML = `
+      <span class="fo-float-count" id="fo-float-count">0 elegidos</span>
+      <button class="fo-btn fo-ghost fo-btn-sm" id="fo-float-top" type="button">↑ Volver arriba</button>
+      <button class="fo-btn fo-primary fo-btn-sm" id="fo-float-generate" type="button">Generar link</button>`;
+
+    const countEl = bar.querySelector('#fo-float-count');
+    doc.addEventListener('tv-selection-change', (e) => {
+      const n = e.detail.size;
+      countEl.textContent = n === 1 ? '1 elegido' : `${n} elegidos`;
+    });
+
+    bar.querySelector('#fo-float-top').addEventListener('click', () => {
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    bar.querySelector('#fo-float-generate').addEventListener('click', generateLink);
+
+    // Sólo se muestra mientras el panel está abierto y fuera de la pantalla:
+    // si ya se ve el panel (o está cerrado) no hace falta duplicarlo.
+    let panelVisible = true;
+    const obs = new IntersectionObserver(([entry]) => {
+      panelVisible = entry.isIntersecting;
+      bar.hidden = panel.hidden || panelVisible;
+    }, { threshold: 0 });
+    obs.observe(panel);
+
+    const toggleBtn = document.getElementById('fo-share-toggle');
+    toggleBtn?.addEventListener('click', () => {
+      bar.hidden = panel.hidden || panelVisible;
     });
   }
 
