@@ -116,17 +116,40 @@ window.FOLLETO = (function () {
       </a>`;
   }
 
-  function vendorFromQuery() {
-    const sel = (getQuery('sel') || '').split(',').map(s => s.trim()).filter(Boolean);
-    const vn = (getQuery('vn') || '').trim();
-    const vp = (getQuery('vp') || '').trim();
-    const ve = (getQuery('ve') || '').trim();
-    const vf = (getQuery('vf') || '').trim();
+  const PHOTO_PREFIX = 'data:image/jpeg;base64,';
+  const F_CODE_RE = /^\/f\/([A-Za-z0-9]{4,16})\/?$/;
+
+  function toShared(sel, vn, vp, ve, vf) {
     const shared = !!(sel.length || vn || vp || ve || vf);
     // vf viaja sin el prefijo "data:image/jpeg;base64," para ahorrar esos
-    // caracteres en cada link — se reconstruye acá, del único lado que lo lee.
+    // caracteres — se reconstruye acá, del único lado que lo lee.
     const photo = vf ? PHOTO_PREFIX + vf : '';
     return { shared, sel, vendor: (vn || vp || ve || vf) ? { name: vn, phone: vp, email: ve, photo } : null };
+  }
+
+  function sharedFromQuery() {
+    const sel = (getQuery('sel') || '').split(',').map(s => s.trim()).filter(Boolean);
+    return toShared(sel, (getQuery('vn') || '').trim(), (getQuery('vp') || '').trim(),
+      (getQuery('ve') || '').trim(), (getQuery('vf') || '').trim());
+  }
+
+  /* El link corto (/f/<code>) no lleva nada en la query string: el código
+     apunta a lo guardado en Cloudflare KV (ver api/folleto.js). Se resuelve
+     acá para no tocar el resto del render — sigue viendo el mismo
+     {shared, sel, vendor} de siempre. Si el código no resuelve (vencido,
+     typo) se degrada al catálogo completo, no a una hoja en blanco. Los
+     links viejos (?sel=...&vn=...) se siguen leyendo por compatibilidad. */
+  async function resolveSharedState() {
+    const m = location.pathname.match(F_CODE_RE);
+    if (!m) return sharedFromQuery();
+    try {
+      const r = await fetch(`${rootPath()}api/folleto/${m[1]}`, { headers: { accept: 'application/json' } });
+      if (r.ok) {
+        const d = await r.json();
+        return toShared(Array.isArray(d.sel) ? d.sel : [], d.vn || '', d.vp || '', d.ve || '', d.vf || '');
+      }
+    } catch (e) {}
+    return { shared: false, sel: [], vendor: null };
   }
 
   function loadSavedVendor() {
@@ -135,8 +158,6 @@ window.FOLLETO = (function () {
   function saveVendor(v) {
     try { localStorage.setItem(LS_VENDOR, JSON.stringify(v)); } catch (e) {}
   }
-
-  const PHOTO_PREFIX = 'data:image/jpeg;base64,';
 
   /* Recorta la foto al cuadrado central y la reduce a un JPEG chico: va
      codificada entera en la URL del link (no hay backend/almacenamiento), así
@@ -188,7 +209,7 @@ window.FOLLETO = (function () {
   async function render(opts) {
     const cat = await loadCatalog();
     const { rate, live } = await getRate();
-    const { shared, sel, vendor } = vendorFromQuery();
+    const { shared, sel, vendor } = await resolveSharedState();
 
     let lista = opts.productos(cat);
     if (shared && sel.length) {
@@ -437,26 +458,55 @@ window.FOLLETO = (function () {
       }
     });
 
-    function generateLink() {
+    function longLinkFallback(sel, name, phone, email, vfRaw) {
+      // Sin backend disponible (KV caído, offline), un link largo sigue
+      // siendo mejor que ningún link: cae al esquema viejo por query string.
+      // No hace falta armar la ruta a mano: esta función sólo es alcanzable
+      // desde la página real del folleto (en /f/<code> no se arma el panel de
+      // compartir), así que location.pathname ya es la correcta — y evita
+      // escribir acá el slug secreto, que es justo lo que no debe salir en un
+      // archivo público como este.
+      const qs = new URLSearchParams();
+      if (sel.length) qs.set('sel', sel.join(','));
+      if (name) qs.set('vn', name);
+      if (phone) qs.set('vp', phone);
+      if (email) qs.set('ve', email);
+      if (vfRaw) qs.set('vf', vfRaw);
+      const url = new URL(window.location.href);
+      url.search = qs.toString();
+      return url.toString();
+    }
+
+    async function generateLink() {
       const name = panel.querySelector('#fo-v-name').value.trim();
       const phone = panel.querySelector('#fo-v-phone').value.trim();
       const email = panel.querySelector('#fo-v-email').value.trim();
       saveVendor({ name, phone, email, photo: vendorPhoto });
 
-      const qs = new URLSearchParams();
-      if (FOLLETO._selected.size) qs.set('sel', [...FOLLETO._selected].join(','));
-      if (name) qs.set('vn', name);
-      if (phone) qs.set('vp', phone);
-      if (email) qs.set('ve', email);
-      if (vendorPhoto) qs.set('vf', vendorPhoto.startsWith(PHOTO_PREFIX) ? vendorPhoto.slice(PHOTO_PREFIX.length) : vendorPhoto);
-
-      const url = new URL(window.location.href);
-      url.search = qs.toString();
-      const link = url.toString();
+      const sel = [...FOLLETO._selected];
+      const vfRaw = vendorPhoto ? (vendorPhoto.startsWith(PHOTO_PREFIX) ? vendorPhoto.slice(PHOTO_PREFIX.length) : vendorPhoto) : '';
 
       const linkInput = panel.querySelector('#fo-share-link');
-      linkInput.value = link;
+      const genBtn = panel.querySelector('#fo-share-generate');
+      linkInput.value = 'Generando link…';
+      genBtn.disabled = true;
 
+      let link;
+      try {
+        const r = await fetch(`${rootPath()}api/folleto`, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ sel, vn: name, vp: phone, ve: email, vf: vfRaw }),
+        });
+        if (!r.ok) throw new Error('status ' + r.status);
+        const { code } = await r.json();
+        link = `${location.origin}/f/${code}`;
+      } catch (e) {
+        link = longLinkFallback(sel, name, phone, email, vfRaw);
+      }
+      genBtn.disabled = false;
+
+      linkInput.value = link;
       const ok = panel.querySelector('#fo-share-ok');
       navigator.clipboard?.writeText(link).then(() => {
         ok.hidden = false;

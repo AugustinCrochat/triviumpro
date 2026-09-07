@@ -17,6 +17,8 @@
  * WhatsApp en vez de romperse.
  */
 
+import { crear as crearFolleto, obtener as obtenerFolleto } from './folleto.js';
+
 const RATE_FALLBACK = 1520;      // mismo valor de referencia que usa site.js
 const RATE_TTL = 900;            // 15 min de caché para la cotización
 const MAX_ITEMS = 20;            // renglones distintos por orden
@@ -198,6 +200,26 @@ export async function handleApi(request, env, url, ctx) {
     } catch (e) {
       console.error('checkout falló', e && e.stack || e);
       return json({ error: 'checkout_falló' }, 500);
+    }
+  }
+
+  if (path === '/api/folleto' && request.method === 'POST') {
+    try {
+      return await crearFolleto(request, env);
+    } catch (e) {
+      console.error('crear folleto falló', e && e.stack || e);
+      return json({ error: 'crear_folleto_fallo' }, 500);
+    }
+  }
+
+  const folletoMatch = path.match(/^\/api\/folleto\/([A-Za-z0-9]+)$/);
+  if (folletoMatch) {
+    if (request.method !== 'GET') return json({ error: 'metodo_no_permitido' }, 405);
+    try {
+      return await obtenerFolleto(env, folletoMatch[1]);
+    } catch (e) {
+      console.error('obtener folleto falló', e && e.stack || e);
+      return json({ error: 'obtener_folleto_fallo' }, 500);
     }
   }
 

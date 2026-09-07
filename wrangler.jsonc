@@ -11,5 +11,14 @@
 	"assets": {
 		"directory": ".",
 		"binding": "ASSETS"
-	}
+	},
+	// Links cortos del folleto (/f/<code>): guarda la selección de equipos y
+	// los datos del vendedor para que el link compartido no lleve todo en la
+	// query string. Ver api/folleto.js.
+	"kv_namespaces": [
+		{
+			"binding": "FOLLETO_LINKS",
+			"id": "ae64735944ff40d595f2d75e14c8c222"
+		}
+	]
 }

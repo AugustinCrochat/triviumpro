@@ -10,6 +10,14 @@
 
 import { handleApi } from "./api/mercadopago.js";
 
+// Link corto de una selección del folleto (/f/<code>): sirve el mismo HTML
+// que /folleto-<secreto>/ — el cliente pide los datos a /api/folleto/<code>
+// (ver api/folleto.js) en vez de leerlos de la query string. El secreto vive
+// acá, en código que corre en el Worker y nunca se manda al navegador, así
+// que no queda expuesto como quedaría si estuviera en un JS del sitio.
+const FOLLETO_PATH = "/folleto-8f3a1c9d/";
+const F_CODE = /^\/f\/([A-Za-z0-9]{4,16})\/?$/;
+
 const EXACT = {
  "/010-ficha-puli-pl-fs50-elevador-4-columnas/": "/assets/pdf/010-ficha-puli-pl-fs50-elevador-4-columnas.pdf",
  "/02-ficha-elevador-2-columnas-spoa10/": "/producto/elevador-dos-columnas-4535-kg-rotary-lift-spoa10/",
@@ -465,6 +473,11 @@ export default {
     try {
       const url = new URL(request.url);
       if (url.pathname.startsWith("/api/")) return handleApi(request, env, url, ctx);
+
+      if (F_CODE.test(url.pathname)) {
+        const destino = new URL(FOLLETO_PATH, url.origin);
+        return env.ASSETS.fetch(new Request(destino, request));
+      }
 
       const destino = destinoPara(decodeURIComponent(url.pathname));
       if (destino) {
