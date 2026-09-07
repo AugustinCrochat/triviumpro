@@ -2,26 +2,36 @@
  *
  * Se configura con FOLLETO.render({...}) desde la página. Depende de site.js
  * (loadCatalog, categoryById, productUrl, rootPath, getQuery, TRIVIUM,
- * CAT_ICONS) y de assets/css/folleto.css.
+ * CAT_ICONS, ICONS) y de assets/css/folleto.css.
  *
  * El orden NO se reordena acá: las secciones siguen el orden de
  * catalog.categories y dentro de cada una los productos quedan como están en
  * catalog.json, igual que en /catalogo/. Cada ficha es un link a su página de
- * producto.
+ * producto — salvo en modo selección (ver abajo), donde el click elige en vez
+ * de navegar.
  *
  * Selección + link para compartir
  * --------------------------------
- * El vendedor puede tildar equipos puntuales y cargar su nombre/WhatsApp/mail;
- * "Generar link" arma una URL con esos datos en la query string (?sel=...&
- * vn=...&vp=...&ve=...) — no hay backend, así que todo el estado vive en el
- * link mismo. Quien abre ese link ve sólo los equipos elegidos y una tarjeta
- * con los datos del vendedor al pie (y en el PDF si lo descarga).
+ * El vendedor toca "Buscar equipos" para entrar en modo selección: ahí
+ * cualquier click en una ficha la marca (no navega), y un buscador filtra por
+ * nombre/modelo/marca. Carga su nombre, WhatsApp, mail y opcionalmente una
+ * foto; "Generar link" arma una URL con todo eso en la query string
+ * (?sel=...&vn=...&vp=...&ve=...&vf=...) — no hay backend, así que todo el
+ * estado vive en el link mismo. Quien lo abre ve sólo esos equipos y una
+ * tarjeta con los datos del vendedor al pie de la portada, sin ninguna de las
+ * herramientas de venta (esas son sólo para quien arma el link).
  */
 window.FOLLETO = (function () {
   const fmtARS = (n) => '$ ' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(Math.round(n));
   // El catálogo usa '' y '—' indistintamente para "sin dato".
   const dato = (v) => (v && v !== '—' && v !== '-') ? v : null;
   const LS_VENDOR = 'tv_folleto_vendedor';
+
+  // Sin tildes ni mayúsculas, para que "Rotary" encuentre "rotary lift" y
+  // "alineacion" encuentre "alineación".
+  const normalize = (s) => String(s || '')
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().trim();
 
   function topCategory(p) {
     const c = categoryById(p.category);
@@ -54,12 +64,30 @@ window.FOLLETO = (function () {
 
   const ICON_GO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
   const ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+  const ICON_CAMERA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.6-2.4A2 2 0 0 1 10.3 4.6h3.4a2 2 0 0 1 1.7 1L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg>';
 
   function esc(s) {
     return String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   }
 
-  function card(p, pr, chip, selected) {
+  // Estado de filtro compartido entre los pills de rubro y el buscador: los
+  // dos combinan sobre el mismo DOM ya renderizado, sin volver a pedir datos.
+  const filterState = { rubro: 'todas', query: '' };
+
+  function applyFilters() {
+    document.querySelectorAll('.fo-group').forEach((g) => {
+      const rubroOk = filterState.rubro === 'todas' || g.dataset.grupo === filterState.rubro;
+      let anyVisible = false;
+      g.querySelectorAll('.fo-card').forEach((card) => {
+        const ok = !filterState.query || (card.dataset.search || '').includes(filterState.query);
+        card.hidden = !ok;
+        if (ok) anyVisible = true;
+      });
+      g.hidden = !(rubroOk && anyVisible);
+    });
+  }
+
+  function card(p, pr, chip, selected, brandName) {
     const img = p.image
       ? `<img src="${rootPath()}${p.image}" alt="${p.name}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'Sin imagen'}))">`
       : `<span class="ph">Sin imagen</span>`;
@@ -73,9 +101,10 @@ window.FOLLETO = (function () {
 
     // Los SKU provisorios del catálogo ("P-3041") no se imprimen.
     const modelo = [pr && pr.modelo, /^\d{7}$/.test(p.sku) ? 'SKU ' + p.sku : null].filter(Boolean).join(' · ');
+    const searchBlob = esc(normalize([p.name, pr && pr.modelo, brandName, p.sku].filter(Boolean).join(' ')));
 
     return `
-      <a class="fo-card" href="${productUrl(p)}">
+      <a class="fo-card${selected ? ' fo-card-picked' : ''}" href="${productUrl(p)}" data-search="${searchBlob}">
         <span class="fo-check${selected ? ' on' : ''}" data-sku="${esc(p.sku)}" role="checkbox" aria-checked="${!!selected}" title="Incluir en la selección">${ICON_CHECK}</span>
         <div class="fo-thumb">${img}${chip}</div>
         <div class="fo-body">
@@ -92,8 +121,9 @@ window.FOLLETO = (function () {
     const vn = (getQuery('vn') || '').trim();
     const vp = (getQuery('vp') || '').trim();
     const ve = (getQuery('ve') || '').trim();
-    const shared = !!(sel.length || vn || vp || ve);
-    return { shared, sel, vendor: (vn || vp || ve) ? { name: vn, phone: vp, email: ve } : null };
+    const vf = (getQuery('vf') || '').trim();
+    const shared = !!(sel.length || vn || vp || ve || vf);
+    return { shared, sel, vendor: (vn || vp || ve || vf) ? { name: vn, phone: vp, email: ve, photo: vf } : null };
   }
 
   function loadSavedVendor() {
@@ -103,20 +133,48 @@ window.FOLLETO = (function () {
     try { localStorage.setItem(LS_VENDOR, JSON.stringify(v)); } catch (e) {}
   }
 
+  /* Recorta la foto al cuadrado central y la reduce a un JPEG chico: va
+     codificada entera en la URL del link (no hay backend/almacenamiento), así
+     que tiene que pesar poco. 80px a calidad .6 da unos 3-6 KB en base64. */
+  function fileToSquareDataUri(file, size = 80, quality = 0.6) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = reject;
+      reader.onload = () => {
+        const img = new Image();
+        img.onerror = reject;
+        img.onload = () => {
+          const side = Math.min(img.width, img.height);
+          const sx = (img.width - side) / 2, sy = (img.height - side) / 2;
+          const canvas = document.createElement('canvas');
+          canvas.width = size; canvas.height = size;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, sx, sy, side, side, 0, 0, size, size);
+          resolve(canvas.toDataURL('image/jpeg', quality));
+        };
+        img.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
   function vendorCardHtml(v) {
-    const initials = (v.name || '?').trim().split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+    const initials = (v.name || '').trim().split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join('').toUpperCase();
+    const photo = v.photo
+      ? `<img class="fo-vendor-photo" src="${esc(v.photo)}" alt="">`
+      : `<span class="fo-vendor-photo fo-vendor-photo-fb">${esc(initials || 'TP')}</span>`;
     const links = [
-      v.phone && `<a href="https://wa.me/${v.phone.replace(/[^\d]/g, '')}" target="_blank" rel="noopener">${ICONS.wa}${v.phone}</a>`,
-      v.email && `<a href="mailto:${esc(v.email)}">${ICONS.mail}${esc(v.email)}</a>`,
+      v.phone && `<a class="fo-vendor-pill" href="https://wa.me/${v.phone.replace(/[^\d]/g, '')}" target="_blank" rel="noopener">${ICONS.wa}<span>${esc(v.phone)}</span></a>`,
+      v.email && `<a class="fo-vendor-pill" href="mailto:${esc(v.email)}">${ICONS.mail}<span>${esc(v.email)}</span></a>`,
     ].filter(Boolean).join('');
     return `
       <div class="fo-vendor">
-        <span class="fo-vendor-av">${esc(initials || 'TP')}</span>
+        ${photo}
         <div class="fo-vendor-info">
-          <span class="fo-vendor-kick">Preparado especialmente para vos por</span>
-          <b class="fo-vendor-name">${esc(v.name) || 'Un asesor de Trivium Pro'}</b>
-          ${links ? `<div class="fo-vendor-links">${links}</div>` : ''}
+          <b class="fo-vendor-name">${esc(v.name) || 'Asesor Trivium Pro'}</b>
+          <span class="fo-vendor-role">Tu asesor en Trivium Pro</span>
         </div>
+        ${links ? `<div class="fo-vendor-links">${links}</div>` : ''}
       </div>`;
   }
 
@@ -171,7 +229,7 @@ window.FOLLETO = (function () {
       return `<section class="fo-group" data-grupo="${g}">
           <div class="fo-group-head">${icon}<h2>${g}</h2><span class="n">${items.length} ${items.length === 1 ? 'equipo' : 'equipos'}</span><span class="rule"></span></div>
           <div class="fo-grid">${items.map(p =>
-            card(p, precio(opts.items[p.sku], rate, opts.defaultIva), opts.mostrarMarca ? chipDe(p.brand) : '', sel.includes(p.sku))
+            card(p, precio(opts.items[p.sku], rate, opts.defaultIva), opts.mostrarMarca ? chipDe(p.brand) : '', sel.includes(p.sku), marcaDe[p.brand])
           ).join('')}</div>
         </section>`;
     };
@@ -215,69 +273,81 @@ window.FOLLETO = (function () {
       filtCont.addEventListener('click', (e) => {
         const b = e.target.closest('button'); if (!b) return;
         filtCont.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
-        const f = b.dataset.f;
-        document.querySelectorAll('.fo-group').forEach(s => { s.hidden = !(f === 'todas' || s.dataset.grupo === f); });
+        filterState.rubro = b.dataset.f;
+        applyFilters();
       });
     }
 
     if (shared) {
       setupSharedBanner();
     } else {
-      setupSelection(lista);
-      setupSharePanel(lista, rate, opts, vendor);
+      setupSelection();
+      setupSharePanel();
     }
   }
 
-  /* ---------- Modo "vista compartida": banner en vez de las herramientas de venta ---------- */
+  /* ---------- Modo "vista compartida": sólo queda el botón de descargar PDF ---------- */
   function setupSharedBanner() {
-    const shareBtn = document.getElementById('fo-share-toggle');
-    if (shareBtn) shareBtn.hidden = true;
-    const txt = document.getElementById('fo-actions-txt');
-    if (txt) txt.innerHTML = 'Esta es una selección personalizada. <a href="./">Ver el catálogo completo →</a>';
+    document.body.classList.add('fo-shared-view');
   }
 
-  /* ---------- Selección de equipos (checkboxes sobre las fichas) ---------- */
-  function setupSelection(lista) {
+  /* ---------- Modo selección: en cualquier parte de la ficha se elige ---------- */
+  function setupSelection() {
     const doc = document.getElementById('fo-doc');
-    const selected = new Set();
+    const selected = FOLLETO._selected = new Set();
 
     doc.addEventListener('click', (e) => {
-      const chk = e.target.closest('.fo-check');
-      if (!chk) return;
+      if (!doc.classList.contains('fo-selecting')) return; // navegación normal
+      const cardEl = e.target.closest('.fo-card');
+      if (!cardEl) return;
       e.preventDefault();
       e.stopPropagation();
+      const chk = cardEl.querySelector('.fo-check');
       const sku = chk.dataset.sku;
-      if (selected.has(sku)) { selected.delete(sku); chk.classList.remove('on'); }
-      else { selected.add(sku); chk.classList.add('on'); }
-      chk.setAttribute('aria-checked', selected.has(sku));
+      const on = selected.has(sku) ? (selected.delete(sku), false) : (selected.add(sku), true);
+      chk.classList.toggle('on', on);
+      chk.setAttribute('aria-checked', String(on));
+      cardEl.classList.toggle('fo-card-picked', on);
       doc.dispatchEvent(new CustomEvent('tv-selection-change', { detail: { size: selected.size } }));
     });
-
-    FOLLETO._selected = selected; // usado por el panel de compartir
   }
 
-  /* ---------- Panel "Compartir con un cliente" ---------- */
-  function setupSharePanel(lista, rate, opts, vendorActual) {
+  /* ---------- Panel "Buscar equipos y compartir" ---------- */
+  function setupSharePanel() {
     const toggleBtn = document.getElementById('fo-share-toggle');
     const panel = document.getElementById('fo-share-panel');
     const doc = document.getElementById('fo-doc');
     if (!toggleBtn || !panel) return;
 
     const saved = loadSavedVendor();
+    let vendorPhoto = saved.photo || '';
+
     panel.innerHTML = `
       <div class="fo-share-in">
         <div class="fo-share-col">
           <h3>1. Elegí los equipos</h3>
-          <p class="hint">Tocá el círculo de cada ficha para marcarla. Si no marcás ninguno, se comparten todos los que ves ahora.</p>
+          <p class="hint">Buscá por nombre, modelo o marca y tocá una ficha para agregarla. Si no elegís ninguna, se comparten todas las que ves ahora.</p>
+          <div class="fo-search-row">
+            <span class="fo-search-icon">${ICONS.search}</span>
+            <input id="fo-search-input" type="text" placeholder="Buscar equipos…" autocomplete="off">
+          </div>
           <div class="fo-share-row">
-            <button class="fo-btn fo-ghost fo-btn-sm" id="fo-pick-all" type="button">Marcar todos</button>
+            <button class="fo-btn fo-ghost fo-btn-sm" id="fo-pick-all" type="button">Marcar visibles</button>
             <button class="fo-btn fo-ghost fo-btn-sm" id="fo-pick-none" type="button">Vaciar selección</button>
             <span class="fo-pick-count" id="fo-pick-count">0 elegidos</span>
           </div>
         </div>
         <div class="fo-share-col">
           <h3>2. Tus datos</h3>
-          <p class="hint">Van a aparecer al pie del catálogo que reciba tu cliente.</p>
+          <p class="hint">Van a aparecer con tu foto al pie del catálogo que reciba tu cliente.</p>
+          <div class="fo-vphoto-row">
+            <label class="fo-vphoto-pick" for="fo-v-photo">
+              <img id="fo-v-photo-img" alt="" ${vendorPhoto ? '' : 'hidden'} src="${esc(vendorPhoto)}">
+              <span id="fo-v-photo-ph" ${vendorPhoto ? 'hidden' : ''}>${ICON_CAMERA}</span>
+            </label>
+            <input type="file" id="fo-v-photo" accept="image/*" hidden>
+            <div class="fo-vphoto-txt"><b>Tu foto</b><span>Opcional, se recorta cuadrada</span></div>
+          </div>
           <div class="fo-share-fields">
             <input id="fo-v-name" placeholder="Nombre y apellido" value="${esc(saved.name || '')}">
             <input id="fo-v-phone" placeholder="WhatsApp (ej. 5493511234567)" value="${esc(saved.phone || '')}">
@@ -288,12 +358,20 @@ window.FOLLETO = (function () {
           <h3>3. Compartilo</h3>
           <p class="hint">Genera un link con tu selección y tus datos — se abre como esta misma página, lista para ver o descargar en PDF.</p>
           <div class="fo-share-linkrow">
-            <input id="fo-share-link" readonly placeholder="Completá tu nombre y generá el link">
+            <input id="fo-share-link" readonly placeholder="Tocá «Generar link» cuando termines">
             <button class="fo-btn fo-primary fo-btn-sm" id="fo-share-generate" type="button">Generar link</button>
           </div>
           <p class="fo-share-ok" id="fo-share-ok" hidden>¡Listo! Link copiado al portapapeles.</p>
         </div>
       </div>`;
+
+    // Buscador: entra en modo selección apenas se escribe algo, así el click
+    // en una ficha filtrada la elige en vez de abrir la ficha del producto.
+    const searchInput = panel.querySelector('#fo-search-input');
+    searchInput.addEventListener('input', () => {
+      filterState.query = normalize(searchInput.value);
+      applyFilters();
+    });
 
     const countEl = panel.querySelector('#fo-pick-count');
     const updateCount = () => {
@@ -303,36 +381,60 @@ window.FOLLETO = (function () {
     doc.addEventListener('tv-selection-change', updateCount);
 
     panel.querySelector('#fo-pick-all').addEventListener('click', () => {
-      doc.querySelectorAll('.fo-check').forEach(chk => {
+      doc.querySelectorAll('.fo-card').forEach((cardEl) => {
+        if (cardEl.hidden) return;
+        const chk = cardEl.querySelector('.fo-check');
         FOLLETO._selected.add(chk.dataset.sku);
         chk.classList.add('on');
         chk.setAttribute('aria-checked', 'true');
+        cardEl.classList.add('fo-card-picked');
       });
       updateCount();
     });
     panel.querySelector('#fo-pick-none').addEventListener('click', () => {
       FOLLETO._selected.clear();
-      doc.querySelectorAll('.fo-check.on').forEach(chk => { chk.classList.remove('on'); chk.setAttribute('aria-checked', 'false'); });
+      doc.querySelectorAll('.fo-card-picked').forEach((cardEl) => {
+        cardEl.classList.remove('fo-card-picked');
+        const chk = cardEl.querySelector('.fo-check');
+        chk.classList.remove('on');
+        chk.setAttribute('aria-checked', 'false');
+      });
       updateCount();
+    });
+
+    panel.querySelector('#fo-v-photo').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      try {
+        vendorPhoto = await fileToSquareDataUri(file);
+        const img = panel.querySelector('#fo-v-photo-img');
+        img.src = vendorPhoto; img.hidden = false;
+        panel.querySelector('#fo-v-photo-ph').hidden = true;
+      } catch (err) { /* foto corrupta o formato no soportado: se ignora */ }
     });
 
     toggleBtn.addEventListener('click', () => {
       panel.hidden = !panel.hidden;
       doc.classList.toggle('fo-selecting', !panel.hidden);
       toggleBtn.classList.toggle('on', !panel.hidden);
+      if (!panel.hidden) {
+        searchInput.focus();
+        document.getElementById('fo-filters')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
 
     panel.querySelector('#fo-share-generate').addEventListener('click', () => {
       const name = panel.querySelector('#fo-v-name').value.trim();
       const phone = panel.querySelector('#fo-v-phone').value.trim();
       const email = panel.querySelector('#fo-v-email').value.trim();
-      saveVendor({ name, phone, email });
+      saveVendor({ name, phone, email, photo: vendorPhoto });
 
       const qs = new URLSearchParams();
       if (FOLLETO._selected.size) qs.set('sel', [...FOLLETO._selected].join(','));
       if (name) qs.set('vn', name);
       if (phone) qs.set('vp', phone);
       if (email) qs.set('ve', email);
+      if (vendorPhoto) qs.set('vf', vendorPhoto);
 
       const url = new URL(window.location.href);
       url.search = qs.toString();
@@ -340,7 +442,6 @@ window.FOLLETO = (function () {
 
       const linkInput = panel.querySelector('#fo-share-link');
       linkInput.value = link;
-      linkInput.hidden = false;
 
       const ok = panel.querySelector('#fo-share-ok');
       navigator.clipboard?.writeText(link).then(() => {

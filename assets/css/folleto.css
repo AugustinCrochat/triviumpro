@@ -20,9 +20,13 @@ body { background: #ebe9e4; }
 .fo-ghost { background: var(--bg-3); color: var(--text); border: 1px solid var(--line); }
 .fo-ghost:hover { background: var(--surface-hi); }
 .fo-btn.on { background: var(--text); border-color: var(--text); color: #fff; }
-#fo-actions-txt a { color: var(--accent); font-weight: 700; }
 
-/* ---------- Panel "Compartir con un cliente" (no se imprime) ---------- */
+/* Vista compartida: sólo queda "Descargar PDF", nada de herramientas de venta. */
+.fo-shared-view #fo-share-toggle,
+.fo-shared-view #fo-actions-txt,
+.fo-shared-view .fo-actions-in > a.fo-ghost { display: none !important; }
+
+/* ---------- Panel "Buscar equipos y compartir" (no se imprime) ---------- */
 .fo-share-panel { background: var(--bg-2); border-bottom: 1px solid var(--line); }
 .fo-share-in {
   max-width: 1120px; margin: 0 auto; padding: 22px 24px 26px;
@@ -39,6 +43,30 @@ body { background: #ebe9e4; }
   border-radius: var(--radius); background: var(--bg); color: var(--text); width: 100%;
 }
 .fo-share-fields input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+/* Buscador de equipos, dentro de la columna 1 */
+.fo-search-row {
+  display: flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--line-2);
+  border-radius: var(--radius); padding: 0 12px; margin-bottom: 10px;
+}
+.fo-search-icon { flex: none; width: 15px; height: 15px; color: var(--text-mute); display: grid; }
+.fo-search-icon svg { width: 100%; height: 100%; }
+.fo-search-row input { flex: 1; min-width: 0; border: 0; background: none; padding: 9px 0; font: inherit; font-size: 13px; color: var(--text); }
+.fo-search-row input:focus { outline: none; }
+
+/* Selector de foto del vendedor */
+.fo-vphoto-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.fo-vphoto-pick {
+  flex: none; width: 52px; height: 52px; border-radius: 100px; border: 2px dashed var(--line-2);
+  display: grid; place-items: center; cursor: pointer; overflow: hidden; background: var(--bg);
+  color: var(--text-mute);
+}
+.fo-vphoto-pick:hover { border-color: var(--accent); color: var(--accent); }
+.fo-vphoto-pick svg { width: 20px; height: 20px; }
+.fo-vphoto-pick img { width: 100%; height: 100%; object-fit: cover; }
+.fo-vphoto-txt { display: flex; flex-direction: column; gap: 1px; }
+.fo-vphoto-txt b { font-size: 12.5px; }
+.fo-vphoto-txt span { font-size: 11px; color: var(--text-mute); }
 .fo-share-linkrow { display: flex; gap: 8px; }
 .fo-share-linkrow input {
   flex: 1; min-width: 0; font: inherit; font-size: 12px; padding: 9px 12px;
@@ -72,21 +100,30 @@ body { background: #ebe9e4; }
 
 /* ---------- Tarjeta del vendedor (link personalizado) ---------- */
 .fo-vendor {
-  display: flex; align-items: center; gap: 16px; margin-top: 26px; padding: 18px 22px;
-  background: var(--bg-2); border: 1px solid var(--line); border-left: 4px solid var(--accent);
-  border-radius: var(--radius-lg);
+  display: flex; align-items: center; gap: 18px; margin-top: 28px; padding: 20px 24px;
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 28px rgba(0,0,0,.06);
 }
-.fo-vendor-av {
-  flex: none; width: 44px; height: 44px; border-radius: 100px; background: #191919; color: #fff;
-  display: grid; place-items: center; font-size: 14px; font-weight: 800; letter-spacing: -.02em;
+.fo-vendor-photo {
+  flex: none; width: 60px; height: 60px; border-radius: 100px; object-fit: cover;
+  background: #191919; color: #fff; display: grid; place-items: center;
+  font-size: 18px; font-weight: 800; letter-spacing: -.02em;
 }
-.fo-vendor-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.fo-vendor-kick { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--text-mute); }
-.fo-vendor-name { font-size: 16px; font-weight: 800; letter-spacing: -.01em; }
-.fo-vendor-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 4px; }
-.fo-vendor-links a { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--text-dim); }
-.fo-vendor-links a:hover { color: var(--accent); }
-.fo-vendor-links svg { width: 15px; height: 15px; }
+.fo-vendor-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.fo-vendor-name { font-size: 17px; font-weight: 800; letter-spacing: -.01em; }
+.fo-vendor-role { font-size: 12px; font-weight: 600; color: var(--text-mute); }
+.fo-vendor-links { display: flex; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+.fo-vendor-pill {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700;
+  color: var(--text); background: var(--bg-2); border: 1px solid var(--line); border-radius: 100px;
+  padding: 8px 14px 8px 11px; transition: background .15s, border-color .15s, color .15s;
+}
+.fo-vendor-pill svg { width: 14px; height: 14px; }
+.fo-vendor-pill:hover { background: #fff; border-color: var(--accent); color: var(--accent); }
+@media (max-width: 560px) {
+  .fo-vendor { flex-wrap: wrap; padding: 16px 18px; }
+  .fo-vendor-links { margin-left: 0; width: 100%; }
+}
 
 /* ---------- Secciones ---------- */
 .fo-group { padding-top: 34px; }
@@ -123,6 +160,12 @@ a.fo-card:hover .fo-go { background: var(--accent); color: #fff; }
 .fo-selecting .fo-check { display: grid; }
 .fo-check:hover { border-color: var(--accent); }
 .fo-check.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* En modo selección, el click en cualquier parte de la ficha elige — no
+   navega — así que toda la ficha se ve clickeable, y la elegida queda con
+   un anillo de acento en vez de depender sólo del circulito. */
+.fo-selecting .fo-card { cursor: pointer; }
+.fo-card-picked { outline: 3px solid var(--accent); outline-offset: -3px; }
 
 .fo-body { padding: 13px 15px 15px; display: flex; flex-direction: column; gap: 5px; flex: 1; }
 .fo-name { font-size: 14px; font-weight: 700; line-height: 1.3; margin: 0; color: var(--text); transition: color .15s; }
@@ -161,6 +204,7 @@ a.fo-card:hover .fo-go { background: var(--accent); color: #fff; }
   body { background: #fff; }
   #site-header, #site-footer, .wa-float, .fo-actions, .fo-filters, .fo-share-panel, .fo-check, .tn-fab { display: none !important; }
   .fo-vendor { -webkit-print-color-adjust: exact; print-color-adjust: exact; break-inside: avoid; }
+  .fo-card-picked { outline: none; } /* el anillo de "elegido" es sólo para armar el link, no para el PDF */
   .fo-doc { max-width: none; margin: 0; box-shadow: none; }
   .fo-cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 26px 36px 22px; }
   .fo-cover img { height: 34px; margin-bottom: 16px; }
