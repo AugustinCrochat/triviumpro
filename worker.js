@@ -17,6 +17,12 @@ import { handleApi } from "./api/mercadopago.js";
 // que no queda expuesto como quedaría si estuviera en un JS del sitio.
 const FOLLETO_PATH = "/folleto-8f3a1c9d/";
 const F_CODE = /^\/f\/([A-Za-z0-9]{4,16})\/?$/;
+// precios.js se referencia sin "../" desde el HTML del folleto (vive en la
+// misma carpeta que index.html), así que en /folleto-<secreto>/ resuelve
+// solo. En /f/<code> esa ruta relativa resuelve a /f/precios.js en vez de
+// /folleto-<secreto>/precios.js — de ahí este alias, con el mismo cuidado de
+// no escribir el secreto en ningún JS que llegue al navegador.
+const F_PRECIOS = "/f/precios.js";
 
 const EXACT = {
  "/010-ficha-puli-pl-fs50-elevador-4-columnas/": "/assets/pdf/010-ficha-puli-pl-fs50-elevador-4-columnas.pdf",
@@ -473,6 +479,11 @@ export default {
     try {
       const url = new URL(request.url);
       if (url.pathname.startsWith("/api/")) return handleApi(request, env, url, ctx);
+
+      if (url.pathname === F_PRECIOS) {
+        const destino = new URL(FOLLETO_PATH + "precios.js", url.origin);
+        return env.ASSETS.fetch(new Request(destino, request));
+      }
 
       if (F_CODE.test(url.pathname)) {
         const destino = new URL(FOLLETO_PATH, url.origin);
