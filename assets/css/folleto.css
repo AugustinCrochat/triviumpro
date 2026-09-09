@@ -227,7 +227,13 @@ a.fo-card:hover .fo-go { background: var(--accent); color: #fff; }
   body { background: #fff; }
   #site-header, #site-footer, .wa-float, .fo-actions, .fo-filters, .fo-share-panel, .fo-float-bar, .fo-check, .tn-fab { display: none !important; }
   .fo-vendor, .fo-vendor-pill--wa { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .fo-vendor { break-inside: avoid; }
+  /* Sin "break-inside: avoid" a propósito: en Chrome, un contenedor flex con
+     esa regla justo después de la tapa (que usa márgenes negativos para
+     sangrar el color a los bordes) hace que el paginador calcule mal el
+     espacio libre y mande toda la tarjeta —y con ella el resto del
+     documento— a la página 2, dejando la 1 casi en blanco. La tarjeta es
+     chica: el riesgo de que se parta justo en un salto de página es mínimo
+     comparado con perder una hoja entera.  */
   .fo-card-picked { outline: none; } /* el anillo de "elegido" es sólo para armar el link, no para el PDF */
   .fo-doc { max-width: none; margin: 0; box-shadow: none; }
   .fo-cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 26px 36px 22px; }
