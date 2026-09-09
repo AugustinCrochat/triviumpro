@@ -457,5 +457,6 @@
 /rmhd-catalogo-heavy-duty-maquinas-elevadores-equipamiento-para-taller/ /categoria/elevadores/ 301
 /tre64007-elevador-para-moto-360kg/ /categoria/elevadores-motos/ 301
 /unite-u-l01-lift-elevador-para-balanceadora-portatil/ /categoria/balanceadoras/ 301
-/folleto/ /lista-precios/ 301
-/tienda/ /lista-precios/ 301
+/folleto/ /catalogo/ 301
+/tienda/ /catalogo/ 301
+/lista-precios/ /catalogo/ 301

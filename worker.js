@@ -1,5 +1,5 @@
 // GENERADO por scripts/generate_worker.py — no editar a mano.
-// La fuente de verdad es redirects.map (428 reglas).
+// La fuente de verdad es redirects.map (429 reglas).
 //
 // Existe porque _redirects no sirve acá: Cloudflare limita a 100 las reglas en
 // Workers con assets estáticos, y el build fallaba al superarlo.
@@ -208,7 +208,7 @@ const EXACT = {
  "/ficha-unite-pl-b30m-rlevador-tijera-movil/": "/assets/pdf/ficha-unite-pl-b30m-rlevador-tijera-movil.pdf",
  "/ficha-unite-pl-c55-elevador-tijera-largo-con-kit-alineacion/": "/assets/pdf/ficha-unite-pl-c55-elevador-tijera-largo-con-kit-alineacion.pdf",
  "/ficha-unite-pl-u-dp5-elevador-bateria-auto-electrico/": "/categoria/elevadores/",
- "/folleto/": "/lista-precios/",
+ "/folleto/": "/catalogo/",
  "/formacion-tecnica-en-alineadora-3d-geoliner-630-en-neumaticos-pons-cordoba/": "/blog/formacion-tecnica-en-alineadora-3d-geoliner-630-en-neumaticos-pons-cordoba/",
  "/geoliner-630-la-alineadora-3d-compacta-que-revoluciona-los-talleres/": "/blog/geoliner-630-la-alineadora-3d-compacta-que-revoluciona-los-talleres/",
  "/geoliner-770/": "/categoria/alineadoras/",
@@ -227,6 +227,7 @@ const EXACT = {
  "/la-importancia-de-balancear-ruedas-beneficios-clave-para-talleres-y-gomerias/": "/blog/la-importancia-de-balancear-ruedas-beneficios-clave-para-talleres-y-gomerias/",
  "/la-importancia-de-ofrecer-rotacion-de-neumaticos-en-un-taller-o-gomeria/": "/blog/la-importancia-de-ofrecer-rotacion-de-neumaticos-en-un-taller-o-gomeria/",
  "/la-importancia-del-mantenimiento-preventivo-en-equipos-de-taller-caso-exitoso-lions-group/": "/blog/la-importancia-del-mantenimiento-preventivo-en-equipos-de-taller-caso-exitoso-lions-group/",
+ "/lista-precios/": "/catalogo/",
  "/los-beneficios-de-tener-una-alineadora-en-tu-taller-o-gomeria/": "/blog/los-beneficios-de-tener-una-alineadora-en-tu-taller-o-gomeria/",
  "/maquinas-de-taller-alineadoras-hofmann/": "/categoria/alineadoras/",
  "/maquinas-de-taller-balanceadoras-desarmadoras-hofmann/": "/categoria/balanceadoras/",
@@ -420,7 +421,7 @@ const EXACT = {
  "/servicios-integrales-para-tus-maquinas-instalacion-mantenimiento-y-mas-en-toda-argentina/": "/blog/servicios-integrales-para-tus-maquinas-instalacion-mantenimiento-y-mas-en-toda-argentina/",
  "/sistema-de-air-comprimido-prevost/": "/producto/red-de-aire-comprimido-prevost-piping-system/",
  "/sistema-de-aire-comprimido/": "/producto/red-de-aire-comprimido-prevost-piping-system/",
- "/tienda/": "/lista-precios/",
+ "/tienda/": "/catalogo/",
  "/tre64007-elevador-para-moto-360kg/": "/categoria/elevadores-motos/",
  "/unite-u-l01-lift-elevador-para-balanceadora-portatil/": "/categoria/balanceadoras/",
  "/ventajas-de-la-alineacion-de-camiones-para-empresas-de-mantenimiento/": "/blog/ventajas-de-la-alineacion-de-camiones-para-empresas-de-mantenimiento/",

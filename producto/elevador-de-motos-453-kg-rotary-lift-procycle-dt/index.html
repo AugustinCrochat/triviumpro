@@ -163,7 +163,7 @@
         <h2 style="margin-top:14px">Te puede <span style="color:var(--accent)">interesar.</span></h2>
       </div>
     </div>
-    <div class="prod-grid" id="related"><a class="prod-card" href="../../producto/elevador-de-motos-453-kg-rotary-lift-procycle-xlt-dt/"><div class="thumb"><img src="../../assets/img/productos/elevador-para-moto-direct-lift-procycle-xlt-dt.webp" alt="Elevador de Motos 453 kg - Rotary Lift ProCycle XLT-DT" loading="lazy" width="400" height="300"><span class="thumb-brand"><img src="../../assets/img/marcas/logo-direct-lift.svg" alt="Direct Lift"></span></div><div class="body"><span class="brand-tag">Direct Lift</span><h3>Elevador de Motos 453 kg - Rotary Lift ProCycle XLT-DT</h3><div class="spec"><span>Capacidad <b>453 kg</b></span><span>Altura <b>838 mm</b></span></div></div></a><a class="prod-card" href="../../producto/elevador-para-moto-454-kg-mt07-trivium-pro/"><div class="thumb"><img src="../../assets/img/productos/elevador-para-motos-mt07-trivium-center-454-kilos.webp" alt="Elevador para Moto 454 kg -  MT07 Trivium Pro" loading="lazy" width="400" height="300"><span class="thumb-brand"><img src="../../assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"></span></div><div class="body"><span class="brand-tag">Trivium Pro</span><h3>Elevador para Moto 454 kg -  MT07 Trivium Pro</h3><div class="spec"><span>Capacidad <b>454 kg</b></span><span>Altura <b>800 mm</b></span></div><div class="price-tag">$ 1.653.042<span>IVA 21% incluido</span></div></div></a></div>
+    <div class="prod-grid" id="related"><a class="prod-card" href="../../producto/elevador-de-motos-453-kg-rotary-lift-procycle-xlt-dt/"><div class="thumb"><img src="../../assets/img/productos/elevador-para-moto-direct-lift-procycle-xlt-dt.webp" alt="Elevador de Motos 453 kg - Rotary Lift ProCycle XLT-DT" loading="lazy" width="400" height="300"><span class="thumb-brand"><img src="../../assets/img/marcas/logo-direct-lift.svg" alt="Direct Lift"></span></div><div class="body"><span class="brand-tag">Direct Lift</span><h3>Elevador de Motos 453 kg - Rotary Lift ProCycle XLT-DT</h3><div class="spec"><span>Capacidad <b>453 kg</b></span><span>Altura <b>838 mm</b></span></div></div></a><a class="prod-card" href="../../producto/elevador-para-moto-454-kg-mt07-trivium-pro/"><div class="thumb"><img src="../../assets/img/productos/elevador-para-motos-mt07-trivium-center-454-kilos.webp" alt="Elevador para Moto 454 kg -  MT07 Trivium Pro" loading="lazy" width="400" height="300"><span class="thumb-brand"><img src="../../assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"></span></div><div class="body"><span class="brand-tag">Trivium Pro</span><h3>Elevador para Moto 454 kg -  MT07 Trivium Pro</h3><div class="spec"><span>Capacidad <b>454 kg</b></span><span>Altura <b>800 mm</b></span></div></div></a></div>
   </div>
 </section>
 
@@ -338,8 +338,6 @@ try {
       <h1>${p.name}</h1>
       <span class="sku">SKU · ${p.sku}</span>
 
-      ${p.brand === 'trivium-pro' ? '<div id="pd-buy"></div>' : ''}
-
       ${p.category.includes('elevador') ? `
       <div class="pd-spec-tiles">
         ${p.capacity ? `<div class="pd-spec-tile"><div class="tile-label">Capacidad</div><div class="tile-value">${p.capacity}</div></div>` : ''}
@@ -387,14 +385,11 @@ try {
   const floatBtn = document.querySelector('.wa-float');
   if (floatBtn) floatBtn.href = waLink(msg);
 
-  // Bloque de compra (sólo marca propia): precio final, carrito y checkout.
-  // TIENDA se inicializa acá y no arriba para no demorar el pintado de la ficha.
-  // Se inicializa siempre, no sólo cuando hay bloque de compra: así el carrito
-  // del header sigue visible mientras el visitante mira fichas de otras marcas.
-  const buyEl = document.getElementById('pd-buy');
-  TIENDA.init()
-    .then(() => { if (buyEl) TIENDA.buyBox(p.sku, buyEl); })
-    .catch(() => { if (buyEl) buyEl.remove(); });
+  // Venta online pausada: no hay bloque de compra en ninguna marca por ahora
+  // (ver data/prices-publico.json). TIENDA.init() se llama igual porque el
+  // carrito del header lo necesita si queda algo guardado de antes de la
+  // pausa — así el visitante puede vaciarlo, no vender más equipos acá.
+  TIENDA.init().catch(() => {});
 
   // related
   const related = CATALOG.products
