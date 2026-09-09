@@ -244,9 +244,14 @@ a.fo-card:hover .fo-go { background: var(--accent); color: #fff; }
   .fo-chip { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .fo-inner { padding: 0 11mm 12mm; }
   .fo-group { padding-top: 22px; }
-  /* El ancho de una A4 (~794px) dispara la media query de 900px y el PDF
-     salía a 2 columnas: acá se fuerzan las 3 de nuevo. */
-  .fo-grid { grid-template-columns: repeat(3, 1fr); gap: 9px; }
+  /* Grid a flex: Chrome no pagina bien un CSS Grid al imprimir — el
+     "break-inside: avoid" de .fo-card se ignora y las fichas quedan cortadas
+     a la mitad en el salto de página. Con flexbox esa fragmentación sí se
+     respeta. De paso resuelve lo mismo que el comentario viejo: el ancho de
+     una A4 (~794px) dispara la media query de 900px y el PDF salía a 2
+     columnas, acá se fuerzan las 3 de nuevo. */
+  .fo-grid { display: flex; flex-wrap: wrap; gap: 9px; }
+  .fo-card { flex: 0 0 calc((100% - 18px) / 3); }
   .fo-card { border-radius: 4px; }
   /* Altura fija + imagen absoluta: al paginar, Chrome no respeta bien ni
      aspect-ratio ni el max-height relativo — las fotos verticales estiraban la
