@@ -70,7 +70,7 @@
 /producto/921-001-000/ /categoria/equipamiento-taller/ 301
 /producto/9430402/ /categoria/equipamiento-taller/ 301
 /producto/agc-8200/ /categoria/equipamiento-taller/ 301
-/producto/alineadora-3d-para-autos-y-camionetas-va2023-trivium-center/ /categoria/elevadores-pesados/ 301
+/producto/alineadora-3d-para-autos-y-camionetas-va2023-trivium-center/ /categoria/alineadoras/ 301
 /producto/alineadora-3d-u-va2023/ /categoria/alineadoras/ 301
 /producto/axis-4000/ /categoria/equipamiento-taller/ 301
 /producto/axis-500/ /categoria/equipamiento-taller/ 301
@@ -425,6 +425,7 @@
 /equipamiento-para-taller-linea-pesados/ /categoria/elevadores-pesados/ 301
 /equipamiento-para-taller/ /categoria/equipamiento-taller/ 301
 /equipamiento-taller-camiones/ /categoria/elevadores-pesados/ 301
+/etiqueta-producto/camiones-y-pesados/ /categoria/elevadores-pesados/ 301
 /ez-adas-hofmann/ /categoria/alineadoras/ 301
 /ficha-mesa-trabajo-taller-79111j-3-cajones-y-alzada-2/ /categoria/muebles-taller/ 301
 /ficha-mesatrabajo-taller-tsc5911-2-cajones/ /categoria/muebles-taller/ 301

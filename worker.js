@@ -1,5 +1,5 @@
 // GENERADO por scripts/generate_worker.py — no editar a mano.
-// La fuente de verdad es redirects.map (429 reglas).
+// La fuente de verdad es redirects.map (430 reglas).
 //
 // Existe porque _redirects no sirve acá: Cloudflare limita a 100 las reglas en
 // Workers con assets estáticos, y el build fallaba al superarlo.
@@ -193,6 +193,7 @@ const EXACT = {
  "/equipamiento-taller-camiones/": "/categoria/elevadores-pesados/",
  "/errores-comunes-al-usar-una-balanceadora-y-como-evitarlos/": "/blog/errores-comunes-al-usar-una-balanceadora-y-como-evitarlos/",
  "/especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas/": "/blog/especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas/",
+ "/etiqueta-producto/camiones-y-pesados/": "/categoria/elevadores-pesados/",
  "/existen-diferencias-reales-entre-hofmann-y-john-bean/": "/blog/existen-diferencias-reales-entre-hofmann-y-john-bean/",
  "/ez-adas-hofmann/": "/categoria/alineadoras/",
  "/ficha-balanceadora-de-ruedas-de-camion-y-pesados-hofmann-geodyna-980l/": "/producto/balanceadora-para-ruedas-de-camion-hofmann-geodyna-980l/",
@@ -262,7 +263,7 @@ const EXACT = {
  "/producto/alineador-de-faros-tecnolux-2019/": "/categoria/alineadoras/",
  "/producto/alineador-de-faros-tecnolux-2350/": "/categoria/alineadoras/",
  "/producto/alineadora-3d-para-autos-y-camionetas-u-va2023-auto-pro/": "/categoria/alineadoras/",
- "/producto/alineadora-3d-para-autos-y-camionetas-va2023-trivium-center/": "/categoria/elevadores-pesados/",
+ "/producto/alineadora-3d-para-autos-y-camionetas-va2023-trivium-center/": "/categoria/alineadoras/",
  "/producto/alineadora-3d-u-va2023/": "/categoria/alineadoras/",
  "/producto/alineadora-de-camion-haweka-axis4000/": "/categoria/alineadoras/",
  "/producto/alineadora-de-camion-haweka-axis500/": "/categoria/alineadoras/",
