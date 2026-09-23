@@ -45,6 +45,7 @@ function waLink(message) {
 const BRAND_LOGOS = {
   'rotary-lift':  'assets/img/marcas/logo-rotary-lift.svg',
   'hofmann':      'assets/img/marcas/logo-hofmann.svg',
+  'challenger-lifts': 'assets/img/marcas/logo-challenger-lifts.svg',
   'direct-lift':  'assets/img/marcas/logo-direct-lift.svg',
   'forward-lift': 'assets/img/marcas/logo-forward-lift.svg',
   'trivium-pro':  'assets/img/marcas/logo-trivium-pro.svg',
@@ -53,7 +54,7 @@ const BRAND_LOGOS = {
   'prevost':      'assets/img/marcas/logo-prevost.svg',
 };
 
-const MAIN_BRANDS = ['rotary-lift', 'hofmann', 'direct-lift', 'trivium-pro'];
+const MAIN_BRANDS = ['rotary-lift', 'hofmann', 'challenger-lifts', 'direct-lift', 'trivium-pro'];
 
 const CAT_ICONS = {
   'elevadores': 'assets/img/iconos/elevadores.svg',
@@ -66,7 +67,7 @@ function renderBrandBar() {
   const root = rootPath();
   const items = MAIN_BRANDS.map(slug => {
     const logo = BRAND_LOGOS[slug];
-    const name = { 'rotary-lift': 'Rotary Lift', 'hofmann': 'Hofmann', 'direct-lift': 'Direct Lift', 'forward-lift': 'Forward Lift', 'trivium-pro': 'Trivium Pro' }[slug];
+    const name = { 'rotary-lift': 'Rotary Lift', 'hofmann': 'Hofmann', 'challenger-lifts': 'Challenger Lifts', 'direct-lift': 'Direct Lift', 'forward-lift': 'Forward Lift', 'trivium-pro': 'Trivium Pro' }[slug];
     return `<a class="brand-bar__item" href="${root}marca/${slug}/" aria-label="${name}" data-slug="${slug}">
       <img src="${root}${logo}" alt="${name}" loading="lazy">
     </a>`;

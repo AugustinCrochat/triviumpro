@@ -2,11 +2,11 @@
 
 > Importador y distribuidor oficial de equipamiento para talleres mecánicos y gomerías en Argentina: elevadores de auto, alineadoras, balanceadoras y desarmadoras de neumáticos. Representante oficial de las marcas premium Rotary Lift (elevadores) y Hofmann (alineación y balanceo), y fabricante de Trivium Pro, su línea propia de equipamiento económico. Instalación y servicio técnico propios en todo el país.
 
-Catálogo completo: 109 equipos en 9 categorías. Los precios publicados son de lista, en pesos argentinos, calculados con el dólar oficial venta del día e IVA incluido cuando se indica.
+Catálogo completo: 110 equipos en 9 categorías. Los precios publicados son de lista, en pesos argentinos, calculados con el dólar oficial venta del día e IVA incluido cuando se indica.
 
 ## Catálogo
 
-- [Catálogo completo](https://pro.trivium.ar/catalogo/): los 109 equipos, todas las marcas.
+- [Catálogo completo](https://pro.trivium.ar/catalogo/): los 110 equipos, todas las marcas.
 - [Elevadores](https://pro.trivium.ar/categoria/elevadores/): Para cada tipo de vehículo y taller
 - [Alineadoras](https://pro.trivium.ar/categoria/alineadoras/): Alineación de precisión
 - [Balanceadoras](https://pro.trivium.ar/categoria/balanceadoras/): Balanceo profesional
@@ -23,6 +23,7 @@ Dos gamas conviven en el catálogo: las marcas premium importadas (Rotary Lift, 
 
 - [Rotary Lift](https://pro.trivium.ar/marca/rotary-lift/) — USA — Elevadores
 - [Hofmann](https://pro.trivium.ar/marca/hofmann/) — Snap-On USA/Italia — Alineación
+- [Challenger Lifts](https://pro.trivium.ar/marca/challenger-lifts/) — Snap-on USA — Elevadores
 - [Direct Lift](https://pro.trivium.ar/marca/direct-lift/) — USA — Tijera
 - [Forward Lift](https://pro.trivium.ar/marca/forward-lift/) — USA — Elevación
 - [Trivium Pro](https://pro.trivium.ar/marca/trivium-pro/) — Marca propia
