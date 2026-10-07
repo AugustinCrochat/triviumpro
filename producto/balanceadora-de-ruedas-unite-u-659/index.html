@@ -352,6 +352,7 @@ try {
       </div>
       <h1>${p.name}</h1>
       <span class="sku">SKU · ${p.sku}</span>
+      <div id="pd-price"></div>
 
       ${p.category.includes('elevador') ? `
       <div class="pd-spec-tiles">
@@ -405,6 +406,12 @@ try {
   // carrito del header lo necesita si queda algo guardado de antes de la
   // pausa — así el visitante puede vaciarlo, no vender más equipos acá.
   TIENDA.init().catch(() => {});
+
+  // Precio en la ficha (sólo equipos con precio público; ver data/prices-publico.json)
+  ensureCardPrices().then(() => {
+    const el = document.getElementById('pd-price');
+    if (el) el.innerHTML = cardPriceHtml(p.sku, true);
+  }).catch(() => {});
 
   // related
   const related = CATALOG.products

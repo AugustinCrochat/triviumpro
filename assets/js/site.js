@@ -326,15 +326,15 @@ async function ensureCardPrices() {
   await loadPublicPrices();
   PRICE_RATE = await getOfficialRate();
 }
-function cardPrice(sku) {
+function cardPrice(sku, enFicha) {
   const rec = PUBLIC_PRICES && PUBLIC_PRICES.items[sku];
-  if (!rec || rec.tienda === false || PRICE_RATE == null) return null;
+  if (!rec || (rec.tienda === false && !enFicha) || PRICE_RATE == null) return null;
   const base = rec.fixed_ars != null ? rec.fixed_ars : rec.usd * PRICE_RATE;
   const iva = rec.iva != null ? rec.iva : PUBLIC_PRICES.meta.default_iva;
   return { total: Math.round(base * (1 + iva / 100)), iva };
 }
-function cardPriceHtml(sku) {
-  const pr = cardPrice(sku);
+function cardPriceHtml(sku, enFicha) {
+  const pr = cardPrice(sku, enFicha);
   if (!pr) return '';
   const monto = '$ ' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(pr.total);
   const ivaLbl = (Number.isInteger(pr.iva) ? pr.iva : String(pr.iva).replace('.', ',')) + '%';

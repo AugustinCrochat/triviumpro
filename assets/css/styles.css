@@ -592,6 +592,15 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   text-transform: none; letter-spacing: normal; margin-top: 1px;
 }
 
+/* Precio en la ficha de producto */
+.pd-info .price-tag {
+  margin: 14px 0 4px; font-size: 2rem; font-weight: 800; letter-spacing: -.02em; color: var(--text);
+}
+.pd-info .price-tag span {
+  display: block; font-size: .8rem; font-weight: 500; color: var(--text-mute);
+  letter-spacing: normal; margin-top: 2px;
+}
+
 @media (max-width: 1100px) { .prod-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 780px)  { .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
 

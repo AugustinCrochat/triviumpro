@@ -3,6 +3,8 @@
     "Precios públicos — equipos Trivium Pro. NO es confidencial: se muestra en las",
     "fichas /producto/, en la tienda /tienda/ y en la lista /lista-precios/.",
     "",
+    "Excepción a la pausa (2026-10-07): el Lift U-L01 (1010034) muestra precio en su ficha, con 'tienda': false para que no entre a la venta online ni al checkout.",
+    "",
     "PAUSADO (2026-09-09): 'items' se vació a propósito para sacar los precios de",
     "Trivium Pro del sitio público y pausar la venta online. Los 18 ítems que había",
     "siguen en el historial de git — restaurarlos de ahí reactiva precios y tienda.",
@@ -29,5 +31,7 @@
   "meta": {
     "default_iva": 10.5
   },
-  "items": {}
+  "items": {
+    "1010034": { "modelo": "U-L01", "iva": 21, "fixed_ars": 762300, "tienda": false }
+  }
 }
