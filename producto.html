@@ -136,6 +136,11 @@ try {
         </a>` : ''}
       </div>` : ''}
 
+      ${(p.bullets && p.bullets.length) ? `
+      <ul class="pd-bullets">
+        ${p.bullets.map(b => `<li>${b.replace(/\s+([,.;:])/g, '$1')}</li>`).join('')}
+      </ul>` : ''}
+
     </div>
   `;
 
