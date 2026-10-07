@@ -331,7 +331,9 @@ function cardPrice(sku, enFicha) {
   if (!rec || (rec.tienda === false && !enFicha) || PRICE_RATE == null) return null;
   const base = rec.fixed_ars != null ? rec.fixed_ars : rec.usd * PRICE_RATE;
   const iva = rec.iva != null ? rec.iva : PUBLIC_PRICES.meta.default_iva;
-  return { total: Math.round(base * (1 + iva / 100)), iva };
+  const total = base * (1 + iva / 100);
+  const paso = rec.redondeo || 1; // 'redondeo': 1000 → al mil más cercano
+  return { total: Math.round(total / paso) * paso, iva };
 }
 function cardPriceHtml(sku, enFicha) {
   const pr = cardPrice(sku, enFicha);

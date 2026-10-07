@@ -32,6 +32,6 @@
     "default_iva": 10.5
   },
   "items": {
-    "1010034": { "modelo": "U-L01", "iva": 21, "fixed_ars": 762300, "tienda": false }
+    "1010034": { "modelo": "U-L01", "iva": 21, "fixed_ars": 762300, "redondeo": 1000, "tienda": false }
   }
 }
