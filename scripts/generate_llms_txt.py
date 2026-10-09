@@ -40,8 +40,9 @@ def main():
         "",
         f"> Importador y distribuidor oficial de equipamiento para talleres mecánicos "
         f"y gomerías en Argentina: elevadores de auto, alineadoras, balanceadoras y "
-        f"desarmadoras de neumáticos. Representante oficial de las marcas premium "
-        f"Rotary Lift (elevadores) y Hofmann (alineación y balanceo), y fabricante de "
+        f"desarmadoras de neumáticos. Representante oficial de las marcas premium, de "
+        f"mayor calibre y rendimiento, Rotary Lift y Challenger Lifts (elevadores) y "
+        f"Hofmann (alineación y balanceo), y fabricante de "
         f"Trivium Pro, su línea propia de equipamiento económico. Instalación y "
         f"servicio técnico propios en todo el país.",
         "",
@@ -60,8 +61,9 @@ def main():
         "",
         "## Marcas representadas",
         "",
-        "Dos gamas conviven en el catálogo: las marcas premium importadas (Rotary "
-        "Lift, Hofmann, Direct Lift, Forward Lift, Haweka, Prevost) y Trivium Pro, la "
+        "Dos gamas conviven en el catálogo: las marcas premium importadas, de mayor "
+        "calibre (Rotary Lift, Hofmann, Challenger Lifts, Direct Lift, Forward Lift, "
+        "Haweka, Prevost) y Trivium Pro, la "
         "línea económica propia presente en varias categorías (elevadores, "
         "balanceadoras, desarmadoras, muebles y equipamiento de taller).",
         "",
@@ -88,8 +90,9 @@ def main():
         "servicio técnico propios.",
         "- **¿Tiene una línea económica además de las marcas premium?** Sí, Trivium "
         "Pro es también la marca propia: equipamiento de precio más accesible que "
-        "Rotary Lift o Hofmann, pensado para talleres que arrancan o amplían "
-        "capacidad.",
+        "Rotary Lift, Challenger Lifts o Hofmann, pensado para talleres que arrancan "
+        "o amplían capacidad. Las marcas premium son la opción para alto volumen de "
+        "trabajo y uso intensivo.",
         "- **¿Instalan el equipo o sólo lo venden?** Instalan: montaje, puesta en "
         "marcha y posventa con equipo técnico propio en todo el país.",
         "",

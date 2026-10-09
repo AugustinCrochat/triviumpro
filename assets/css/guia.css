@@ -24,3 +24,5 @@
 @media (max-width: 900px) { .guia-body { padding: 0 20px; font-size: 1rem; } }
 .zonas-lista { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px 20px; }
 .zonas-lista li { margin: 0; padding: 6px 0; border-bottom: 1px solid var(--line); }
+.guia-body td.precio { white-space: nowrap; font-weight: 700; color: var(--text); }
+.guia-body .nota-precios { font-size: .88rem; color: var(--text-mute, #777); margin: -12px 0 28px; }

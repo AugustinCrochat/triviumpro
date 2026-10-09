@@ -12,10 +12,16 @@ que se quiera actualizar el feed con la cotización del día:
 
     python3 scripts/generate_meta_catalog.py
 
-Salida: feeds/meta-catalogo.csv
+Salida:
+  feeds/meta-catalogo.csv     Meta Commerce Manager (Facebook/Instagram).
+  feeds/google-merchant.tsv   Google Merchant Center (Shopping y fichas gratuitas),
+                              archivo de texto delimitado por tabs. Mismos precios
+                              y mismos productos que el feed de Meta.
 """
 import csv
+import html as html_lib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -48,6 +54,29 @@ def abs_url(path):
     return f"{SITE_URL}/{path.lstrip('/')}"
 
 
+def plain(text):
+    text = re.sub(r"<[^>]+>", " ", text or "")
+    text = html_lib.unescape(text).replace(" : ", ": ")
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def clip(text, limit):
+    text = plain(text)
+    if len(text) <= limit:
+        return text
+    return text[:limit].rsplit(" ", 1)[0].rstrip(" .,;:-") + "…"
+
+
+def product_type(p, cats):
+    """'Elevadores > 2 Columnas': la jerarquía de categorías del sitio."""
+    cat = cats.get(p.get("category"))
+    names = []
+    while cat:
+        names.insert(0, cat["name"])
+        cat = cats.get(cat.get("parent"))
+    return " > ".join(names)
+
+
 def main():
     catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
     prices = load_prices_publico()
@@ -55,6 +84,8 @@ def main():
     print(f"Dólar oficial venta: {rate} ({'en vivo' if live else 'referencia'})")
 
     by_sku = {p["sku"]: p for p in catalog["products"]}
+    cats = {c["slug"]: c for c in catalog["categories"]}
+    google_rows = []
     items = prices["items"]
     default_iva = prices["meta"]["default_iva"]
 
@@ -79,6 +110,30 @@ def main():
 
         images = [p["image"]] if p.get("image") else []
         images += [im for im in (p.get("images") or []) if im not in images]
+
+        # Google: título con la marca, descripción de texto plano de 100+
+        # caracteres, y sin GTIN (marca propia, no tiene código de barras
+        # registrado) → identifier_exists = no.
+        g_title = p["name"] if "trivium" in p["name"].lower() else f"{p['name']} - Trivium Pro"
+        g_desc = clip(description, 700)
+        if len(g_desc) < 100:
+            g_desc += (" Línea Trivium Pro para talleres y gomerías, con instalación "
+                       "y servicio técnico en todo el país.")
+        google_rows.append({
+            "id": sku,
+            "title": clip(g_title, 150),
+            "description": g_desc,
+            "link": f"{SITE_URL}/producto/{p['slug']}/",
+            "image_link": abs_url(images[0]) if images else "",
+            "additional_image_link": ",".join(abs_url(im) for im in images[1:10]),
+            "availability": "in_stock",
+            "price": f"{total_ars:.2f} ARS",
+            "condition": "new",
+            "brand": "Trivium Pro",
+            "mpn": rec.get("modelo") or "",
+            "identifier_exists": "no",
+            "product_type": product_type(p, cats),
+        })
 
         rows.append({
             "id": sku,
@@ -106,6 +161,18 @@ def main():
         writer.writerows(rows)
 
     print(f"Escrito {out_path} con {len(rows)} productos")
+
+    google_rows.sort(key=lambda r: r["id"])
+    g_path = out_dir / "google-merchant.tsv"
+    g_fields = ["id", "title", "description", "link", "image_link", "additional_image_link",
+                "availability", "price", "condition", "brand", "mpn", "identifier_exists",
+                "product_type"]
+    with g_path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=g_fields, delimiter="\t",
+                                quoting=csv.QUOTE_MINIMAL)
+        writer.writeheader()
+        writer.writerows(google_rows)
+    print(f"Escrito {g_path} con {len(google_rows)} productos")
 
 
 if __name__ == "__main__":

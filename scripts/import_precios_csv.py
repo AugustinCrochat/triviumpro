@@ -74,6 +74,21 @@ SIN_VENTA_ONLINE = {
 }
 
 
+# Factor sobre el precio de planilla para los precios PUBLICADOS en la web.
+# Se aplica acá, al generar data/prices-publico.json, y no en cada consumidor:
+# así fichas, /tienda/, /lista-precios/, el feed y el Worker leen todos el mismo
+# número y no hay un segundo cálculo que pueda desincronizarse. El folleto
+# interno (folleto-8f3a1c9d/precios.js) conserva los precios de planilla.
+PRECIO_WEB_FACTOR = 1.25
+
+# Ítems con precio público fijado a mano: se publican tal cual, sin el factor.
+# U-L01: $762.300 + IVA 21%, definido el 2026-10-07. tienda:false = se muestra
+# en la ficha pero no entra a la venta online.
+PUBLICO_MANUAL = {
+    "1010034": {"modelo": "U-L01", "iva": 21, "fixed_ars": 762300, "tienda": False},
+}
+
+
 def parse_usd(v):
     v = (v or "").strip()
     if not v or "#" in v:            # '#N/A' de la planilla
@@ -157,7 +172,13 @@ def main():
 
         privado[sku] = {**item, "marca": p["brand"] or c["marca"]}
         if p["brand"] == MARCA_PROPIA:
-            publico[sku] = item
+            web = dict(item)
+            if "usd" in web:
+                web["usd"] = round(web["usd"] * PRECIO_WEB_FACTOR, 2)
+            if "fixed_ars" in web:
+                web["fixed_ars"] = round(web["fixed_ars"] * PRECIO_WEB_FACTOR)
+            publico[sku] = web
+    publico.update(PUBLICO_MANUAL)
 
     # ---- público: solo marca propia ----
     destino_pub = ROOT / "data" / "prices-publico.json"

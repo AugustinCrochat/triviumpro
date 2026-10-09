@@ -26,7 +26,7 @@ const esperado = (sku) => {
   const iva = r.iva != null ? r.iva : PRECIOS.meta.default_iva;
   return { base: Math.round(base), iva, total: Math.round(base * (1 + iva / 100)) };
 };
-const E30 = esperado('1010127'), UL01 = esperado('1010034'), FIJO = esperado('1010124');
+const E30 = esperado('1010127'), UL01 = esperado('1010223'), FIJO = esperado('1010124');
 const store = new Map();
 // Como en Cloudflare: cada match() devuelve una Response nueva, no la misma
 // instancia (si no, el body se consume en la primera lectura).
@@ -79,24 +79,24 @@ console.log('\nGET /api/tienda/precios');
   ok(e30.base_ars === E30.base, `PL-E30 sin IVA = ${e30.base_ars}`);
   ok(e30.total_ars === E30.total, `PL-E30 final con IVA = ${e30.total_ars}`);
   const fijo = t.items['1010124'];  // PL-4.2D: fixed_ars, no se recalcula
-  ok(fijo.base_ars === 2750000, 'PL-4.2D respeta fixed_ars y no usa el dólar');
+  ok(fijo.base_ars === PRECIOS.items['1010124'].fixed_ars, 'PL-4.2D respeta fixed_ars y no usa el dólar');
   ok(fijo.total_ars === FIJO.total, 'PL-4.2D final = fixed_ars + IVA');
-  const acc = t.items['1010034'];   // U-L01: iva 21
-  ok(acc.iva === UL01.iva && acc.total_ars === UL01.total, `U-L01 usa el IVA del JSON (${UL01.iva}%)`);
+  const acc = t.items['1010223'];   // PL-MT07: iva 21
+  ok(acc.iva === UL01.iva && acc.total_ars === UL01.total, `PL-MT07 usa el IVA del JSON (${UL01.iva}%)`);
 }
 
 console.log('\nPOST /api/tienda/checkout');
 {
   const r = await call('/api/tienda/checkout', {
     method: 'POST', headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ items: [{ sku: '1010127', qty: 2 }, { sku: '1010034', qty: 1 }],
+    body: JSON.stringify({ items: [{ sku: '1010127', qty: 2 }, { sku: '1010223', qty: 1 }],
                            comprador: { nombre: 'Ana Gómez', email: 'ana@taller.ar', telefono: '1122334455', localidad: 'Rosario' } }),
   });
   const d = await r.json();
   ok(r.status === 200 && d.init_point === 'https://mp.test/checkout/PREF-123', 'devuelve el init_point de MP');
   ok(/^TP-[A-Z0-9]+-[A-Z0-9]{4}$/.test(d.referencia), `genera referencia (${d.referencia})`);
   const suma = E30.total * 2 + UL01.total;
-  ok(d.total_ars === suma, `total ${d.total_ars} = 2×PL-E30 + 1×U-L01`);
+  ok(d.total_ars === suma, `total ${d.total_ars} = 2×PL-E30 + 1×PL-MT07`);
   ok(mpBody.items[0].unit_price === E30.total, 'a MP le manda el precio CON IVA');
   ok(mpBody.items[0].quantity === 2, 'respeta la cantidad');
   ok(mpBody.shipments.mode === 'not_specified', 'no le pide flete a MP (envío a coordinar)');

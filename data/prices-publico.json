@@ -3,17 +3,10 @@
     "Precios públicos — equipos Trivium Pro. NO es confidencial: se muestra en las",
     "fichas /producto/, en la tienda /tienda/ y en la lista /lista-precios/.",
     "",
-    "Excepción a la pausa (2026-10-07): el Lift U-L01 (1010034) muestra precio en su ficha, con 'tienda': false para que no entre a la venta online ni al checkout.",
-    "",
-    "PAUSADO (2026-09-09): 'items' se vació a propósito para sacar los precios de",
-    "Trivium Pro del sitio público y pausar la venta online. Los 18 ítems que había",
-    "siguen en el historial de git — restaurarlos de ahí reactiva precios y tienda.",
-    "Esto no toca folleto-8f3a1c9d/precios.js (herramienta de vendedores, con TODAS",
-    "las marcas), que vive aparte a propósito.",
-    "",
-    "Fuente: 'Precio Venta CONTADO U$D sin IVA' de la lista de precios interna",
-    "(columna E), NO el precio de reventa/revendedor (ese sí es confidencial y vive",
-    "en lista-revendedores-5d2f2e5e/prices.js).",
+    "Generado por scripts/import_precios_csv.py a partir de la planilla interna:",
+    "no editar a mano (se pierde al volver a importar). Los valores de este archivo",
+    "son exactamente los que se publican; el folleto de vendedores",
+    "(folleto-8f3a1c9d/precios.js, con TODAS las marcas) vive aparte a propósito.",
     "",
     "'usd' es el precio SIN IVA. El precio en pesos se calcula en vivo con el dólar",
     "oficial venta (dolarapi.com), salvo que el ítem tenga 'fixed_ars': en ese caso",
@@ -32,6 +25,97 @@
     "default_iva": 10.5
   },
   "items": {
-    "1010034": { "modelo": "U-L01", "iva": 21, "fixed_ars": 762300, "redondeo": 1000, "tienda": false }
+    "1010034": {
+      "modelo": "U-L01",
+      "iva": 21,
+      "fixed_ars": 762300,
+      "tienda": false
+    },
+    "1010122": {
+      "modelo": "S-901",
+      "iva": 10.5,
+      "usd": 1076.25
+    },
+    "1010124": {
+      "modelo": "PL-4.2D",
+      "iva": 10.5,
+      "fixed_ars": 3437500
+    },
+    "1010127": {
+      "modelo": "PL-E30",
+      "iva": 10.5,
+      "usd": 4062.5
+    },
+    "1010143": {
+      "modelo": "PL-B30M",
+      "iva": 10.5,
+      "usd": 2875.0
+    },
+    "1010144": {
+      "modelo": "PL-4.0 2AD",
+      "iva": 10.5,
+      "usd": 2500.0
+    },
+    "1010223": {
+      "modelo": "PL-MT07",
+      "iva": 21.0,
+      "usd": 1112.5
+    },
+    "1010261": {
+      "modelo": "PL-FS50",
+      "iva": 10.5,
+      "usd": 8125.0
+    },
+    "1010263": {
+      "modelo": "PL-B30Y",
+      "iva": 10.5,
+      "usd": 5368.75
+    },
+    "1010265": {
+      "modelo": "PL-1200U",
+      "iva": 10.5,
+      "usd": 1437.5
+    },
+    "1010267": {
+      "modelo": "PL-1256S",
+      "iva": 10.5,
+      "usd": 3737.5
+    },
+    "1010271": {
+      "modelo": "U-T50MSD",
+      "iva": 10.5,
+      "usd": 6243.75
+    },
+    "1010272": {
+      "modelo": "G-66",
+      "iva": 10.5,
+      "usd": 2987.5
+    },
+    "1010281": {
+      "modelo": "PL-45H",
+      "iva": 10.5,
+      "usd": 3562.5
+    },
+    "1010282": {
+      "modelo": "PL-C55",
+      "iva": 10.5,
+      "usd": 10737.5
+    },
+    "1010289": {
+      "modelo": "PL-6.0/2DEB",
+      "iva": 10.5,
+      "usd": 6481.25
+    },
+    "1010290": {
+      "modelo": "U-DP5",
+      "iva": 10.5,
+      "usd": 3493.75
+    },
+    "P-5406": {
+      "modelo": "U-850",
+      "iva": 10.5,
+      "tienda": false,
+      "usd": 2437.5
+    }
   }
 }

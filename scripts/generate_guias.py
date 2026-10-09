@@ -10,12 +10,14 @@ Uso:
 import html as html_lib
 import json
 import os
+from datetime import date
 
 from generate_pretty_urls import (
     BASE_DIR, SITE_URL, ORG_NAME, breadcrumb_html, breadcrumb_jsonld, clamp,
     create_index_file, esc, faq_html, faq_jsonld, make_seo_block,
     make_og_block, blog_links_html, replace_empty_el,
 )
+from generate_pretty_urls import load_public_offers
 from guias_content import GUIAS, UPDATED
 
 ROOT2 = '../../'
@@ -32,18 +34,30 @@ def capacidad(prod):
     return cap if cap and cap != '—' else '—'
 
 
-def tabla_html(guia, products, brands):
+def precio_txt(offer):
+    if not offer:
+        return 'Consultar'
+    return '$ ' + f"{round(offer['price']):,}".replace(',', '.')
+
+
+def tabla_html(guia, products, brands, offers):
+    """Tabla comparativa. Con 'precio' en la columna final: precio final con IVA
+    de los equipos con precio público; el resto va como 'Consultar'."""
     rows = []
     for slug, nota in guia['tabla']['slugs']:
         p = products[slug]
         marca = brands.get(p.get('brand'), {}).get('name', '—')
         rows.append(
             f'<tr><td><a href="{ROOT2}producto/{esc(slug)}/">{esc(html_lib.unescape(p["name"]))}</a></td>'
-            f'<td>{esc(marca)}</td><td>{esc(capacidad(p))}</td><td>{esc(nota)}</td></tr>'
+            f'<td>{esc(marca)}</td><td>{esc(capacidad(p))}</td>'
+            f'<td>{esc(nota)}</td><td class="precio">{esc(precio_txt(offers.get(p["sku"])))}</td></tr>'
         )
+    hoy = date.today().strftime('%d/%m/%Y')
     return ('<div class="tabla-wrap"><table><thead><tr><th>Modelo</th><th>Marca</th>'
-            '<th>Capacidad</th><th>Para qué sirve</th></tr></thead><tbody>'
-            + ''.join(rows) + '</tbody></table></div>')
+            '<th>Capacidad</th><th>Para qué sirve</th><th>Precio final</th></tr></thead><tbody>'
+            + ''.join(rows) + '</tbody></table></div>'
+            f'<p class="nota-precios">Precios en pesos con IVA incluido, calculados con el dólar '
+            f'oficial venta del {hoy}. Los equipos sin precio se cotizan a medida: consultanos.</p>')
 
 
 def cta_html(guia, cats):
@@ -63,10 +77,11 @@ def main():
     cats = {c['slug']: c for c in catalog['categories']}
     blog_by_slug = {p['slug']: p for p in load('blog.json')}
     template = os.path.join(BASE_DIR, 'guia.html')
+    offers, _rate = load_public_offers()
 
     for guia in GUIAS:
         url = f"{SITE_URL}/guias/{guia['slug']}/"
-        body = guia['intro'] + guia['secciones'].replace('{{TABLA}}', tabla_html(guia, products, brands))
+        body = guia['intro'] + guia['secciones'].replace('{{TABLA}}', tabla_html(guia, products, brands, offers))
         if 'class="cta"' not in body:
             body += cta_html(guia, cats)
 

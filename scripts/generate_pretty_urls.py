@@ -86,6 +86,29 @@ CATEGORY_TITLES = {
 }
 
 
+# Posicionamiento por marca: Trivium Pro es la línea económica; Hofmann, Rotary
+# Lift y Challenger Lifts son las marcas de mayor calibre. (título, descripción)
+BRAND_SEO = {
+    'trivium-pro': (
+        "Equipos de taller económicos",
+        "Trivium Pro, línea económica: {n} equipos para talleres y gomerías "
+        "(elevadores, balanceadoras, desarmadoras) a precio accesible. Instalación "
+        "en todo el país."),
+    'hofmann': (
+        "Hofmann Argentina: alineadoras y balanceadoras",
+        "Hofmann (Snap-on): {n} equipos de alineación, balanceo y desarmado de mayor "
+        "calibre para talleres de alto volumen. Instalación y servicio en todo el país."),
+    'rotary-lift': (
+        "Rotary Lift Argentina: elevadores para taller",
+        "Rotary Lift: {n} elevadores de mayor calibre para talleres, concesionarias "
+        "y flotas. Distribuidor oficial, con instalación en todo el país."),
+    'challenger-lifts': (
+        "Challenger Lifts Argentina: elevadores",
+        "Challenger Lifts (Snap-on): elevadores certificados ALI de mayor calibre "
+        "para uso intensivo. Instalación y servicio técnico en todo el país."),
+}
+
+
 def product_meta_description(prod):
     """Meta description de ficha: nombre + un diferencial + llamado a cotizar.
 
@@ -740,13 +763,14 @@ def main():
             # puntas (Rotary Lift/Hofmann premium, Trivium Pro económica) para
             # calzar con ambas intenciones de búsqueda.
             if slug in ('elevadores', 'alineadoras', 'balanceadoras', 'desarmadoras'):
-                gama = ("Marcas premium Rotary Lift y Hofmann, y línea económica propia "
+                premium = ("Rotary Lift y Challenger Lifts" if slug == 'elevadores' else "Hofmann")
+                gama = (f"Premium de mayor calibre ({premium}) y línea económica "
                         "Trivium Pro.")
             else:
                 gama = "Representantes oficiales Rotary Lift y Hofmann en Argentina."
             desc = clamp(
-                f"{nombre} para taller: {len(prods)} equipos en stock y a pedido. "
-                f"{tagline} {gama} Envíos a todo el país."
+                f"{nombre} para taller: {len(prods)} equipos. {gama} "
+                f"Instalación en todo el país."
             )
             crumbs = [("Inicio", ""), ("Catálogo", "catalogo/")]
             if cat.get('parent') and cat['parent'] in cats_by_slug:
@@ -802,6 +826,10 @@ def main():
                 f"{brand['name']} en Argentina: {len(prods)} equipos disponibles. {note}. "
                 f"Venta, instalación y servicio post-venta en todo el país por {ORG_NAME}."
             )
+            brand_title = f"{brand['name']} Argentina"
+            if slug in BRAND_SEO:
+                brand_title, desc = BRAND_SEO[slug]
+                desc = clamp(desc.format(n=len(prods)))
             crumbs = [("Inicio", ""), ("Marcas", "marcas/"), (brand['name'], None)]
             jsonld = [breadcrumb_jsonld([
                 (n, SITE_URL + '/' + (h or '')) if h is not None else (n, url)
@@ -812,7 +840,7 @@ def main():
             grid = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in prods)
             create_index_file(
                 os.path.join(BASE_DIR, 'marca', slug), cat_template, 2,
-                title=f"{brand['name']} Argentina",
+                title=brand_title,
                 og={'type': 'website', 'title': f"{brand['name']} en Argentina",
                     'description': desc, 'image': f"{SITE_URL}/assets/img/logo-trivium.svg",
                     'url': url},
@@ -826,6 +854,11 @@ def main():
                     'cat-list': sidebar_cats,
                     'brand-list': sidebar_brands,
                     'grid': grid,
+                    'cat-posts': (
+                        f'<div class="container"><h2>Antes de comprar</h2>'
+                        f'<p><a href="{root2}guias/equipos-de-taller-economicos/">'
+                        f'Equipos de taller económicos: cuándo conviene la línea Trivium Pro →</a></p></div>'
+                        if slug == 'trivium-pro' else ''),
                 },
             )
 
@@ -889,6 +922,8 @@ def main():
                 product_ld["additionalProperty"] = props
             offer = offers_by_sku.get(prod.get('sku'))
             if offer:
+                if offer.get('modelo'):
+                    product_ld["mpn"] = offer['modelo']
                 product_ld["offers"] = {
                     "@type": "Offer",
                     "url": url,
@@ -897,6 +932,12 @@ def main():
                     "priceValidUntil": offer['valid'],
                     "availability": "https://schema.org/InStock",
                     "itemCondition": "https://schema.org/NewCondition",
+                    "priceSpecification": {
+                        "@type": "UnitPriceSpecification",
+                        "price": offer['price'],
+                        "priceCurrency": "ARS",
+                        "valueAddedTaxIncluded": True,
+                    },
                     "seller": {"@type": "Organization", "name": ORG_NAME},
                 }
             jsonld = [product_ld, breadcrumb_jsonld([
@@ -941,6 +982,7 @@ def main():
                 f'<h1>{esc(prod["name"])}</h1>'
                 f'{brand_line}'
                 f'<p class="pd-summary">{esc(strip_tags(raw_desc))}</p>'
+                f'{price_tag_html(prod.get("sku"), offers_by_sku)}'
                 f'{specs}{bullets}'
                 f'{rich}'
                 f'</div></article>'

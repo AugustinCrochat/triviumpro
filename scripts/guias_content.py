@@ -416,4 +416,79 @@ GUIAS = [
   "la-importancia-de-ofrecer-rotacion-de-neumaticos-en-un-taller-o-gomeria",
  ],
 },
+{
+ "slug": "equipos-de-taller-economicos",
+ "title": "Equipos de taller económicos: elevadores, balanceadoras y desarmadoras",
+ "h1": "Equipos de taller económicos: la línea Trivium Pro",
+ "description": ("Equipos de taller económicos en Argentina: elevadores, balanceadoras y "
+                 "desarmadoras Trivium Pro con precio, instalación y servicio técnico. "
+                 "Cuándo conviene y cuándo elegir una marca premium."),
+ "category": "elevadores",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> si armás o ampliás un taller o una gomería y el presupuesto es lo que manda, la línea <strong>Trivium Pro</strong> cubre elevadores, balanceadoras, desarmadoras y equipamiento de taller a precio accesible, con instalación y servicio técnico propios en todo el país. Si el taller tiene alto volumen de trabajo y uso intensivo, las marcas de mayor calibre (<strong>Hofmann, Rotary Lift y Challenger Lifts</strong>) están pensadas para eso.</p>
+</div>
+""",
+ "secciones": """
+<h2>Qué es la línea Trivium Pro</h2>
+<p>Trivium Pro es la marca propia de la empresa: equipamiento para talleres y gomerías de precio más accesible que las marcas importadas premium. Incluye elevadores de dos columnas, cuatro columnas y tijera, balanceadoras (incluida una para camiones), desarmadoras de neumáticos, elevadores para motos y equipamiento de taller. Varios modelos incorporan sistemas de seguridad como bloqueo mecánico o neumático, válvulas antiexplosión y, en algunos, certificación CE: el detalle está en la ficha de cada equipo.</p>
+
+<h2>Línea económica o marca premium: cómo decidir</h2>
+<p>No es una cuestión de "mejor o peor", sino de para qué trabajo está pensado cada equipo:</p>
+<ul>
+<li><strong>Elegí Trivium Pro</strong> si estás arrancando, si el volumen de trabajo es moderado o si necesitás equipar varias posiciones con un presupuesto ajustado.</li>
+<li><strong>Elegí Hofmann, Rotary Lift o Challenger Lifts</strong> si el taller trabaja a alto volumen, atiende concesionarias o flotas, necesita tecnología de punta (alineación 3D, diagnóstico sin contacto, certificación ALI) o busca la máxima vida útil.</li>
+<li><strong>Combinalas.</strong> Es común equipar con línea económica las posiciones de menor exigencia y reservar la marca premium para el equipo que más se usa.</li>
+</ul>
+<p>Si todavía estás definiendo qué comprar, mirá las guías por equipo: <a href="../../guias/elevadores-para-taller/">elevadores</a>, <a href="../../guias/balanceadoras-de-ruedas/">balanceadoras</a>, <a href="../../guias/desarmadoras-de-neumaticos/">desarmadoras</a> y <a href="../../guias/alineadoras-3d/">alineadoras</a>.</p>
+
+<h2>Equipos de la línea económica con precio</h2>
+<p>Una selección de equipos Trivium Pro por tipo de trabajo. El catálogo completo de la marca está en <a href="../../marca/trivium-pro/">Trivium Pro</a>.</p>
+{{TABLA}}
+
+<h2>Cómo armar un taller o una gomería con presupuesto ajustado</h2>
+<ol>
+<li><strong>Empezá por lo que genera ingresos de inmediato:</strong> desarmadora y balanceadora para una gomería, elevador de dos columnas o tijera para un taller mecánico.</li>
+<li><strong>Sumá el aire comprimido y las herramientas neumáticas</strong> que necesite cada posición.</li>
+<li><strong>Ampliá después:</strong> un segundo elevador, alineación, más posiciones.</li>
+</ol>
+<p>El orden detallado está en la guía <a href="../../guias/equipar-una-gomeria/">cómo equipar una gomería</a>. Consultá también por planes de pago y financiación.</p>
+""",
+ "tabla": {
+  "precios": True,
+  "slugs": [
+   ("desarmadora-de-ruedas-unite-pl-1200u", "Desarmadora de entrada para gomería; plato de hasta 24\"."),
+   ("desarmadora-de-ruedas-con-brazo-auxiliar-pl-1256s-trivium-center", "Con brazo auxiliar de 360°, llantas de 12\" a 26\"."),
+   ("balanceadora-de-ruedas-unite-g66", "Con autocalibración, pantalla de 17\" y puntero láser."),
+   ("balanceadora-de-ruedas-unite-s-901", "Con autocalibración y bandeja de herramientas."),
+   ("elevador-tijera-gomeria-4500-kg-pl-45h", "Tijera ultradelgado para gomería, sin obra civil."),
+   ("elevador-tijera-3000-kg-pl-e30", "Tijera para embutir, queda a nivel del piso."),
+   ("elevador-tijera-portatil-3000-kg-pl-b30m", "Tijera portátil con triple sistema de seguridad."),
+   ("elevador-dos-columnas-4000-kg-piso-libre-unite-pl-4-0-2a", "Dos columnas de piso libre para mecánica general."),
+   ("elevador-dos-columnas-4000-kg-travesano-al-piso-unite-pl-4-0-2d", "Dos columnas con travesaño al piso."),
+   ("elevador-dos-columnas-5000-kg-trivium-pro-u-t50msd", "Piso libre, 5.000 kg, certificación CE."),
+   ("elevador-dos-columnas-6000-kg-vehiculos-electricos", "Para vehículos eléctricos y SUV pesadas."),
+   ("elevador-cuatro-columnas-5000-kg-con-kit-para-alineacion", "Cuatro columnas con kit de alineación incluido."),
+  ],
+ },
+ "faqs": [
+  ("¿Qué equipos de taller económicos tiene Trivium Pro?",
+   "Elevadores de dos columnas, cuatro columnas y tijera, balanceadoras (incluida una para camiones), desarmadoras de neumáticos, elevadores para motos y equipamiento de taller, todos de la línea propia Trivium Pro."),
+  ("¿Cuáles son las máquinas más baratas para armar una gomería?",
+   "Para una gomería, lo esencial es una desarmadora y una balanceadora, y un elevador tijera de baja altura o un gato. En la línea Trivium Pro tenés la desarmadora PL-1200U, las balanceadoras G-66 y S-901 y el elevador tijera PL-45H, con precio en la tabla de esta página."),
+  ("¿La línea Trivium Pro es lo mismo que Hofmann o Rotary Lift?",
+   "No. Hofmann, Rotary Lift y Challenger Lifts son marcas premium de mayor calibre, pensadas para alto volumen y uso intensivo. Trivium Pro es la línea económica propia, para talleres que arrancan o amplían capacidad con un presupuesto más ajustado."),
+  ("¿Los equipos económicos incluyen instalación y servicio técnico?",
+   "La instalación, la capacitación y el servicio técnico se cotizan según tu localidad, y los hacemos con equipo propio en todo el país. También hay repuestos."),
+  ("¿Se puede financiar la compra?",
+   "Sí, hay planes de pago y otras opciones. Consultá las condiciones por WhatsApp."),
+  ("¿Los precios incluyen IVA?",
+   "Sí. Los precios de esta página son finales con IVA incluido, en pesos, calculados con el dólar oficial del día."),
+ ],
+ "posts": [
+  "equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos",
+  "como-instalar-una-gomeria-guia-completa-para-emprender-con-exito",
+  "como-abrir-un-taller-de-alineacion-y-balanceo",
+ ],
+},
 ]
