@@ -23,6 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 from site_config import SITE_URL, ORG_NAME
 
 
+from guias_content import GUIAS
+
+
 def main():
     with open(os.path.join(BASE_DIR, 'data', 'catalog.json'), encoding='utf-8') as f:
         catalog = json.load(f)
@@ -88,6 +91,11 @@ def main():
         "capacidad.",
         "- **¿Instalan el equipo o sólo lo venden?** Instalan: montaje, puesta en "
         "marcha y posventa con equipo técnico propio en todo el país.",
+        "",
+        "## Guías de compra",
+        "",
+        *[f"- [{g['h1']}]({SITE_URL}/guias/{g['slug']}/): {g['description']}"
+          for g in GUIAS],
         "",
         "## Empresa",
         "",

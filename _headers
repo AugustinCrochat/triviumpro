@@ -59,3 +59,6 @@
 # tal cual para no cambiar la intención original, pero conviene revisarla.
 /*.html
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/guia.html
+  X-Robots-Tag: noindex, follow

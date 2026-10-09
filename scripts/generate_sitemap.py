@@ -57,6 +57,12 @@ def main():
     for path, priority, freq in STATIC_PAGES:
         entries.append(url_entry(SITE_URL + path, today, freq, priority))
 
+    # Páginas pilar /guias/: salen de scripts/guias_content.py
+    from guias_content import GUIAS, UPDATED
+    entries.append(url_entry(f"{SITE_URL}/guias/", UPDATED, "monthly", "0.8"))
+    for g in GUIAS:
+        entries.append(url_entry(f"{SITE_URL}/guias/{g['slug']}/", UPDATED, "monthly", "0.8"))
+
     for c in catalog["categories"]:
         entries.append(
             url_entry(f"{SITE_URL}/categoria/{c['slug']}/", today, "weekly", "0.8")

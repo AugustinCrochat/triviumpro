@@ -49,6 +49,42 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://pro.trivium.ar/guias/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/guias/balanceadoras-de-ruedas/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/guias/alineadoras-3d/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/guias/elevadores-para-taller/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/guias/desarmadoras-de-neumaticos/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/guias/equipar-una-gomeria/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://pro.trivium.ar/categoria/elevadores/</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>

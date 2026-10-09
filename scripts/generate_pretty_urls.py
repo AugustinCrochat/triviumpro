@@ -292,6 +292,27 @@ CATEGORY_BLOG_POSTS = {
 }
 
 
+# Guía de compra (/guias/) que corresponde a cada categoría.
+CATEGORY_GUIDES = {
+    'elevadores': ('elevadores-para-taller', 'Guía de compra: cómo elegir un elevador para taller'),
+    'elevadores-2-columnas': ('elevadores-para-taller', 'Guía de compra: cómo elegir un elevador para taller'),
+    'elevadores-4-columnas': ('elevadores-para-taller', 'Guía de compra: cómo elegir un elevador para taller'),
+    'elevadores-tijera': ('elevadores-para-taller', 'Guía de compra: cómo elegir un elevador para taller'),
+    'elevadores-pesados': ('elevadores-para-taller', 'Guía de compra: cómo elegir un elevador para taller'),
+    'alineadoras': ('alineadoras-3d', 'Guía de compra: cómo elegir una alineadora 3D'),
+    'balanceadoras': ('balanceadoras-de-ruedas', 'Guía de compra: cómo elegir una balanceadora de ruedas'),
+    'desarmadoras': ('desarmadoras-de-neumaticos', 'Guía de compra: cómo elegir una desarmadora de neumáticos'),
+}
+
+
+def guide_link_html(slug, root):
+    g = CATEGORY_GUIDES.get(slug)
+    if not g:
+        return ''
+    return (f'<div class="container"><h2>Antes de comprar</h2>'
+            f'<p><a href="{esc(root)}guias/{esc(g[0])}/">{esc(g[1])} →</a></p></div>')
+
+
 def blog_links_html(title, slugs, blog_by_slug, root):
     """Grilla de notas del blog relacionadas, con las mismas clases prod-card
     que usa el blog para 'Más noticias': no suma CSS nueva."""
@@ -719,6 +740,7 @@ def main():
                 jsonld.append(faq_jsonld(faqs))
             posts_html = blog_links_html(
                 "Guías relacionadas", CATEGORY_BLOG_POSTS.get(slug, []), blog_by_slug, root2)
+            posts_html = guide_link_html(slug, root2) + posts_html
             grid = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in prods)
             create_index_file(
                 os.path.join(BASE_DIR, 'categoria', slug), cat_template, 2,
