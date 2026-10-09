@@ -158,6 +158,64 @@ for _cat_slug, _cat_name, _posts in [
         POST_CATEGORY[_slug] = (_cat_slug, _cat_name)
 
 
+# --- enlaces de cada nota a las guías de compra y a las páginas de zona ---
+# Reglas por palabra clave del slug, en orden: la primera que coincide gana.
+# Las notas de casos (instalaciones, capacitaciones) llevan además su zona.
+POST_GUIDE_RULES = [
+    (('elevador', 'piso', 'lubricentro', 'monofasicos', 'certificacion-ali'), 'elevadores-para-taller'),
+    (('alineador', 'alineacion', 'geoliner', 'geometria', 'hofmann', 'josam', 'ventajas-de-la-alineacion'), 'alineadoras-3d'),
+    (('balance', 'autocalibracion'), 'balanceadoras-de-ruedas'),
+    (('desarmadora',), 'desarmadoras-de-neumaticos'),
+    (('gomeria', 'taller', 'neumaticos', 'rotacion', 'repuestera'), 'equipar-una-gomeria'),
+]
+POST_GUIDE_OVERRIDE = {
+    'equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos': 'equipar-una-gomeria',
+    'instalamos-tres-elevadores-de-dos-columnas-para-punto-flash': 'elevadores-para-taller',
+    'como-mantener-tu-desarmadora-trivium-center-en-optimas-condiciones': 'desarmadoras-de-neumaticos',
+    # "alineacion" en el slug no la hace una nota de alineadoras:
+    'como-abrir-un-taller-de-alineacion-y-balanceo': 'equipar-una-gomeria',
+    'cuanto-espacio-dejar-entre-la-alineadora-y-el-elevador-recomendaciones-para-una-instalacion-optima': 'alineadoras-3d',
+    # Caso de mantenimiento preventivo: la guía no aporta, la zona sí.
+    'la-importancia-del-mantenimiento-preventivo-en-equipos-de-taller-caso-exitoso-lions-group': '',
+}
+POST_ZONE = {
+    'formacion-tecnica-en-alineadora-3d-geoliner-630-en-neumaticos-pons-cordoba': 'cordoba',
+    'instalamos-una-josam-cv-aligner-en-mendoza-tecnologia-snap-on-para-el-alineado-de-vehiculos-pesados': 'mendoza',
+    'equipamiento-completo-para-repuestera-del-milagro': 'salta',
+    'la-importancia-del-mantenimiento-preventivo-en-equipos-de-taller-caso-exitoso-lions-group': 'buenos-aires',
+}
+
+
+def post_guide_html(slug, root):
+    """Bloque estático 'Guías relacionadas' al pie de la nota.
+
+    Va en #post-guide, fuera de #post-content: el script de la página
+    reescribe #post-content con post.content al hidratar, así que cualquier
+    enlace prerenderizado adentro se pierde en el navegador.
+    """
+    from guias_content import GUIAS
+    from zonas_content import ZONAS
+    guia_slug = POST_GUIDE_OVERRIDE.get(slug)
+    if guia_slug is None:
+        for words, g in POST_GUIDE_RULES:
+            if any(w in slug for w in words):
+                guia_slug = g
+                break
+    items = []
+    guide = next((g for g in GUIAS if g['slug'] == guia_slug), None)
+    if guide:
+        items.append(f'<li><a href="{esc(root)}guias/{esc(guide["slug"])}/"><strong>{esc(guide["h1"])}</strong>'
+                     f'<span>{esc(guide["description"])}</span></a></li>')
+    zone = next((z for z in ZONAS if z['slug'] == POST_ZONE.get(slug)), None)
+    if zone:
+        items.append(f'<li><a href="{esc(root)}zonas/{esc(zone["slug"])}/"><strong>{esc(zone["h1"])}</strong>'
+                     f'<span>{esc(zone["description"])}</span></a></li>')
+    if not items:
+        return ''
+    return (f'<div class="container"><h2>Guías relacionadas</h2>'
+            f'<ul class="guia-lista">{"".join(items)}</ul></div>')
+
+
 def update_blog():
     with open(BASE_DIR / 'data' / 'blog.json', encoding='utf-8') as f:
         posts = json.load(f)
@@ -255,6 +313,16 @@ def update_blog():
         content = replace_empty_el(content, 'post-date', esc(pretty_date))
         content = replace_empty_el(content, 'post-content', body_html)
         content = replace_empty_el(content, 'more-posts', more_html)
+        # Contenedor estático de guías (idempotente: se crea una sola vez).
+        if 'id="post-guide"' not in content:
+            content = content.replace(
+                '</article>', '</article>\n<section class="cat-blog-links" id="post-guide"></section>', 1)
+        if 'assets/css/guia.css' not in content:
+            content = content.replace(
+                '<link rel="stylesheet" href="../../assets/css/styles.css">',
+                '<link rel="stylesheet" href="../../assets/css/styles.css">\n'
+                '<link rel="stylesheet" href="../../assets/css/guia.css">', 1)
+        content = replace_empty_el(content, 'post-guide', post_guide_html(slug, root))
         # El script inline usa ${root} sin declararlo: lanzaba ReferenceError
         # al armar las migas y abortaba antes de renderizar "Más noticias".
         content = content.replace('${root}', '${rootPath()}')
