@@ -26,3 +26,6 @@
 .zonas-lista li { margin: 0; padding: 6px 0; border-bottom: 1px solid var(--line); }
 .guia-body td.precio { white-space: nowrap; font-weight: 700; color: var(--text); }
 .guia-body .nota-precios { font-size: .88rem; color: var(--text-mute, #777); margin: -12px 0 28px; }
+/* Los enlaces del texto van en color de acento; un botón (también de acento) tiene que conservar su texto blanco. */
+.guia-body a.btn, .guia-body a.btn:hover { color: #fff; text-decoration: none; }
+.guia-body a.btn { padding: 12px 22px; }
