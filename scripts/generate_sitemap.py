@@ -47,41 +47,95 @@ def url_entry(loc, lastmod=None, changefreq=None, priority=None):
     return "  <url>\n" + "\n".join(parts) + "\n  </url>"
 
 
+LASTMOD_STATE = os.path.join(BASE_DIR, "scripts", "sitemap-lastmod.json")
+
+
+def _git_date(path):
+    """Fecha del último commit que tocó el archivo (para sembrar el estado)."""
+    import subprocess
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", path],
+                             cwd=BASE_DIR, capture_output=True, text=True, timeout=10)
+        return out.stdout.strip() or None
+    except Exception:
+        return None
+
+
+class LastMod:
+    """lastmod real por URL: la fecha cambia sólo si cambió el HTML de la página.
+
+    Poner la fecha de hoy en todas las URLs le dice a Google que todo cambió
+    todos los días, y termina ignorando el campo. Se guarda el hash del HTML de
+    cada página en scripts/sitemap-lastmod.json (scripts/ no se publica); si el
+    hash cambia, la fecha pasa a hoy. La primera vez se siembra con la fecha del
+    último commit del archivo.
+    """
+
+    def __init__(self, today):
+        self.today = today
+        try:
+            with open(LASTMOD_STATE, encoding="utf-8") as f:
+                self.state = json.load(f)
+        except (OSError, ValueError):
+            self.state = {}
+
+    def get(self, url_path):
+        import hashlib
+        rel = url_path.strip("/")
+        file = os.path.join(BASE_DIR, rel, "index.html") if rel else os.path.join(BASE_DIR, "index.html")
+        if not os.path.exists(file):
+            return self.today
+        with open(file, "rb") as f:
+            digest = hashlib.sha1(f.read()).hexdigest()
+        rec = self.state.get(url_path)
+        if rec is None:
+            self.state[url_path] = {"hash": digest, "date": _git_date(file) or self.today}
+        elif rec["hash"] != digest:
+            self.state[url_path] = {"hash": digest, "date": self.today}
+        return self.state[url_path]["date"]
+
+    def save(self):
+        with open(LASTMOD_STATE, "w", encoding="utf-8") as f:
+            json.dump(self.state, f, indent=0, sort_keys=True)
+            f.write("\n")
+
+
 def main():
     catalog = load("catalog.json")
     posts = load("blog.json")
     today = date.today().isoformat()
+    lm = LastMod(today)
 
     entries = []
 
     for path, priority, freq in STATIC_PAGES:
-        entries.append(url_entry(SITE_URL + path, today, freq, priority))
+        entries.append(url_entry(SITE_URL + path, lm.get(path), freq, priority))
 
     # Páginas pilar /guias/: salen de scripts/guias_content.py
-    from guias_content import GUIAS, UPDATED
-    entries.append(url_entry(f"{SITE_URL}/guias/", UPDATED, "monthly", "0.8"))
+    from guias_content import GUIAS
+    entries.append(url_entry(f"{SITE_URL}/guias/", lm.get("/guias/"), "monthly", "0.8"))
     for g in GUIAS:
-        entries.append(url_entry(f"{SITE_URL}/guias/{g['slug']}/", UPDATED, "monthly", "0.8"))
+        entries.append(url_entry(f"{SITE_URL}/guias/{g['slug']}/", lm.get(f"/guias/{g['slug']}/"), "monthly", "0.8"))
 
     # Páginas por zona /zonas/: salen de scripts/zonas_content.py
-    from zonas_content import ZONAS, UPDATED as ZONAS_UPDATED
-    entries.append(url_entry(f"{SITE_URL}/zonas/", ZONAS_UPDATED, "monthly", "0.7"))
+    from zonas_content import ZONAS
+    entries.append(url_entry(f"{SITE_URL}/zonas/", lm.get("/zonas/"), "monthly", "0.7"))
     for z in ZONAS:
-        entries.append(url_entry(f"{SITE_URL}/zonas/{z['slug']}/", ZONAS_UPDATED, "monthly", "0.7"))
+        entries.append(url_entry(f"{SITE_URL}/zonas/{z['slug']}/", lm.get(f"/zonas/{z['slug']}/"), "monthly", "0.7"))
 
     for c in catalog["categories"]:
         entries.append(
-            url_entry(f"{SITE_URL}/categoria/{c['slug']}/", today, "weekly", "0.8")
+            url_entry(f"{SITE_URL}/categoria/{c['slug']}/", lm.get(f"/categoria/{c['slug']}/"), "weekly", "0.8")
         )
 
     for b in catalog["brands"]:
         entries.append(
-            url_entry(f"{SITE_URL}/marca/{b['slug']}/", today, "monthly", "0.7")
+            url_entry(f"{SITE_URL}/marca/{b['slug']}/", lm.get(f"/marca/{b['slug']}/"), "monthly", "0.7")
         )
 
     for p in catalog["products"]:
         entries.append(
-            url_entry(f"{SITE_URL}/producto/{p['slug']}/", today, "monthly", "0.8")
+            url_entry(f"{SITE_URL}/producto/{p['slug']}/", lm.get(f"/producto/{p['slug']}/"), "monthly", "0.8")
         )
 
     for post in posts:
@@ -98,6 +152,7 @@ def main():
         + "\n</urlset>\n"
     )
 
+    lm.save()
     sitemap_path = os.path.join(BASE_DIR, "sitemap.xml")
     with open(sitemap_path, "w", encoding="utf-8") as f:
         f.write(xml)
@@ -107,11 +162,25 @@ def main():
     # necesita poder rastrear la página: un Disallow se lo impediría y la URL
     # quedaría indexada igual. Además robots.txt es público, así que listar
     # /lista-revendedores-<slug>/ acá publicaría el slug que se busca ocultar.
+    # Bots de IA: explícitos aunque "User-agent: *" ya los habilita. Un grupo
+    # propio los deja documentados y evita que una regla futura sobre * los
+    # corte sin querer. Buscadores/asistentes que citan la fuente (OAI-SearchBot,
+    # ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot,
+    # Perplexity-User) y los crawlers de entrenamiento (GPTBot, ClaudeBot,
+    # Google-Extended, Applebot-Extended): permitir ambos hace que el catálogo
+    # entre en las respuestas y en los modelos.
+    ai_bots = [
+        "OAI-SearchBot", "ChatGPT-User", "GPTBot",
+        "Claude-SearchBot", "Claude-User", "ClaudeBot",
+        "PerplexityBot", "Perplexity-User",
+        "Google-Extended", "Applebot-Extended",
+    ]
     robots = (
         "User-agent: *\n"
         "Allow: /\n"
         "\n"
-        f"Sitemap: {SITE_URL}/sitemap.xml\n"
+        + "".join(f"User-agent: {bot}\nAllow: /\n\n" for bot in ai_bots)
+        + f"Sitemap: {SITE_URL}/sitemap.xml\n"
     )
     with open(os.path.join(BASE_DIR, "robots.txt"), "w", encoding="utf-8") as f:
         f.write(robots)

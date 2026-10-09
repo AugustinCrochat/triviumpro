@@ -603,7 +603,7 @@ def update_static_pages(catalog):
             # de la Organization, no como local de esta marca.
             jsonld = [{
                 "@context": "https://schema.org",
-                "@type": "Organization",
+                "@type": ["Organization", "LocalBusiness"],
                 "name": ORG_NAME,
                 "legalName": "Trivium Center S.A.",
                 "url": f"{SITE_URL}/",
