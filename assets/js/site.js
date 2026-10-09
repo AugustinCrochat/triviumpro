@@ -91,6 +91,7 @@ function renderHeader(active) {
     { href: `${root}marcas/`, label: 'Marcas', key: 'marcas' },
     { href: `${root}instalacion-posventa-y-servicios/`, label: 'Servicios', key: 'servicios' },
     { href: `${root}nosotros/`, label: 'Nosotros', key: 'nosotros' },
+    { href: `${root}guias/`, label: 'Guías', key: 'guias' },
     { href: `${root}blog/`, label: 'Blog', key: 'blog' },
     { href: `${root}contacto/`, label: 'Contacto', key: 'contacto' }
   ];
@@ -225,6 +226,8 @@ function renderFooter() {
               <li><a href="${root}nosotros/">Nosotros</a></li>
               <li><a href="${root}marcas/">Marcas</a></li>
               <li><a href="${root}instalacion-posventa-y-servicios/">Servicios y Posventa</a></li>
+              <li><a href="${root}guias/">Guías de compra</a></li>
+              <li><a href="${root}zonas/">Envíos y cobertura</a></li>
               <li><a href="${root}contacto/">Contacto</a></li>
             </ul>
           </div>
