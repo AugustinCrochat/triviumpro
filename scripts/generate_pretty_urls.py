@@ -305,6 +305,33 @@ CATEGORY_GUIDES = {
 }
 
 
+# Categorías sin guía propia que se resuelven con la guía de equipar una gomería
+# o con la de su equipo principal.
+CATEGORY_GUIDES.update({
+    'accesorios-balanceo': ('balanceadoras-de-ruedas', 'Guía de compra: cómo elegir una balanceadora de ruedas'),
+    'herramientas-neumaticas': ('equipar-una-gomeria', 'Guía: cómo equipar una gomería'),
+    'aire-comprimido': ('equipar-una-gomeria', 'Guía: cómo equipar una gomería'),
+    'equipamiento-taller': ('equipar-una-gomeria', 'Guía: cómo equipar una gomería'),
+    'muebles-taller': ('equipar-una-gomeria', 'Guía: cómo equipar una gomería'),
+})
+
+
+def product_guide_html(cat_slug, root):
+    """Enlaces internos de la ficha hacia su guía de compra y al hub de zonas.
+
+    Va en #pd-guide, fuera de #pd-wrap, porque producto.html reescribe #pd-wrap
+    al hidratar y lo prerenderizado ahí no sobrevive al JS.
+    """
+    g = CATEGORY_GUIDES.get(cat_slug)
+    parts = []
+    if g:
+        parts.append(f'<a href="{esc(root)}guias/{esc(g[0])}/">{esc(g[1])} →</a>')
+    parts.append(f'<a href="{esc(root)}zonas/">Envíos, instalación y posventa en todo el país →</a>')
+    items = ''.join(f'<li>{p}</li>' for p in parts)
+    return (f'<div class="container"><h2>Antes de comprar</h2>'
+            f'<ul class="guia-lista">{items}</ul></div>')
+
+
 def guide_link_html(slug, root):
     g = CATEGORY_GUIDES.get(slug)
     if not g:
@@ -931,6 +958,7 @@ def main():
                     'crumbs': breadcrumb_html(crumbs, root2),
                     'pd-wrap': pd_html,
                     'related': related_html,
+                    'pd-guide': product_guide_html(prod.get('category'), root2),
                 },
             )
 
