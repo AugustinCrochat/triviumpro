@@ -539,6 +539,9 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   box-shadow: 0 1px 3px rgba(0,0,0,.08);
 }
 .prod-card .thumb-brand img { height: 16px; max-width: 72px; width: auto; display: block; object-fit: contain; }
+/* Las notas del blog aplican margen y borde a toda <img> del contenido (.post-content img);
+   dentro de una grilla de productos eso agranda la foto y la caja blanca del logo. */
+.post-content .prod-card img { margin: 0; border: 0; }
 .prod-card .body {
   padding: 16px 18px 18px;
   display: flex; flex-direction: column; gap: 4px;
