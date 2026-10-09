@@ -72,6 +72,43 @@ def load_public_offers():
     return out, rate
 
 
+# <title> orientado a búsqueda de compra. El H1 sigue siendo el nombre corto.
+CATEGORY_TITLES = {
+    'elevadores': 'Elevadores para taller y gomería',
+    'elevadores-2-columnas': 'Elevadores de 2 columnas para taller',
+    'elevadores-4-columnas': 'Elevadores de 4 columnas para alineación',
+    'elevadores-tijera': 'Elevadores tijera para taller y gomería',
+    'elevadores-pesados': 'Elevadores para camiones y pesados',
+    'elevadores-motos': 'Elevadores para motos',
+    'alineadoras': 'Alineadoras 3D para autos y camiones',
+    'balanceadoras': 'Balanceadoras de ruedas para gomería',
+    'desarmadoras': 'Desarmadoras de neumáticos para gomería',
+}
+
+
+def product_meta_description(prod):
+    """Meta description de ficha: nombre + un diferencial + llamado a cotizar.
+
+    Antes se usaban los bullets crudos, que en varias fichas son etiquetas
+    sueltas ("Eléctricos a batería · Exóticos de perfil bajo"): no dicen qué
+    es el equipo. El nombre ya trae tipo, capacidad, marca y modelo.
+    """
+    cta = " Cotizá con instalación y envío a todo el país."
+    extra = ''
+    for b in prod.get('bullets') or []:
+        b = re.sub(r'\s+', ' ', strip_tags(b)).replace(' : ', ': ').strip()
+        if len(b) >= 35:
+            extra = b.rstrip('. ')
+            break
+    if prod.get('summary'):
+        extra = strip_tags(prod['summary']).rstrip('. ')
+    base = prod['name'].strip().rstrip('.')
+    head = f"{base}. {extra}."
+    if len(head) + len(cta) > 158:
+        head = f"{base}."
+    return clamp(head, 158 - len(cta)) + cta
+
+
 def make_seo_block(canonical, description, jsonld=None):
     """canonical + meta description + JSON-LD. Los OG se agregan aparte."""
     out = [
@@ -685,7 +722,7 @@ def main():
             grid = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in prods)
             create_index_file(
                 os.path.join(BASE_DIR, 'categoria', slug), cat_template, 2,
-                title=nombre,
+                title=CATEGORY_TITLES.get(slug, nombre),
                 og={'type': 'website', 'title': f"{nombre} — Equipamiento de taller",
                     'description': desc, 'image': f"{SITE_URL}/assets/img/logo-trivium.svg",
                     'url': url},
@@ -758,7 +795,7 @@ def main():
                 raw_desc = ' · '.join(prod['bullets'][:3])
             else:
                 raw_desc = strip_tags(prod.get('html_description', '')) or prod['name']
-            desc = clamp(raw_desc)
+            desc = product_meta_description(prod)
 
             og = {
                 'type': 'product',
