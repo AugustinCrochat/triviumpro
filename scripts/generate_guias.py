@@ -49,7 +49,7 @@ def tabla_html(guia, products, brands):
 def cta_html(guia, cats):
     cat = cats[guia['category']]
     return (f'<div class="cta"><p><strong>¿Dudas con qué modelo elegir?</strong> Contanos tu taller '
-            f'y te recomendamos el equipo. Mirá también el catálogo completo de '
+            f'y te recomendamos el equipo. Enviamos e instalamos en <a href="{ROOT2}zonas/">todo el país</a>. Mirá también el catálogo completo de '
             f'<a href="{ROOT2}categoria/{esc(cat["slug"])}/">{esc(cat["seo_name"] if cat.get("seo_name") else cat["name"])}</a>.</p>'
             f'<a class="btn btn--primary" href="https://wa.me/5491127015294?text='
             f'Hola%2C%20quiero%20asesoramiento%20sobre%20{esc(guia["slug"])}.">'

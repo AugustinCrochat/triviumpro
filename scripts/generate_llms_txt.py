@@ -24,6 +24,7 @@ from site_config import SITE_URL, ORG_NAME
 
 
 from guias_content import GUIAS
+from zonas_content import ZONAS
 
 
 def main():
@@ -96,6 +97,11 @@ def main():
         "",
         *[f"- [{g['h1']}]({SITE_URL}/guias/{g['slug']}/): {g['description']}"
           for g in GUIAS],
+        "",
+        "## Cobertura",
+        "",
+        f"- [Envíos, instalación y posventa en todo el país]({SITE_URL}/zonas/)",
+        *[f"- [{z['h1']}]({SITE_URL}/zonas/{z['slug']}/)" for z in ZONAS],
         "",
         "## Empresa",
         "",

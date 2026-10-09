@@ -5,9 +5,10 @@ if git diff --cached --name-only | grep -qE '^(data/(catalog|blog)\.json|scripts
   python3 scripts/generate_pretty_urls.py \
     && python3 scripts/generate_og_tags.py \
     && python3 scripts/generate_guias.py \
+    && python3 scripts/generate_zonas.py \
     && python3 scripts/generate_sitemap.py \
     && python3 scripts/generate_llms_txt.py || exit 1
-  git add guias/ producto/ blog/ categoria/ marca/ nosotros/ catalogo/ instalacion-posventa-y-servicios/ contacto/ marcas/ index.html sitemap.xml robots.txt llms.txt 2>/dev/null
+  git add guias/ zonas/ producto/ blog/ categoria/ marca/ nosotros/ catalogo/ instalacion-posventa-y-servicios/ contacto/ marcas/ index.html sitemap.xml robots.txt llms.txt 2>/dev/null
 fi
 # worker.js se genera desde redirects.map: si no, quedan desincronizados
 if git diff --cached --name-only | grep -q '^redirects\.map$'; then

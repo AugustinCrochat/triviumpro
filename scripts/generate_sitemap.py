@@ -63,6 +63,12 @@ def main():
     for g in GUIAS:
         entries.append(url_entry(f"{SITE_URL}/guias/{g['slug']}/", UPDATED, "monthly", "0.8"))
 
+    # Páginas por zona /zonas/: salen de scripts/zonas_content.py
+    from zonas_content import ZONAS, UPDATED as ZONAS_UPDATED
+    entries.append(url_entry(f"{SITE_URL}/zonas/", ZONAS_UPDATED, "monthly", "0.7"))
+    for z in ZONAS:
+        entries.append(url_entry(f"{SITE_URL}/zonas/{z['slug']}/", ZONAS_UPDATED, "monthly", "0.7"))
+
     for c in catalog["categories"]:
         entries.append(
             url_entry(f"{SITE_URL}/categoria/{c['slug']}/", today, "weekly", "0.8")
