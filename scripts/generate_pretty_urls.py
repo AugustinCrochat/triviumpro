@@ -33,9 +33,9 @@ def clamp(text, limit=158):
 def load_public_offers():
     """Precios públicos + dólar del día, para las offers del Product schema.
 
-    Sólo entra lo que ya es público en data/prices-publico.json y visible en la
-    ficha (tienda != false): el schema nunca puede mostrar un precio que la
-    página no muestra. El dólar se pide en vivo con fallback fijo, igual que
+    Entra todo lo público en data/prices-publico.json. Los ítems con
+    tienda:false llevan 'tienda': False: se ven sólo en su ficha (igual que en
+    site.js), no en grillas, guías ni feeds. El dólar se pide en vivo con fallback fijo, igual que
     generate_meta_catalog.py: sin red, el generador sigue andando.
     """
     import urllib.request
@@ -59,14 +59,13 @@ def load_public_offers():
     valid = (date.today() + timedelta(days=30)).isoformat()
     out = {}
     for sku, rec in prices['items'].items():
-        if rec.get('tienda') is False:
-            continue
         base = rec['fixed_ars'] if rec.get('fixed_ars') is not None else rec['usd'] * rate
         iva = rec.get('iva', prices['meta']['default_iva'])
         out[sku] = {
             'price': round(base * (1 + iva / 100), 2),
             'iva': iva,
             'modelo': rec.get('modelo'),
+            'tienda': rec.get('tienda') is not False,
             'valid': valid,
         }
     return out, rate
@@ -419,7 +418,7 @@ def price_tag_html(sku, offers_by_sku, en_ficha=False):
     """Réplica estática de cardPriceHtml() de site.js. En la ficha aclara que la
     instalación no está incluida en el precio."""
     offer = (offers_by_sku or {}).get(sku)
-    if not offer:
+    if not offer or (not offer['tienda'] and not en_ficha):
         return ''
     monto = '$ ' + f"{round(offer['price']):,}".replace(',', '.')
     iva = offer['iva']

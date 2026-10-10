@@ -50,7 +50,7 @@ def tabla_html(guia, products, brands, offers):
         rows.append(
             f'<tr><td><a href="{ROOT2}producto/{esc(slug)}/">{esc(html_lib.unescape(p["name"]))}</a></td>'
             f'<td>{esc(marca)}</td><td>{esc(capacidad(p))}</td>'
-            f'<td>{esc(nota)}</td><td class="precio">{esc(precio_txt(offers.get(p["sku"])))}</td></tr>'
+            f'<td>{esc(nota)}</td><td class="precio">{esc(precio_txt(offers.get(p["sku"]) if offers.get(p["sku"], {}).get("tienda") else None))}</td></tr>'
         )
     hoy = date.today().strftime('%d/%m/%Y')
     return ('<div class="tabla-wrap"><table><thead><tr><th>Modelo</th><th>Marca</th>'
