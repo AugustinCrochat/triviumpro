@@ -93,19 +93,19 @@ BRAND_SEO = {
         "Equipos de taller económicos",
         "Trivium Pro, línea económica: {n} equipos para talleres y gomerías "
         "(elevadores, balanceadoras, desarmadoras) a precio accesible. Instalación "
-        "en todo el país."),
+        "a cotizar en todo el país."),
     'hofmann': (
         "Hofmann Argentina: alineadoras y balanceadoras",
         "Hofmann (Snap-on): {n} equipos de alineación, balanceo y desarmado de mayor "
-        "calibre para talleres de alto volumen. Instalación y servicio en todo el país."),
+        "calibre para talleres de alto volumen. Instalación a cotizar en todo el país."),
     'rotary-lift': (
         "Rotary Lift Argentina: elevadores para taller",
         "Rotary Lift: {n} elevadores de mayor calibre para talleres, concesionarias "
-        "y flotas. Distribuidor oficial, con instalación en todo el país."),
+        "y flotas. Distribuidor oficial; instalación a cotizar en todo el país."),
     'challenger-lifts': (
         "Challenger Lifts Argentina: elevadores",
         "Challenger Lifts (Snap-on): elevadores certificados ALI de mayor calibre "
-        "para uso intensivo. Instalación y servicio técnico en todo el país."),
+        "para uso intensivo. Instalación a cotizar en todo el país."),
 }
 
 
@@ -116,7 +116,7 @@ def product_meta_description(prod):
     sueltas ("Eléctricos a batería · Exóticos de perfil bajo"): no dicen qué
     es el equipo. El nombre ya trae tipo, capacidad, marca y modelo.
     """
-    cta = " Cotizá con instalación y envío a todo el país."
+    cta = " Cotizá envío e instalación a todo el país."
     extra = ''
     for b in prod.get('bullets') or []:
         b = re.sub(r'\s+', ' ', strip_tags(b)).replace(' : ', ': ').strip()
@@ -272,10 +272,11 @@ HOME_FAQS = [
      "capacidad sin resignar norma de seguridad."),
     ("¿Trivium Pro instala el equipamiento o solo lo vende?",
      "Instala. El equipo técnico propio hace el montaje, la puesta en marcha y el "
-     "servicio post-venta en todo el país, no sólo la venta del equipo."),
+     "servicio post-venta en todo el país, no sólo la venta del equipo. La "
+     "instalación se cotiza aparte del precio del equipo."),
     ("¿Hacen envíos de equipamiento de taller a todo el país?",
      "Sí, Trivium Pro envía e instala en todo el territorio argentino, no sólo en "
-     "Córdoba y Buenos Aires."),
+     "Córdoba y Buenos Aires. El envío y la instalación se cotizan aparte."),
 ]
 
 
@@ -414,15 +415,17 @@ def brand_logo_rel(slug):
     return rel if os.path.exists(os.path.join(BASE_DIR, rel)) else None
 
 
-def price_tag_html(sku, offers_by_sku):
-    """Réplica estática de cardPriceHtml() de site.js."""
+def price_tag_html(sku, offers_by_sku, en_ficha=False):
+    """Réplica estática de cardPriceHtml() de site.js. En la ficha aclara que la
+    instalación no está incluida en el precio."""
     offer = (offers_by_sku or {}).get(sku)
     if not offer:
         return ''
     monto = '$ ' + f"{round(offer['price']):,}".replace(',', '.')
     iva = offer['iva']
     iva_lbl = (str(int(iva)) if float(iva).is_integer() else str(iva).replace('.', ',')) + '%'
-    return f'<div class="price-tag">{monto}<span>IVA {iva_lbl} incluido</span></div>'
+    nota = ' · Instalación no incluida' if en_ficha else ''
+    return f'<div class="price-tag">{monto}<span>IVA {iva_lbl} incluido{nota}</span></div>'
 
 
 def product_card_html(prod, brands_by_slug, root, offers_by_sku=None):
@@ -770,7 +773,7 @@ def main():
                 gama = "Representantes oficiales Rotary Lift y Hofmann en Argentina."
             desc = clamp(
                 f"{nombre} para taller: {len(prods)} equipos. {gama} "
-                f"Instalación en todo el país."
+                f"Instalación a cotizar en todo el país."
             )
             crumbs = [("Inicio", ""), ("Catálogo", "catalogo/")]
             if cat.get('parent') and cat['parent'] in cats_by_slug:
@@ -982,7 +985,7 @@ def main():
                 f'<h1>{esc(prod["name"])}</h1>'
                 f'{brand_line}'
                 f'<p class="pd-summary">{esc(strip_tags(raw_desc))}</p>'
-                f'{price_tag_html(prod.get("sku"), offers_by_sku)}'
+                f'{price_tag_html(prod.get("sku"), offers_by_sku, True)}'
                 f'{specs}{bullets}'
                 f'{rich}'
                 f'</div></article>'

@@ -21,8 +21,8 @@ ORG_REF = {"@type": "Organization", "name": ORG_NAME, "url": SITE_URL + '/'}
 
 def cta(nombre):
     return ('<div class="cta"><p><strong>¿Querés cotizar para tu taller?</strong> Contanos qué '
-            'necesitás y tu localidad, y te armamos la propuesta con equipos, envío, '
-            'instalación y capacitación.</p>'
+            'necesitás y tu localidad, y te armamos la propuesta con los equipos y, por separado, '
+            'el envío, la instalación y la capacitación.</p>'
             '<a class="btn btn--primary" href="https://wa.me/5491127015294?text='
             f'Hola%2C%20quiero%20cotizar%20equipamiento%20para%20mi%20taller%20en%20{esc(nombre).replace(" ", "%20")}.">'
             'Pedir cotización por WhatsApp</a></div>')
@@ -106,7 +106,7 @@ def main():
         '<div class="respuesta"><p><strong>En resumen:</strong> vendemos, enviamos e instalamos '
         'equipamiento para talleres, gomerías y concesionarias en todo el país. La sede está en '
         'Córdoba y el equipo técnico viaja a cada instalación. La posventa tiene atención en 48 a '
-        '72 horas en todo el país.</p></div>'
+        '72 horas en todo el país. La instalación se cotiza aparte.</p></div>'
         '<h2>Provincias donde trabajamos</h2>'
         '<p>Cubrimos las 23 provincias y la Ciudad Autónoma de Buenos Aires. Las que tienen link '
         'cuentan con una página con casos y datos de la zona.</p>'

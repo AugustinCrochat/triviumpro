@@ -32,8 +32,8 @@ PROCESO = """
 <h2>Cómo trabajamos</h2>
 <ol>
 <li><strong>Asesoramiento.</strong> Analizamos el espacio, el flujo de trabajo, el tipo de vehículos y el presupuesto para recomendarte el equipamiento correcto.</li>
-<li><strong>Cotización y envío.</strong> Cotizamos el equipo, el flete y la instalación según tu localidad.</li>
-<li><strong>Instalación.</strong> Nuestro equipo técnico propio viaja a tu taller y se encarga del montaje, el anclaje, la conexión hidráulica y eléctrica, la calibración y la prueba de funcionamiento.</li>
+<li><strong>Cotización y envío.</strong> Cotizamos por separado el equipo, el flete y la instalación, según tu localidad.</li>
+<li><strong>Instalación (se cotiza aparte).</strong> Nuestro equipo técnico propio viaja a tu taller y se encarga del montaje, el anclaje, la conexión hidráulica y eléctrica, la calibración y la prueba de funcionamiento.</li>
 <li><strong>Capacitación.</strong> Entrenamos a tu equipo en uso seguro y mantenimiento preventivo.</li>
 <li><strong>Posventa.</strong> Servicio técnico y repuestos originales de las marcas que representamos, con atención en 48 a 72 horas en todo el país.</li>
 </ol>
@@ -46,7 +46,7 @@ ZONAS = [
  "title": "Equipamiento para talleres y gomerías en Córdoba",
  "h1": "Equipamiento para talleres y gomerías en Córdoba",
  "description": ("Elevadores, alineadoras, balanceadoras y desarmadoras en Córdoba. Sede en "
-                 "Av. Donato Álvarez 7971, con instalación, capacitación y servicio técnico "
+                 "Av. Donato Álvarez 7971, con instalación (a cotizar), capacitación y servicio técnico "
                  "propios. Distribuidores oficiales de Rotary Lift y Hofmann."),
  "intro": """
 <div class="respuesta">
@@ -82,7 +82,7 @@ ZONAS = [
   ("¿Trivium Pro tiene sede en Córdoba?",
    "Sí. Atendemos al público en Av. Donato Álvarez 7971, Córdoba. Coordiná tu visita por WhatsApp o mail antes de ir."),
   ("¿Instalan los equipos en talleres de Córdoba?",
-   "Sí. Nuestro equipo técnico propio hace el montaje, el anclaje, la conexión, la calibración y la prueba de funcionamiento, y capacita a tus operarios."),
+   "Sí. Nuestro equipo técnico propio hace el montaje, el anclaje, la conexión, la calibración y la prueba de funcionamiento, y capacita a tus operarios. La instalación se cotiza aparte."),
   ("¿Qué marcas venden en Córdoba?",
    "Representamos a Rotary Lift, Hofmann, Challenger Lifts, Direct Lift, Forward Lift, Haweka y Prevost, y tenemos la línea propia Trivium Pro."),
   ("¿Dan servicio técnico y repuestos en Córdoba?",
@@ -97,7 +97,7 @@ ZONAS = [
  "nombre": "Mendoza",
  "title": "Equipamiento para talleres y gomerías en Mendoza",
  "h1": "Equipamiento para talleres y gomerías en Mendoza",
- "description": ("Equipamiento para talleres en Mendoza con instalación y servicio técnico: "
+ "description": ("Equipamiento para talleres en Mendoza con instalación a cotizar y servicio técnico: "
                  "elevadores, alineadoras, balanceadoras y desarmadoras. Instalamos una "
                  "Josam CV-Aligner en LANZ Neumáticos – Dunlop Mendoza."),
  "intro": """
@@ -121,7 +121,7 @@ ZONAS = [
 """,
  "faqs": [
   ("¿Instalan equipos en Mendoza?",
-   "Sí. Instalamos una alineadora de camiones Josam CV-Aligner en LANZ Neumáticos – Dunlop Mendoza, y hacemos instalación, capacitación y posventa en todo el país."),
+   "Sí. Instalamos una alineadora de camiones Josam CV-Aligner en LANZ Neumáticos – Dunlop Mendoza, y hacemos instalación, capacitación y posventa en todo el país. La instalación se cotiza aparte."),
   ("¿Qué alineadora sirve para camiones y colectivos?",
    "La Josam CV-Aligner, que alinea vehículos pesados con medición por cámaras y comunicación inalámbrica entre las unidades."),
   ("¿Hacen envíos a Mendoza?",
@@ -139,7 +139,7 @@ ZONAS = [
  "title": "Equipamiento para talleres y gomerías en Salta",
  "h1": "Equipamiento para talleres y gomerías en Salta",
  "description": ("Equipamiento completo para talleres en Salta: elevadores, alineadora 3D, "
-                 "balanceadora y desarmadora, con instalación. Instalamos un taller completo "
+                 "balanceadora y desarmadora, con instalación a cotizar. Instalamos un taller completo "
                  "en Las Lajitas."),
  "intro": """
 <div class="respuesta">
@@ -164,9 +164,9 @@ ZONAS = [
 """,
  "faqs": [
   ("¿Instalan equipos en Salta?",
-   "Sí. Instalamos un taller completo en Las Lajitas, Salta, para Repuestera del Milagro, con elevadores, balanceadora, desarmadora y alineadora 3D."),
+   "Sí. Instalamos un taller completo en Las Lajitas, Salta, para Repuestera del Milagro, con elevadores, balanceadora, desarmadora y alineadora 3D. La instalación se cotiza aparte del equipo."),
   ("¿Pueden cotizar un taller completo?",
-   "Sí. Armamos una propuesta con todos los equipos, la instalación y la capacitación según tus vehículos, tu espacio y tu presupuesto."),
+   "Sí. Armamos una propuesta con todos los equipos y, por separado, la instalación y la capacitación, según tus vehículos, tu espacio y tu presupuesto."),
   ("¿Hacen envíos al norte del país?",
    "Sí, enviamos a todo el país. El flete y los tiempos se confirman en la cotización según tu localidad."),
   ("¿Dan servicio técnico en Salta?",
@@ -181,7 +181,7 @@ ZONAS = [
  "title": "Equipamiento para talleres y gomerías en Buenos Aires y AMBA",
  "h1": "Equipamiento para talleres y gomerías en Buenos Aires y AMBA",
  "description": ("Elevadores, alineadoras, balanceadoras y desarmadoras para talleres en "
-                 "Buenos Aires y AMBA, con instalación y posventa. Servicio técnico en "
+                 "Buenos Aires y AMBA, con instalación a cotizar y posventa. Servicio técnico en "
                  "Lions Group Bosch Car Service, Canning."),
  "intro": """
 <div class="respuesta">
@@ -203,7 +203,7 @@ ZONAS = [
 """,
  "faqs": [
   ("¿Hacen instalación y servicio técnico en Buenos Aires y AMBA?",
-   "Sí. Instalamos y damos servicio técnico en Buenos Aires y en todo el país. Hacemos también mantenimiento preventivo de equipos instalados."),
+   "Sí. Instalamos y damos servicio técnico en Buenos Aires y en todo el país. La instalación se cotiza aparte. Hacemos también mantenimiento preventivo de equipos instalados."),
   ("¿Con quién se puede hablar en Buenos Aires?",
    "Por WhatsApp al +54 9 11 2701-5294 o por mail a info@trivium.ar. Te respondemos en el día."),
   ("¿Qué marcas venden?",

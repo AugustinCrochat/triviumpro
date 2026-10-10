@@ -46,7 +46,7 @@ GUIAS = [
 <li><strong>Volumen de trabajo.</strong> A más ruedas por día, más valen los ciclos cortos (el Geodyna 7600P tiene un ciclo de equilibrado de 4,5 segundos) y la medición automática.</li>
 <li><strong>Tipo de llanta.</strong> Con llantas de aleación conviene el modo de <em>peso dividido y oculto</em>, que coloca los contrapesos detrás de los rayos para que no se vean desde afuera.</li>
 <li><strong>Autocalibración y precisión.</strong> Una máquina que se autocalibra mantiene la precisión sin depender de un técnico. Leé <a href="../../blog/autocalibracion-en-una-balanceadora-de-ruedas-que-es-y-por-que-es-importante/">qué es la autocalibración y por qué importa</a>.</li>
-<li><strong>Servicio técnico y repuestos.</strong> Una balanceadora parada es plata perdida. Trivium Pro hace la instalación, la capacitación y el servicio técnico en todo el país.</li>
+<li><strong>Servicio técnico y repuestos.</strong> Una balanceadora parada es plata perdida. Trivium Pro hace la instalación (que se cotiza aparte), la capacitación y el servicio técnico en todo el país.</li>
 </ol>
 
 <h2>Comparativa de modelos</h2>
@@ -86,7 +86,7 @@ GUIAS = [
   ("¿Qué diferencia hay entre una Hofmann Geodyna y una Trivium Pro?",
    "La Geodyna es la línea premium de Hofmann (Snap-on), con sistemas de medición propios y modelos de tope de gama. Trivium Pro es la línea económica propia, con monitor, autocalibración y puntero láser en los modelos principales."),
   ("¿Instalan y dan servicio técnico en todo el país?",
-   "Sí. Trivium Pro hace la instalación, la puesta en marcha, la capacitación y el servicio técnico en todo el país. Escribinos por WhatsApp con tu provincia y te confirmamos tiempos."),
+   "Sí. Trivium Pro hace la instalación, la puesta en marcha, la capacitación y el servicio técnico en todo el país. La instalación se cotiza aparte del equipo. Escribinos por WhatsApp con tu provincia y te confirmamos tiempos."),
  ],
  "posts": [
   "balanceadoras-de-ruedas-con-o-sin-monitor-cual-elegir",
@@ -117,7 +117,7 @@ GUIAS = [
 <h2>2D o 3D</h2>
 <ul>
 <li><strong>2D (convencional):</strong> menor inversión inicial y operación simple, pero lleva más tiempo, tiene precisión más limitada y necesita más espacio.</li>
-<li><strong>3D:</strong> alta precisión, mediciones en tiempo real, mejor aprovechamiento del espacio y flujo de trabajo más rápido. Requiere una capacitación inicial, que Trivium Pro brinda al instalar el equipo.</li>
+<li><strong>3D:</strong> alta precisión, mediciones en tiempo real, mejor aprovechamiento del espacio y flujo de trabajo más rápido. Requiere una capacitación inicial, que Trivium Pro brinda al instalar el equipo (la instalación se cotiza aparte).</li>
 </ul>
 <p>Sobre el "5D": las dimensiones extra son una cuestión de marketing, no de tecnología de medición. Lo explicamos en <a href="../../blog/alineadoras-5d-el-mito-de-las-dimensiones-en-equipos-de-alineacion/">Alineadoras 5D: el mito de las dimensiones</a>.</p>
 
@@ -170,7 +170,7 @@ GUIAS = [
   ("¿Las alineadoras 5D son mejores que las 3D?",
    "No necesariamente. Las dimensiones adicionales son un recurso de marketing; lo que determina la calidad es la tecnología de medición y el software del equipo."),
   ("¿Dan capacitación y puesta en marcha?",
-   "Sí. Trivium Pro instala el equipo, lo pone en marcha y capacita a tus operarios, en todo el país."),
+   "Sí. Trivium Pro instala el equipo, lo pone en marcha y capacita a tus operarios, en todo el país. La instalación se cotiza aparte."),
  ],
  "posts": [
   "como-elegir-la-alineadora-de-autos-ideal-para-tu-taller",
@@ -259,7 +259,7 @@ GUIAS = [
   ("¿Hay elevadores para autos eléctricos?",
    "Sí. Tenemos un elevador de dos columnas de 6.000 kg pensado para vehículos eléctricos y SUV, que pesan más que un auto convencional por las baterías."),
   ("¿Instalan el elevador y hacen la obra civil?",
-   "Instalamos y ponemos en marcha el equipo en todo el país. Para la preparación del piso te pasamos las especificaciones del fabricante."),
+   "Instalamos y ponemos en marcha el equipo en todo el país; la instalación se cotiza aparte del precio del equipo. Para la preparación del piso te pasamos las especificaciones del fabricante."),
  ],
  "posts": [
   "como-elegir-el-elevador-adecuado-para-hacer-alineacion",
@@ -334,7 +334,7 @@ GUIAS = [
   ("¿Qué más necesito para empezar una gomería?",
    "Además de la desarmadora, una balanceadora, compresor, herramientas neumáticas y un elevador o gato. Lo detallamos en nuestra guía para equipar una gomería."),
   ("¿Hacen instalación y capacitación?",
-   "Sí, en todo el país. También ofrecemos mantenimiento preventivo y repuestos."),
+   "Sí, en todo el país. La instalación se cotiza aparte. También ofrecemos mantenimiento preventivo y repuestos."),
  ],
  "posts": [
   "para-que-sirve-el-brazo-auxiliar-en-una-desarmadora-de-neumaticos",
@@ -385,7 +385,7 @@ GUIAS = [
 <p>Si estás en la etapa de proyecto, estas notas complementan la guía: <a href="../../blog/como-instalar-una-gomeria-guia-completa-para-emprender-con-exito/">cómo instalar una gomería</a>, <a href="../../blog/equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos/">equipamiento esencial para comenzar</a> y <a href="../../blog/la-importancia-de-ofrecer-rotacion-de-neumaticos-en-un-taller-o-gomeria/">la importancia de ofrecer rotación de neumáticos</a>.</p>
 
 <div class="cta">
-<p><strong>¿Querés que armemos la cotización completa?</strong> Contanos qué tipo de vehículos vas a atender y cuánto espacio tenés, y te armamos una propuesta con todos los equipos, la instalación y la capacitación.</p>
+<p><strong>¿Querés que armemos la cotización completa?</strong> Contanos qué tipo de vehículos vas a atender y cuánto espacio tenés, y te armamos una propuesta con todos los equipos y, por separado, la instalación y la capacitación.</p>
 <a class="btn btn--primary" href="https://wa.me/5491127015294?text=Hola%2C%20quiero%20equipar%20una%20gomer%C3%ADa.">Pedir cotización por WhatsApp</a>
 </div>
 """,
@@ -405,9 +405,9 @@ GUIAS = [
   ("¿Cuándo conviene sumar una alineadora?",
    "Cuando el flujo de clientes sea estable. La alineación se vende junto con el balanceo y es uno de los servicios que más aumenta el ticket del taller."),
   ("¿Pueden cotizarme todo el equipamiento junto?",
-   "Sí. Armamos una propuesta completa según tus vehículos, tu espacio y tu presupuesto, con instalación y capacitación incluidas."),
+   "Sí. Armamos una propuesta completa según tus vehículos, tu espacio y tu presupuesto, con la instalación cotizada aparte."),
   ("¿Venden a todo el país?",
-   "Sí, enviamos e instalamos equipamiento en todo el país."),
+   "Sí, enviamos e instalamos equipamiento en todo el país. La instalación se cotiza aparte."),
  ],
  "posts": [
   "como-instalar-una-gomeria-guia-completa-para-emprender-con-exito",
@@ -421,12 +421,12 @@ GUIAS = [
  "title": "Equipos de taller económicos: elevadores, balanceadoras y desarmadoras",
  "h1": "Equipos de taller económicos: la línea Trivium Pro",
  "description": ("Equipos de taller económicos en Argentina: elevadores, balanceadoras y "
-                 "desarmadoras Trivium Pro con precio, instalación y servicio técnico. "
+                 "desarmadoras Trivium Pro con precio, instalación a cotizar y servicio técnico. "
                  "Cuándo conviene y cuándo elegir una marca premium."),
  "category": "elevadores",
  "intro": """
 <div class="respuesta">
-<p><strong>En resumen:</strong> si armás o ampliás un taller o una gomería y el presupuesto es lo que manda, la línea <strong>Trivium Pro</strong> cubre elevadores, balanceadoras, desarmadoras y equipamiento de taller a precio accesible, con instalación y servicio técnico propios en todo el país. Si el taller tiene alto volumen de trabajo y uso intensivo, las marcas de mayor calibre (<strong>Hofmann, Rotary Lift y Challenger Lifts</strong>) están pensadas para eso.</p>
+<p><strong>En resumen:</strong> si armás o ampliás un taller o una gomería y el presupuesto es lo que manda, la línea <strong>Trivium Pro</strong> cubre elevadores, balanceadoras, desarmadoras y equipamiento de taller a precio accesible, con instalación (se cotiza aparte) y servicio técnico propios en todo el país. Si el taller tiene alto volumen de trabajo y uso intensivo, las marcas de mayor calibre (<strong>Hofmann, Rotary Lift y Challenger Lifts</strong>) están pensadas para eso.</p>
 </div>
 """,
  "secciones": """
@@ -479,7 +479,7 @@ GUIAS = [
   ("¿La línea Trivium Pro es lo mismo que Hofmann o Rotary Lift?",
    "No. Hofmann, Rotary Lift y Challenger Lifts son marcas premium de mayor calibre, pensadas para alto volumen y uso intensivo. Trivium Pro es la línea económica propia, para talleres que arrancan o amplían capacidad con un presupuesto más ajustado."),
   ("¿Los equipos económicos incluyen instalación y servicio técnico?",
-   "La instalación, la capacitación y el servicio técnico se cotizan según tu localidad, y los hacemos con equipo propio en todo el país. También hay repuestos."),
+   "La instalación se cotiza aparte, y la capacitación y el servicio técnico se cotizan según tu localidad, y los hacemos con equipo propio en todo el país. También hay repuestos."),
   ("¿Se puede financiar la compra?",
    "Sí, hay planes de pago y otras opciones. Consultá las condiciones por WhatsApp."),
   ("¿Los precios incluyen IVA?",

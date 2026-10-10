@@ -343,7 +343,8 @@ function cardPriceHtml(sku, enFicha) {
   if (!pr) return '';
   const monto = '$ ' + new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(pr.total);
   const ivaLbl = (Number.isInteger(pr.iva) ? pr.iva : String(pr.iva).replace('.', ',')) + '%';
-  return `<div class="price-tag">${monto}<span>IVA ${ivaLbl} incluido</span></div>`;
+  const nota = enFicha ? ' · Instalación no incluida' : '';
+  return `<div class="price-tag">${monto}<span>IVA ${ivaLbl} incluido${nota}</span></div>`;
 }
 
 function productUrl(p) { return `${rootPath()}producto/${encodeURIComponent(p.slug)}/`; }

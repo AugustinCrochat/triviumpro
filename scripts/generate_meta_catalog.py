@@ -117,7 +117,7 @@ def main():
         g_title = p["name"] if "trivium" in p["name"].lower() else f"{p['name']} - Trivium Pro"
         g_desc = clip(description, 700)
         if len(g_desc) < 100:
-            g_desc += (" Línea Trivium Pro para talleres y gomerías, con instalación "
+            g_desc += (" Línea Trivium Pro para talleres y gomerías. Instalación a cotizar "
                        "y servicio técnico en todo el país.")
         google_rows.append({
             "id": sku,

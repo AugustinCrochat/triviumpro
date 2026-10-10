@@ -94,7 +94,8 @@ def main():
         "o amplían capacidad. Las marcas premium son la opción para alto volumen de "
         "trabajo y uso intensivo.",
         "- **¿Instalan el equipo o sólo lo venden?** Instalan: montaje, puesta en "
-        "marcha y posventa con equipo técnico propio en todo el país.",
+        "marcha y posventa con equipo técnico propio en todo el país. La instalación "
+        "se cotiza aparte del precio del equipo.",
         "",
         "## Guías de compra",
         "",
