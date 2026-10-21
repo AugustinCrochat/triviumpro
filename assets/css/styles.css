@@ -1325,3 +1325,8 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
 @media (max-width: 520px) {
   .pd-gallery > .origin-badge--plain img { width: 60px; height: 60px; }
 }
+/* Preguntas frecuentes dentro de las notas del blog */
+.post-content .cat-faq { padding: 28px 0 8px; border-bottom: 0; }
+.post-content .cat-faq h2 { margin-bottom: 16px; }
+/* Enlaces internos dentro del texto de las notas: se tienen que reconocer como enlaces. */
+.post-content :is(p, li) a:not(.modern-button) { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }

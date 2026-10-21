@@ -235,7 +235,8 @@ def update_blog():
 
         title = html.unescape(post['title'])
         url = f"{SITE_URL}/blog/{slug}/"
-        description = clamp(strip_html(post.get('excerpt', ''))) or title
+        description = (post.get('meta_description')
+                       or clamp(strip_html(post.get('excerpt', ''))) or title)
         image_path = post.get('image', '')
         image_url = f"{SITE_URL}/{image_path}" if image_path else ''
         published = post.get('date', '')
@@ -244,7 +245,7 @@ def update_blog():
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": title[:110],
-            "description": strip_html(post.get('excerpt', '')),
+            "description": post.get('meta_description') or strip_html(post.get('excerpt', '')),
             "url": url,
             "mainEntityOfPage": {"@type": "WebPage", "@id": url},
             "author": {"@type": "Organization", "name": ORG_NAME},
@@ -260,6 +261,23 @@ def update_blog():
             article_ld["dateModified"] = published
         if image_url:
             article_ld["image"] = [image_url]
+
+        # Preguntas frecuentes: salen de los <details> del propio contenido, así el
+        # schema nunca queda desfasado del texto visible.
+        faq_items = re.findall(
+            r'<details><summary>(.*?)</summary><p>(.*?)</p></details>',
+            post.get('content') or '', re.S)
+        faq_ld = None
+        if faq_items:
+            faq_ld = {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {"@type": "Question", "name": strip_html(q),
+                     "acceptedAnswer": {"@type": "Answer", "text": strip_html(a)}}
+                    for q, a in faq_items
+                ],
+            }
 
         crumbs_ld = {
             "@context": "https://schema.org",
@@ -304,7 +322,7 @@ def update_blog():
         content = inject_head(
             content, title,
             make_og_block(title, description, image_url, url, 'article'),
-            make_seo_block(url, description, [article_ld, crumbs_ld]),
+            make_seo_block(url, description, [article_ld, crumbs_ld] + ([faq_ld] if faq_ld else [])),
         )
         # Header y footer: sin esto el crawler ve el artículo sin navegación.
         chrome_h, chrome_f = load_chrome(root)
