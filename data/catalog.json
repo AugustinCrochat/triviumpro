@@ -897,23 +897,24 @@
     },
     {
       "sku": "P-3365",
-      "slug": "alineadora-hofmann-geoliner-770",
-      "name": "Alineadora Hofmann Geoliner 770",
+      "slug": "alineadora-3d-hofmann-geoliner-880",
+      "name": "Alineadora 3D Hofmann Geoliner 880",
       "category": "alineadoras",
       "brand": "hofmann",
       "capacity": "—",
       "lift_height": "—",
       "summary": "",
       "bullets": [
-        "Precisión y Eficiencia Garantizadas : La Geoliner® 770 ofrece mediciones de alineación de ruedas con tecnología avanzada, incluyendo cámaras automáticas de seguimiento de altura y el exclusivo sistema VODI™ para guiar al técnico en todo momento.",
-        "Diseño Móvil y Versátil : Sus brazos de cámaras plegables y centro de gravedad bajo permiten una movilidad cómoda entre diferentes puestos de trabajo, maximizando la productividad en talleres y concesionarias.",
-        "Software Inteligente y Accesorios Incluidos : Sistema de notificaciones avanzadas, medición rápida de parámetros críticos, conectividad Wi-Fi para actualizaciones automáticas y accesorios estándar como fijador de volante, depresor de freno y garras para ruedas."
+        "Diseño de Paso Directo sin Cámaras Cruzadas : 2 torres, 2 procesadores y 4 cámaras. Cajas de herramientas, paredes, estantes, consolas o personas pueden estar entre las torres sin afectar las lecturas de alineación.",
+        "Instalación en Casi Cualquier Taller : Se instala un 20 % más cerca y un 40 % más lejos del elevador que los alineadores actuales, y cubre vehículos con distancia entre ejes de hasta 240\" (6096 mm).",
+        "IA y Tecnología D2 Max : Procesador de IA dedicado que identifica los targets tres veces más rápido, sin calibración de garras ni targets, con actualizaciones de software por aire (OTA) y conectividad cableada o inalámbrica."
       ],
       "badges": [],
-      "image": "assets/img/productos/alineadora-3d-hofmann-geoliner-770-versatil.webp",
+      "image": "assets/img/productos/alineadora-3d-hofmann-geoliner-880.webp",
       "images": [
-        "assets/img/productos/alineadora-3d-hofmann-geoliner-770-versatil.webp"
-      ]
+        "assets/img/productos/alineadora-3d-hofmann-geoliner-880.webp"
+      ],
+      "html_description": "<div class=\"product-page-description\">\n<div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-video\" href=\"https://www.youtube.com/shorts/dD17hPzwmeY\" target=\"_blank\" rel=\"noopener\">Ver Video</a>\n<a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-alineadora-3d-hofmann-geoliner-880.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a></div>\n<div class=\"product-page-title\">\n<h2>Alineadora 3D de Ruedas Hofmann Geoliner 880</h2>\n<span class=\"product-page-brand\">Hofmann</span>\n\n</div>\n<div class=\"product-page-main-description\">\n<p class=\"product-page-highlight\">Nueva generación de alineadores 3D de paso directo, diseñada, desarrollada y fabricada en EE. UU. Construida desde cero con componentes mecánicos y eléctricos nuevos y algoritmos patentados, ofrece lecturas más rápidas y estables y se adapta a casi cualquier bahía de alineación.</p>\n\n</div>\n<div class=\"product-page-specs-section\">\n<h3 class=\"product-page-features-title\">Características Principales</h3>\n<ul class=\"product-page-features-list\">\n \t<li>Diseño de paso directo: 2 torres, 2 procesadores y 4 cámaras, sin cámaras cruzadas que puedan bloquearse</li>\n \t<li>Procesador de IA dedicado: identificación de targets tres veces más rápida, aun con poca luz, ángulos extremos o distancias mayores</li>\n \t<li>Tecnología D2 Max: flujo de instalación más inteligente, tiempo de lectura más rápido y lecturas más estables</li>\n \t<li>Se instala un 20 % más cerca y un 40 % más lejos del elevador que los alineadores actuales</li>\n \t<li>Sin calibración de garras ni de targets; las torres izquierda y derecha son idénticas</li>\n \t<li>Actualizaciones OTA (por aire) de software y especificaciones</li>\n</ul>\n<h3 class=\"product-page-features-title\">Especificaciones Técnicas</h3>\n<div class=\"product-page-specs-grid\">\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Dimensiones de Trabajo</h4>\n<ul>\n \t<li>Altura de torres: 2130 - 2845 mm (84\" - 112\")</li>\n \t<li>Distancia al plato giratorio: 1370 - 5080 mm (54\" - 200\")</li>\n \t<li>Ancho entre torres: 80\" - 140\" (2030 - 3560 mm)</li>\n \t<li>Distancia entre ejes: hasta 6096 mm (240\")</li>\n \t<li>Altura máxima de rampa o plataforma: 2000 mm</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Consola y Accesorios</h4>\n<ul>\n \t<li>Consola de alta gama con monitor de 32\"</li>\n \t<li>Teclado y mouse</li>\n \t<li>Garras AC400 con targets (AC100/AC200 opcionales)</li>\n \t<li>Wi-Fi y Ethernet a la red del taller</li>\n \t<li>Impresora no incluida: se puede usar la propia</li>\n</ul>\n</div>\n<div class=\"product-page-spec-group\">\n<h4 class=\"product-page-spec-title\">Software y Conectividad</h4>\n<ul>\n \t<li>Software de alineación conectado</li>\n \t<li>Conexión cableada o inalámbrica entre torres y consola</li>\n \t<li>Impresión por Mopria o USB</li>\n \t<li>Guardado en Altus Cloud</li>\n \t<li>Cámaras de 8 MP / 11 MP, 2 por cápsula, con amplio campo de visión</li>\n</ul>\n</div>\n</div>\n</div>\n</div>"
     },
     {
       "sku": "1010256",

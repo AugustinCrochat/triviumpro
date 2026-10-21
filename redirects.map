@@ -117,7 +117,7 @@
 /producto/geoliner-320/ /categoria/alineadoras/ 301
 /producto/geoliner-630/ /categoria/alineadoras/ 301
 /producto/geoliner-670/ /categoria/alineadoras/ 301
-/producto/geoliner-770-hofmann/ /categoria/alineadoras/ 301
+/producto/geoliner-770-hofmann/ /producto/alineadora-3d-hofmann-geoliner-880/ 301
 /producto/indicador-nivel-volante-haweka/ /producto/indicador-de-nivel-de-volante-haweka/ 301
 /producto/inflador-de-neumaticos-por-nitrogeno/ /categoria/herramientas-neumaticas/ 301
 /producto/inflador-de-neumaticos-unite/ /categoria/herramientas-neumaticas/ 301
@@ -432,7 +432,7 @@
 /ficha-nbs40a-45-revolution-by-rotary/ /categoria/elevadores-tijera/ 301
 /ficha-unite-pl-6-0-2deb-elevador-2-columnas-6t/ /categoria/elevadores-2-columnas/ 301
 /ficha-unite-pl-u-dp5-elevador-bateria-auto-electrico/ /categoria/elevadores/ 301
-/geoliner-770/ /categoria/alineadoras/ 301
+/geoliner-770/ /producto/alineadora-3d-hofmann-geoliner-880/ 301
 /guias-de-instalacion/ /instalacion-posventa-y-servicios/ 301
 /herramientas-neumaticas-kuani-2/ /categoria/herramientas-neumaticas/ 301
 /herramientas-neumaticas-para-taller-origen-taiwan/ /categoria/herramientas-neumaticas/ 301
@@ -469,3 +469,6 @@
 /equipamiento-para-alineacion-de-autos/ /categoria/alineadoras/ 301
 /etiqueta-producto/alineacion/ /categoria/alineadoras/ 301
 /etiqueta-producto/gomeria/ /categoria/desarmadoras/ 301
+
+# --- La Geoliner 770 fue reemplazada por la 880 ---
+/producto/alineadora-hofmann-geoliner-770/ /producto/alineadora-3d-hofmann-geoliner-880/ 301

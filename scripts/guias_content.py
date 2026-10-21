@@ -107,7 +107,7 @@ GUIAS = [
  "category": "alineadoras",
  "intro": """
 <div class="respuesta">
-<p><strong>En resumen:</strong> una alineadora 3D mide los ángulos de la rueda con cámaras, sin cables hasta las ruedas, y es más rápida y precisa que una 2D. Para un taller de autos y camionetas, la línea Hofmann Geoliner (320, 609, 630 y 770) cubre desde equipos compactos sin consola hasta móviles de alta productividad. Para colectivos y camiones existe la Josam CV-Aligner. Antes de comprar, definí el elevador: la alineación se hace sobre un elevador de cuatro columnas, uno tijera largo o una fosa.</p>
+<p><strong>En resumen:</strong> una alineadora 3D mide los ángulos de la rueda con cámaras, sin cables hasta las ruedas, y es más rápida y precisa que una 2D. Para un taller de autos y camionetas, la línea Hofmann Geoliner (320, 609, 630 y 880) cubre desde equipos compactos sin consola hasta equipos de paso directo de alta productividad. Para colectivos y camiones existe la Josam CV-Aligner. Antes de comprar, definí el elevador: la alineación se hace sobre un elevador de cuatro columnas, uno tijera largo o una fosa.</p>
 </div>
 """,
  "secciones": """
@@ -132,7 +132,7 @@ GUIAS = [
 
 <h2>Cómo elegir según tu taller</h2>
 <ol>
-<li><strong>Espacio.</strong> Si el taller es chico, un equipo compacto sin consola (Geoliner 609) o con brazos de cámara plegables (Geoliner 770).</li>
+<li><strong>Espacio.</strong> Si el taller es chico, un equipo compacto sin consola (Geoliner 609) o uno de paso directo que se adapta a bahías angostas o anchas (Geoliner 880).</li>
 <li><strong>Volumen.</strong> Más alineaciones por día justifican la interfaz inteligente y las actualizaciones automáticas de la Geoliner 630.</li>
 <li><strong>Perfil de vehículos.</strong> Autos y SUVs: Geoliner. Colectivos, camiones y pesados: Josam CV-Aligner.</li>
 <li><strong>Servicios nuevos.</strong> Si vas a ofrecer calibración de cámaras y sensores de asistencia a la conducción, existe el sistema Hofmann EZ-ADAS.</li>
@@ -153,7 +153,7 @@ GUIAS = [
    ("alineadora-hofmann-geoliner-609", "Compacta, sin consola, ideal para poco espacio y fácil de instalar."),
    ("alineadora-3d-hofmann-geoliner-320", "Cámaras 3D, diseño compacto compatible con fosas y elevadores."),
    ("alineadora-3d-hofmann-geoliner-630", "Cámaras de alta velocidad y sistema VODI; actualizaciones en línea."),
-   ("alineadora-hofmann-geoliner-770", "Móvil, brazos de cámaras plegables y centro de gravedad bajo."),
+   ("alineadora-3d-hofmann-geoliner-880", "Paso directo de 2 torres y 4 cámaras, con IA; se instala más cerca o más lejos del elevador."),
    ("alineadora-de-camiones-josam-cv-aligner", "Colectivos y vehículos pesados; comunicación inalámbrica entre unidades."),
    ("sistema-de-calibracion-hofmann-ez-adas", "Calibración de sistemas ADAS guiada por láser."),
   ],
@@ -164,7 +164,7 @@ GUIAS = [
   ("¿Qué elevador necesito para usar una alineadora?",
    "Lo más habitual es un elevador de cuatro columnas o uno tijera largo para alineación. También se puede trabajar sobre fosa. Trivium Pro ofrece elevadores con kit de alineación incluido."),
   ("¿Cuál es la alineadora ideal para un taller con poco espacio?",
-   "La Hofmann Geoliner 609 es compacta y no lleva consola, y la 770 tiene brazos de cámara plegables. Contanos las medidas del taller y te decimos cuál entra."),
+   "La Hofmann Geoliner 609 es compacta y no lleva consola, y la 880 se adapta a bahías angostas o anchas gracias a su diseño de paso directo. Contanos las medidas del taller y te decimos cuál entra."),
   ("¿Hay alineadoras para camiones y colectivos?",
    "Sí. La Josam CV-Aligner alinea vehículos pesados con comunicación inalámbrica entre las unidades de medición. Es la que instalamos, por ejemplo, en Mendoza."),
   ("¿Las alineadoras 5D son mejores que las 3D?",

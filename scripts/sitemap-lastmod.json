@@ -20,8 +20,8 @@
 "hash": "7abf6abd0746ad4a4e52e8a00a6fed0e13ebc2f6"
 },
 "/categoria/alineadoras/": {
-"date": "2026-10-10",
-"hash": "4d1a5abf82ab054091e5420baf8524413f703731"
+"date": "2026-10-21",
+"hash": "20569d4d336b19c80286b343149dc7d1df1551a0"
 },
 "/categoria/balanceadoras/": {
 "date": "2026-10-10",
@@ -76,28 +76,28 @@
 "hash": "c36b75ac08d6512e7f4ff8457eca07224e30db63"
 },
 "/guias/alineadoras-3d/": {
-"date": "2026-10-20",
-"hash": "658037c4d056b15e1e8689efe5282a745cb0234e"
+"date": "2026-10-21",
+"hash": "87834382c3d85b9abdaba99ad91d71a57bf148a2"
 },
 "/guias/balanceadoras-de-ruedas/": {
-"date": "2026-10-20",
-"hash": "f762c82338a1be5d01c0055c6d93b5ae3642794d"
+"date": "2026-10-21",
+"hash": "a7f0b33f10a839f1f196276345891c27961fe6d0"
 },
 "/guias/desarmadoras-de-neumaticos/": {
-"date": "2026-10-20",
-"hash": "49c3164394524406a22547b7d1f5417e28d393c6"
+"date": "2026-10-21",
+"hash": "356eee824d7ed2ec875880735774325273a9d268"
 },
 "/guias/elevadores-para-taller/": {
-"date": "2026-10-20",
-"hash": "5be37054677abbcd7692887a66c48d8683a4e3f8"
+"date": "2026-10-21",
+"hash": "0f45d764d5e76d0beb839495b6640c2421fe5f1d"
 },
 "/guias/equipar-una-gomeria/": {
-"date": "2026-10-20",
-"hash": "4e9a38c317d0bdeab7e2c7b24455ceafa833246b"
+"date": "2026-10-21",
+"hash": "f730500de0abe15327aa06e4169b1317f97bcb2e"
 },
 "/guias/equipos-de-taller-economicos/": {
-"date": "2026-10-20",
-"hash": "7008e33d0afdbddbda67bfb8adf60e719ce3256d"
+"date": "2026-10-21",
+"hash": "8f2ae9c89f60aa775b02b682f510706b60cca2c9"
 },
 "/instalacion-posventa-y-servicios/": {
 "date": "2026-10-10",
@@ -120,8 +120,8 @@
 "hash": "a89c29ec5b1df5d23f57eba52304b47f422fb668"
 },
 "/marca/hofmann/": {
-"date": "2026-10-10",
-"hash": "afa4a5ac21e383dc16d815edff8673b101eec572"
+"date": "2026-10-21",
+"hash": "8b049d0ce18f6d2a965564e960b6fe5b9f985a6f"
 },
 "/marca/prevost/": {
 "date": "2026-10-09",
@@ -144,20 +144,24 @@
 "hash": "89e62c217e61e3a4efe5f0cc724e26c511f5f03a"
 },
 "/producto/alineadora-3d-hofmann-geoliner-320/": {
-"date": "2026-10-10",
-"hash": "81ff386b4eaab219a1f39768481998d2f364d3d0"
+"date": "2026-10-21",
+"hash": "6918ac574b1159acad73106da95886ee33873b78"
 },
 "/producto/alineadora-3d-hofmann-geoliner-630/": {
-"date": "2026-10-10",
-"hash": "fdf33807c14e922bcb07d78beffed6e41477cab5"
+"date": "2026-10-21",
+"hash": "5e9f66e902daba6e204a41980f89db44f8b0b45a"
+},
+"/producto/alineadora-3d-hofmann-geoliner-880/": {
+"date": "2026-10-21",
+"hash": "e54491759f94a3368ce105a99c67f572cd5dbb82"
 },
 "/producto/alineadora-de-camiones-josam-cv-aligner/": {
-"date": "2026-10-10",
-"hash": "476324b482ebdbcdb9c522b2a9fc881ff859e3e4"
+"date": "2026-10-21",
+"hash": "4f902d50a16143ee8a845e3938520ac272f821cc"
 },
 "/producto/alineadora-hofmann-geoliner-609/": {
-"date": "2026-10-10",
-"hash": "6ec1038018606709ee959e9c3e28fabb5f076d81"
+"date": "2026-10-21",
+"hash": "89e1e076374a8852b62129b4a9a44373342fbfc0"
 },
 "/producto/alineadora-hofmann-geoliner-770/": {
 "date": "2026-10-10",
@@ -556,8 +560,8 @@
 "hash": "83c53f3143e5faa88ca204178f6547fc435bed28"
 },
 "/producto/sistema-de-calibracion-hofmann-ez-adas/": {
-"date": "2026-10-10",
-"hash": "1b6210ef397a36012a140294f903a61de1320ad8"
+"date": "2026-10-21",
+"hash": "c057c11a9ad2a4dc04b127bf9fa9ccfc5cb94f1a"
 },
 "/producto/soporte-motor-500-kg/": {
 "date": "2026-10-10",

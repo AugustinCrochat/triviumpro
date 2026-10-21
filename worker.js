@@ -1,5 +1,5 @@
 // GENERADO por scripts/generate_worker.py — no editar a mano.
-// La fuente de verdad es redirects.map (436 reglas).
+// La fuente de verdad es redirects.map (437 reglas).
 //
 // Existe porque _redirects no sirve acá: Cloudflare limita a 100 las reglas en
 // Workers con assets estáticos, y el build fallaba al superarlo.
@@ -218,7 +218,7 @@ const EXACT = {
  "/folleto/": "/catalogo/",
  "/formacion-tecnica-en-alineadora-3d-geoliner-630-en-neumaticos-pons-cordoba/": "/blog/formacion-tecnica-en-alineadora-3d-geoliner-630-en-neumaticos-pons-cordoba/",
  "/geoliner-630-la-alineadora-3d-compacta-que-revoluciona-los-talleres/": "/blog/geoliner-630-la-alineadora-3d-compacta-que-revoluciona-los-talleres/",
- "/geoliner-770/": "/categoria/alineadoras/",
+ "/geoliner-770/": "/producto/alineadora-3d-hofmann-geoliner-880/",
  "/geometria-de-ruedas-todo-lo-que-necesitas-saber-para-mantener-tu-vehiculo-en-optimas-condiciones/": "/blog/geometria-de-ruedas-todo-lo-que-necesitas-saber-para-mantener-tu-vehiculo-en-optimas-condiciones/",
  "/guias-de-instalacion/": "/instalacion-posventa-y-servicios/",
  "/herramientas-neumaticas-kuani-2/": "/categoria/herramientas-neumaticas/",
@@ -273,6 +273,7 @@ const EXACT = {
  "/producto/alineadora-3d-u-va2023/": "/categoria/alineadoras/",
  "/producto/alineadora-de-camion-haweka-axis4000/": "/categoria/alineadoras/",
  "/producto/alineadora-de-camion-haweka-axis500/": "/categoria/alineadoras/",
+ "/producto/alineadora-hofmann-geoliner-770/": "/producto/alineadora-3d-hofmann-geoliner-880/",
  "/producto/axis-4000/": "/categoria/equipamiento-taller/",
  "/producto/axis-500/": "/categoria/equipamiento-taller/",
  "/producto/baja-caja-de-cambios-1-ton-hidraulica-manual/": "/categoria/equipamiento-taller/",
@@ -337,7 +338,7 @@ const EXACT = {
  "/producto/geoliner-320/": "/categoria/alineadoras/",
  "/producto/geoliner-630/": "/categoria/alineadoras/",
  "/producto/geoliner-670/": "/categoria/alineadoras/",
- "/producto/geoliner-770-hofmann/": "/categoria/alineadoras/",
+ "/producto/geoliner-770-hofmann/": "/producto/alineadora-3d-hofmann-geoliner-880/",
  "/producto/indicador-nivel-volante-haweka/": "/producto/indicador-de-nivel-de-volante-haweka/",
  "/producto/inflador-de-neumaticos-por-nitrogeno-hpmm/": "/categoria/herramientas-neumaticas/",
  "/producto/inflador-de-neumaticos-por-nitrogeno/": "/categoria/herramientas-neumaticas/",
