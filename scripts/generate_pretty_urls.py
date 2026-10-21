@@ -74,15 +74,31 @@ def load_public_offers():
 # <title> orientado a búsqueda de compra. El H1 sigue siendo el nombre corto.
 CATEGORY_TITLES = {
     'elevadores': 'Elevadores para taller y gomería',
-    'elevadores-2-columnas': 'Elevadores de 2 columnas para taller',
-    'elevadores-4-columnas': 'Elevadores de 4 columnas para alineación',
-    'elevadores-tijera': 'Elevadores tijera para taller y gomería',
+    'elevadores-2-columnas': 'Elevador de 2 columnas para taller y gomería',
+    'elevadores-4-columnas': 'Elevador de 4 columnas para alineación y taller',
+    'elevadores-tijera': 'Elevador tijera para autos y gomería',
     'elevadores-pesados': 'Elevadores para camiones y pesados',
-    'elevadores-motos': 'Elevadores para motos',
-    'alineadoras': 'Alineadoras 3D para autos y camiones',
+    'elevadores-motos': 'Elevadores de motos para taller',
+    'alineadoras': 'Alineadoras de autos 3D y para camiones',
     'balanceadoras': 'Balanceadoras de ruedas para gomería',
     'desarmadoras': 'Desarmadoras de neumáticos para gomería',
 }
+
+
+# Qué distingue a cada subtipo de elevador (va en la meta description, junto al
+# rango de capacidad y las marcas que hay hoy en el catálogo). Son las búsquedas
+# que traían clics: "elevador tijera para autos", "elevador de motos", etc.
+CATEGORY_HOOKS = {
+    'elevadores-tijera': "Elevadores tijera para autos: portátiles, empotrables y de alineación",
+    'elevadores-2-columnas': "Elevadores de 2 columnas con piso libre o travesaño al piso",
+    'elevadores-4-columnas': "Elevadores de 4 columnas para alineación, estacionamiento y vehículos pesados",
+    'elevadores-motos': "Elevadores de motos con ascenso neumático o manual",
+    'alineadoras': "Alineadoras 3D para autos y camiones, y calibración ADAS",
+}
+
+
+def _kg(n):
+    return f"{n:,}".replace(',', '.')
 
 
 # Posicionamiento por marca: Trivium Pro es la línea económica; Hofmann, Rotary
@@ -838,6 +854,27 @@ def main():
                 f"{nombre} para taller: {len(prods)} equipos. {gama} "
                 f"Instalación a cotizar en todo el país."
             )
+            if slug in CATEGORY_HOOKS:
+                partes = [CATEGORY_HOOKS[slug]]
+                if slug.startswith('elevadores'):
+                    caps = [int(re.sub(r'\D', '', str(p.get('capacity', ''))) or 0) for p in prods]
+                    caps = [c for c in caps if c]
+                    if caps and max(caps) - min(caps) < max(caps) * 0.05:
+                        partes[0] += f", hasta {_kg(max(caps))} kg"
+                    elif caps:
+                        partes[0] += f", de {_kg(min(caps))} a {_kg(max(caps))} kg"
+                marcas = []
+                for p in prods:
+                    n = brands_by_slug.get(p.get('brand'), {}).get('name')
+                    if n and n not in marcas:
+                        marcas.append(n)
+                if marcas:
+                    partes.append(", ".join(marcas[:-1]) + " y " + marcas[-1] if len(marcas) > 1 else marcas[0])
+                # Si con el cierre se pasa del largo de Google, se saca el cierre
+                # entero antes que cortar una frase a la mitad.
+                larga = ". ".join(partes) + ". Instalación a cotizar en todo el país."
+                desc = larga if len(larga) <= 158 else ". ".join(partes) + "."
+
             crumbs = [("Inicio", ""), ("Catálogo", "catalogo/")]
             if cat.get('parent') and cat['parent'] in cats_by_slug:
                 parent = cats_by_slug[cat['parent']]
