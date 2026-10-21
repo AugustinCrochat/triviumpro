@@ -27,8 +27,8 @@ Dos gamas conviven en el catálogo: las marcas premium importadas, de mayor cali
 - [Direct Lift](https://pro.trivium.ar/marca/direct-lift/) — USA — Tijera
 - [Forward Lift](https://pro.trivium.ar/marca/forward-lift/) — USA — Elevación
 - [Trivium Pro](https://pro.trivium.ar/marca/trivium-pro/) — Marca propia
-- [Haweka](https://pro.trivium.ar/marca/haweka/) — Alemania — Accesorios
-- [Prevost](https://pro.trivium.ar/marca/prevost/) — Francia — Aire comprimido
+- [Haweka](https://pro.trivium.ar/marca/haweka/) — Alemania — Accesorios y herramientas para balanceo de ruedas
+- [Prevost](https://pro.trivium.ar/marca/prevost/) — Francia — Redes de aire comprimido de aluminio
 
 ## Precios
 

@@ -52,6 +52,8 @@ const BRAND_LOGOS = {
   // Existía el archivo en assets/img/marcas/ pero faltaba acá: Prevost nunca
   // mostraba su logo en ningún lado por este olvido.
   'prevost':      'assets/img/marcas/logo-prevost.svg',
+  // Logo raster (PNG/WebP, no SVG): se pasó como imagen.
+  'haweka':       'assets/img/marcas/logo-haweka.webp',
 };
 
 const MAIN_BRANDS = ['rotary-lift', 'hofmann', 'challenger-lifts', 'direct-lift', 'trivium-pro'];

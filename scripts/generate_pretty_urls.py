@@ -101,6 +101,22 @@ BRAND_SEO = {
         "Rotary Lift Argentina: elevadores para taller",
         "Rotary Lift: {n} elevadores de mayor calibre para talleres, concesionarias "
         "y flotas. Distribuidor oficial; instalación a cotizar en todo el país."),
+    'haweka': (
+        "Haweka Argentina: accesorios y herramientas para balanceo de ruedas",
+        "Haweka®, Alemania: {n} accesorios y herramientas para balanceo de ruedas — conos de "
+        "centrado, tuercas rápidas, calibres y pinzas para contrapesos. Envíos a todo el país."),
+    'prevost': (
+        "Prevost Argentina: redes de aire comprimido de aluminio",
+        "Prevost Piping System: red modular de aire comprimido 100 % aluminio, sin soldadura y con "
+        "garantía de 10 años del fabricante. Proyecto e instalación en todo el país."),
+    'direct-lift': (
+        "Direct Lift Argentina: elevadores tijera y portátiles",
+        "Direct Lift (Rotary Solutions): {n} elevadores tijera y portátiles de diseño compacto para "
+        "talleres y garajes. Instalación a cotizar en todo el país."),
+    'forward-lift': (
+        "Forward Lift Argentina: elevadores de gran capacidad",
+        "Forward Lift: elevadores de gran capacidad para vehículos pesados y elevadores tijera para "
+        "alineación. Instalación a cotizar en todo el país."),
     'challenger-lifts': (
         "Challenger Lifts Argentina: elevadores",
         "Challenger Lifts (Snap-on): elevadores certificados ALI de mayor calibre "
@@ -405,13 +421,17 @@ def breadcrumb_html(items, root):
 
 
 def brand_logo_rel(slug):
-    """'assets/img/marcas/logo-<slug>.svg' si el archivo existe, si no None.
+    """'assets/img/marcas/logo-<slug>.<ext>' si el archivo existe (svg, webp o png),
+    si no None.
 
     Fuente de verdad = el archivo en disco, no un mapa a mano: así no puede
     desincronizarse del BRAND_LOGOS de site.js (pasó con Prevost: tenía el
     archivo pero faltaba en el mapa y nunca mostraba su logo)."""
-    rel = f'assets/img/marcas/logo-{slug}.svg'
-    return rel if os.path.exists(os.path.join(BASE_DIR, rel)) else None
+    for ext in ('svg', 'webp', 'png'):
+        rel = f'assets/img/marcas/logo-{slug}.{ext}'
+        if os.path.exists(os.path.join(BASE_DIR, rel)):
+            return rel
+    return None
 
 
 def price_tag_html(sku, offers_by_sku, en_ficha=False):
@@ -616,11 +636,6 @@ def update_static_pages(catalog):
              f"Elevadores, alineadoras, balanceadoras y desarmadoras, con instalación "
              f"y servicio en todo el país.",
              f"Catálogo completo — {ORG_NAME}"),
-        'marcas': ("Marcas",
-             f"Las {n_marcas} marcas que representamos: Rotary Lift, Hofmann, Forward "
-             f"Lift, Direct Lift, Haweka y Trivium Pro. Distribuidores oficiales en "
-             f"Argentina, con repuestos y soporte técnico.",
-             f"Marcas que representamos — {ORG_NAME}"),
         'instalacion-posventa-y-servicios': ("Servicios",
              "Instalación, puesta en marcha, mantenimiento preventivo y servicio "
              "post-venta de equipamiento de taller en todo el país.",
@@ -753,7 +768,6 @@ def main():
         'nosotros.html': 'nosotros',
         'servicios.html': 'instalacion-posventa-y-servicios',
         'contacto.html': 'contacto',
-        'marcas.html': 'marcas',
         'catalogo.html': 'catalogo'
     }
     
@@ -881,6 +895,22 @@ def main():
                 (n, SITE_URL + '/' + (h or '')) if h is not None else (n, url)
                 for n, h in crumbs
             ])]
+            # La marca como entidad (schema.org/Brand): nombre descriptivo, logo y url,
+            # para buscadores y asistentes de IA.
+            try:
+                from marcas_content import MARCAS as _MARCAS
+            except ImportError:
+                _MARCAS = {}
+            _mi = _MARCAS.get(slug, {})
+            brand_ld = {"@context": "https://schema.org", "@type": "Brand",
+                        "@id": f"{SITE_URL}/marca/{slug}/#brand", "name": brand['name'], "url": url}
+            if _mi:
+                brand_ld["alternateName"] = _mi['nombre_seo']
+                brand_ld["description"] = f"{_mi['resumen']} {_mi['desc']}"
+            _logo = brand_logo_rel(slug)
+            if _logo:
+                brand_ld["logo"] = f"{SITE_URL}/{_logo}"
+            jsonld.append(brand_ld)
             if prods:
                 jsonld.append(itemlist_jsonld(prods))
             grid = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in prods)

@@ -292,9 +292,9 @@ mountChrome('catalogo');
   if (brandSlug) {
     document.getElementById('crumbs').innerHTML = '';
     document.querySelector('.cat-hero').style.padding = '28px 0 24px';
-    const origin = sub.split(' — ')[0];
+    // Nota completa ("Alemania — Accesorios y herramientas para balanceo de ruedas"): coincide con el HTML prerenderizado.
     const tagEl = document.getElementById('cat-tag');
-    tagEl.textContent = origin;
+    tagEl.textContent = sub;
     tagEl.className = 'chip chip--yellow';
   } else {
     document.getElementById('cat-tag').textContent = sub || 'Trivium';

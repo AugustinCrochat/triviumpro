@@ -13,59 +13,59 @@
 },
 "/categoria/accesorios-balanceo/": {
 "date": "2026-10-21",
-"hash": "f4eb9e5424924c3889f35817516bed4caa266593"
+"hash": "91e432bdfd754a14511a6db60b86dee936f89d76"
 },
 "/categoria/aire-comprimido/": {
 "date": "2026-10-21",
-"hash": "273df8c3eb03b5857efb451007f29d202e4f1ebc"
+"hash": "f8ce770792f281a4bd39ab52576deb582577444a"
 },
 "/categoria/alineadoras/": {
 "date": "2026-10-21",
-"hash": "c4653bfa9410834c291c9653eed36eccc2fb4984"
+"hash": "4661d8f3f3168310dfca8e6d62537ea46847a671"
 },
 "/categoria/balanceadoras/": {
 "date": "2026-10-21",
-"hash": "b756bfd8086958ffa0ae89aabb07f6afb90aa3df"
+"hash": "b28dd9af5f05a7a080365385f2136d58a95ede9e"
 },
 "/categoria/desarmadoras/": {
 "date": "2026-10-21",
-"hash": "8490d607d23ab8c006ee4ffc2f039681cd5d6b76"
+"hash": "6f51c450647157444e3aa2afbbcffed7e71aa143"
 },
 "/categoria/elevadores-2-columnas/": {
 "date": "2026-10-21",
-"hash": "c9bb8cdebe2435e88c6beba100460e8493914b99"
+"hash": "a926de92b89d266328ec862a479ada5338f58251"
 },
 "/categoria/elevadores-4-columnas/": {
 "date": "2026-10-21",
-"hash": "c57b396c3c728fbfcb6085a48525d5461325abc6"
+"hash": "43ef8daf4ecfc3452a5c81eb357f39b56ab3c664"
 },
 "/categoria/elevadores-motos/": {
 "date": "2026-10-21",
-"hash": "74842746532b95241bf341d812e83bf69f37c8dd"
+"hash": "748023329cbda8aa10d342ee3042148daded462f"
 },
 "/categoria/elevadores-pesados/": {
 "date": "2026-10-21",
-"hash": "1a11e421a79190c2ef61d4dd8b5798574e405e28"
+"hash": "fe000754562229bf4f5f2ed50d389b66ea7c8a3e"
 },
 "/categoria/elevadores-tijera/": {
 "date": "2026-10-21",
-"hash": "1239570f5f023a8e706091a8e67cc89ce6daa1bd"
+"hash": "d742ed5d1291cf9468990ba8010610046a477c39"
 },
 "/categoria/elevadores/": {
 "date": "2026-10-21",
-"hash": "624ab124a5e89d2b7a8e546256110452e3b581f9"
+"hash": "6dfd35c8a049fb18144c5cf7c22831d7fb5e1fbf"
 },
 "/categoria/equipamiento-taller/": {
 "date": "2026-10-21",
-"hash": "2b222dd3e6a39601ba9d2fdae267aeb9af436ffe"
+"hash": "87067aa301cdb60c459a84e603d6b18f4e68b534"
 },
 "/categoria/herramientas-neumaticas/": {
 "date": "2026-10-21",
-"hash": "92a975811e11a3176123b82bad9ff05ed44a9990"
+"hash": "178d39a6f6014e8855dcb75ba99b6d6d459ec365"
 },
 "/categoria/muebles-taller/": {
 "date": "2026-10-21",
-"hash": "1e0d007a7f127b723306efecad50dc9aa2f1068f"
+"hash": "515e622e6a72f5f6427e648a1c8dfdc145f844ea"
 },
 "/contacto/": {
 "date": "2026-10-21",
@@ -105,39 +105,39 @@
 },
 "/marca/challenger-lifts/": {
 "date": "2026-10-21",
-"hash": "7a00669d159f142529b6b7e2b07e6038a13c2fa8"
+"hash": "15024cde4cd134f7ce0c36eb9148b58c8652c024"
 },
 "/marca/direct-lift/": {
 "date": "2026-10-21",
-"hash": "baf63a513cbf370c526eb61c5c8b7c1ee47ffe4c"
+"hash": "d3ba8bd8f24f5773e727671d4bbf2a5158b61d28"
 },
 "/marca/forward-lift/": {
 "date": "2026-10-21",
-"hash": "3b2da013dbaa5237f3d94319037e2a3ae9336113"
+"hash": "7b6909a5b58955e2502fd6ce802e22aeae323b17"
 },
 "/marca/haweka/": {
 "date": "2026-10-21",
-"hash": "d78b8fb1886a48f1e0b007516be455e0ec647dc8"
+"hash": "cf30973e4c0145559c0b137e5e47b43166355cd5"
 },
 "/marca/hofmann/": {
 "date": "2026-10-21",
-"hash": "a45a3fcc11e73531ddde53b2e98560c3f004caa5"
+"hash": "36da8f7aa60a1692934a082b75bbf20db8d45d86"
 },
 "/marca/prevost/": {
 "date": "2026-10-21",
-"hash": "ddf92139f45b33e77bbc9afacba3c3602b1da40d"
+"hash": "829e0110d9d15f1cbe72d8e4d24014192d017488"
 },
 "/marca/rotary-lift/": {
 "date": "2026-10-21",
-"hash": "ea5adeea01efcd581a13eada55aa294dbc3e4848"
+"hash": "30769404386b903694cce1f5fbebe3837d323a6a"
 },
 "/marca/trivium-pro/": {
 "date": "2026-10-21",
-"hash": "0b6576c47cbbe7e3b3448302ded7ea42e2577a5c"
+"hash": "190d47f033a760f78b3d02a928b5ca7c81580b06"
 },
 "/marcas/": {
 "date": "2026-10-21",
-"hash": "894d301c1014c9cf2e38d49ee1be713c6ffcd8df"
+"hash": "d1034b73a4282862fad54712f0946444a7caed18"
 },
 "/nosotros/": {
 "date": "2026-10-21",
@@ -149,7 +149,7 @@
 },
 "/origen/alemania/": {
 "date": "2026-10-21",
-"hash": "6acea833eb3db391eadd47a69e2ad72be92ab2e1"
+"hash": "e81e0b69b8a2b1bcbadaf4672d4017149f3af610"
 },
 "/origen/estados-unidos/": {
 "date": "2026-10-21",
@@ -249,7 +249,7 @@
 },
 "/producto/calibre-haweka-para-medir-la-distancia-entre-bulones-de-ruedas/": {
 "date": "2026-10-21",
-"hash": "7bf418e6533c0fae9f014b37385b10ccd81ec668"
+"hash": "e9ef3bb820eddb2e4a7b6d43311fa866fd093b77"
 },
 "/producto/carro-de-dos-cajones-con-bandeja-superior-deslizable/": {
 "date": "2026-10-21",
@@ -273,11 +273,11 @@
 },
 "/producto/conos-de-centrado-haweka/": {
 "date": "2026-10-21",
-"hash": "2785db10e15a874e0727460330ba984b777381fe"
+"hash": "858a18979577936102ac365fc11790f91faba48d"
 },
 "/producto/conos-expandibles-haweka-54-86-mm/": {
 "date": "2026-10-21",
-"hash": "78f29968cc686b02a08d16c0900e37f5cb98f4ac"
+"hash": "cd8c3f0d15e1c0438b61cfb58077f00325bdac3b"
 },
 "/producto/criquet-baja-motor-1-5-ton/": {
 "date": "2026-10-21",
@@ -337,7 +337,7 @@
 },
 "/producto/dispositivo-de-fijacion-probike-haweka/": {
 "date": "2026-10-21",
-"hash": "deeb934e50475f938dab019a752245e736611733"
+"hash": "3a274ecd3aece3585091bb51d21131f5ca010e9b"
 },
 "/producto/elevador-cuatro-cloumnas-4082kg-forward-lift-by-rotary-cr4t/": {
 "date": "2026-10-21",
@@ -481,11 +481,11 @@
 },
 "/producto/espatula-para-despegar-contrapesos-adhesivos-en-llantas-de-aluminio-haweka/": {
 "date": "2026-10-21",
-"hash": "b1ae146debd0bc10d6a3a8b06bfc49f1a33e0844"
+"hash": "9202db24ab38e2a41737f029a904034ccd88042c"
 },
 "/producto/indicador-de-nivel-de-volante-haweka/": {
 "date": "2026-10-21",
-"hash": "783cde2077221a1ad294333992b4b9396874fafa"
+"hash": "9c211a3ceacf77c021a6d64d4b668da552bc92ed"
 },
 "/producto/inflador-de-neumaticos-automatico-unite-hj-931-bd-j/": {
 "date": "2026-10-21",
@@ -505,11 +505,11 @@
 },
 "/producto/kit-de-9-conos-para-balanceadora-52-5-122-mm/": {
 "date": "2026-10-21",
-"hash": "0f6c24d91037584b9f96282f7aef134b0f2c4d55"
+"hash": "bc63952b37a7ae18a36bb052bd962d8ba2c22974"
 },
 "/producto/kit-haweka-duoexpert/": {
 "date": "2026-10-21",
-"hash": "c4bb65871c373618a0e4829941c52697b0fe82a5"
+"hash": "5c1b57278c78e37b74ec939e8b12b99365188469"
 },
 "/producto/levanta-motor-2-ton-hidraulica-manual/": {
 "date": "2026-10-21",
@@ -517,7 +517,7 @@
 },
 "/producto/lift-para-balanceadoras-u-l01/": {
 "date": "2026-10-21",
-"hash": "3a00ab47928299799be4b2dd19f429bf9297de87"
+"hash": "69959c52ab64a52451d19bce2f1295f21f4a7103"
 },
 "/producto/llave-crique-neumatica-kuani-ki-1475-a/": {
 "date": "2026-10-21",
@@ -577,7 +577,7 @@
 },
 "/producto/pinza-para-plomos-contrapesos-haweka/": {
 "date": "2026-10-21",
-"hash": "3ae42c45a5b81c7fb68b0ff553d0a31cbf827a3a"
+"hash": "d76f2305bfe962eb7232f9a6af3c2064bf9ccccf"
 },
 "/producto/red-de-aire-comprimido-prevost-piping-system/": {
 "date": "2026-10-21",
@@ -597,7 +597,7 @@
 },
 "/producto/soporte-para-accesorios-haweka/": {
 "date": "2026-10-21",
-"hash": "2ae30fa51e0d1878ddf1e1db1e13b974801f7923"
+"hash": "17c0305d966c759cbb8a8ce876604c4263747a13"
 },
 "/producto/soporte-para-motor-680-kg/": {
 "date": "2026-10-21",
@@ -609,11 +609,11 @@
 },
 "/producto/tuerca-rapida-de-40-x-4-mm-progrip-haweka/": {
 "date": "2026-10-21",
-"hash": "d05e6b33349598e049be098c9330873f0280b3e0"
+"hash": "0e8aa54bc6f472f751c5e9dd2e81925ea1d2e708"
 },
 "/producto/tuerca-rapida-softgrip-para-eje-40x4mm-haweka/": {
 "date": "2026-10-21",
-"hash": "91a7f8e794c11a144f143270d9d2e42bc2928b73"
+"hash": "62dfdd4cfe7f9f552531813fafd3ec1ebc390e46"
 },
 "/zonas/": {
 "date": "2026-10-21",

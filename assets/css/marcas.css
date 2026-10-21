@@ -1,0 +1,80 @@
+/* Página /marcas/: hero oscuro con logos, tarjetas por marca, marca propia destacada,
+   comparativa y preguntas. Se genera con scripts/generate_marcas.py. */
+.marcas-hero { background: linear-gradient(135deg, #111 0%, #1b1b1b 55%, #3a0f06 100%); color: #fff; padding: 52px 0 44px; }
+.marcas-hero .breadcrumbs, .marcas-hero .breadcrumbs a { color: rgba(255,255,255,.6); }
+.marcas-hero h1 { color: #fff; font-size: clamp(1.9rem, 4.2vw, 3.1rem); line-height: 1.08; margin: 14px 0 14px; max-width: 26ch; }
+.marcas-hero h1 em { font-style: normal; color: var(--accent); display: block; }
+.marcas-hero .lead { color: rgba(255,255,255,.78); max-width: 62ch; font-size: 1.1rem; line-height: 1.55; margin-bottom: 28px; }
+.marcas-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 30px; }
+.marcas-stats div { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; }
+.marcas-stats b { display: block; font-size: 1.9rem; line-height: 1; color: #fff; }
+.marcas-stats span { font-size: .8rem; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .05em; }
+.marcas-strip { display: flex; flex-wrap: wrap; gap: 10px; }
+.marcas-strip a { background: #fff; border-radius: 8px; width: 132px; height: 62px; display: grid; place-items: center; padding: 10px 14px; transition: transform .15s, box-shadow .15s; }
+.marcas-strip a:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.4); }
+.marcas-strip img { max-width: 100%; max-height: 40px; object-fit: contain; display: block; }
+
+.marcas-main { padding: 44px 0 16px; }
+.marcas-main h2 { text-transform: uppercase; font-size: 1.35rem; line-height: 1.15; margin: 0 0 6px; }
+.marcas-main .sub { color: var(--text-dim); margin: 0 0 22px; max-width: 70ch; }
+.marcas-respuesta { border-left: 4px solid var(--accent); background: var(--bg-2); padding: 18px 22px; margin: 0 0 40px; color: var(--text); line-height: 1.6; max-width: 900px; }
+
+.marca-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-bottom: 52px; }
+.marca-card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .15s, border-color .15s, transform .15s; }
+.marca-card:hover { box-shadow: var(--shadow); border-color: var(--line-2); transform: translateY(-2px); }
+.marca-card__logo { height: 148px; display: grid; place-items: center; padding: 22px 28px; border-bottom: 1px solid var(--line); background: #fff; }
+.marca-card__logo img { max-width: 100%; max-height: 92px; object-fit: contain; display: block; }
+.marca-card__logo span { font-size: 1.5rem; font-weight: 800; letter-spacing: -.01em; }
+.marca-card__body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.marca-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.marca-chip { display: inline-flex; align-items: center; gap: 6px; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--text); background: var(--bg-2); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px 4px 6px; text-decoration: none; }
+.marca-chip img { height: 11px; width: auto; display: block; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.15); }
+.marca-chip--plain { padding-left: 10px; }
+a.marca-chip:hover { border-color: var(--accent); color: var(--accent); }
+.marca-card h3 { font-size: 1.15rem; line-height: 1.2; margin: 0; }
+.marca-card h3 a { color: var(--text); text-decoration: none; }
+.marca-card h3 a:hover { color: var(--accent); }
+.marca-card .resumen { font-weight: 600; color: var(--text); margin: 0; font-size: .95rem; }
+.marca-card .desc { color: var(--text-dim); font-size: .92rem; line-height: 1.55; margin: 0; }
+.marca-cats { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+.marca-cats a { font-size: .75rem; color: var(--text-dim); border-bottom: 1px dotted var(--text-mute); text-decoration: none; }
+.marca-cats a:hover { color: var(--accent); border-color: var(--accent); }
+.marca-card--cta { border: 2px dashed var(--line-2); background: var(--bg-2); justify-content: center; text-align: center; padding: 28px 22px; gap: 12px; align-items: center; }
+.marca-card--cta:hover { transform: none; box-shadow: none; }
+.marca-card--cta h3 { font-size: 1.15rem; margin: 0; }
+.marca-card--cta p { color: var(--text-dim); margin: 0; font-size: .92rem; line-height: 1.5; }
+.marca-actions { display: flex; gap: 8px; margin-top: auto; padding-top: 12px; flex-wrap: wrap; }
+
+.marca-propia { display: grid; grid-template-columns: minmax(220px, 340px) 1fr; background: #111; color: #fff; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 52px; }
+.marca-propia .marca-card__logo { height: auto; min-height: 220px; background: #fff; border: 0; }
+.marca-propia .marca-card__body { padding: 30px 34px; }
+.marca-propia h3 a, .marca-propia h3 { color: #fff; font-size: 1.5rem; }
+.marca-propia .resumen { color: #fff; font-size: 1.05rem; }
+.marca-propia .desc { color: rgba(255,255,255,.75); font-size: 1rem; }
+.marca-propia .marca-chip { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.25); color: #fff; }
+.marca-propia .marca-chip img { box-shadow: none; }
+.marca-propia .marca-cats a { color: rgba(255,255,255,.75); border-color: rgba(255,255,255,.35); }
+.marca-propia .marca-cats a:hover { color: #fff; border-color: #fff; }
+.marca-propia .btn--ghost { color: #fff; border-color: rgba(255,255,255,.45); }
+
+.marcas-tabla { overflow-x: auto; border: 1px solid var(--line); margin: 0 0 52px; }
+.marcas-tabla table { width: 100%; border-collapse: collapse; min-width: 760px; font-size: .93rem; line-height: 1.4; }
+.marcas-tabla th, .marcas-tabla td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.marcas-tabla th { background: var(--bg-2); font-weight: 700; color: var(--text); white-space: nowrap; }
+.marcas-tabla tr:last-child td { border-bottom: 0; }
+.marcas-tabla td a { color: var(--text); font-weight: 700; text-decoration: none; }
+.marcas-tabla td a:hover { color: var(--accent); }
+
+.marcas-texto { max-width: 820px; color: var(--text-dim); font-size: 1.05rem; line-height: 1.7; margin-bottom: 40px; }
+.marcas-texto a { color: var(--accent); }
+.marcas-texto ul { padding-left: 22px; margin: 0 0 18px; } .marcas-texto li { margin-bottom: 8px; }
+
+@media (max-width: 900px) {
+  .marcas-stats { grid-template-columns: repeat(2, 1fr); }
+  .marca-propia { grid-template-columns: 1fr; }
+  .marca-propia .marca-card__logo { min-height: 150px; }
+}
+@media (max-width: 520px) {
+  .marcas-strip a { width: calc(50% - 5px); }
+  .marca-grid { grid-template-columns: 1fr; }
+}

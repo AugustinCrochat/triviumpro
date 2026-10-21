@@ -7,7 +7,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="tv-root" content="../../">
-<title>Prevost Argentina — Trivium Pro</title>
+<title>Prevost Argentina: redes de aire comprimido de aluminio — Trivium Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,17 +15,18 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Trivium Pro">
 <meta property="og:title" content="Prevost en Argentina">
-<meta property="og:description" content="Prevost en Argentina: 1 equipos disponibles. Francia — Aire comprimido. Venta, instalación y servicio post-venta en todo el país por Trivium Pro.">
+<meta property="og:description" content="Prevost Piping System: red modular de aire comprimido 100 % aluminio, sin soldadura y con garantía de 10 años del fabricante. Proyecto e instalación en todo…">
 <meta property="og:image" content="https://pro.trivium.ar/assets/img/logo-trivium.svg">
 <meta property="og:url" content="https://pro.trivium.ar/marca/prevost/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Prevost en Argentina">
-<meta name="twitter:description" content="Prevost en Argentina: 1 equipos disponibles. Francia — Aire comprimido. Venta, instalación y servicio post-venta en todo el país por Trivium Pro.">
+<meta name="twitter:description" content="Prevost Piping System: red modular de aire comprimido 100 % aluminio, sin soldadura y con garantía de 10 años del fabricante. Proyecto e instalación en todo…">
 <meta name="twitter:image" content="https://pro.trivium.ar/assets/img/logo-trivium.svg">
 <link rel="canonical" href="https://pro.trivium.ar/marca/prevost/">
-<meta name="description" content="Prevost en Argentina: 1 equipos disponibles. Francia — Aire comprimido. Venta, instalación y servicio post-venta en todo el país por Trivium Pro.">
+<meta name="description" content="Prevost Piping System: red modular de aire comprimido 100 % aluminio, sin soldadura y con garantía de 10 años del fabricante. Proyecto e instalación en todo…">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://pro.trivium.ar/"},{"@type":"ListItem","position":2,"name":"Marcas","item":"https://pro.trivium.ar/marcas/"},{"@type":"ListItem","position":3,"name":"Prevost","item":"https://pro.trivium.ar/marca/prevost/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Brand","@id":"https://pro.trivium.ar/marca/prevost/#brand","name":"Prevost","url":"https://pro.trivium.ar/marca/prevost/","alternateName":"Prevost Argentina: redes de aire comprimido de aluminio","description":"Red modular de aire comprimido de aluminio, sin soldadura. Prevost Piping System es un sistema modular de distribución de aire comprimido 100 % aluminio: sin óxido, sin soldadura y con la posibilidad de ampliar o reconfigurar la red sin rehacerla. Tiene garantía de 10 años del fabricante y el proyecto y la instalación los hace Trivium.","logo":"https://pro.trivium.ar/assets/img/marcas/logo-prevost.svg"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://pro.trivium.ar/producto/red-de-aire-comprimido-prevost-piping-system/","name":"Red de Aire Comprimido - Prevost Piping System"}]}</script>
 </head>
 <body>
@@ -114,7 +115,7 @@
     <div class="breadcrumbs" id="crumbs"><span>Inicio</span> <span class="sep">/</span> <a href="../../marcas/">Marcas</a> <span class="sep">/</span> <span>Prevost</span></div>
     <h1 id="cat-title">Prevost</h1>
     <div class="sub">
-      <span class="chip" id="cat-tag">Francia — Aire comprimido</span>
+      <span class="chip" id="cat-tag">Francia — Redes de aire comprimido de aluminio</span>
       <span class="mono muted" id="cat-count">1 productos</span>
     </div>
   </div>
@@ -291,9 +292,9 @@ mountChrome('catalogo');
   if (brandSlug) {
     document.getElementById('crumbs').innerHTML = '';
     document.querySelector('.cat-hero').style.padding = '28px 0 24px';
-    const origin = sub.split(' — ')[0];
+    // Nota completa ("Alemania — Accesorios y herramientas para balanceo de ruedas"): coincide con el HTML prerenderizado.
     const tagEl = document.getElementById('cat-tag');
-    tagEl.textContent = origin;
+    tagEl.textContent = sub;
     tagEl.className = 'chip chip--yellow';
   } else {
     document.getElementById('cat-tag').textContent = sub || 'Trivium';
