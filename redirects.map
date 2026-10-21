@@ -461,3 +461,11 @@
 /folleto/ /catalogo/ 301
 /tienda/ /catalogo/ 301
 /lista-precios/ /catalogo/ 301
+
+# --- Subcategorías y tags viejos de WooCommerce (enlazados desde posts; daban 404 en pro) ---
+/categoria/maquinas-de-taller/alineadoras/ /categoria/alineadoras/ 301
+/categoria/maquinas-de-taller/balanceadoras/ /categoria/balanceadoras/ 301
+/categoria/maquinas-de-taller/desarmadoras/ /categoria/desarmadoras/ 301
+/equipamiento-para-alineacion-de-autos/ /categoria/alineadoras/ 301
+/etiqueta-producto/alineacion/ /categoria/alineadoras/ 301
+/etiqueta-producto/gomeria/ /categoria/desarmadoras/ 301

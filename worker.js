@@ -1,5 +1,5 @@
 // GENERADO por scripts/generate_worker.py — no editar a mano.
-// La fuente de verdad es redirects.map (430 reglas).
+// La fuente de verdad es redirects.map (436 reglas).
 //
 // Existe porque _redirects no sirve acá: Cloudflare limita a 100 las reglas en
 // Workers con assets estáticos, y el build fallaba al superarlo.
@@ -146,6 +146,9 @@ const EXACT = {
  "/categoria/lubricacion/recolector-de-aceite/": "/categoria/equipamiento-taller/",
  "/categoria/lubricacion/taxilitros/": "/categoria/equipamiento-taller/",
  "/categoria/maquinas-de-taller/": "/categoria/equipamiento-taller/",
+ "/categoria/maquinas-de-taller/alineadoras/": "/categoria/alineadoras/",
+ "/categoria/maquinas-de-taller/balanceadoras/": "/categoria/balanceadoras/",
+ "/categoria/maquinas-de-taller/desarmadoras/": "/categoria/desarmadoras/",
  "/categoria/muebles-de-taller/": "/categoria/muebles-taller/",
  "/como-abrir-un-taller-de-alineacion-y-balanceo/": "/blog/como-abrir-un-taller-de-alineacion-y-balanceo/",
  "/como-elegir-el-elevador-adecuado-para-hacer-alineacion/": "/blog/como-elegir-el-elevador-adecuado-para-hacer-alineacion/",
@@ -188,12 +191,15 @@ const EXACT = {
  "/equipamiento-de-taller-hofmann/": "/marca/hofmann/",
  "/equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos/": "/blog/equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos/",
  "/equipamiento-lubricacion-para-lubricentro/": "/categoria/equipamiento-taller/",
+ "/equipamiento-para-alineacion-de-autos/": "/categoria/alineadoras/",
  "/equipamiento-para-taller-linea-pesados/": "/categoria/elevadores-pesados/",
  "/equipamiento-para-taller/": "/categoria/equipamiento-taller/",
  "/equipamiento-taller-camiones/": "/categoria/elevadores-pesados/",
  "/errores-comunes-al-usar-una-balanceadora-y-como-evitarlos/": "/blog/errores-comunes-al-usar-una-balanceadora-y-como-evitarlos/",
  "/especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas/": "/blog/especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas/",
+ "/etiqueta-producto/alineacion/": "/categoria/alineadoras/",
  "/etiqueta-producto/camiones-y-pesados/": "/categoria/elevadores-pesados/",
+ "/etiqueta-producto/gomeria/": "/categoria/desarmadoras/",
  "/existen-diferencias-reales-entre-hofmann-y-john-bean/": "/blog/existen-diferencias-reales-entre-hofmann-y-john-bean/",
  "/ez-adas-hofmann/": "/categoria/alineadoras/",
  "/ficha-balanceadora-de-ruedas-de-camion-y-pesados-hofmann-geodyna-980l/": "/producto/balanceadora-para-ruedas-de-camion-hofmann-geodyna-980l/",
