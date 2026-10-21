@@ -375,34 +375,21 @@ const ORIGIN_BADGES = {
   'made-in-taiwan':  { file: 'taiwan.svg',  text: 'Made in Taiwan',  href: 'origen/taiwan/',         name: 'Taiwán' },
   'ce-ue':           { file: 'ce.webp',     text: 'Marcado CE',      href: 'origen/marcado-ce/',     name: 'Marcado CE', plain: true },
 };
-// asLink: en la ficha del producto el sello es un <a>. En las tarjetas ya hay
-// un <a> alrededor (no se anidan), así que lleva data-href y lo resuelve el
-// manejador de clic de abajo.
+// asLink: solo en la ficha del producto el sello es un <a> hacia /origen/...
+// En las tarjetas de la grilla es una etiqueta informativa, sin clic: la tarjeta
+// entera es un enlace al producto y, sobre todo en celular, un toque sobre el
+// sello no tiene que llevar a otra página sin querer.
 function originBadgeHtml(p, asLink) {
   const b = (p.badges || []).map(id => ORIGIN_BADGES[id]).find(Boolean);
   if (!b) return '';
-  const url = rootPath() + b.href;
   // El texto es un <svg> con textLength: se estira al ancho exacto de la bandera.
   const t = b.text.toUpperCase(), w = Math.round(t.length * 4.8);
   const inner = `<img src="${rootPath()}assets/img/iconos/origen/${b.file}" alt=""><svg class="ob-text" viewBox="0 0 ${w} 9" aria-hidden="true"><text x="0" y="7.3" textLength="${w}" lengthAdjust="spacingAndGlyphs">${t}</text></svg>`;
   const cls = 'origin-badge' + (b.plain ? ' origin-badge--plain' : '');
+  if (!asLink) return `<span class="${cls}" title="${b.text}">${inner}</span>`;
   const label = b.plain ? 'Qué es el marcado CE' : `Equipos con origen ${b.name}`;
-  return asLink
-    ? `<a class="${cls}" href="${url}" aria-label="${label}">${inner}</a>`
-    : `<span class="${cls}" role="link" tabindex="0" data-href="${url}" aria-label="${label}">${inner}</span>`;
+  return `<a class="${cls}" href="${rootPath()}${b.href}" aria-label="${label}">${inner}</a>`;
 }
-document.addEventListener('click', e => {
-  const b = e.target.closest && e.target.closest('.origin-badge[data-href]');
-  if (!b) return;
-  e.preventDefault(); e.stopPropagation();
-  location.href = b.dataset.href;
-}, true);
-document.addEventListener('keydown', e => {
-  if (e.key !== 'Enter' && e.key !== ' ') return;
-  const b = e.target.closest && e.target.closest('.origin-badge[data-href]');
-  if (!b) return;
-  e.preventDefault(); location.href = b.dataset.href;
-});
 
 // <li> de la barra lateral "Origen": un item por sello con su cantidad de equipos.
 function originSidebarHtml(activeId) {

@@ -441,16 +441,17 @@ ORIGIN_BADGES = {
 
 
 def origin_badge_html(prod, root):
+    """Sello sobre la foto de la tarjeta: etiqueta informativa, sin enlace (ver
+    originBadgeHtml en site.js; sólo la ficha de producto lo enlaza)."""
     for bid in prod.get('badges') or []:
         b = ORIGIN_BADGES.get(bid)
         if b:
             cls = 'origin-badge' + (' origin-badge--plain' if b.get('plain') else '')
-            label = 'Qué es el marcado CE' if b.get('plain') else f"Equipos con origen {b['name']}"
-            # Texto SVG con textLength: se estira al ancho exacto de la bandera (ver site.js).
+            # Texto SVG con textLength: se estira al ancho exacto de la bandera.
             t = b["text"].upper()
             w = round(len(t) * 4.8)
-            return (f'<span class="{cls}" role="link" tabindex="0" data-href="{esc(root + b["href"])}" '
-                    f'aria-label="{esc(label)}"><img src="{esc(root)}assets/img/iconos/origen/{b["file"]}" alt="">'
+            return (f'<span class="{cls}" title="{esc(b["text"])}">'
+                    f'<img src="{esc(root)}assets/img/iconos/origen/{b["file"]}" alt="">'
                     f'<svg class="ob-text" viewBox="0 0 {w} 9" aria-hidden="true">'
                     f'<text x="0" y="7.3" textLength="{w}" lengthAdjust="spacingAndGlyphs">{esc(t)}</text></svg></span>')
     return ''

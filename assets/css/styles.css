@@ -571,10 +571,12 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   .pd-gallery > .origin-badge { top: 8px; right: 8px; padding: 5px; }
   .pd-gallery > .origin-badge img { width: 56px; }
 }
-/* El sello es un enlace a /origen/...: se nota al pasar el mouse. */
-.origin-badge { cursor: pointer; text-decoration: none; transition: box-shadow .15s, transform .15s; }
-.origin-badge:hover { box-shadow: 0 3px 10px rgba(0,0,0,.22); transform: translateY(-1px); }
-.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* Solo el sello de la ficha de producto es un enlace a /origen/...: se nota al pasar el mouse. */
+a.origin-badge { cursor: pointer; text-decoration: none; transition: box-shadow .15s, transform .15s; }
+a.origin-badge:hover { box-shadow: 0 3px 10px rgba(0,0,0,.22); transform: translateY(-1px); }
+a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* En la tarjeta el sello no recibe toques: pasan a la tarjeta (el producto). */
+.prod-card .origin-badge { pointer-events: none; }
 .origin-badge--plain img, .prod-card .thumb .origin-badge--plain img { box-shadow: none; }
 .origin-badge b { font-size: .54rem; font-weight: 800; letter-spacing: .05em; white-space: nowrap; }
 .prod-card .thumb .origin-badge { position: absolute; top: 10px; right: 10px; z-index: 1; }

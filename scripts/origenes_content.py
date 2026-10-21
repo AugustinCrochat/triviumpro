@@ -67,7 +67,7 @@ ORIGENES = [
   ("¿Qué equipos Made in USA ofrece Trivium Pro?",
    "Hay {{N}} equipos con este sello: elevadores Rotary Lift y Direct Lift, y alineadoras y balanceadoras Hofmann. Podés verlos todos en esta página."),
   ("¿Toda la línea Hofmann es de Estados Unidos?",
-   "No. Hofmann es una marca de Snap-on y fabrica en más de un país. Por ejemplo, las alineadoras Geoliner y las balanceadoras Geodyna 7400L, 7600P, 7800-2P y 9000p son de Estados Unidos; la mayoría de las desarmadoras Monty y las balanceadoras Geodyna 7100 y 7200VCI son de Italia; y la alineadora de camiones Josam CV-Aligner y la balanceadora Geodyna 980L son de Suecia. Cada producto lleva el sello de su origen."),
+   "No. Hofmann es una marca de Snap-on y fabrica en más de un país. Por ejemplo, las alineadoras Geoliner y las balanceadoras Geodyna 7400L, 7600P, 7800-2P, 9000p y 980L (para camión) son de Estados Unidos; la mayoría de las desarmadoras Monty y las balanceadoras Geodyna 7100 y 7200VCI son de Italia; y la alineadora de camiones Josam CV-Aligner es de Suecia. Cada producto lleva el sello de su origen."),
   ("¿Los equipos importados tienen servicio técnico y repuestos en Argentina?",
    "Sí. Trivium Pro ofrece garantía y servicio técnico oficial en todo el país y stock permanente de repuestos originales con garantía de trazabilidad."),
   ("¿La instalación está incluida en el precio?",
@@ -98,7 +98,7 @@ ORIGENES = [
 {{QUE_HAY}}
 
 <h2>Hofmann: una marca, varios países</h2>
-<p>Hofmann es una marca de Snap-on. La mayoría de sus desarmadoras <strong>Monty</strong> y las balanceadoras <strong>Geodyna 7100</strong> y <strong>7200VCI</strong> llevan el sello de Italia; las alineadoras 3D Geoliner y las balanceadoras Geodyna 7400L, 7600P, 7800-2P y 9000p, el de <a href="../estados-unidos/">Estados Unidos</a>; y la alineadora de camiones Josam CV-Aligner y la balanceadora para camión Geodyna 980L, el de <a href="../suecia/">Suecia</a>. Más en <a href="../../marca/hofmann/">Hofmann</a>.</p>
+<p>Hofmann es una marca de Snap-on. La mayoría de sus desarmadoras <strong>Monty</strong> y las balanceadoras <strong>Geodyna 7100</strong> y <strong>7200VCI</strong> llevan el sello de Italia; las alineadoras 3D Geoliner y las balanceadoras Geodyna 7400L, 7600P, 7800-2P, 9000p y 980L (para camión), el de <a href="../estados-unidos/">Estados Unidos</a>; y la alineadora de camiones Josam CV-Aligner, el de <a href="../suecia/">Suecia</a>. Más en <a href="../../marca/hofmann/">Hofmann</a>.</p>
 
 <h2>Cómo elegir una desarmadora o una balanceadora</h2>
 <p>Antes de mirar el origen, conviene definir qué ruedas vas a atender (llantas de aleación, run flat, bajo perfil, camión), cuántas por día y qué espacio tenés. Estas guías lo explican paso a paso:</p>
@@ -171,32 +171,31 @@ ORIGENES = [
  "pais": "Suecia",
  "h1": "Equipos de taller Made in Sweden",
  "title": "Alineadora de camiones Made in Sweden: Josam CV-Aligner",
- "description": ("Equipos de taller fabricados en Suecia para vehículos pesados: alineadora de camiones "
-                 "y colectivos Josam CV-Aligner y balanceadora para camión Hofmann Geodyna 980L."),
+ "description": ("Equipo de taller fabricado en Suecia para vehículos pesados: alineadora de camiones "
+                 "y colectivos Josam CV-Aligner. Catálogo, casos de instalación y servicio técnico en todo el país."),
  "chip": "Fabricación en Suecia",
- "resumen": ("En Trivium Pro hay <strong>{{N}} equipos fabricados en Suecia</strong>, pensados para "
-             "vehículos pesados: la alineadora de camiones y colectivos Josam CV-Aligner y la balanceadora "
-             "para camión Hofmann Geodyna 980L. El sello <strong>Made in Sweden</strong> indica el país de "
-             "fabricación declarado por el fabricante."),
+ "resumen": ("En Trivium Pro hay <strong>{{N}} equipo fabricado en Suecia</strong>, pensado para "
+             "vehículos pesados: la alineadora de camiones y colectivos <strong>Josam CV-Aligner</strong>. "
+             "El sello <strong>Made in Sweden</strong> indica el país de fabricación declarado por el fabricante."),
  "secciones": """
 <h2>Qué significa Made in Sweden en un equipo de taller</h2>
-<p>«Made in Sweden» indica que el equipo se fabricó en Suecia. En el catálogo de Trivium Pro el origen sueco corresponde a equipos para vehículos pesados, donde la robustez y la precisión de medición son críticas.</p>
+<p>«Made in Sweden» indica que el equipo se fabricó en Suecia. En el catálogo de Trivium Pro el origen sueco corresponde a la alineadora de vehículos pesados Josam CV-Aligner, un equipo donde la robustez y la precisión de medición son críticas.</p>
 
-<h2>Qué equipos de fabricación sueca hay en el catálogo</h2>
+<h2>Qué equipo de fabricación sueca hay en el catálogo</h2>
 {{QUE_HAY}}
 
 <h2>Josam CV-Aligner</h2>
 <p>Josam, marca de Snap-on, es la alineadora de camiones y colectivos que instalamos, por ejemplo, en Mendoza. Podés leer el caso en <a href="../../blog/instalamos-una-josam-cv-aligner-en-mendoza-tecnologia-snap-on-para-el-alineado-de-vehiculos-pesados/">Instalamos una Josam CV-Aligner en Mendoza</a>, la nota sobre <a href="../../blog/alineacion-de-colectivos-con-tecnologia-sueca-josam-cv-aligner/">alineación de colectivos con tecnología sueca</a> y los <a href="../../blog/ventajas-de-la-alineacion-de-camiones-para-empresas-de-mantenimiento/">beneficios de la alineación de camiones para flotas</a>.</p>
 
-<h2>Balanceadora para camión</h2>
-<p>La <strong>Hofmann Geodyna 980L</strong> es la balanceadora para ruedas de camión del catálogo. Si estás equipando un taller de pesados, mirá también la <a href="../../guias/balanceadoras-de-ruedas/">guía de balanceadoras</a> y las <a href="../../categoria/elevadores-pesados/">opciones de elevadores para pesados</a>.</p>
+<h2>Si equipás un taller de pesados</h2>
+<p>Mirá también las <a href="../../categoria/elevadores-pesados/">opciones de elevadores para pesados</a> y la <a href="../../guias/alineadoras-3d/">guía de alineadoras</a>.</p>
 
 <h2>Servicio técnico y repuestos en Argentina</h2>
 <p>Trivium Pro ofrece garantía y servicio técnico oficial en todo el país. La instalación y puesta en marcha las hace nuestro equipo y se cotizan aparte del precio del equipo.</p>
 """,
  "faqs": [
-  ("¿Qué equipos Made in Sweden ofrece Trivium Pro?",
-   "Hay {{N}}: la alineadora de camiones y colectivos Josam CV-Aligner y la balanceadora para ruedas de camión Hofmann Geodyna 980L."),
+  ("¿Qué equipo Made in Sweden ofrece Trivium Pro?",
+   "Hay {{N}}: la alineadora de camiones y colectivos Josam CV-Aligner."),
   ("¿La Josam CV-Aligner sirve para colectivos y camiones?",
    "Sí, está pensada para alinear vehículos pesados. Tiene comunicación inalámbrica entre las unidades de medición. Mirá la nota sobre alineación de colectivos con tecnología sueca para ver cómo se usa."),
   ("¿Hay servicio técnico en Argentina?",

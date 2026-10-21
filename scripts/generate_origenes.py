@@ -165,7 +165,7 @@ def main():
          "qué soporte técnico hay. Es un dato que los talleres y las gomerías suelen pedir al comparar equipos."),
         ("¿El sello es el de la marca o el del equipo?",
          "El del equipo. Una misma marca puede fabricar en más de un país: Hofmann, por ejemplo, tiene "
-         "alineadoras de Estados Unidos, desarmadoras de Italia y equipos de Suecia. Cada producto lleva el "
+         "alineadoras y balanceadoras de Estados Unidos, desarmadoras de Italia y una alineadora de camiones de Suecia. Cada producto lleva el "
          "origen que declara su fabricante."),
         ("¿Qué diferencia hay entre un sello Made in y el marcado CE?",
          "Made in indica el país de fabricación. El marcado CE es una declaración de conformidad con la "
