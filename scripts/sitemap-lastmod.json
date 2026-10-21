@@ -33,7 +33,7 @@
 },
 "/categoria/elevadores-2-columnas/": {
 "date": "2026-10-21",
-"hash": "a926de92b89d266328ec862a479ada5338f58251"
+"hash": "7db4e32271acd1e4fb51dab26c86c7ba57284cf2"
 },
 "/categoria/elevadores-4-columnas/": {
 "date": "2026-10-21",
@@ -53,7 +53,7 @@
 },
 "/categoria/elevadores/": {
 "date": "2026-10-21",
-"hash": "f1bb04aa82ea0c67521b90303afe128e99a669a2"
+"hash": "6557f98fc0cdcee7f93c9e19d9f744f4a77b4ead"
 },
 "/categoria/equipamiento-taller/": {
 "date": "2026-10-21",
@@ -89,7 +89,7 @@
 },
 "/guias/elevadores-para-taller/": {
 "date": "2026-10-21",
-"hash": "ba817f0b172dec110310ab56fd98709f5143ff57"
+"hash": "c09edc1c50146af5e24669bfd96ba10184d4d750"
 },
 "/guias/equipar-una-gomeria/": {
 "date": "2026-10-21",
@@ -97,7 +97,7 @@
 },
 "/guias/equipos-de-taller-economicos/": {
 "date": "2026-10-21",
-"hash": "1151a2f7c6399e5bf7dfa1372d8dd3800904b19d"
+"hash": "92999685d18f9031f3961eebb3cd665b1d98e331"
 },
 "/instalacion-posventa-y-servicios/": {
 "date": "2026-10-21",
@@ -133,7 +133,7 @@
 },
 "/marca/trivium-pro/": {
 "date": "2026-10-21",
-"hash": "190d47f033a760f78b3d02a928b5ca7c81580b06"
+"hash": "727df3f619841566e4d856ef787f0dc61f0a7475"
 },
 "/marcas/": {
 "date": "2026-10-21",
@@ -385,51 +385,51 @@
 },
 "/producto/elevador-dos-columnas-4000-kg-piso-libre-unite-pl-4-0-2a/": {
 "date": "2026-10-21",
-"hash": "c28119917d362b8996ad0612684f83df1a2f870f"
+"hash": "effcffe059a66fc78bbdf25a7461d207cce14d62"
 },
 "/producto/elevador-dos-columnas-4000-kg-travesano-al-piso-unite-pl-4-0-2d/": {
 "date": "2026-10-21",
-"hash": "75a850a2279a34c8a52b2c3d78018aed6684ef55"
+"hash": "a42d3464c5c8284e57c48b34709cf3c97d2e9781"
 },
 "/producto/elevador-dos-columnas-4082-kg-direct-lift-dl9-by-rotary-lift/": {
 "date": "2026-10-21",
-"hash": "d052919871fe72b905e8b7d87c1f1dab9cd8c473"
+"hash": "4d0a73538ed0d4ec616fd2dba557f7c63f216a9a"
 },
 "/producto/elevador-dos-columnas-4535-kg-rotary-lift-spoa10/": {
 "date": "2026-10-21",
-"hash": "cff2f55d4388de0263dd36ce7d6186e58339c6b8"
+"hash": "1fb538fcf02913fc616637b3d46834a8fd95b2d5"
 },
 "/producto/elevador-dos-columnas-4536-kg-rotary-lift-spoa10trio/": {
 "date": "2026-10-21",
-"hash": "c15751cc26e4daae2a5b5dfb1b5281e513ccd00a"
+"hash": "7eb7bdfd3a6f12f9a46e6f5f2c659b86ec99d787"
 },
 "/producto/elevador-dos-columnas-5000-kg-trivium-pro-u-t50msd/": {
 "date": "2026-10-21",
-"hash": "3ecdc591631f02dda3ad2dee90b29275f7c1198a"
+"hash": "c9b3068f320f965f47eb4f316fb046e415fba631"
 },
 "/producto/elevador-dos-columnas-5443-kg-forward-lift-f12-by-rotary-lift/": {
 "date": "2026-10-21",
-"hash": "400e1a46130dcd6b8d8b98680ed266f5245276fe"
+"hash": "70821e3807ce157ad726df68ec686085d7019fdf"
 },
 "/producto/elevador-dos-columnas-5500-kg-rotary-lift-spo55/": {
 "date": "2026-10-21",
-"hash": "9e0171ae1dd4655989ae70a265efd48752e95899"
+"hash": "48aa72089581e8778d0e96f30f8e826416d8c527"
 },
 "/producto/elevador-dos-columnas-6000-kg-vehiculos-electricos/": {
 "date": "2026-10-21",
-"hash": "18898b63a84966e5e08d30aef0ffd0e338f3a506"
+"hash": "c532512dc1740886fa7183b7829d88ad2d1c0b33"
 },
 "/producto/elevador-dos-columnas-6500-kg-rotary-lift-spo65/": {
 "date": "2026-10-21",
-"hash": "df32a3249bbffbad9d65495de9ff39529045fcf1"
+"hash": "11fa1489a96990cbc9835e57078bdf7682064e08"
 },
 "/producto/elevador-dos-columnas-7250-kg-rotary-lift-spo16-cargo/": {
 "date": "2026-10-21",
-"hash": "6306ab4f82b7f0f4785a7da7004e1ca57c1962ae"
+"hash": "a1f01f85c34432887d969627516210d23742dbfc"
 },
 "/producto/elevador-dos-columnas-simetrico-4536-kg-challenger-lifts-vle10/": {
 "date": "2026-10-21",
-"hash": "a98a732caea7ad8d1fea1a4225b4df9c28b5dc05"
+"hash": "50fc09b2181c336d4c1492eb1ba76fb2f3c5ed2e"
 },
 "/producto/elevador-para-moto-454-kg-mt07-trivium-pro/": {
 "date": "2026-10-21",
