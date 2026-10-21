@@ -116,6 +116,12 @@ def main():
     for g in GUIAS:
         entries.append(url_entry(f"{SITE_URL}/guias/{g['slug']}/", lm.get(f"/guias/{g['slug']}/"), "monthly", "0.8"))
 
+    # Páginas de origen y marcado CE /origen/: salen de scripts/origenes_content.py
+    from origenes_content import ORIGENES
+    entries.append(url_entry(f"{SITE_URL}/origen/", lm.get("/origen/"), "monthly", "0.7"))
+    for o in ORIGENES:
+        entries.append(url_entry(f"{SITE_URL}/origen/{o['slug']}/", lm.get(f"/origen/{o['slug']}/"), "weekly", "0.7"))
+
     # Páginas por zona /zonas/: salen de scripts/zonas_content.py
     from zonas_content import ZONAS
     entries.append(url_entry(f"{SITE_URL}/zonas/", lm.get("/zonas/"), "monthly", "0.7"))

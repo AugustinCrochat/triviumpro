@@ -24,6 +24,7 @@ from site_config import SITE_URL, ORG_NAME
 
 
 from guias_content import GUIAS
+from origenes_content import ORIGENES
 from zonas_content import ZONAS
 
 
@@ -101,6 +102,17 @@ def main():
         "",
         *[f"- [{g['h1']}]({SITE_URL}/guias/{g['slug']}/): {g['description']}"
           for g in GUIAS],
+        "",
+        "## Origen de fabricación y marcado CE",
+        "",
+        "Cada equipo muestra sobre la foto un sello con su origen de fabricación (el que "
+        "declara el fabricante del modelo, no el de la marca) o el marcado CE. El marcado "
+        "CE es una declaración de conformidad con la normativa europea y no indica el país "
+        "de fabricación.",
+        "",
+        f"- [Origen y marcado CE]({SITE_URL}/origen/): índice con todos los sellos.",
+        *[f"- [{o['h1']}]({SITE_URL}/origen/{o['slug']}/): {o['description']}"
+          for o in ORIGENES],
         "",
         "## Cobertura",
         "",

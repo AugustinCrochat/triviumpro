@@ -124,6 +124,8 @@
       <ul id="cat-list"></ul>
       <h4>Marcas</h4>
       <ul id="brand-list"></ul>
+      <h4>Origen</h4>
+      <ul id="origin-list"></ul>
     </aside>
     <div>
       <div class="results-head">
@@ -176,6 +178,7 @@
               <li><a href="../marcas/">Marcas</a></li>
               <li><a href="../instalacion-posventa-y-servicios/">Servicios y Posventa</a></li>
               <li><a href="../guias/">Guías de compra</a></li>
+              <li><a href="../origen/">Origen y marcado CE</a></li>
               <li><a href="../zonas/">Envíos y cobertura</a></li>
               <li><a href="../contacto/">Contacto</a></li>
             </ul>
@@ -249,6 +252,8 @@ mountChrome('catalogo');
     const count = CATALOG.products.filter(p => p.brand === b.slug).length;
     return `<li><a href="${brandUrl(b.slug)}">${b.name}<b>${count}</b></a></li>`;
   }).join('');
+
+  document.getElementById('origin-list').innerHTML = originSidebarHtml();
 
   renderGrid('#grid', all);
 })();

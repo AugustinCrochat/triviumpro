@@ -428,23 +428,27 @@ def price_tag_html(sku, offers_by_sku, en_ficha=False):
 
 
 # Espejo de ORIGIN_BADGES de assets/js/site.js (sellos de origen sobre la foto):
-# id -> (bandera, texto en una línea).
+# id -> dict(file, text, href, name, plain). "name" es el país (o "Marcado CE");
+# country=True si es un país real, para countryOfOrigin del JSON-LD.
 ORIGIN_BADGES = {
-    'made-in-usa': ('usa', 'Made in USA'),
-    'made-in-italy': ('italy', 'Made in Italy'),
-    'made-in-germany': ('germany', 'Made in Germany'),
-    'made-in-sweden': ('sweden', 'Made in Sweden'),
-    'made-in-taiwan': ('taiwan', 'Made in Taiwan'),
-    'ce-ue': ('eu', 'Marcado CE'),
+    'made-in-usa': dict(file='usa.svg', text='Made in USA', href='origen/estados-unidos/', name='Estados Unidos', country=True),
+    'made-in-italy': dict(file='italy.svg', text='Made in Italy', href='origen/italia/', name='Italia', country=True),
+    'made-in-germany': dict(file='germany.svg', text='Made in Germany', href='origen/alemania/', name='Alemania', country=True),
+    'made-in-sweden': dict(file='sweden.svg', text='Made in Sweden', href='origen/suecia/', name='Suecia', country=True),
+    'made-in-taiwan': dict(file='taiwan.svg', text='Made in Taiwan', href='origen/taiwan/', name='Taiwán', country=True),
+    'ce-ue': dict(file='ce.webp', text='Marcado CE', href='origen/marcado-ce/', name='Marcado CE', country=False, plain=True),
 }
 
 
 def origin_badge_html(prod, root):
     for bid in prod.get('badges') or []:
-        if bid in ORIGIN_BADGES:
-            flag, text = ORIGIN_BADGES[bid]
-            return (f'<span class="origin-badge"><img src="{esc(root)}assets/img/iconos/origen/{flag}.svg" alt="">'
-                    f'<b>{esc(text)}</b></span>')
+        b = ORIGIN_BADGES.get(bid)
+        if b:
+            cls = 'origin-badge' + (' origin-badge--plain' if b.get('plain') else '')
+            label = 'Qué es el marcado CE' if b.get('plain') else f"Equipos con origen {b['name']}"
+            return (f'<span class="{cls}" role="link" tabindex="0" data-href="{esc(root + b["href"])}" '
+                    f'aria-label="{esc(label)}"><img src="{esc(root)}assets/img/iconos/origen/{b["file"]}" alt="">'
+                    f'<b>{esc(b["text"])}</b></span>')
     return ''
 
 
@@ -767,6 +771,14 @@ def main():
         for b in catalog['brands']
     )
 
+    def _origin_count(bid):
+        return sum(1 for p in catalog['products'] if bid in (p.get('badges') or []))
+
+    sidebar_origen = ''.join(
+        f'<li><a href="{root2}{b["href"]}">{esc(b["name"])}<b>{_origin_count(bid)}</b></a></li>'
+        for bid, b in ORIGIN_BADGES.items()
+    )
+
     # 2. Categories
     cat_template = os.path.join(BASE_DIR, 'categoria.html')
     if os.path.exists(cat_template):
@@ -831,6 +843,7 @@ def main():
                     'count': f"{len(prods)} productos",
                     'cat-list': sidebar_cats,
                     'brand-list': sidebar_brands,
+                    'origin-list': sidebar_origen,
                     'grid': grid,
                     'cat-faq': faq_html(f"Preguntas frecuentes sobre {nombre.lower()}", faqs),
                     'cat-posts': posts_html,
@@ -876,6 +889,7 @@ def main():
                     'count': f"{len(prods)} productos",
                     'cat-list': sidebar_cats,
                     'brand-list': sidebar_brands,
+                    'origin-list': sidebar_origen,
                     'grid': grid,
                     'cat-posts': (
                         f'<div class="container"><h2>Antes de comprar</h2>'
@@ -934,6 +948,13 @@ def main():
                                        (prod.get('images') or [prod['image']])]
             if brand:
                 product_ld["brand"] = {"@type": "Brand", "name": brand['name']}
+            # País de fabricación (schema.org/countryOfOrigin) sólo si el sello es un
+            # país; "Marcado CE" no es un origen y no se declara como tal.
+            for bid in prod.get('badges') or []:
+                ob = ORIGIN_BADGES.get(bid)
+                if ob and ob.get('country'):
+                    product_ld["countryOfOrigin"] = {"@type": "Country", "name": ob['name']}
+                    break
             props = []
             if prod.get('capacity'):
                 props.append({"@type": "PropertyValue", "name": "Capacidad",

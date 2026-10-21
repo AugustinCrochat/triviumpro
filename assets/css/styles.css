@@ -503,6 +503,9 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 /* ---------- Product grid ---------- */
 .prod-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  /* Cada tarjeta mide lo que ocupa su contenido: con 'stretch' las de la fila se
+     igualaban a la más alta (la que lleva precio) y quedaba un blanco al pie. */
+  align-items: start;
 }
 .prod-card {
   background: var(--bg);
@@ -555,6 +558,11 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   width: 0; min-width: 100%; aspect-ratio: 3 / 2; height: auto; max-width: none; display: block; background: none;
   box-shadow: 0 0 0 1px rgba(0,0,0,.15);
 }
+/* El sello es un enlace a /origen/...: se nota al pasar el mouse. */
+.origin-badge { cursor: pointer; text-decoration: none; transition: box-shadow .15s, transform .15s; }
+.origin-badge:hover { box-shadow: 0 3px 10px rgba(0,0,0,.22); transform: translateY(-1px); }
+.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.origin-badge--plain img, .prod-card .thumb .origin-badge--plain img { box-shadow: none; }
 .origin-badge b { font-size: .54rem; font-weight: 800; letter-spacing: .05em; white-space: nowrap; }
 .prod-card .thumb .origin-badge { position: absolute; top: 10px; right: 10px; z-index: 1; }
 .pd-gallery { position: relative; }
@@ -851,6 +859,42 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   cursor: pointer;
 }
 .pd-gallery .thumb.active { border-color: var(--accent); }
+.pd-gallery .main { position: relative; }
+.pd-gallery .main.zoomable { cursor: zoom-in; }
+.pd-gallery .main:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pd-gallery .thumb img { display: block; }
+/* Lupa: lente sobre la foto + panel ampliado al costado (solo con mouse, ver zoom.js). */
+.pd-lens {
+  position: absolute; pointer-events: none; z-index: 1;
+  border: 2px solid #fff; background: rgba(255,255,255,.3);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.15);
+}
+.pd-zoom-panel {
+  position: fixed; z-index: 60; pointer-events: none;
+  background-color: #fff; background-repeat: no-repeat;
+  border: 1px solid var(--line); box-shadow: 0 18px 48px rgba(0,0,0,.28);
+}
+.pd-zoom-icon {
+  position: absolute; right: 12px; bottom: 12px; width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,.92); box-shadow: 0 1px 6px rgba(0,0,0,.2); color: var(--text-dim);
+  display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .15s;
+  pointer-events: none; z-index: 1;
+}
+.pd-gallery .main:hover .pd-zoom-icon, .pd-gallery .main:focus-visible .pd-zoom-icon { opacity: 1; }
+@media (hover: none) { .pd-zoom-icon { opacity: 1; } }
+.pd-lightbox {
+  position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,.88);
+  display: flex; align-items: center; justify-content: center; padding: 24px; cursor: zoom-out;
+}
+.pd-lightbox img { max-width: min(92vw, 1100px); max-height: 88vh; object-fit: contain; background: #fff; cursor: default; }
+.pd-lb-close, .pd-lb-nav {
+  position: absolute; background: rgba(255,255,255,.14); color: #fff; border: 0; border-radius: 50%;
+  width: 44px; height: 44px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.pd-lb-close:hover, .pd-lb-nav:hover { background: rgba(255,255,255,.28); }
+.pd-lb-close { top: 16px; right: 16px; }
+.pd-lb-nav { top: 50%; transform: translateY(-50%); }
+.pd-lb-prev { left: 16px; } .pd-lb-next { right: 16px; }
 
 .pd-info .brand-line {
   display: flex; gap: 10px; align-items: center;

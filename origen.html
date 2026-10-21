@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/svg+xml" href="assets/img/icono-trivium.svg">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="tv-root" content="">
+<title>Origen — Trivium Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/guia.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<section class="cat-hero">
+  <div class="container">
+    <div class="breadcrumbs" id="crumbs"></div>
+    <h1 id="org-title">—</h1>
+    <div class="sub">
+      <span class="chip chip--yellow" id="org-tag">—</span>
+      <span class="mono muted" id="org-count">—</span>
+    </div>
+  </div>
+</section>
+
+<section class="origen-intro">
+  <div class="container guia-body" id="org-intro"></div>
+</section>
+
+<section>
+  <div class="container cat-layout">
+    <aside class="sidebar">
+      <h4>Origen</h4>
+      <ul id="org-list"></ul>
+      <h4>Marcas</h4>
+      <ul id="brand-list"></ul>
+    </aside>
+    <div>
+      <div class="results-head">
+        <span class="count" id="count">—</span>
+        <span class="mono muted">Ordenar: recomendados</span>
+      </div>
+      <div class="prod-grid" id="grid"></div>
+    </div>
+  </div>
+</section>
+
+<main class="guia">
+  <div class="container guia-body" id="org-body"></div>
+</main>
+
+<section class="cat-faq" id="org-faq"></section>
+<section class="cat-blog-links" id="org-posts"></section>
+
+<div id="site-footer"></div>
+<script src="assets/js/site.js"></script>
+<script>
+mountChrome('catalogo');
+(async () => {
+  await loadCatalog();
+  // El generador deja en <meta name="tv-badge"> qué sello lista esta página.
+  const meta = document.querySelector('meta[name="tv-badge"]');
+  const id = meta ? meta.content : '';
+  const results = CATALOG.products.filter(p => (p.badges || []).includes(id));
+  document.getElementById('org-count').textContent = `${results.length} productos`;
+  document.getElementById('count').textContent = `${results.length} resultados`;
+  document.getElementById('org-list').innerHTML = originSidebarHtml(id);
+  // Solo las marcas que tienen equipos con este sello.
+  document.getElementById('brand-list').innerHTML = CATALOG.brands
+    .map(b => ({ b, n: results.filter(p => p.brand === b.slug).length }))
+    .filter(x => x.n)
+    .map(x => `<li><a href="${brandUrl(x.b.slug)}">${x.b.name}<b>${x.n}</b></a></li>`).join('');
+  renderGrid('#grid', results);
+})();
+</script>
+</body>
+</html>

@@ -227,6 +227,7 @@ function renderFooter() {
               <li><a href="${root}marcas/">Marcas</a></li>
               <li><a href="${root}instalacion-posventa-y-servicios/">Servicios y Posventa</a></li>
               <li><a href="${root}guias/">Guías de compra</a></li>
+              <li><a href="${root}origen/">Origen y marcado CE</a></li>
               <li><a href="${root}zonas/">Envíos y cobertura</a></li>
               <li><a href="${root}contacto/">Contacto</a></li>
             </ul>
@@ -361,22 +362,52 @@ function categoryById(slug) {
 }
 
 // Sellos de origen y conformidad (campo "badges" del producto). Para sumar un
-// país: bandera en assets/img/iconos/origen/ y una entrada acá y en
-// ORIGIN_BADGES de scripts/generate_pretty_urls.py. El texto va en una línea,
-// debajo de la bandera.
+// país: bandera en assets/img/iconos/origen/, una entrada acá y en
+// ORIGIN_BADGES de scripts/generate_pretty_urls.py, y su página en
+// scripts/origenes_content.py. El texto va en una línea debajo de la bandera.
+// "href" es la página /origen/... a la que lleva el sello; "plain" saca el
+// marco gris de la bandera (el logo CE ya trae su forma).
 const ORIGIN_BADGES = {
-  'made-in-usa':     { flag: 'usa',     text: 'Made in USA' },
-  'made-in-italy':   { flag: 'italy',   text: 'Made in Italy' },
-  'made-in-germany': { flag: 'germany', text: 'Made in Germany' },
-  'made-in-sweden':  { flag: 'sweden',  text: 'Made in Sweden' },
-  'made-in-taiwan':  { flag: 'taiwan',  text: 'Made in Taiwan' },
-  'ce-ue':           { flag: 'eu',      text: 'Marcado CE' },
+  'made-in-usa':     { file: 'usa.svg',     text: 'Made in USA',     href: 'origen/estados-unidos/', name: 'Estados Unidos' },
+  'made-in-italy':   { file: 'italy.svg',   text: 'Made in Italy',   href: 'origen/italia/',         name: 'Italia' },
+  'made-in-germany': { file: 'germany.svg', text: 'Made in Germany', href: 'origen/alemania/',       name: 'Alemania' },
+  'made-in-sweden':  { file: 'sweden.svg',  text: 'Made in Sweden',  href: 'origen/suecia/',         name: 'Suecia' },
+  'made-in-taiwan':  { file: 'taiwan.svg',  text: 'Made in Taiwan',  href: 'origen/taiwan/',         name: 'Taiwán' },
+  'ce-ue':           { file: 'ce.webp',     text: 'Marcado CE',      href: 'origen/marcado-ce/',     name: 'Marcado CE', plain: true },
 };
-function originBadgeHtml(p) {
+// asLink: en la ficha del producto el sello es un <a>. En las tarjetas ya hay
+// un <a> alrededor (no se anidan), así que lleva data-href y lo resuelve el
+// manejador de clic de abajo.
+function originBadgeHtml(p, asLink) {
   const b = (p.badges || []).map(id => ORIGIN_BADGES[id]).find(Boolean);
-  return b
-    ? `<span class="origin-badge"><img src="${rootPath()}assets/img/iconos/origen/${b.flag}.svg" alt=""><b>${b.text}</b></span>`
-    : '';
+  if (!b) return '';
+  const url = rootPath() + b.href;
+  const inner = `<img src="${rootPath()}assets/img/iconos/origen/${b.file}" alt=""><b>${b.text}</b>`;
+  const cls = 'origin-badge' + (b.plain ? ' origin-badge--plain' : '');
+  const label = b.plain ? 'Qué es el marcado CE' : `Equipos con origen ${b.name}`;
+  return asLink
+    ? `<a class="${cls}" href="${url}" aria-label="${label}">${inner}</a>`
+    : `<span class="${cls}" role="link" tabindex="0" data-href="${url}" aria-label="${label}">${inner}</span>`;
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest && e.target.closest('.origin-badge[data-href]');
+  if (!b) return;
+  e.preventDefault(); e.stopPropagation();
+  location.href = b.dataset.href;
+}, true);
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const b = e.target.closest && e.target.closest('.origin-badge[data-href]');
+  if (!b) return;
+  e.preventDefault(); location.href = b.dataset.href;
+});
+
+// <li> de la barra lateral "Origen": un item por sello con su cantidad de equipos.
+function originSidebarHtml(activeId) {
+  return Object.entries(ORIGIN_BADGES).map(([id, b]) => {
+    const n = CATALOG.products.filter(p => (p.badges || []).includes(id)).length;
+    return `<li><a class="${id === activeId ? 'active' : ''}" href="${rootPath()}${b.href}">${b.name}<b>${n}</b></a></li>`;
+  }).join('');
 }
 
 function productCard(p) {

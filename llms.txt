@@ -51,6 +51,18 @@ Dos gamas conviven en el catálogo: las marcas premium importadas, de mayor cali
 - [Equipar una gomería: qué comprar y en qué orden](https://pro.trivium.ar/guias/equipar-una-gomeria/): Qué máquinas necesita una gomería: desarmadora, balanceadora, compresor, herramientas neumáticas, elevador y alineadora. Orden de compra y guía para armar el taller.
 - [Equipos de taller económicos: la línea Trivium Pro](https://pro.trivium.ar/guias/equipos-de-taller-economicos/): Equipos de taller económicos en Argentina: elevadores, balanceadoras y desarmadoras Trivium Pro con precio, instalación a cotizar y servicio técnico. Cuándo conviene y cuándo elegir una marca premium.
 
+## Origen de fabricación y marcado CE
+
+Cada equipo muestra sobre la foto un sello con su origen de fabricación (el que declara el fabricante del modelo, no el de la marca) o el marcado CE. El marcado CE es una declaración de conformidad con la normativa europea y no indica el país de fabricación.
+
+- [Origen y marcado CE](https://pro.trivium.ar/origen/): índice con todos los sellos.
+- [Equipos de taller Made in USA](https://pro.trivium.ar/origen/estados-unidos/): Equipos de taller fabricados en Estados Unidos: elevadores Rotary Lift y Direct Lift, alineadoras Hofmann Geoliner y balanceadoras Hofmann Geodyna. Catálogo con servicio técnico en todo el país.
+- [Equipos de taller Made in Italy](https://pro.trivium.ar/origen/italia/): Equipos de taller fabricados en Italia: desarmadoras de neumáticos Hofmann Monty y balanceadoras Hofmann Geodyna. Catálogo, guías de compra y servicio técnico en todo el país.
+- [Accesorios de taller Made in Germany](https://pro.trivium.ar/origen/alemania/): Accesorios para balanceo de ruedas fabricados en Alemania: conos de centrado, tuercas rápidas, calibres y herramientas Haweka para balanceadoras. Catálogo y envíos a todo el país.
+- [Equipos de taller Made in Sweden](https://pro.trivium.ar/origen/suecia/): Equipos de taller fabricados en Suecia para vehículos pesados: alineadora de camiones y colectivos Josam CV-Aligner y balanceadora para camión Hofmann Geodyna 980L.
+- [Herramientas neumáticas Made in Taiwan](https://pro.trivium.ar/origen/taiwan/): Herramientas neumáticas fabricadas en Taiwán: llaves de impacto y llaves crique Kuani, e inflador de neumáticos digital. Catálogo y envíos a todo el país.
+- [Equipos de taller con marcado CE](https://pro.trivium.ar/origen/marcado-ce/): Qué es el marcado CE y qué equipos de taller Trivium Pro lo llevan: elevadores, balanceadoras, desarmadoras y más. Qué significa, qué no significa y cómo se relaciona con la seguridad de la máquina.
+
 ## Cobertura
 
 - [Envíos, instalación y posventa en todo el país](https://pro.trivium.ar/zonas/)

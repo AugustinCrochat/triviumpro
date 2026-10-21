@@ -32,6 +32,8 @@
       <ul id="cat-list"></ul>
       <h4>Marcas</h4>
       <ul id="brand-list"></ul>
+      <h4>Origen</h4>
+      <ul id="origin-list"></ul>
     </aside>
     <div>
       <div class="results-head">
@@ -125,6 +127,8 @@ mountChrome('catalogo');
     const active = b.slug === brandSlug ? 'active' : '';
     return `<li><a class="${active}" href="${brandUrl(b.slug)}">${b.name}<b>${count}</b></a></li>`;
   }).join('');
+
+  document.getElementById('origin-list').innerHTML = originSidebarHtml();
 
   renderGrid('#grid', results);
 })();
