@@ -686,8 +686,13 @@ def update_static_pages(catalog):
             jsonld = [{
                 "@context": "https://schema.org",
                 "@type": ["Organization", "LocalBusiness"],
+                # @id estable: el institucional (trivium.ar) y Neumáticos Trivium
+                # referencian a esta unidad por el mismo id, y ésta declara a
+                # Trivium Center como su organización madre. Cierra el grafo.
+                "@id": f"{SITE_URL}/#organization",
                 "name": ORG_NAME,
                 "legalName": "Trivium Center S.A.",
+                "parentOrganization": {"@id": "https://trivium.ar/#organization"},
                 "url": f"{SITE_URL}/",
                 "logo": f"{SITE_URL}/assets/img/logo-trivium.svg",
                 "description": desc,
