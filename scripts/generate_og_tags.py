@@ -125,6 +125,15 @@ def inject_head(content, title, og_block, seo_block):
 POST_CATEGORY = {}
 for _cat_slug, _cat_name, _posts in [
     ('elevadores', 'Elevadores', [
+        'elevador-tijera-tipos-capacidades-y-cual-elegir-para-tu-taller',
+        'como-elegir-un-elevador-de-2-columnas-capacidad-brazos-y-altura',
+        'elevador-de-4-columnas-para-que-sirve-capacidades-y-cuando-conviene',
+        'elevador-tijera-movil-para-detailing-por-que-conviene-y-como-elegirlo',
+        'elevador-tijera-de-sobrepiso-plancha-elevadora-para-gomeria-ventajas-y-modelos',
+        'es-rentable-un-lubricentro-como-calcular-la-ganancia-y-el-punto-de-equilibrio',
+        'es-rentable-un-taller-mecanico-como-calcular-ganancias-y-que-equipos-necesitas',
+        'como-abrir-un-taller-de-frenos-equipamiento-servicios-y-rentabilidad',
+        'como-montar-un-taller-de-detailing-equipamiento-y-servicios-que-mas-rinden',
         'mantenimiento-de-un-elevador-de-taller-checklist-diario-mensual-y-anual',
         'como-elegir-el-elevador-adecuado-para-hacer-alineacion',
         'diferencias-entre-elevadores-de-2-columnas-de-piso-libre-y-travesano-al-piso',
@@ -134,6 +143,7 @@ for _cat_slug, _cat_name, _posts in [
         'especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas',
     ]),
     ('alineadoras', 'Alineadoras', [
+        'es-rentable-un-taller-de-alineacion-y-balanceo-inversion-y-retorno',
         'hofmann-geoliner-880-alineadora-3d-de-paso-directo-con-ia',
         'como-elegir-la-alineadora-de-autos-ideal-para-tu-taller',
         'como-funciona-una-alineadora-y-su-importancia-en-talleres-y-gomerias',
@@ -143,6 +153,8 @@ for _cat_slug, _cat_name, _posts in [
         'como-funciona-la-alineacion-3d-de-autos-tecnologia-y-beneficios',
     ]),
     ('balanceadoras', 'Balanceadoras', [
+        'es-rentable-una-gomeria-como-calcular-ganancias-y-punto-de-equilibrio',
+        'servicios-para-sumar-ticket-en-una-gomeria-y-que-equipos-necesitas',
         'como-centrar-una-rueda-en-la-balanceadora-conos-tuercas-rapidas-y-adaptadores',
         'balanceadoras-de-ruedas-con-o-sin-monitor-cual-elegir',
         'autocalibracion-en-una-balanceadora-de-ruedas-que-es-y-por-que-es-importante',
@@ -151,6 +163,8 @@ for _cat_slug, _cat_name, _posts in [
         'la-importancia-de-balancear-ruedas-beneficios-clave-para-talleres-y-gomerias',
     ]),
     ('desarmadoras', 'Desarmadoras', [
+        'como-elegir-una-desarmadora-de-neumaticos-tipos-tamanos-y-modelos',
+        'es-rentable-una-gomeria-como-calcular-ganancias-y-punto-de-equilibrio',
         'para-que-sirve-el-brazo-auxiliar-en-una-desarmadora-de-neumaticos',
         'como-funcionan-las-desarmadoras-para-neumaticos-runflat-guia-para-talleres-y-gomerias',
         'como-mantener-tu-desarmadora-trivium-center-en-optimas-condiciones',

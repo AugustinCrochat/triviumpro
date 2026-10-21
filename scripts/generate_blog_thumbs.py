@@ -62,6 +62,19 @@ SPEC = {
  "equipamiento-esencial": ("GUÍA PARA EMPRENDEDORES", "Equipamiento para tu taller de neumáticos", "Lo esencial para empezar", ["desarmadora-hofmann-monty-3300-20-con-desmontadora-de-neumaticos", "balanceadora-de-ruedas-hofmann-geodyna-7200-para-gomeria"]),
  "certificacion-ali": ("GUÍA TÉCNICA · ELEVADORES", "Certificación ALI", "Qué es y por qué importa al elegir un elevador", ["elevador-dos-columnas-challenger-lifts-vle10"]),
  "las-maquinas-del-taller": ("CASO · TRIVIUM ARGÜELLO", "Las máquinas del taller Trivium Argüello", "Alineación, arme y desarme, balanceo", ["alineadora-3d-para-autos-hofmann-geoliner-630"]),
+ "es-rentable-una-gomeria-como-calcular-ganancias-": ("GUÍA DE NEGOCIO · GOMERÍAS", "¿Es rentable una gomería?", "Ingresos, costos y punto de equilibrio", ["elevador-tijera-4500-kg-pl45h-para-gomeria-rotacion-balanceo-trivium-pro", "balanceadora-con-pantalla-y-puntero-laser-g66"]),
+ "es-rentable-un-lubricentro-como-calcular-la-gana": ("GUÍA DE NEGOCIO · LUBRICENTROS", "¿Es rentable un lubricentro?", "Ganancia por servicio y punto de equilibrio", ["elevador-tijera-corto-3-toneladas-trivium-pro-e30-monofasico"]),
+ "es-rentable-un-taller-mecanico-como-calcular-gan": ("GUÍA DE NEGOCIO · TALLERES", "¿Es rentable un taller mecánico?", "Ganancias, costos y equipos necesarios", ["elevador-dos-columnas-4-toneladas-trivium-pro-monofasico"]),
+ "es-rentable-un-taller-de-alineacion-y-balanceo-i": ("GUÍA DE NEGOCIO · ALINEACIÓN Y BALANCEO", "¿Es rentable un taller de alineación y balanceo?", "Inversión, retorno y punto de equilibrio", ["alineadora-3d-para-autos-hofmann-geoliner-630"]),
+ "como-abrir-un-taller-de-frenos-equipamiento-serv": ("GUÍA DE NEGOCIO · TALLER DE FRENOS", "Cómo abrir un taller de frenos", "Equipamiento, servicios y rentabilidad", ["elevador-tijera-rotary-lift-baja-altura"]),
+ "elevador-tijera-tipos-capacidades-y-cual-elegir-": ("GUÍA DE COMPRA · ELEVADORES TIJERA", "Elevador tijera: cuál elegir", "Tipos, capacidades y usos", ["elevador-tijera-largo-con-kit-de-alineacion"]),
+ "elevador-tijera-movil-para-detailing-por-que-con": ("GUÍA DE COMPRA · DETAILING", "Elevador tijera móvil para detailing", "Por qué conviene y cómo elegirlo", ["elevador-tijera-portatil-trivium-pro-b30m"]),
+ "como-montar-un-taller-de-detailing-equipamiento-": ("GUÍA DE NEGOCIO · DETAILING", "Cómo montar un taller de detailing", "Equipamiento y servicios que más rinden", ["rmr6"]),
+ "elevador-tijera-de-sobrepiso-plancha-elevadora-p": ("GUÍA DE COMPRA · GOMERÍAS", "Plancha elevadora para gomería", "Elevador tijera de sobrepiso: ventajas y modelos", ["elevador-tijera-ultradelgado-unite-pl-b30y", "elevador-tijera-4500-kg-pl45h-para-gomeria-rotacion-balanceo-trivium-pro"]),
+ "como-elegir-una-desarmadora-de-neumaticos-tipos-": ("GUÍA DE COMPRA · DESARMADORAS", "Cómo elegir una desarmadora de neumáticos", "Tipos, tamaños y modelos", ["desarmadora-para-neumaticos-de-auto-y-camioneta-monfasica-24-pulgadas-trivium-pro"]),
+ "elevador-de-4-columnas-para-que-sirve-capacidade": ("GUÍA DE COMPRA · ELEVADORES 4 COLUMNAS", "Elevador de 4 columnas: para qué sirve", "Capacidades y cuándo conviene", ["elevador-4-columnas-unite-pl-fs50"]),
+ "como-elegir-un-elevador-de-2-columnas-capacidad-": ("GUÍA DE COMPRA · ELEVADORES 2 COLUMNAS", "Cómo elegir un elevador de 2 columnas", "Capacidad, brazos y altura", ["elevador-dos-columnas-rotary-lift-spoa10"]),
+ "servicios-para-sumar-ticket-en-una-gomeria-y-que": ("GUÍA DE NEGOCIO · GOMERÍAS", "Servicios para sumar ticket en tu gomería", "Qué ofrecer y qué equipos necesitás", ["balanceadora-de-ruedas-hofmann-geodyna-7600p"]),
 }
 
 def trim(path, out):
@@ -100,7 +113,7 @@ def main():
     tmp = tempfile.mkdtemp()
     os.symlink(os.path.join(ROOT, "assets/img/logo-trivium.svg"), os.path.join(tmp, "logo.svg"))
     for p in posts:
-        key = next((k for k in SPEC if p["slug"].startswith(k)), None)
+        key = max((k for k in SPEC if p["slug"].startswith(k)), key=len, default=None)
         if not key or (only and not any(p["slug"].startswith(o) for o in only)):
             continue
         kicker, title, sub, imgs = SPEC[key]
