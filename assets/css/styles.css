@@ -590,6 +590,10 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
   .pd-gallery > .origin-badge { top: 8px; right: 8px; padding: 6px; }
   .pd-gallery > .origin-badge b { font-size: .66rem; }
 }
+/* Marcado CE en las tarjetas del catálogo: solo el logo, sin caja ni texto.
+   La ficha de producto (.pd-gallery) mantiene el sello completo con "MARCADO CE". */
+.prod-card .thumb .origin-badge--plain { background: none; border: 0; box-shadow: none; padding: 0; }
+.prod-card .thumb .origin-badge--plain .ob-text { display: none; }
 /* Las notas del blog aplican margen y borde a toda <img> del contenido (.post-content img);
    dentro de una grilla de productos eso agranda la foto y la caja blanca del logo. */
 .post-content .prod-card img { margin: 0; border: 0; }
