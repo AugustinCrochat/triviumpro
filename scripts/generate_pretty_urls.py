@@ -143,6 +143,10 @@ def product_meta_description(prod):
     base = prod['name'].strip().rstrip('.')
     head = f"{base}. {extra}."
     if len(head) + len(cta) > 158:
+        # El diferencial es lo que distingue la ficha de las demás: antes de
+        # perderlo, probar con un llamado más corto.
+        cta = " Cotizá en todo el país."
+    if len(head) + len(cta) > 158:
         head = f"{base}."
     return clamp(head, 158 - len(cta)) + cta
 
