@@ -61,12 +61,10 @@ GUIAS = [
 """,
  "tabla": {
   "slugs": [
-   ("balanceadora-de-ruedas-unite-u-659", "Con freno electromagnético, puntero láser y peso dividido y oculto."),
    ("balanceadora-de-ruedas-unite-g66", "Autocalibración, pantalla LED de 17\", ingreso automático de datos y puntero láser."),
    ("balanceadora-de-ruedas-unite-s-901", "Autocalibración y diagnóstico; cabina con bandeja de herramientas."),
    ("balanceadora-de-ruedas-hofmann-geodyna-7100-pantalla-led", "QuickBAL para ciclos cortos, modo de división de pesos, bloqueo por pedal."),
    ("balanceadora-de-ruedas-hofmann-geodyna-7400l", "easyALU para llantas de aleación y modo de peso dividido."),
-   ("balanceadora-de-ruedas-hofmann-geodyna-7200vci", "Monitor TFT de 19\", Smart Sonar y sistema VPM."),
    ("balanceadora-de-ruedas-hofmann-geodyna-7800-2p", "Premium para concesionarias y centros de servicio, hasta 200 rpm de medición."),
    ("balanceadora-de-ruedas-hofmann-geodyna-7600p", "Pantalla táctil, Power Clamp y ciclo de 4,5 segundos; hasta 130 kg."),
    ("balanceadora-de-ruedas-hofmann-geodyna-9000p", "Diagnóstico 3D sin contacto con cámaras láser y pantalla táctil."),
@@ -318,7 +316,6 @@ GUIAS = [
    ("desarmadora-de-neumaticos-hofmann-monty-3300-20", "Certificación WDK para UHP y run flat; llantas de hasta 20\"."),
    ("desarmadora-de-neumaticos-hofmann-monty-3300-24", "SmartSpeed, brazo neumático vertical y columna auxiliar EasyMont Pro."),
    ("desarmadora-de-neumaticos-hofmann-monty-8800", "Sin palanca, powerMONT con cámara y elevador de ruedas integrado."),
-   ("desarmadora-de-neumaticos-automatica-hofmann-monty-quadriga-1-gp", "Automática con detección láser del contorno de la llanta."),
    ("desarmadora-de-ruedas-para-camion-hofmann-monty-4250p", "Camiones: ruedas de hasta 1.500 kg y llantas de 12\" a 32\"."),
   ],
  },
@@ -392,7 +389,6 @@ GUIAS = [
  "tabla": {
   "slugs": [
    ("desarmadora-de-ruedas-con-brazo-auxiliar-pl-1256s-trivium-center", "Desarmadora con brazo auxiliar de 360° para empezar."),
-   ("balanceadora-de-ruedas-unite-u-659", "Balanceadora de entrada con puntero láser y peso oculto."),
    ("elevador-tijera-gomeria-4500-kg-pl-45h", "Elevador tijera ultradelgado para gomería."),
    ("alineadora-hofmann-geoliner-609", "Alineadora compacta para ampliar el servicio."),
   ],

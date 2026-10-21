@@ -1,5 +1,5 @@
 // GENERADO por scripts/generate_worker.py — no editar a mano.
-// La fuente de verdad es redirects.map (545 reglas).
+// La fuente de verdad es redirects.map (548 reglas).
 //
 // Existe porque _redirects no sirve acá: Cloudflare limita a 100 las reglas en
 // Workers con assets estáticos, y el build fallaba al superarlo.
@@ -374,6 +374,8 @@ const EXACT = {
  "/producto/baja-caja-de-cambios-1-ton-hidraulica-manual/": "/categoria/equipamiento-taller/",
  "/producto/baja-cajas-de-cambio-500-kg/": "/categoria/equipamiento-taller/",
  "/producto/baja-ruedas-hwq-100/": "/categoria/equipamiento-taller/",
+ "/producto/balanceadora-de-ruedas-hofmann-geodyna-7200vci/": "/categoria/balanceadoras/",
+ "/producto/balanceadora-de-ruedas-unite-u-659/": "/categoria/balanceadoras/",
  "/producto/balanceadora-geodyna-7400l/": "/producto/balanceadora-de-ruedas-hofmann-geodyna-7400l/",
  "/producto/balanceadora-geodyna-7600p/": "/producto/balanceadora-de-ruedas-hofmann-geodyna-7600p/",
  "/producto/bandeja-colectora-de-goteo-modular-para-pared-raasm/": "/categoria/muebles-taller/",
@@ -397,6 +399,7 @@ const EXACT = {
  "/producto/cuba-de-lavado-raasm/": "/categoria/equipamiento-taller/",
  "/producto/cuentalitros-digital-aceite-1-2-raasm/": "/categoria/equipamiento-taller/",
  "/producto/cuentalitros-digital-aceite-raasm-2/": "/categoria/equipamiento-taller/",
+ "/producto/desarmadora-de-neumaticos-automatica-hofmann-monty-quadriga-1-gp/": "/categoria/desarmadoras/",
  "/producto/desarmadora-de-ruedas-con-brazo-auxiliar-unite-pl-1236/": "/categoria/desarmadoras/",
  "/producto/desarmadora-hofmann-monty-8800/": "/producto/desarmadora-de-neumaticos-hofmann-monty-8800/",
  "/producto/desarmadora-monty-3550-gp-plus-hofmann/": "/categoria/desarmadoras/",
