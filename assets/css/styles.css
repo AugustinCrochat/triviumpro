@@ -604,12 +604,12 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .prod-card .thumb .origin-badge { top: 8px; right: 8px; padding: 3px; gap: 2px; }
 .prod-card .thumb .origin-badge img { width: 38px; }
 .prod-card .thumb .origin-badge b { font-size: .42rem; }
-.prod-card .thumb .origin-badge--plain img { width: 30px; height: 30px; }
+.prod-card .thumb .origin-badge--plain img { width: 34px; height: 34px; }
 @media (max-width: 520px) {
   .prod-card .thumb .origin-badge { top: auto; bottom: 5px; right: 5px; padding: 2px; }
   .prod-card .thumb .origin-badge img { width: 30px; }
   .prod-card .thumb .origin-badge b { font-size: .38rem; }
-  .prod-card .thumb .origin-badge--plain img { width: 26px; height: 26px; }
+  .prod-card .thumb .origin-badge--plain img { width: 30px; height: 30px; }
 }
 /* Las notas del blog aplican margen y borde a toda <img> del contenido (.post-content img);
    dentro de una grilla de productos eso agranda la foto y la caja blanca del logo. */
@@ -1316,3 +1316,12 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .service-photos img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 35%; }
 .service-photos figcaption { padding: 10px 14px; font-size: .88rem; color: var(--text-dim); }
 @media (max-width: 760px) { .service-photos .container { grid-template-columns: 1fr; } }
+/* Marcado CE en la ficha: igual que en las tarjetas, sin caja blanca ni texto, para que se
+   vea el anillo blanco del círculo sobre la foto (dentro de la caja blanca no se distinguía). */
+.pd-gallery > .origin-badge--plain { background: none; border: 0; box-shadow: none; padding: 0; }
+.pd-gallery > .origin-badge--plain .ob-text { display: none; }
+.pd-gallery > .origin-badge--plain img { width: 76px; height: 76px; object-fit: cover; filter: drop-shadow(0 1px 3px rgba(0,0,0,.25)); }
+.prod-card .thumb .origin-badge--plain img { filter: drop-shadow(0 1px 2px rgba(0,0,0,.25)); }
+@media (max-width: 520px) {
+  .pd-gallery > .origin-badge--plain img { width: 60px; height: 60px; }
+}
