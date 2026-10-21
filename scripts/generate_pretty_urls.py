@@ -300,6 +300,7 @@ HOME_FAQS = [
 # el blog ya tiene guías profundas, sólo faltaba enlazarlas desde acá.
 CATEGORY_BLOG_POSTS = {
     'elevadores': [
+        'mantenimiento-de-un-elevador-de-taller-checklist-diario-mensual-y-anual',
         'como-elegir-el-elevador-adecuado-para-hacer-alineacion',
         'diferencias-entre-elevadores-de-2-columnas-de-piso-libre-y-travesano-al-piso',
         'elevador-de-4-columnas-vs-elevador-de-tijera-largo-cual-elegir-para-alineacion',
@@ -308,6 +309,7 @@ CATEGORY_BLOG_POSTS = {
         'especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas',
     ],
     'alineadoras': [
+        'hofmann-geoliner-880-alineadora-3d-de-paso-directo-con-ia',
         'como-elegir-la-alineadora-de-autos-ideal-para-tu-taller',
         'como-funciona-una-alineadora-y-su-importancia-en-talleres-y-gomerias',
         'como-se-alinea-un-vehiculo-con-una-alineadora-3d',
@@ -316,6 +318,7 @@ CATEGORY_BLOG_POSTS = {
         'como-funciona-la-alineacion-3d-de-autos-tecnologia-y-beneficios',
     ],
     'balanceadoras': [
+        'como-centrar-una-rueda-en-la-balanceadora-conos-tuercas-rapidas-y-adaptadores',
         'balanceadoras-de-ruedas-con-o-sin-monitor-cual-elegir',
         'autocalibracion-en-una-balanceadora-de-ruedas-que-es-y-por-que-es-importante',
         'errores-comunes-al-usar-una-balanceadora-y-como-evitarlos',
