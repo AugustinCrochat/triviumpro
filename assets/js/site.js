@@ -362,20 +362,20 @@ function categoryById(slug) {
 
 // Sellos de origen y conformidad (campo "badges" del producto). Para sumar un
 // país: bandera en assets/img/iconos/origen/ y una entrada acá y en
-// ORIGIN_BADGES de scripts/generate_pretty_urls.py. Cada una lleva dos líneas
-// de texto debajo de la bandera: [pre, nombre].
+// ORIGIN_BADGES de scripts/generate_pretty_urls.py. El texto va en una línea,
+// debajo de la bandera.
 const ORIGIN_BADGES = {
-  'made-in-usa':     { flag: 'usa',     text: ['Made in', 'USA'] },
-  'made-in-italy':   { flag: 'italy',   text: ['Made in', 'Italy'] },
-  'made-in-germany': { flag: 'germany', text: ['Made in', 'Germany'] },
-  'made-in-sweden':  { flag: 'sweden',  text: ['Made in', 'Sweden'] },
-  'made-in-taiwan':  { flag: 'taiwan',  text: ['Made in', 'Taiwan'] },
-  'ce-ue':           { flag: 'eu',      text: ['Marcado', 'CE'] },
+  'made-in-usa':     { flag: 'usa',     text: 'Made in USA' },
+  'made-in-italy':   { flag: 'italy',   text: 'Made in Italy' },
+  'made-in-germany': { flag: 'germany', text: 'Made in Germany' },
+  'made-in-sweden':  { flag: 'sweden',  text: 'Made in Sweden' },
+  'made-in-taiwan':  { flag: 'taiwan',  text: 'Made in Taiwan' },
+  'ce-ue':           { flag: 'eu',      text: 'Marcado CE' },
 };
 function originBadgeHtml(p) {
   const b = (p.badges || []).map(id => ORIGIN_BADGES[id]).find(Boolean);
   return b
-    ? `<span class="origin-badge"><img src="${rootPath()}assets/img/iconos/origen/${b.flag}.svg" alt=""><small>${b.text[0]}</small><b>${b.text[1]}</b></span>`
+    ? `<span class="origin-badge"><img src="${rootPath()}assets/img/iconos/origen/${b.flag}.svg" alt=""><b>${b.text}</b></span>`
     : '';
 }
 

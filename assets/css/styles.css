@@ -542,29 +542,30 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 /* Sello de origen ("Made in USA", "Marcado CE") sobre la foto, arriba a la derecha:
    el logo de marca ocupa la esquina izquierda. Va como HTML y no horneado en la
    imagen para poder cambiarlo sin rehacer la foto. Se define en "badges" del
-   producto; ver ORIGIN_BADGES en site.js. Bandera arriba y texto abajo. */
+   producto; ver ORIGIN_BADGES en site.js. Bandera arriba, texto en una línea
+   abajo; la bandera toma el ancho del texto. */
 .origin-badge {
-  display: inline-flex; flex-direction: column; align-items: center; gap: 3px;
+  display: inline-flex; flex-direction: column; align-items: stretch; gap: 3px;
   background: #fff; border: 1px solid var(--line); border-radius: 6px;
-  padding: 5px 6px 4px; box-shadow: 0 1px 4px rgba(0,0,0,.12);
-  color: var(--text); text-transform: uppercase; text-align: center; line-height: 1.05;
+  padding: 5px; box-shadow: 0 1px 4px rgba(0,0,0,.12);
+  color: var(--text); text-transform: uppercase; text-align: center; line-height: 1;
 }
 .origin-badge img, .prod-card .thumb .origin-badge img {
-  width: 44px; height: auto; max-width: none; display: block; background: none;
+  /* width:0 + min-width:100%: la bandera no aporta su ancho propio, toma el del texto. */
+  width: 0; min-width: 100%; aspect-ratio: 3 / 2; height: auto; max-width: none; display: block; background: none;
   box-shadow: 0 0 0 1px rgba(0,0,0,.15);
 }
-.origin-badge small { font-size: .5rem; font-weight: 700; letter-spacing: .08em; color: #555; }
-.origin-badge b { font-size: .64rem; font-weight: 800; letter-spacing: .06em; }
+.origin-badge b { font-size: .54rem; font-weight: 800; letter-spacing: .05em; white-space: nowrap; }
 .prod-card .thumb .origin-badge { position: absolute; top: 10px; right: 10px; z-index: 1; }
 .pd-gallery { position: relative; }
-.pd-gallery > .origin-badge { position: absolute; top: 14px; right: 14px; z-index: 2; padding: 8px 10px 6px; gap: 5px; }
-.pd-gallery > .origin-badge img { width: 76px; }
-.pd-gallery > .origin-badge small { font-size: .62rem; }
-.pd-gallery > .origin-badge b { font-size: .86rem; }
+.pd-gallery > .origin-badge { position: absolute; top: 14px; right: 14px; z-index: 2; padding: 8px; gap: 6px; }
+.pd-gallery > .origin-badge b { font-size: .8rem; }
 @media (max-width: 520px) {
-  .prod-card .thumb .origin-badge { top: 6px; right: 6px; padding: 4px 5px 3px; }
-  .prod-card .thumb .origin-badge img { width: 36px; }
-  .pd-gallery > .origin-badge img { width: 56px; }
+  /* Con dos columnas no entra junto al logo de marca: va abajo a la derecha. */
+  .prod-card .thumb .origin-badge { top: auto; bottom: 6px; right: 6px; padding: 4px; }
+  .prod-card .thumb .origin-badge b { font-size: .5rem; }
+  .pd-gallery > .origin-badge { top: 8px; right: 8px; padding: 6px; }
+  .pd-gallery > .origin-badge b { font-size: .66rem; }
 }
 /* Las notas del blog aplican margen y borde a toda <img> del contenido (.post-content img);
    dentro de una grilla de productos eso agranda la foto y la caja blanca del logo. */

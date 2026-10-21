@@ -428,23 +428,23 @@ def price_tag_html(sku, offers_by_sku, en_ficha=False):
 
 
 # Espejo de ORIGIN_BADGES de assets/js/site.js (sellos de origen sobre la foto):
-# id -> (bandera, (línea 1, línea 2)).
+# id -> (bandera, texto en una línea).
 ORIGIN_BADGES = {
-    'made-in-usa': ('usa', ('Made in', 'USA')),
-    'made-in-italy': ('italy', ('Made in', 'Italy')),
-    'made-in-germany': ('germany', ('Made in', 'Germany')),
-    'made-in-sweden': ('sweden', ('Made in', 'Sweden')),
-    'made-in-taiwan': ('taiwan', ('Made in', 'Taiwan')),
-    'ce-ue': ('eu', ('Marcado', 'CE')),
+    'made-in-usa': ('usa', 'Made in USA'),
+    'made-in-italy': ('italy', 'Made in Italy'),
+    'made-in-germany': ('germany', 'Made in Germany'),
+    'made-in-sweden': ('sweden', 'Made in Sweden'),
+    'made-in-taiwan': ('taiwan', 'Made in Taiwan'),
+    'ce-ue': ('eu', 'Marcado CE'),
 }
 
 
 def origin_badge_html(prod, root):
     for bid in prod.get('badges') or []:
         if bid in ORIGIN_BADGES:
-            flag, (pre, name) = ORIGIN_BADGES[bid]
+            flag, text = ORIGIN_BADGES[bid]
             return (f'<span class="origin-badge"><img src="{esc(root)}assets/img/iconos/origen/{flag}.svg" alt="">'
-                    f'<small>{esc(pre)}</small><b>{esc(name)}</b></span>')
+                    f'<b>{esc(text)}</b></span>')
     return ''
 
 
