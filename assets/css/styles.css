@@ -539,6 +539,26 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   box-shadow: 0 1px 3px rgba(0,0,0,.08);
 }
 .prod-card .thumb-brand img { height: 16px; max-width: 72px; width: auto; display: block; object-fit: contain; }
+/* Sello de origen ("Made in USA") sobre la foto, arriba a la derecha: el logo de
+   marca ocupa la esquina izquierda. Va como HTML y no horneado en la imagen para
+   poder cambiarlo sin rehacer la foto. Se define en "badges" del producto. */
+.origin-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #fff; border: 1px solid var(--line); border-radius: 4px;
+  padding: 4px 8px; box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--text); line-height: 1; white-space: nowrap;
+}
+.origin-badge img, .prod-card .thumb .origin-badge img { height: 11px; width: auto; max-width: none; display: block; background: none; border-radius: 1px; box-shadow: 0 0 0 1px rgba(0,0,0,.12); }
+.prod-card .thumb .origin-badge { position: absolute; top: 10px; right: 10px; z-index: 1; padding: 3px 6px; gap: 4px; font-size: .58rem; }
+.prod-card .thumb .origin-badge img { height: 9px; }
+.pd-gallery { position: relative; }
+.pd-gallery > .origin-badge { position: absolute; top: 14px; right: 14px; z-index: 2; font-size: .75rem; padding: 6px 10px; }
+.pd-gallery > .origin-badge img { height: 13px; }
+@media (max-width: 520px) {
+  /* Con dos columnas no entra junto al logo de marca: va abajo a la derecha. */
+  .prod-card .thumb .origin-badge { top: auto; bottom: 6px; right: 6px; }
+}
 /* Las notas del blog aplican margen y borde a toda <img> del contenido (.post-content img);
    dentro de una grilla de productos eso agranda la foto y la caja blanca del logo. */
 .post-content .prod-card img { margin: 0; border: 0; }

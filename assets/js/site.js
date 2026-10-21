@@ -360,6 +360,18 @@ function categoryById(slug) {
   return CATALOG.categories.find(c => c.slug === slug) || { name: '—' };
 }
 
+// Sellos de origen (campo "badges" del producto). Para sumar un país: agregar
+// la bandera en assets/img/iconos/origen/ y la entrada acá y en
+// ORIGIN_BADGES de scripts/generate_pretty_urls.py.
+const ORIGIN_BADGES = {
+  'made-in-usa': { label: 'Made in USA', flag: 'assets/img/iconos/origen/usa.svg' },
+  'made-in-italy': { label: 'Made in Italy', flag: 'assets/img/iconos/origen/italy.svg' },
+};
+function originBadgeHtml(p) {
+  const b = (p.badges || []).map(id => ORIGIN_BADGES[id]).find(Boolean);
+  return b ? `<span class="origin-badge"><img src="${rootPath()}${b.flag}" alt="">${b.label}</span>` : '';
+}
+
 function productCard(p) {
   const brand = brandById(p.brand);
   const msg = `Hola Trivium, quiero consultar por: ${p.name} (${p.sku})`;
@@ -393,6 +405,7 @@ function productCard(p) {
       <div class="thumb">
         ${img}
         ${thumbBrand}
+        ${originBadgeHtml(p)}
       </div>
       <div class="body">
         ${brandTag}

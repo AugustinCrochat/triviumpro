@@ -427,6 +427,22 @@ def price_tag_html(sku, offers_by_sku, en_ficha=False):
     return f'<div class="price-tag">{monto}<span>IVA {iva_lbl} incluido{nota}</span></div>'
 
 
+# Espejo de ORIGIN_BADGES de assets/js/site.js (sellos de origen sobre la foto).
+ORIGIN_BADGES = {
+    'made-in-usa': ('Made in USA', 'assets/img/iconos/origen/usa.svg'),
+    'made-in-italy': ('Made in Italy', 'assets/img/iconos/origen/italy.svg'),
+}
+
+
+def origin_badge_html(prod, root):
+    for bid in prod.get('badges') or []:
+        if bid in ORIGIN_BADGES:
+            label, flag = ORIGIN_BADGES[bid]
+            return (f'<span class="origin-badge"><img src="{esc(root + flag)}" alt="">'
+                    f'{esc(label)}</span>')
+    return ''
+
+
 def product_card_html(prod, brands_by_slug, root, offers_by_sku=None):
     """Réplica estática de productCard() de site.js, para que el HTML traiga los links."""
     brand = brands_by_slug.get(prod.get('brand'), {})
@@ -447,7 +463,7 @@ def product_card_html(prod, brands_by_slug, root, offers_by_sku=None):
     price = price_tag_html(prod.get('sku', ''), offers_by_sku)
     return (
         f'<a class="prod-card" href="{esc(root)}producto/{esc(prod["slug"])}/">'
-        f'<div class="thumb">{img}{thumb_brand}</div>'
+        f'<div class="thumb">{img}{thumb_brand}{origin_badge_html(prod, root)}</div>'
         f'<div class="body">'
         f'<span class="brand-tag">{esc(brand_name)}</span>'
         f'<h3>{esc(prod["name"])}</h3>'

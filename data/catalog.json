@@ -909,7 +909,9 @@
         "Instalación en Casi Cualquier Taller : Se instala un 20 % más cerca y un 40 % más lejos del elevador que los alineadores actuales, y cubre vehículos con distancia entre ejes de hasta 240\" (6096 mm).",
         "IA y Tecnología D2 Max : Procesador de IA dedicado que identifica los targets tres veces más rápido, sin calibración de garras ni targets, con actualizaciones de software por aire (OTA) y conectividad cableada o inalámbrica."
       ],
-      "badges": [],
+      "badges": [
+        "made-in-usa"
+      ],
       "image": "assets/img/productos/alineadora-3d-hofmann-geoliner-880.webp",
       "images": [
         "assets/img/productos/alineadora-3d-hofmann-geoliner-880.webp"
