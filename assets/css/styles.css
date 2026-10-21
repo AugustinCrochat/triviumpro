@@ -600,6 +600,17 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
 @media (max-width: 520px) {
   .prod-card .thumb .origin-badge--plain img { width: 34px; height: 34px; }
 }
+/* Sello más chico en las tarjetas del catálogo: tapaba demasiado de la foto. */
+.prod-card .thumb .origin-badge { top: 8px; right: 8px; padding: 3px; gap: 2px; }
+.prod-card .thumb .origin-badge img { width: 38px; }
+.prod-card .thumb .origin-badge b { font-size: .42rem; }
+.prod-card .thumb .origin-badge--plain img { width: 30px; height: 30px; }
+@media (max-width: 520px) {
+  .prod-card .thumb .origin-badge { top: auto; bottom: 5px; right: 5px; padding: 2px; }
+  .prod-card .thumb .origin-badge img { width: 30px; }
+  .prod-card .thumb .origin-badge b { font-size: .38rem; }
+  .prod-card .thumb .origin-badge--plain img { width: 26px; height: 26px; }
+}
 /* Las notas del blog aplican margen y borde a toda <img> del contenido (.post-content img);
    dentro de una grilla de productos eso agranda la foto y la caja blanca del logo. */
 .post-content .prod-card img { margin: 0; border: 0; }
@@ -1297,3 +1308,11 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .post-content th, .post-content td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
 .post-content th { background: var(--bg-2); color: var(--text); font-weight: 700; }
 .post-content tr:last-child td { border-bottom: 0; }
+
+/* /instalacion-posventa-y-servicios/: fotos de trabajos bajo la grilla de servicios. */
+.service-photos { padding-top: 0; }
+.service-photos .container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+.service-photos figure { margin: 0; border: 1px solid var(--line); overflow: hidden; background: #fff; }
+.service-photos img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 35%; }
+.service-photos figcaption { padding: 10px 14px; font-size: .88rem; color: var(--text-dim); }
+@media (max-width: 760px) { .service-photos .container { grid-template-columns: 1fr; } }

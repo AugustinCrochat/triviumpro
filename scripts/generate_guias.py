@@ -128,11 +128,12 @@ def main():
     desc = ("Guías de compra de equipamiento para taller y gomería: elevadores, alineadoras, "
             "balanceadoras y desarmadoras. Cómo elegir, qué comparar y qué modelos hay.")
     items = ''.join(
-        f'<li><a href="{esc(g["slug"])}/"><strong>{esc(g["h1"])}</strong>'
-        f'<span>{esc(g["description"])}</span></a></li>' for g in GUIAS)
+        f'<li><a href="{esc(g["slug"])}/"><img src="../assets/img/guias/{esc(g["slug"])}.webp" alt="{esc(g["h1"])}" '
+        f'width="240" height="150" loading="lazy"><div><strong>{esc(g["h1"])}</strong>'
+        f'<span>{esc(g["description"])}</span></div></a></li>' for g in GUIAS)
     index_body = ('<p>Guías técnicas y de compra del equipo de Trivium Pro, escritas a partir de '
                   'las fichas de cada equipo y de las instalaciones que hacemos en todo el país.</p>'
-                  f'<ul class="guia-lista">{items}</ul>')
+                  f'<ul class="guia-lista guia-lista--thumbs">{items}</ul>')
     jsonld = [
         breadcrumb_jsonld([("Inicio", SITE_URL + '/'), ("Guías", url)]),
         {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Guías de compra",

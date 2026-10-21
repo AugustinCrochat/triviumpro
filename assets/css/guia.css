@@ -36,3 +36,13 @@
 .guia-body .origen-modelos { list-style: none; padding: 0; columns: 2; column-gap: 28px; }
 .guia-body .origen-modelos li { break-inside: avoid; padding: 4px 0; font-size: .95rem; line-height: 1.4; }
 @media (max-width: 700px) { .guia-body .origen-modelos { columns: 1; } .origen-intro .guia-body { padding: 0 20px; } }
+
+/* Índice /guias/: miniatura de producto a la izquierda de cada guía. */
+.guia-lista--thumbs a { display: flex; gap: 20px; align-items: center; padding: 0; overflow: hidden; }
+.guia-lista--thumbs a img { width: 240px; height: 150px; flex: none; object-fit: cover; border-right: 1px solid var(--line); }
+.guia-lista--thumbs a > div { padding: 16px 22px 16px 0; }
+@media (max-width: 640px) {
+  .guia-lista--thumbs a { flex-direction: column; align-items: stretch; gap: 0; }
+  .guia-lista--thumbs a img { width: 100%; height: auto; aspect-ratio: 8 / 5; border-right: 0; border-bottom: 1px solid var(--line); }
+  .guia-lista--thumbs a > div { padding: 14px 18px; }
+}

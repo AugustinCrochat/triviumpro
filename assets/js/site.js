@@ -93,8 +93,6 @@ function renderHeader(active) {
     { href: `${root}marcas/`, label: 'Marcas', key: 'marcas' },
     { href: `${root}instalacion-posventa-y-servicios/`, label: 'Servicios', key: 'servicios' },
     { href: `${root}nosotros/`, label: 'Nosotros', key: 'nosotros' },
-    { href: `${root}guias/`, label: 'Guías', key: 'guias' },
-    { href: `${root}blog/`, label: 'Blog', key: 'blog' },
     { href: `${root}contacto/`, label: 'Contacto', key: 'contacto' }
   ];
   const subHtml = (items) => {
