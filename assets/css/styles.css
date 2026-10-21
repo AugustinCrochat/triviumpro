@@ -594,6 +594,12 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
    La ficha de producto (.pd-gallery) mantiene el sello completo con "MARCADO CE". */
 .prod-card .thumb .origin-badge--plain { background: none; border: 0; box-shadow: none; padding: 0; }
 .prod-card .thumb .origin-badge--plain .ob-text { display: none; }
+/* ce.webp es 3:2 con el círculo centrado y bordes transparentes: se recorta a
+   cuadrado para que el círculo quede pegado a la esquina. */
+.prod-card .thumb .origin-badge--plain img { width: 40px; height: 40px; object-fit: cover; }
+@media (max-width: 520px) {
+  .prod-card .thumb .origin-badge--plain img { width: 34px; height: 34px; }
+}
 /* Las notas del blog aplican margen y borde a toda <img> del contenido (.post-content img);
    dentro de una grilla de productos eso agranda la foto y la caja blanca del logo. */
 .post-content .prod-card img { margin: 0; border: 0; }
