@@ -545,18 +545,31 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 /* Sello de origen ("Made in USA", "Marcado CE") sobre la foto, arriba a la derecha:
    el logo de marca ocupa la esquina izquierda. Va como HTML y no horneado en la
    imagen para poder cambiarlo sin rehacer la foto. Se define en "badges" del
-   producto; ver ORIGIN_BADGES en site.js. Bandera arriba, texto en una línea
-   abajo; la bandera toma el ancho del texto. */
+   producto; ver ORIGIN_BADGES en site.js. Bandera arriba y el texto debajo, en
+   una línea del mismo ancho que la bandera (el ancho del sello lo da la bandera). */
 .origin-badge {
   display: inline-flex; flex-direction: column; align-items: stretch; gap: 3px;
-  background: #fff; border: 1px solid var(--line); border-radius: 6px;
-  padding: 5px; box-shadow: 0 1px 4px rgba(0,0,0,.12);
-  color: var(--text); text-transform: uppercase; text-align: center; line-height: 1;
+  background: #fff; border: 1px solid var(--line); border-radius: 5px;
+  padding: 4px; box-shadow: 0 1px 4px rgba(0,0,0,.12);
+  color: var(--text); line-height: 1;
 }
 .origin-badge img, .prod-card .thumb .origin-badge img {
-  /* width:0 + min-width:100%: la bandera no aporta su ancho propio, toma el del texto. */
-  width: 0; min-width: 100%; aspect-ratio: 3 / 2; height: auto; max-width: none; display: block; background: none;
+  width: 54px; height: auto; max-width: none; display: block; background: none;
   box-shadow: 0 0 0 1px rgba(0,0,0,.15);
+}
+/* width:0 + min-width:100%: el texto no aporta su ancho propio, toma el de la bandera. */
+.origin-badge .ob-text { display: block; width: 0; min-width: 100%; height: auto; overflow: visible; }
+.origin-badge .ob-text text { font-family: inherit; font-weight: 800; font-size: 8px; fill: currentColor; }
+.prod-card .thumb .origin-badge { position: absolute; top: 8px; right: 8px; z-index: 1; }
+.pd-gallery { position: relative; }
+.pd-gallery > .origin-badge { position: absolute; top: 14px; right: 14px; z-index: 2; padding: 6px; gap: 4px; }
+.pd-gallery > .origin-badge img { width: 72px; }
+@media (max-width: 520px) {
+  /* Con dos columnas no entra junto al logo de marca: va abajo a la derecha. */
+  .prod-card .thumb .origin-badge { top: auto; bottom: 6px; right: 6px; padding: 3px; }
+  .prod-card .thumb .origin-badge img { width: 46px; }
+  .pd-gallery > .origin-badge { top: 8px; right: 8px; padding: 5px; }
+  .pd-gallery > .origin-badge img { width: 56px; }
 }
 /* El sello es un enlace a /origen/...: se nota al pasar el mouse. */
 .origin-badge { cursor: pointer; text-decoration: none; transition: box-shadow .15s, transform .15s; }

@@ -446,9 +446,13 @@ def origin_badge_html(prod, root):
         if b:
             cls = 'origin-badge' + (' origin-badge--plain' if b.get('plain') else '')
             label = 'Qué es el marcado CE' if b.get('plain') else f"Equipos con origen {b['name']}"
+            # Texto SVG con textLength: se estira al ancho exacto de la bandera (ver site.js).
+            t = b["text"].upper()
+            w = round(len(t) * 4.8)
             return (f'<span class="{cls}" role="link" tabindex="0" data-href="{esc(root + b["href"])}" '
                     f'aria-label="{esc(label)}"><img src="{esc(root)}assets/img/iconos/origen/{b["file"]}" alt="">'
-                    f'<b>{esc(b["text"])}</b></span>')
+                    f'<svg class="ob-text" viewBox="0 0 {w} 9" aria-hidden="true">'
+                    f'<text x="0" y="7.3" textLength="{w}" lengthAdjust="spacingAndGlyphs">{esc(t)}</text></svg></span>')
     return ''
 
 

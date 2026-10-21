@@ -382,7 +382,9 @@ function originBadgeHtml(p, asLink) {
   const b = (p.badges || []).map(id => ORIGIN_BADGES[id]).find(Boolean);
   if (!b) return '';
   const url = rootPath() + b.href;
-  const inner = `<img src="${rootPath()}assets/img/iconos/origen/${b.file}" alt=""><b>${b.text}</b>`;
+  // El texto es un <svg> con textLength: se estira al ancho exacto de la bandera.
+  const t = b.text.toUpperCase(), w = Math.round(t.length * 4.8);
+  const inner = `<img src="${rootPath()}assets/img/iconos/origen/${b.file}" alt=""><svg class="ob-text" viewBox="0 0 ${w} 9" aria-hidden="true"><text x="0" y="7.3" textLength="${w}" lengthAdjust="spacingAndGlyphs">${t}</text></svg>`;
   const cls = 'origin-badge' + (b.plain ? ' origin-badge--plain' : '');
   const label = b.plain ? 'Qué es el marcado CE' : `Equipos con origen ${b.name}`;
   return asLink
