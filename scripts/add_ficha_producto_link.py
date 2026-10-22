@@ -60,7 +60,15 @@ def ya_tiene(pdf, url):
     out = subprocess.run(["pdfinfo", "-url", pdf], capture_output=True, text=True).stdout
     return url in out and "--forzar" not in sys.argv
 
+def es_formato_nuevo(pdf):
+    """Las fichas con encabezado "FICHA TÉCNICA" (formato Trivium Pro) llevan el enlace debajo de la
+    descripción (add_ficha_link_descripcion.py o el propio HTML), no esta etiqueta de esquina."""
+    t = subprocess.run(["pdftotext", "-l", "1", pdf, "-"], capture_output=True, text=True).stdout
+    return "FICHA TÉCNICA" in t
+
 def procesar(pdf, url, forzar=None):
+    if es_formato_nuevo(pdf) and not forzar:
+        print(f"· {os.path.basename(pdf)}: formato nuevo, el enlace va debajo de la descripción"); return "nuevo"
     if ya_tiene(pdf, url):
         print(f"· {os.path.basename(pdf)}: ya tiene el enlace"); return "ya"
     w, h = pagina1(pdf)
