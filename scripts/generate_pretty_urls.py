@@ -187,6 +187,7 @@ def ali_cert_html(prod, root):
 
 def make_seo_block(canonical, description, jsonld=None):
     """canonical + meta description + JSON-LD. Los OG se agregan aparte."""
+    description = clamp(description, 160) if len(description or '') > 160 else description
     out = [
         f'<link rel="canonical" href="{esc(canonical)}">',
         f'<meta name="description" content="{esc(description)}">',
@@ -338,6 +339,9 @@ HOME_FAQS = [
 # el blog ya tiene guías profundas, sólo faltaba enlazarlas desde acá.
 CATEGORY_BLOG_POSTS = {
     'elevadores': [
+        'cuanto-cuesta-un-elevador-para-taller-que-influye-en-el-precio',
+        'rotary-lift-o-trivium-pro-que-linea-conviene-segun-tu-taller',
+        'que-equipos-necesita-un-taller-mecanico-lista-completa-por-prioridad',
         'como-equipar-un-taller-para-autos-electricos-e-hibridos-elevador-y-herramientas',
         'como-montar-un-taller-de-motos-elevador-y-equipamiento-necesario',
         'elevador-tijera-tipos-capacidades-y-cual-elegir-para-tu-taller',
@@ -415,7 +419,24 @@ CATEGORY_GUIDES.update({
 })
 
 
-def product_guide_html(cat_slug, root):
+_FICHAS_EXTRA = {}
+try:
+    with open(os.path.join(BASE_DIR, 'data', 'fichas_extra.json'), encoding='utf-8') as _f:
+        _FICHAS_EXTRA = json.load(_f)
+except OSError:
+    pass
+
+
+def _notas_producto(prod, catalog, blog_by_slug, root):
+    """Hasta 3 notas del blog de la familia del producto (elevadores, alineadoras...) debajo de la ficha."""
+    cats = {c['slug']: c for c in catalog['categories']}
+    c = cats.get(prod.get('category'), {})
+    raiz = c.get('parent') or prod.get('category')
+    slugs = [x for x in CATEGORY_BLOG_POSTS.get(raiz, []) if x in blog_by_slug][:3]
+    return blog_links_html("Notas y guías relacionadas", slugs, blog_by_slug, root) if slugs else ''
+
+
+def product_guide_html(cat_slug, root, faqs=None, notas=''):
     """Enlaces internos de la ficha hacia su guía de compra y al hub de zonas.
 
     Va en #pd-guide, fuera de #pd-wrap, porque producto.html reescribe #pd-wrap
@@ -427,8 +448,12 @@ def product_guide_html(cat_slug, root):
         parts.append(f'<a href="{esc(root)}guias/{esc(g[0])}/">{esc(g[1])} →</a>')
     parts.append(f'<a href="{esc(root)}zonas/">Envíos, instalación y posventa en todo el país →</a>')
     items = ''.join(f'<li>{p}</li>' for p in parts)
-    return (f'<div class="container"><h2>Antes de comprar</h2>'
-            f'<ul class="guia-lista">{items}</ul></div>')
+    faq = ''
+    if faqs:
+        faq = ('<div class="container cat-faq" style="padding:28px 0 8px"><h2>Preguntas frecuentes</h2>' +
+               ''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in faqs) + '</div>')
+    return (faq + f'<div class="container"><h2>Antes de comprar</h2>'
+            f'<ul class="guia-lista">{items}</ul></div>' + notas)
 
 
 def guide_link_html(slug, root):
@@ -642,7 +667,11 @@ def create_index_file(target_dir, template_path, root_depth, title=None, descrip
 
     # Update title
     if title:
-        content = re.sub(r'<title>[^<]*</title>', f'<title>{html_lib.escape(title)} — {ORG_NAME}</title>', content, count=1)
+        # Google muestra ~60 caracteres: si con la marca se pasa, se prioriza el nombre completo del producto.
+        completo = f"{title} — {ORG_NAME}"
+        if len(completo) > 62 and len(title) >= 40:
+            completo = title
+        content = re.sub(r'<title>[^<]*</title>', lambda m: f'<title>{html_lib.escape(completo)}</title>', content, count=1)
 
     # Inject OG tags
     if og:
@@ -687,10 +716,9 @@ def update_static_pages(catalog):
     # "Trivium Center — Trivium Pro".
     paginas = {
         '': (None,
-             f"Equipamiento para talleres mecánicos y gomerías en todo el país: "
-             f"elevadores, alineadoras, balanceadoras y desarmadoras. Representantes "
-             f"oficiales de Rotary Lift y Hofmann en Argentina.",
-             f"{ORG_NAME} — Equipamiento para talleres mecánicos en Argentina"),
+             f"Trivium Pro (antes Trivium Center): elevadores, alineadoras, balanceadoras y "
+             f"desarmadoras para talleres y gomerías. Representantes oficiales de Rotary Lift y Hofmann.",
+             f"{ORG_NAME} (ex Trivium Center): equipamiento para talleres"),
         'catalogo': ("Catálogo",
              f"Catálogo completo: {n_prod} equipos para taller en {n_cat} categorías. "
              f"Elevadores, alineadoras, balanceadoras y desarmadoras, con instalación "
@@ -766,6 +794,7 @@ def update_static_pages(catalog):
                 # Trivium Center como su organización madre. Cierra el grafo.
                 "@id": f"{SITE_URL}/#organization",
                 "name": ORG_NAME,
+                "alternateName": ["Trivium Center", "Trivium Pro Argentina", "Trivium Center Pro"],
                 "legalName": "Trivium Center S.A.",
                 "parentOrganization": {"@id": "https://trivium.ar/#organization"},
                 "url": f"{SITE_URL}/",
@@ -797,6 +826,7 @@ def update_static_pages(catalog):
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": ORG_NAME,
+                "alternateName": ["Trivium Center", "Trivium Pro Argentina"],
                 "url": f"{SITE_URL}/",
             }, faq_jsonld(HOME_FAQS)]
 
@@ -1121,6 +1151,11 @@ def main():
                 (n, SITE_URL + '/' + (h or '')) if h is not None else (n, url)
                 for n, h in crumbs
             ])]
+            # Preguntas frecuentes del producto (mismo texto que la ficha PDF): visibles y en JSON-LD.
+            import fichas_datos as _fd, generate_fichas as _gf
+            _spec = _fd.build_spec(prod, catalog, _FICHAS_EXTRA)
+            prod_faqs = _gf.faqs(_spec)
+            jsonld.append(faq_jsonld(prod_faqs))
 
             # --- cuerpo prerenderizado ---
             gallery = ''
@@ -1177,7 +1212,7 @@ def main():
                     'crumbs': breadcrumb_html(crumbs, root2),
                     'pd-wrap': pd_html,
                     'related': related_html,
-                    'pd-guide': product_guide_html(prod.get('category'), root2),
+                    'pd-guide': product_guide_html(prod.get('category'), root2, prod_faqs, _notas_producto(prod, catalog, blog_by_slug, root2)),
                 },
             )
 

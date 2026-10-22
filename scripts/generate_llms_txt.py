@@ -54,6 +54,7 @@ def main():
         "## Catálogo",
         "",
         f"- [Catálogo completo]({SITE_URL}/catalogo/): los {n_prod} equipos, todas las marcas.",
+        f"- [Catálogo en texto plano para IA]({SITE_URL}/llms-full.txt): cada equipo con especificaciones, origen, certificaciones, ficha PDF y video.",
     ]
     for c in top_cats:
         tagline = f": {c['tagline']}" if c.get('tagline') else ""

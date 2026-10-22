@@ -7,6 +7,7 @@ Catálogo completo: 107 equipos en 9 categorías. Los precios publicados son de 
 ## Catálogo
 
 - [Catálogo completo](https://pro.trivium.ar/catalogo/): los 107 equipos, todas las marcas.
+- [Catálogo en texto plano para IA](https://pro.trivium.ar/llms-full.txt): cada equipo con especificaciones, origen, certificaciones, ficha PDF y video.
 - [Elevadores](https://pro.trivium.ar/categoria/elevadores/): Para cada tipo de vehículo y taller
 - [Alineadoras](https://pro.trivium.ar/categoria/alineadoras/): Alineación de precisión
 - [Balanceadoras](https://pro.trivium.ar/categoria/balanceadoras/): Balanceo profesional

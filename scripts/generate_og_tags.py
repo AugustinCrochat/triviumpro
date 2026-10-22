@@ -98,7 +98,26 @@ def replace_empty_el(content, el_id, inner):
     return content
 
 
+def titulo_seo(t):
+    """Título de pestaña/Google (~60 caracteres): se corta en el primer ':' o ' – ' si el título es largo."""
+    if len(t) <= 62:
+        return t
+    for sep in (': ', ' – ', ' - ', '? '):
+        if sep in t:
+            a = t.split(sep)[0].strip()
+            if 28 <= len(a) <= 62:
+                return a + ('?' if sep == '? ' else '')
+    palabras, out = t.split(), ''
+    for w in palabras:
+        if len(out) + len(w) + 1 > 60: break
+        out = (out + ' ' + w).strip()
+    while out.split()[-1].lower() in ('de', 'la', 'el', 'en', 'y', 'para', 'con', 'un', 'una', 'los', 'las', 'del', 'a', 'que'):
+        out = ' '.join(out.split()[:-1])
+    return out
+
+
 def inject_head(content, title, og_block, seo_block):
+    title = titulo_seo(title)
     # Limpia inyecciones previas para que el script sea idempotente
     content = re.sub(r'\n?<meta property="og:[^>]*>', '', content)
     content = re.sub(r'\n?<meta name="twitter:[^>]*>', '', content)
@@ -109,9 +128,12 @@ def inject_head(content, title, og_block, seo_block):
         r'\n?<script type="application/ld\+json">.*?</script>', '', content, flags=re.S
     )
 
+    completo = f"{title} — {ORG_NAME}"
+    if len(completo) > 62 and len(title) >= 40:
+        completo = title      # ~60 caracteres es lo que muestra Google: mejor el título completo que uno cortado
     content = re.sub(
         r'<title>[^<]*</title>',
-        f'<title>{esc(title)} — {ORG_NAME}</title>',
+        lambda m: f'<title>{esc(completo)}</title>',
         content,
         count=1,
     )
@@ -125,6 +147,9 @@ def inject_head(content, title, og_block, seo_block):
 POST_CATEGORY = {}
 for _cat_slug, _cat_name, _posts in [
     ('elevadores', 'Elevadores', [
+        'cuanto-cuesta-un-elevador-para-taller-que-influye-en-el-precio',
+        'rotary-lift-o-trivium-pro-que-linea-conviene-segun-tu-taller',
+        'que-equipos-necesita-un-taller-mecanico-lista-completa-por-prioridad',
         'como-equipar-un-taller-para-autos-electricos-e-hibridos-elevador-y-herramientas',
         'como-montar-un-taller-de-motos-elevador-y-equipamiento-necesario',
         'elevador-tijera-tipos-capacidades-y-cual-elegir-para-tu-taller',

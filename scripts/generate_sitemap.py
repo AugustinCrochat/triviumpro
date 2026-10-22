@@ -35,7 +35,7 @@ def load(name):
         return json.load(f)
 
 
-def url_entry(loc, lastmod=None, changefreq=None, priority=None):
+def url_entry(loc, lastmod=None, changefreq=None, priority=None, images=None):
     parts = [f"    <loc>{escape(loc)}</loc>"]
     if lastmod:
         parts.append(f"    <lastmod>{lastmod}</lastmod>")
@@ -43,6 +43,9 @@ def url_entry(loc, lastmod=None, changefreq=None, priority=None):
         parts.append(f"    <changefreq>{changefreq}</changefreq>")
     if priority:
         parts.append(f"    <priority>{priority}</priority>")
+    for src, titulo in (images or []):
+        parts.append(f"    <image:image><image:loc>{escape(SITE_URL + '/' + src)}</image:loc>"
+                     f"<image:title>{escape(titulo)}</image:title></image:image>")
     return "  <url>\n" + "\n".join(parts) + "\n  </url>"
 
 
@@ -138,10 +141,21 @@ def main():
             url_entry(f"{SITE_URL}/marca/{b['slug']}/", lm.get(f"/marca/{b['slug']}/"), "monthly", "0.7")
         )
 
+    pdfs = []
     for p in catalog["products"]:
+        imgs = [(i, p["name"]) for i in dict.fromkeys([p.get("image")] + list(p.get("images") or [])) if i][:5]
         entries.append(
-            url_entry(f"{SITE_URL}/producto/{p['slug']}/", lm.get(f"/producto/{p['slug']}/"), "monthly", "0.8")
+            url_entry(f"{SITE_URL}/producto/{p['slug']}/", lm.get(f"/producto/{p['slug']}/"), "monthly", "0.8", images=imgs)
         )
+        import re as _re
+        for f in _re.findall(r'href="(assets/pdf/[^"]+\.pdf)"', p.get("html_description", "")):
+            if f not in pdfs: pdfs.append(f)
+
+    # Fichas técnicas PDF: Google las indexa y rankean para "ficha técnica <modelo>".
+    for f in pdfs:
+        ruta = os.path.join(BASE_DIR, f)
+        if os.path.exists(ruta):
+            entries.append(url_entry(f"{SITE_URL}/{f}", _git_date(f) or today, "yearly", "0.5"))
 
     for post in posts:
         # date viene como 2025-10-29T23:49:21
@@ -152,7 +166,7 @@ def main():
 
     xml = (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
         + "\n".join(entries)
         + "\n</urlset>\n"
     )

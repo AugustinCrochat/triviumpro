@@ -79,6 +79,10 @@ SPEC = {
  "como-montar-una-gomeria-para-camiones-y-vehiculo": ("GUÍA DE NEGOCIO · GOMERÍA DE CAMIONES", "Cómo montar una gomería para camiones", "Equipos necesarios para vehículos pesados", ["desarmadora-para-ruedas-de-camiones-monty-4250p", "balanceadora-para-ruedas-de-camion-geodyna-980l"]),
  "como-montar-un-taller-de-motos-elevador-y-equipa": ("GUÍA DE NEGOCIO · TALLER DE MOTOS", "Cómo montar un taller de motos", "Elevador y equipamiento necesario", ["elevador-para-moto-direct-lift-procycle-dt", "elevador-para-motos-mt07-trivium-center-454-kilos"]),
  "como-elegir-una-balanceadora-de-ruedas-capacidad": ("GUÍA DE COMPRA · BALANCEADORAS", "Cómo elegir una balanceadora de ruedas", "Capacidad, tecnología y modelos", ["balanceadora-de-ruedas-hofmann-geodyna-7400l"]),
+ "cuanto-cuesta-un-elevador-para-taller-que-influy": ("GUÍA DE COMPRA · ELEVADORES", "¿Cuánto cuesta un elevador para taller?", "Qué influye en el precio y cómo comparar", ["elevador-dos-columnas-rotary-lift-spoa10", "elevador-tijera-corto-3-toneladas-trivium-pro-e30-monofasico"]),
+ "rotary-lift-o-trivium-pro-que-linea-conviene-seg": ("GUÍA DE COMPRA · MARCAS", "Rotary Lift o Trivium Pro", "Qué línea conviene según tu taller", ["elevador-dos-columnas-rotary-lift-spoa10", "elevador-dos-columnas-4-toneladas-trivium-pro-monofasico"]),
+ "trivium-center-ahora-es-trivium-pro-que-cambia-y": ("NOVEDADES · TRIVIUM PRO", "Trivium Center ahora es Trivium Pro", "Qué cambia y dónde encontrarnos", ["elevador-dos-columnas-4-toneladas-trivium-pro-monofasico"]),
+ "que-equipos-necesita-un-taller-mecanico-lista-co": ("GUÍA PARA EMPRENDEDORES", "Equipos para un taller mecánico", "Lista completa por prioridad", ["elevador-dos-columnas-4-toneladas-trivium-pro-monofasico", "balanceadora-de-ruedas-hofmann-geodyna-7600p"]),
 }
 
 def trim(path, out):
