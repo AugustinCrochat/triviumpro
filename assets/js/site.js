@@ -391,6 +391,20 @@ function originBadgeHtml(p, asLink) {
   return `<a class="${cls}" href="${rootPath()}${b.href}" aria-label="${label}">${inner}</a>`;
 }
 
+// Certificación ALI: enlaza a la ficha del modelo en el directorio oficial de ALI.
+// "family" = el modelo del directorio es la familia (X = variantes) a la que pertenece el equipo.
+function aliUrl(a) {
+  return 'https://www.autolift.org/ali-directory-of-certified-car-lifts/search-certified-car-lifts/?productCat=' + a.cat +
+    '&manufac=' + a.manufac + '&ModNum&rateval=%3D&rateload&searchsubmit=Search&lift_id=' + a.lift_id;
+}
+function aliCertHtml(p) {
+  const a = p.ali; if (!a) return '';
+  const fecha = a.date ? a.date.slice(0, 4) : '';
+  return `<a class="pd-ali" href="${aliUrl(a)}" target="_blank" rel="noopener noreferrer" aria-label="Ver la certificación ALI de ${a.model} en el directorio de ALI">
+    <img src="${rootPath()}assets/img/iconos/ali-validated.png" alt="" width="56" height="56" onerror="this.remove()">
+    <span><b>Certificación ALI</b><small>Modelo certificado ${a.model}${a.family ? ' (familia)' : ''}${fecha ? ' · desde ' + fecha : ''}</small><em>Ver certificado en el directorio de ALI ↗</em></span></a>`;
+}
+
 // <li> de la barra lateral "Origen": un item por sello con su cantidad de equipos.
 function originSidebarHtml(activeId) {
   return Object.entries(ORIGIN_BADGES).map(([id, b]) => {

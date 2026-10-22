@@ -366,6 +366,8 @@ try {
         ${p.lift_height ? `<div class="pd-spec-tile"><div class="tile-label">Altura de elevación</div><div class="tile-value">${p.lift_height}</div></div>` : ''}
       </div>` : ''}
 
+      ${aliCertHtml(p)}
+
       ${(pdfHref || videoHref) ? `
       <div class="pd-actions">
         ${videoHref ? `<a class="btn btn--primary btn--lg" href="${videoHref}" target="_blank" rel="noopener">

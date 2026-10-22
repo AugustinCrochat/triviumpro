@@ -1330,3 +1330,11 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .post-content .cat-faq h2 { margin-bottom: 16px; }
 /* Enlaces internos dentro del texto de las notas: se tienen que reconocer como enlaces. */
 .post-content :is(p, li, td) a:not(.modern-button) { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Certificación ALI en la ficha de producto */
+.pd-ali { display: flex; align-items: center; gap: 12px; margin: 14px 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--text); text-decoration: none; transition: box-shadow .15s, border-color .15s; }
+.pd-ali:hover { border-color: var(--accent); box-shadow: 0 2px 10px rgba(0,0,0,.1); }
+.pd-ali img { width: 56px; height: 56px; object-fit: contain; flex: none; }
+.pd-ali span { display: flex; flex-direction: column; gap: 2px; font-size: .9rem; }
+.pd-ali small { color: var(--muted, #666); font-size: .8rem; }
+.pd-ali em { font-style: normal; color: var(--accent); font-size: .8rem; }

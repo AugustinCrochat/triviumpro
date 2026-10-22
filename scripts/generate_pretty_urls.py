@@ -167,6 +167,24 @@ def product_meta_description(prod):
     return clamp(head, 158 - len(cta)) + cta
 
 
+def ali_cert_html(prod, root):
+    """Bloque 'Certificación ALI' de la ficha (el mismo que arma site.js al hidratar)."""
+    a = prod.get('ali')
+    if not a:
+        return ''
+    url = ('https://www.autolift.org/ali-directory-of-certified-car-lifts/search-certified-car-lifts/'
+           f"?productCat={a['cat']}&manufac={a['manufac']}&ModNum&rateval=%3D&rateload&searchsubmit=Search&lift_id={a['lift_id']}")
+    logo = ''
+    if os.path.exists(os.path.join(BASE_DIR, 'assets/img/iconos/ali-validated.png')):
+        logo = f'<img src="{root}assets/img/iconos/ali-validated.png" alt="" width="56" height="56">'
+    desde = f" · desde {a['date'][:4]}" if a.get('date') else ''
+    fam = ' (familia)' if a.get('family') else ''
+    return (f'<a class="pd-ali" href="{esc(url)}" target="_blank" rel="noopener noreferrer" '
+            f'aria-label="Ver la certificación ALI de {esc(a["model"])} en el directorio de ALI">{logo}'
+            f'<span><b>Certificación ALI</b><small>Modelo certificado {esc(a["model"])}{fam}{desde}</small>'
+            f'<em>Ver certificado en el directorio de ALI ↗</em></span></a>')
+
+
 def make_seo_block(canonical, description, jsonld=None):
     """canonical + meta description + JSON-LD. Los OG se agregan aparte."""
     out = [
@@ -1130,7 +1148,7 @@ def main():
                 f'{brand_line}'
                 f'<p class="pd-summary">{esc(strip_tags(raw_desc))}</p>'
                 f'{price_tag_html(prod.get("sku"), offers_by_sku, True)}'
-                f'{specs}{bullets}'
+                f'{specs}{ali_cert_html(prod, root2)}{bullets}'
                 f'{rich}'
                 f'</div></article>'
             )
