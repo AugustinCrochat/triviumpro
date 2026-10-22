@@ -51,5 +51,41 @@
    ]
   ],
   "modelo": "SPO16 Cargo"
+ },
+ "balanceadora-de-ruedas-hofmann-geodyna-9000p": {
+  "specs": [
+   [
+    "Peso máximo de la rueda",
+    "70 kg (154 lb)"
+   ],
+   [
+    "Rango de diámetro de llanta",
+    "8\" – 32\""
+   ],
+   [
+    "Rango de ancho de llanta",
+    "1\" – 20\""
+   ],
+   [
+    "Diámetro máximo de la rueda",
+    "37\""
+   ],
+   [
+    "Velocidad de medición",
+    "< 200 rpm"
+   ],
+   [
+    "Tiempo de equilibrio (inicio/parada)",
+    "8 s"
+   ],
+   [
+    "Adquisición de datos",
+    "5 cámaras láser, 3D sin contacto"
+   ],
+   [
+    "Pantalla",
+    "Táctil"
+   ]
+  ]
  }
 }
