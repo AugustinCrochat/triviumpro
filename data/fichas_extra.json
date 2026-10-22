@@ -87,5 +87,143 @@
     "Táctil"
    ]
   ]
+ },
+ "balanceadora-para-ruedas-de-camion-hofmann-geodyna-980l": {
+  "specs": [
+   [
+    "Peso máximo de la rueda",
+    "250 kg"
+   ],
+   [
+    "Diámetro máximo de la rueda",
+    "1300 mm"
+   ],
+   [
+    "Ancho máximo de la rueda",
+    "650 mm"
+   ],
+   [
+    "Diámetro de llanta",
+    "205 – 635 mm (8\" – 30\")"
+   ],
+   [
+    "Ancho de llanta",
+    "76 – 510 mm (2\" – 20\")"
+   ],
+   [
+    "Offset (distancia)",
+    "0 – 340 mm"
+   ],
+   [
+    "Tiempo de medición",
+    "< 20 s"
+   ],
+   [
+    "Velocidad de medición",
+    "< 100 rpm"
+   ],
+   [
+    "Diámetro del eje",
+    "40 mm"
+   ],
+   [
+    "Conos camión liviano",
+    "122 – 174 mm"
+   ],
+   [
+    "Alimentación",
+    "115/120 V o 200/240 V · 50/60 Hz · monofásica"
+   ],
+   [
+    "Potencia del motor",
+    "0,25 kW"
+   ],
+   [
+    "Nivel de ruido",
+    "< 70 dB(A)"
+   ],
+   [
+    "Peso",
+    "255 kg"
+   ],
+   [
+    "Dimensiones (alto × prof. × ancho)",
+    "1920 × 1370 × 1390 mm"
+   ]
+  ]
+ },
+ "alineadora-de-camiones-josam-cv-aligner": {
+  "specs": [
+   [
+    "Convergencia (rango)",
+    "±40 mm/m"
+   ],
+   [
+    "Caída (rango)",
+    "-6°"
+   ],
+   [
+    "Caster (rango)",
+    "±20°"
+   ],
+   [
+    "KPI (rango)",
+    "±20°"
+   ],
+   [
+    "Giro máximo de dirección",
+    "65°"
+   ],
+   [
+    "Precisión de convergencia",
+    "±0,2 mm/m por cámara"
+   ],
+   [
+    "Precisión de caída",
+    "±3 minutos de arco por cámara"
+   ],
+   [
+    "Autonomía",
+    "14 h con batería cargada"
+   ],
+   [
+    "Tiempo de carga",
+    "3 h"
+   ],
+   [
+    "Método",
+    "Rodadura (media vuelta de rueda), sin levantar ejes"
+   ],
+   [
+    "Comunicación",
+    "Inalámbrica entre unidades de medición y PC"
+   ]
+  ],
+  "caracteristicas": [
+   [
+    "Mide sin levantar el vehículo",
+    "Método de rodadura: no hace falta levantar los ejes ni compensar excentricidad (también admite el procedimiento estándar)."
+   ],
+   [
+    "Ángulos que mide",
+    "Convergencia, posición de la caja de dirección, caída, descuadre, paralelismo y desplazamiento del eje; caster, KPI, convergencia en giros y giro máximo."
+   ],
+   [
+    "Referencia en la línea central del chasis",
+    "Tecnología de cámara patentada tomando como referencia el eje central del vehículo."
+   ],
+   [
+    "Dos ejes a la vez",
+    "Con dos adaptadores de rueda adicionales se miden dos ejes al mismo tiempo."
+   ],
+   [
+    "Informes antes y después",
+    "El software guía el proceso y imprime los valores medidos antes y después de la alineación."
+   ],
+   [
+    "Accesorios opcionales",
+    "Kit de inclinómetro para pisos desnivelados, kit para doble eje direccional, adaptadores magnéticos para llantas de aluminio, kit para colectivos y gabinete con llave."
+   ]
+  ]
  }
 }
