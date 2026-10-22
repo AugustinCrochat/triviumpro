@@ -1085,6 +1085,18 @@ def main():
                               "value": prod['lift_height']})
             if props:
                 product_ld["additionalProperty"] = props
+            if prod.get('ali'):
+                # Certificación ALI verificada en el directorio de ALI (data/catalog.json: "ali").
+                a = prod['ali']
+                product_ld["hasCertification"] = {
+                    "@type": "Certification",
+                    "name": "ALI Certified (Gold Label)",
+                    "certificationIdentification": a['model'],
+                    "issuedBy": {"@type": "Organization", "name": "Automotive Lift Institute (ALI)",
+                                 "url": "https://www.autolift.org/"},
+                    "url": ("https://www.autolift.org/ali-directory-of-certified-car-lifts/search-certified-car-lifts/"
+                            f"?productCat={a['cat']}&manufac={a['manufac']}&ModNum&rateval=%3D&rateload&searchsubmit=Search&lift_id={a['lift_id']}"),
+                }
             offer = offers_by_sku.get(prod.get('sku'))
             if offer:
                 if offer.get('modelo'):

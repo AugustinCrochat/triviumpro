@@ -114,6 +114,18 @@ def main():
         *[f"- [{o['h1']}]({SITE_URL}/origen/{o['slug']}/): {o['description']}"
           for o in ORIGENES],
         "",
+        "## Certificación ALI de elevadores",
+        "",
+        "ALI (Automotive Lift Institute) certifica la seguridad estructural de los elevadores "
+        "vehiculares y publica un directorio de modelos certificados. Estos elevadores del "
+        "catálogo figuran en ese directorio (el modelo certificado y el enlace al directorio "
+        "están en cada ficha); los de Trivium Pro no tienen certificación ALI.",
+        "",
+        *[f"- [{p['name']}]({SITE_URL}/producto/{p['slug']}/): modelo ALI certificado "
+          f"{p['ali']['model']}"
+          f"{' (familia de modelos)' if p['ali'].get('family') else ''}."
+          for p in catalog['products'] if p.get('ali')],
+        "",
         "## Cobertura",
         "",
         f"- [Envíos, instalación y posventa en todo el país]({SITE_URL}/zonas/)",

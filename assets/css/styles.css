@@ -1338,3 +1338,9 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .pd-ali span { display: flex; flex-direction: column; gap: 2px; font-size: .9rem; }
 .pd-ali small { color: var(--muted, #666); font-size: .8rem; }
 .pd-ali em { font-style: normal; color: var(--accent); font-size: .8rem; }
+/* Etiqueta ALI Gold Label en la descripción del producto */
+.product-page-ali-cert { margin-top: 28px; }
+.product-page-ali-label { margin: 16px 0 0; max-width: 300px; }
+.product-page-ali-label img { width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,.18); }
+.product-page-ali-label figcaption { font-size: .8rem; color: var(--muted, #666); margin-top: 8px; line-height: 1.4; }
+.product-page-ali-cert a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
