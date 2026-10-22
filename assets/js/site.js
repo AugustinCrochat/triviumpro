@@ -306,7 +306,7 @@ async function loadCatalog() {
   if (CATALOG) return CATALOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/catalog.js?v=20261022d';
+    script.src = rootPath() + 'data/catalog.js?v=20261022e';
     script.onload = () => {
       CATALOG = window.CATALOG_DATA;
       resolve(CATALOG);
@@ -430,11 +430,13 @@ function originSidebarHtml(activeId) {
 // Miniatura (scripts/generate_thumbs.py): carpeta t/ junto a la original; si no existe, se usa la original.
 function thumbSrc(path) { return path.replace(/^(assets\/img\/(?:productos|blog)\/)([^/]+)$/, '$1t/$2'); }
 
-function productCard(p) {
+function productCard(p, idx) {
+  // Las primeras fotos son lo primero que se ve (LCP): sin lazy, la primera con prioridad alta.
+  const eager = idx === 0 ? 'fetchpriority="high"' : (idx > 0 && idx < 4 ? '' : 'loading="lazy"');
   const brand = brandById(p.brand);
   const msg = `Hola Trivium, quiero consultar por: ${p.name} (${p.sku})`;
   const img = p.image
-    ? `<img src="${rootPath()}${thumbSrc(p.image)}" alt="${p.name}" width="480" height="480" loading="lazy" onerror="if(this.dataset.f!=='1'){this.dataset.f='1';this.src='${rootPath()}${p.image}';return}this.style.display='none';this.nextElementSibling.style.display='grid'">
+    ? `<img src="${rootPath()}${thumbSrc(p.image)}" alt="${p.name}" width="480" height="480" ${eager} onerror="if(this.dataset.f!=='1'){this.dataset.f='1';this.src='${rootPath()}${p.image}';return}this.style.display='none';this.nextElementSibling.style.display='grid'">
        <span style="display:none">Imagen / ${p.sku}</span>`
     : `<span>Imagen / ${p.sku}</span>`;
   let specHtml = '';
@@ -520,7 +522,7 @@ async function loadBlog() {
   if (BLOG) return BLOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/blog.js?v=20261022d';
+    script.src = rootPath() + 'data/blog.js?v=20261022e';
     script.onload = () => {
       BLOG = window.BLOG_DATA;
       resolve(BLOG);

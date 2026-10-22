@@ -562,6 +562,14 @@ def origin_badge_html(prod, root):
     return ''
 
 
+def eager_first_images(grid_html, n=4):
+    """Las primeras fotos de la grilla son el LCP: sin loading=lazy y la primera con fetchpriority alta."""
+    for i in range(n):
+        new = ' fetchpriority="high"' if i == 0 else ''
+        grid_html = grid_html.replace(' loading="lazy" width="400" height="300"', new + ' width="400" height="300" data-e', 1)
+    return grid_html.replace(' data-e', '')
+
+
 def product_card_html(prod, brands_by_slug, root, offers_by_sku=None):
     """Réplica estática de productCard() de site.js, para que el HTML traiga los links."""
     brand = brands_by_slug.get(prod.get('brand'), {})
@@ -972,6 +980,7 @@ def main():
                 "Guías relacionadas", CATEGORY_BLOG_POSTS.get(slug, []), blog_by_slug, root2)
             posts_html = guide_link_html(slug, root2) + posts_html
             grid = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in prods)
+            grid = eager_first_images(grid)
             create_index_file(
                 os.path.join(BASE_DIR, 'categoria', slug), cat_template, 2,
                 title=CATEGORY_TITLES.get(slug, nombre),
@@ -1034,6 +1043,7 @@ def main():
             if prods:
                 jsonld.append(itemlist_jsonld(prods))
             grid = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in prods)
+            grid = eager_first_images(grid)
             create_index_file(
                 os.path.join(BASE_DIR, 'marca', slug), cat_template, 2,
                 title=brand_title,
