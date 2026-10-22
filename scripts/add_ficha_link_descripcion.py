@@ -13,6 +13,8 @@ from PIL import ImageFont
 
 FONT = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf", 100)
 TEXTO = "Ver ficha del producto en la web"
+TEXTO_VIDEO = "Ver video del producto"
+SEGUNDA = False   # --segunda: va una línea más abajo (debajo de "Ver ficha…")
 SIZE = 8.6
 ROJO = (0.78, 0.063, 0.18)   # #c8102e, el rojo de las fichas
 
@@ -53,6 +55,12 @@ def parrafo_por_palabra(words, palabra):
 
 def procesar(pdf, url, palabra=None):
     w, h, words = pagina1(pdf)
+    if SEGUNDA:
+        # el video va justo debajo de la línea "Ver ficha del producto en la web"
+        for i, x in enumerate(words[:-2]):
+            if x[4] == "Ver" and words[i + 1][4] == "ficha" and words[i + 2][4] == "del":
+                return dibujar(pdf, url, w, h, x[0], x[3] - 5.0 + 0.0)
+        print(f"✘ {os.path.basename(pdf)}: no encontré la línea 'Ver ficha…'"); return
     if palabra:
         r = parrafo_por_palabra(words, palabra)
         if not r:
@@ -83,7 +91,8 @@ def procesar(pdf, url, palabra=None):
     return dibujar(pdf, url, w, h, x0, ult)
 
 def dibujar(pdf, url, w, h, x0, ult):
-    y_top = ult + 5.0
+    global TEXTO
+    y_top = ult + 5.0 + (9.0 if SEGUNDA else 0.0)
     base = h - (y_top + SIZE * 0.86)
     ancho = FONT.getlength(TEXTO) * SIZE / 100.0
     ax = x0 + ancho + 4.0                     # flecha ↗ a continuación del texto
@@ -111,4 +120,6 @@ def dibujar(pdf, url, w, h, x0, ult):
     print(f"✔ {os.path.basename(pdf)}: enlace debajo de la descripción")
 
 if __name__ == "__main__":
+    if "--video" in sys.argv:
+        sys.argv.remove("--video"); TEXTO = TEXTO_VIDEO; SEGUNDA = True
     procesar(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)

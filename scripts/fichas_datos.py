@@ -149,6 +149,8 @@ def build_spec(p, d, extra):
         if not specs:
             if p.get("capacity") not in (None, "", "—"): specs.append(["Capacidad", str(p["capacity"])])
             if p.get("lift_height") not in (None, "", "—"): specs.append(["Altura de elevación", str(p["lift_height"])])
+    mv = re.search(r'product-page-btn-video[^>]*href="([^"]+)"', p.get("html_description", "")) or re.search(r'href="([^"]+)"[^>]*product-page-btn-video', p.get("html_description", ""))
+    video = mv.group(1) if mv and mv.group(1).startswith("http") else ""
     modelo = ex.get("modelo") or ""
     origen = next(((ORIGEN[b][0], ORIGEN[b][1]) for b in p.get("badges", []) if b in ORIGEN), None)
     if "ce-ue" in p.get("badges", []) and not origen:
@@ -157,7 +159,7 @@ def build_spec(p, d, extra):
         slug=p["slug"], name=p["name"], sku=p.get("sku", ""), categoria=cat.get("name", ""), cat_slug=p.get("category", ""),
         marca=marca.get("name", ""), marca_slug=p.get("brand", ""), modelo=modelo, resumen=resumen, destacado=destacado,
         features=feats, specs=specs, origen=origen, ce="ce-ue" in p.get("badges", []), ali=p.get("ali"),
-        imagen=p.get("image", ""), galeria=[i for i in (p.get("images") or []) if i != p.get("image")][:3],
+        video=video, imagen=p.get("image", ""), galeria=[i for i in (p.get("images") or []) if i != p.get("image")][:3],
         ideal=ex.get("ideal") or CATEGORIA_IDEAL.get(p.get("category"), "talleres y gomerías"),
         url=f"https://pro.trivium.ar/producto/{p['slug']}/", capacidad=p.get("capacity", ""), extra=ex,
     )
