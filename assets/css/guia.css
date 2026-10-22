@@ -16,7 +16,7 @@
 .guia-body tr:last-child td { border-bottom: 0; }
 .guia-body .cta { margin: 40px 0 0; padding: 22px 24px; border: 1px solid var(--line); background: var(--bg-2); color: var(--text); }
 .guia-body .cta p { margin-bottom: 10px; }
-.guia-body .cta a.btn { display: inline-block; }
+.guia-body .cta a.btn { display: inline-flex; justify-content: center; }
 .guia-lista { list-style: none; padding: 0; display: grid; gap: 12px; }
 .guia-lista a { display: block; padding: 18px 22px; border: 1px solid var(--line); color: var(--text); text-decoration: none; }
 .guia-lista a strong { display: block; margin-bottom: 4px; }
