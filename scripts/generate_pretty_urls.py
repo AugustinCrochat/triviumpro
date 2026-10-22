@@ -568,7 +568,12 @@ def product_card_html(prod, brands_by_slug, root, offers_by_sku=None):
     brand_name = brand.get('name', '')
     img = ''
     if prod.get('image'):
-        img = (f'<img src="{esc(root + prod["image"])}" alt="{esc(prod["name"])}" '
+        # Miniatura de scripts/generate_thumbs.py si existe (la original pesa 5-10 veces más)
+        src = prod['image']
+        thumb = re.sub(r'^(assets/img/productos/)([^/]+)$', r'\1t/\2', src)
+        if thumb != src and os.path.exists(thumb):
+            src = thumb
+        img = (f'<img src="{esc(root + src)}" alt="{esc(prod["name"])}" '
                f'loading="lazy" width="400" height="300">')
     logo = brand_logo_rel(prod.get('brand', ''))
     thumb_brand = (f'<span class="thumb-brand"><img src="{esc(root + logo)}" alt="{esc(brand_name)}"></span>'
