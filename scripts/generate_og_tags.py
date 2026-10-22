@@ -125,6 +125,8 @@ def inject_head(content, title, og_block, seo_block):
 POST_CATEGORY = {}
 for _cat_slug, _cat_name, _posts in [
     ('elevadores', 'Elevadores', [
+        'como-equipar-un-taller-para-autos-electricos-e-hibridos-elevador-y-herramientas',
+        'como-montar-un-taller-de-motos-elevador-y-equipamiento-necesario',
         'elevador-tijera-tipos-capacidades-y-cual-elegir-para-tu-taller',
         'como-elegir-un-elevador-de-2-columnas-capacidad-brazos-y-altura',
         'elevador-de-4-columnas-para-que-sirve-capacidades-y-cuando-conviene',
@@ -153,6 +155,8 @@ for _cat_slug, _cat_name, _posts in [
         'como-funciona-la-alineacion-3d-de-autos-tecnologia-y-beneficios',
     ]),
     ('balanceadoras', 'Balanceadoras', [
+        'como-elegir-una-balanceadora-de-ruedas-capacidad-tecnologia-y-modelos',
+        'como-montar-una-gomeria-para-camiones-y-vehiculos-pesados-equipos-necesarios',
         'es-rentable-una-gomeria-como-calcular-ganancias-y-punto-de-equilibrio',
         'servicios-para-sumar-ticket-en-una-gomeria-y-que-equipos-necesitas',
         'como-centrar-una-rueda-en-la-balanceadora-conos-tuercas-rapidas-y-adaptadores',
@@ -163,6 +167,7 @@ for _cat_slug, _cat_name, _posts in [
         'la-importancia-de-balancear-ruedas-beneficios-clave-para-talleres-y-gomerias',
     ]),
     ('desarmadoras', 'Desarmadoras', [
+        'como-montar-una-gomeria-para-camiones-y-vehiculos-pesados-equipos-necesarios',
         'como-elegir-una-desarmadora-de-neumaticos-tipos-tamanos-y-modelos',
         'es-rentable-una-gomeria-como-calcular-ganancias-y-punto-de-equilibrio',
         'para-que-sirve-el-brazo-auxiliar-en-una-desarmadora-de-neumaticos',

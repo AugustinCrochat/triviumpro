@@ -75,6 +75,10 @@ SPEC = {
  "elevador-de-4-columnas-para-que-sirve-capacidade": ("GUÍA DE COMPRA · ELEVADORES 4 COLUMNAS", "Elevador de 4 columnas: para qué sirve", "Capacidades y cuándo conviene", ["elevador-4-columnas-unite-pl-fs50"]),
  "como-elegir-un-elevador-de-2-columnas-capacidad-": ("GUÍA DE COMPRA · ELEVADORES 2 COLUMNAS", "Cómo elegir un elevador de 2 columnas", "Capacidad, brazos y altura", ["elevador-dos-columnas-rotary-lift-spoa10"]),
  "servicios-para-sumar-ticket-en-una-gomeria-y-que": ("GUÍA DE NEGOCIO · GOMERÍAS", "Servicios para sumar ticket en tu gomería", "Qué ofrecer y qué equipos necesitás", ["balanceadora-de-ruedas-hofmann-geodyna-7600p"]),
+ "como-equipar-un-taller-para-autos-electricos-e-h": ("GUÍA TÉCNICA · VEHÍCULOS ELÉCTRICOS", "Taller para autos eléctricos e híbridos", "Elevador, baterías y herramientas", ["elevador-dos-columnas-6000-kg-vehiculos-electricos", "elevador-de-baterias-para-autos-electricos"]),
+ "como-montar-una-gomeria-para-camiones-y-vehiculo": ("GUÍA DE NEGOCIO · GOMERÍA DE CAMIONES", "Cómo montar una gomería para camiones", "Equipos necesarios para vehículos pesados", ["desarmadora-para-ruedas-de-camiones-monty-4250p", "balanceadora-para-ruedas-de-camion-geodyna-980l"]),
+ "como-montar-un-taller-de-motos-elevador-y-equipa": ("GUÍA DE NEGOCIO · TALLER DE MOTOS", "Cómo montar un taller de motos", "Elevador y equipamiento necesario", ["elevador-para-moto-direct-lift-procycle-dt", "elevador-para-motos-mt07-trivium-center-454-kilos"]),
+ "como-elegir-una-balanceadora-de-ruedas-capacidad": ("GUÍA DE COMPRA · BALANCEADORAS", "Cómo elegir una balanceadora de ruedas", "Capacidad, tecnología y modelos", ["balanceadora-de-ruedas-hofmann-geodyna-7400l"]),
 }
 
 def trim(path, out):
