@@ -102,7 +102,10 @@ def specs_de_pdf(p):
     for f in re.findall(r'href="(assets/pdf/[^"]+\.pdf)"', p.get("html_description", "")):
         ruta = os.path.join(ROOT, f)
         if not os.path.exists(ruta) or "/ficha-tecnica-" in f: continue
-        t = subprocess.run(["pdftotext", "-layout", "-f", "1", "-l", "2", ruta, "-"], capture_output=True, text=True).stdout
+        try:
+            t = subprocess.run(["pdftotext", "-layout", "-f", "1", "-l", "2", ruta, "-"], capture_output=True, text=True).stdout
+        except OSError:
+            return []        # sin poppler (por ejemplo en GitHub Actions): sin datos extra del PDF viejo
         for linea in t.splitlines():
             trozos = [x.strip(" •·-–.\t") for x in re.split(r"\s{3,}", linea.strip()) if x.strip()]
             # tabla en columnas: "Etiqueta      valor"  (sin ':' ni '|')
@@ -163,6 +166,20 @@ def build_spec(p, d, extra):
         ideal=ex.get("ideal") or CATEGORIA_IDEAL.get(p.get("category"), "talleres y gomerías"),
         url=f"https://pro.trivium.ar/producto/{p['slug']}/", capacidad=p.get("capacity", ""), extra=ex,
     )
+
+def faqs(s):
+    nombre = s["name"]
+    q = []
+    q.append((f"¿Para qué sirve el {nombre}?", (s["resumen"] or s["destacado"]).rstrip(".") + f". Ideal para {s['ideal']}."))
+    if s["specs"]:
+        q.append(("¿Cuáles son sus características técnicas principales?", "; ".join(f"{a}: {b}" for a, b in s["specs"][:4]) + "."))
+    if s["ali"]:
+        q.append(("¿Tiene certificación ALI?", f"Sí: el modelo {s['ali']['model']} figura en el directorio de ALI (Automotive Lift Institute) como elevador certificado."))
+    if s["origen"]:
+        q.append(("¿De qué origen es?", f"Origen de fabricación: {s['origen'][1]} (el que declara el fabricante del modelo)."))
+    q.append(("¿Tiene garantía y servicio técnico?", "Sí. Trivium Pro ofrece garantía y servicio técnico oficial en todo el país, con repuestos originales y equipo técnico propio para la colocación."))
+    return q[:4]
+
 
 if __name__ == "__main__":
     d, extra = cargar()

@@ -77,7 +77,27 @@ def product_type(p, cats):
     return " > ".join(names)
 
 
+# Categoría de producto de Google (taxonomía es-419/en-US, versión 2021-09-21; ids de taxonomy-with-ids).
+GOOGLE_CATEGORY = {
+    "elevadores": 8236, "alineadoras": 8236, "balanceadoras": 8236, "accesorios-balanceo": 8236,
+    "equipamiento-taller": 8236, "desarmadoras": 8261, "herramientas-neumaticas": 1221,
+    "muebles-taller": 3280, "aire-comprimido": 2015,
+}
+
+
+def google_category(p, cats):
+    cat = cats.get(p.get("category"))
+    while cat:
+        if cat["slug"] in GOOGLE_CATEGORY:
+            return GOOGLE_CATEGORY[cat["slug"]]
+        cat = cats.get(cat.get("parent"))
+    return 8236
+
+
 def main():
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import fichas_datos as fd
+    _d, _extra = fd.cargar()
     catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
     prices = load_prices_publico()
     rate, live = get_official_rate()
@@ -115,7 +135,15 @@ def main():
         # caracteres, y sin GTIN (marca propia, no tiene código de barras
         # registrado) → identifier_exists = no.
         g_title = p["name"] if "trivium" in p["name"].lower() else f"{p['name']} - Trivium Pro"
-        g_desc = clip(description, 700)
+        spec = fd.build_spec(p, _d, _extra)
+        # Descripción rica (hasta ~1500 caracteres): resumen, descripción y datos técnicos, en texto plano.
+        partes = [spec["destacado"] or spec["resumen"] or ""]
+        if spec["specs"]:
+            partes.append("Especificaciones: " + "; ".join(f"{a}: {b}" for a, b in spec["specs"][:8]) + ".")
+        if spec["features"]:
+            partes.append("Características: " + "; ".join((f"{a}: {b}" if a else b) for a, b in spec["features"][:4]) + ".")
+        partes.append(f"Ideal para {spec['ideal']}. Garantía y servicio técnico oficial en todo el país; la instalación se cotiza aparte.")
+        g_desc = clip(" ".join(x for x in partes if x), 1500)
         if len(g_desc) < 100:
             g_desc += (" Línea Trivium Pro para talleres y gomerías. Instalación a cotizar "
                        "y servicio técnico en todo el país.")
@@ -133,6 +161,14 @@ def main():
             "mpn": rec.get("modelo") or "",
             "identifier_exists": "no",
             "product_type": product_type(p, cats),
+            "google_product_category": google_category(p, cats),
+            "custom_label_0": (cats.get(p.get("category")) or {}).get("name", ""),
+            "custom_label_1": "Trivium Pro",
+            "product_highlight[0]": clip(next(iter(f"{a}: {b}" if a else b for a, b in spec["features"][:1]), ""), 150),
+            "product_highlight[1]": clip(next(iter(f"{a}: {b}" if a else b for a, b in spec["features"][1:2]), ""), 150),
+            "product_highlight[2]": clip(next(iter(f"{a}: {b}" if a else b for a, b in spec["features"][2:3]), ""), 150),
+            "product_highlight[3]": clip(next(iter(f"{a}: {b}" if a else b for a, b in spec["features"][3:4]), ""), 150),
+            "canonical_link": f"{SITE_URL}/producto/{p['slug']}/",
         })
 
         rows.append({
@@ -166,7 +202,9 @@ def main():
     g_path = out_dir / "google-merchant.tsv"
     g_fields = ["id", "title", "description", "link", "image_link", "additional_image_link",
                 "availability", "price", "condition", "brand", "mpn", "identifier_exists",
-                "product_type"]
+                "product_type", "google_product_category", "custom_label_0", "custom_label_1",
+                "product_highlight[0]", "product_highlight[1]", "product_highlight[2]", "product_highlight[3]",
+                "canonical_link"]
     with g_path.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=g_fields, delimiter="\t",
                                 quoting=csv.QUOTE_MINIMAL)

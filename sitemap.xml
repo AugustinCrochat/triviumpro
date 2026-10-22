@@ -43,6 +43,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://pro.trivium.ar/envios-y-entregas/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/cambios-devoluciones-y-arrepentimiento/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/terminos-y-condiciones/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/politica-de-privacidad/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://pro.trivium.ar/guias/</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>

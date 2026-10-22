@@ -742,6 +742,10 @@ def update_static_pages(catalog):
              f"precio de lista y precio final con IVA de cada equipo, lista para "
              f"imprimir o descargar en PDF.",
              f"Lista de precios — {ORG_NAME}"),
+        'terminos-y-condiciones': ("Términos y condiciones", "Términos y condiciones de compra de Trivium Pro: precios, pagos con Mercado Pago, entrega, garantía y defensa del consumidor.", f"Términos y condiciones de compra — {ORG_NAME}"),
+        'cambios-devoluciones-y-arrepentimiento': ("Cambios y devoluciones", "Cómo cambiar, devolver o revocar una compra en Trivium Pro: 10 días corridos, botón de arrepentimiento y garantía.", f"Cambios, devoluciones y arrepentimiento — {ORG_NAME}"),
+        'envios-y-entregas': ("Envíos y entregas", "Envíos de equipamiento para taller a todo el país: costo y plazo según destino, retiro en Buenos Aires y recepción del equipo. Instalación aparte.", f"Envíos y entregas — {ORG_NAME}"),
+        'politica-de-privacidad': ("Política de privacidad", "Cómo Trivium Pro trata tus datos personales: qué datos recolectamos, para qué los usamos, con quién los compartimos y cómo ejercer tus derechos.", f"Política de privacidad — {ORG_NAME}"),
         'blog': ("Blog",
              "Notas técnicas sobre equipamiento de taller: cómo elegir elevadores "
              "y alineadoras, montar una gomería y mantener tus equipos.",
@@ -1146,15 +1150,25 @@ def main():
                         "valueAddedTaxIncluded": True,
                     },
                     "seller": {"@type": "Organization", "name": ORG_NAME},
+                    # Derecho de revocación de 10 días corridos (art. 34, Ley 24.240); gastos de devolución a cargo del proveedor.
+                    "hasMerchantReturnPolicy": {
+                        "@type": "MerchantReturnPolicy",
+                        "applicableCountry": "AR",
+                        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                        "merchantReturnDays": 10,
+                        "returnMethod": "https://schema.org/ReturnByMail",
+                        "returnFees": "https://schema.org/FreeReturn",
+                        "merchantReturnLink": f"{SITE_URL}/cambios-devoluciones-y-arrepentimiento/",
+                    },
                 }
             jsonld = [product_ld, breadcrumb_jsonld([
                 (n, SITE_URL + '/' + (h or '')) if h is not None else (n, url)
                 for n, h in crumbs
             ])]
             # Preguntas frecuentes del producto (mismo texto que la ficha PDF): visibles y en JSON-LD.
-            import fichas_datos as _fd, generate_fichas as _gf
+            import fichas_datos as _fd
             _spec = _fd.build_spec(prod, catalog, _FICHAS_EXTRA)
-            prod_faqs = _gf.faqs(_spec)
+            prod_faqs = _fd.faqs(_spec)
             jsonld.append(faq_jsonld(prod_faqs))
 
             # --- cuerpo prerenderizado ---

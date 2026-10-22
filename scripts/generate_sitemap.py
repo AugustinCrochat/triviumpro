@@ -27,6 +27,10 @@ STATIC_PAGES = [
     ("/nosotros/", "0.5", "yearly"),
     ("/contacto/", "0.5", "yearly"),
     ("/blog/", "0.7", "weekly"),
+    ("/envios-y-entregas/", "0.4", "yearly"),
+    ("/cambios-devoluciones-y-arrepentimiento/", "0.4", "yearly"),
+    ("/terminos-y-condiciones/", "0.3", "yearly"),
+    ("/politica-de-privacidad/", "0.3", "yearly"),
 ]
 
 

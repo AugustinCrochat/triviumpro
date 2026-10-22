@@ -81,18 +81,7 @@ def tiles(specs):
         if len(out) == 4: break
     return out
 
-def faqs(s):
-    nombre = s["name"]
-    q = []
-    q.append((f"¿Para qué sirve el {nombre}?", (s["resumen"] or s["destacado"]).rstrip(".") + f". Ideal para {s['ideal']}."))
-    if s["specs"]:
-        q.append(("¿Cuáles son sus características técnicas principales?", "; ".join(f"{a}: {b}" for a, b in s["specs"][:4]) + "."))
-    if s["ali"]:
-        q.append(("¿Tiene certificación ALI?", f"Sí: el modelo {s['ali']['model']} figura en el directorio de ALI (Automotive Lift Institute) como elevador certificado."))
-    if s["origen"]:
-        q.append(("¿De qué origen es?", f"Origen de fabricación: {s['origen'][1]} (el que declara el fabricante del modelo)."))
-    q.append(("¿Tiene garantía y servicio técnico?", "Sí. Trivium Pro ofrece garantía y servicio técnico oficial en todo el país, con repuestos originales y equipo técnico propio para la colocación."))
-    return q[:4]
+faqs = fd.faqs
 
 def render(s, n_feat=6, n_spec=14, n_faq=4, galeria=True):
     img = lambda r: "file://" + os.path.join(ROOT, r)
