@@ -19,7 +19,7 @@
 </style>
 </head>
 <body>
-<div class="bar"><a href="javascript:history.back()" aria-label="Volver">← Volver</a><span class="t" id="titulo">Ficha técnica</span><a class="pri" id="dl" href="#" download>Descargar PDF</a></div>
+<div class="bar"><a href="javascript:history.back()" aria-label="Volver">← Volver</a><span class="t" id="titulo">Ficha técnica</span><a id="sh" href="#" target="_blank" rel="noopener">Compartir</a><a class="pri" id="dl" href="#" download>Descargar PDF</a></div>
 <div id="msg">Cargando la ficha técnica…</div>
 <div id="pages"></div>
 <script src="../assets/js/pdfjs/pdf.min.js"></script>
@@ -31,6 +31,10 @@
   if (!/^\/?assets\/pdf\/[A-Za-z0-9._-]+\.pdf$/.test(f)) { msg.textContent = 'No se encontró la ficha técnica.'; return; }
   var url = '/' + f.replace(/^\//, '');
   var dl = document.getElementById('dl'); dl.href = url; dl.setAttribute('download', f.split('/').pop());
+  // Compartir por WhatsApp con el enlace a la ficha; ?a=descargar (viene del encabezado del PDF) baja el archivo al abrir.
+  var abs = location.origin + url;
+  document.getElementById('sh').href = 'https://wa.me/?text=' + encodeURIComponent('Ficha técnica — Trivium Pro\n' + abs);
+  if (new URLSearchParams(location.search).get('a') === 'descargar') setTimeout(function () { dl.click(); }, 300);
   document.getElementById('titulo').textContent = f.split('/').pop().replace(/\.pdf$/, '').replace(/-/g, ' ');
   if (!window.pdfjsLib) { location.replace(url); return; }
   pdfjsLib.GlobalWorkerOptions.workerSrc = '../assets/js/pdfjs/pdf.worker.min.js';
