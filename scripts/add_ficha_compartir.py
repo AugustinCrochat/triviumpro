@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Agrega "Descargar" y "Compartir" (dos botones con enlace) debajo de "FICHA TÉCNICA" en la
-primera página de una ficha PDF ya hecha.
+"""Agrega "Descargar" y "Compartir" (dos botones con enlace) debajo del título, a la derecha de la
+línea "Modelo · Código", en la primera página de una ficha PDF ya hecha.
 
 - Descargar: /ficha/?f=assets/pdf/<archivo>&a=descargar (el visor baja el archivo al abrir).
 - Compartir: https://wa.me/?text=<título + enlace al PDF>.
@@ -18,13 +18,30 @@ SITIO = "https://pro.trivium.ar"
 ROJO = "0.91 0.16 0.10"
 
 def cabecera(pdf):
-    """(alto de página, x derecho, y inferior en pt desde arriba) de 'FICHA TÉCNICA' en la página 1."""
+    """(alto de página, x derecho, y superior de los botones en pt desde arriba).
+
+    Los botones van debajo del título, en la línea de "Modelo · Código", pegados al margen
+    derecho (el borde derecho sale de "FICHA TÉCNICA"). Si la ficha no tiene esa línea, se
+    ponen justo debajo del título."""
     xml = subprocess.run(["pdftotext", "-f", "1", "-l", "1", "-bbox", pdf, "-"], capture_output=True, text=True, check=True).stdout
     h = float(re.search(r'<page width="[\d.]+" height="([\d.]+)"', xml).group(1))
-    for m in re.finditer(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(FICHA|T[ÉE]CNICA)</word>', xml):
-        if float(m.group(2)) < 100 and m.group(5) != "FICHA":
-            return h, float(m.group(3)), float(m.group(4))
-    return None
+    palabras = [(w[4], *map(float, w[:4])) for w in re.findall(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">([^<]*)</word>', xml)]
+    derecho = next((x1 for t, x0, y0, x1, y1 in palabras if t.startswith("T") and t.endswith("CNICA") and y0 < 100), None)
+    if derecho is None:   # "TÉCNICA" partida en letras: el margen derecho es el de las demás fichas
+        if not any(t == "FICHA" and y0 < 100 for t, x0, y0, x1, y1 in palabras):
+            return None
+        derecho = 556.0
+    # título = palabras altas (más de 15 pt de alto de caja) bajo el encabezado
+    titulo = [(y0, y1) for t, x0, y0, x1, y1 in palabras if 75 < y0 < 260 and (y1 - y0) > 16]
+    if not titulo:
+        return None
+    base = max(y1 for _, y1 in titulo)
+    sub = [(y0, y1) for t, x0, y0, x1, y1 in palabras if base - 1 < y0 < base + 25 and (y1 - y0) < 13 and x0 < 400]
+    alto = 11.0
+    if sub:
+        centro = (min(y0 for y0, _ in sub) + max(y1 for _, y1 in sub)) / 2
+        return h, derecho, centro - alto / 2
+    return h, derecho, base + 4.0
 
 def ya_tiene(pdf):
     return b"a=descargar" in subprocess.run(["strings", "-a", pdf], capture_output=True).stdout
@@ -41,7 +58,7 @@ def procesar(pdf):
     cab = cabecera(pdf)
     if not cab:
         print("· sin encabezado FICHA TÉCNICA:", os.path.basename(pdf)); return False
-    h, xr, yb = cab
+    h, xr, ysup = cab
     nombre = os.path.basename(pdf)
     url_pdf = f"{SITIO}/assets/pdf/{nombre}"
     desc = f"{SITIO}/ficha/?f=assets/pdf/{quote(nombre)}&a=descargar"
@@ -49,7 +66,7 @@ def procesar(pdf):
     # medidas (pt): botones de 11 de alto, bajo el texto, alineados a la derecha
     alto, gap, fs = 11.0, 4.0, 6.3
     ancho_c, ancho_d = 45.0, 47.0
-    y0 = h - (yb + 5.0 + alto)            # base de los botones (desde abajo)
+    y0 = h - (ysup + alto)                # base de los botones (desde abajo)
     xr = xr + 1.0
     xc = xr - ancho_c; xd = xc - gap - ancho_d
 

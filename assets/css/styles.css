@@ -505,9 +505,10 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
 /* ---------- Product grid ---------- */
 .prod-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
-  /* Cada tarjeta mide lo que ocupa su contenido: con 'stretch' las de la fila se
-     igualaban a la más alta (la que lleva precio) y quedaba un blanco al pie. */
-  align-items: start;
+  /* Las tarjetas de una fila miden lo mismo (si un título ocupa 3 renglones y otro 2,
+     no quedan desparejas); el blanco sobrante queda entre el título y los datos, que
+     se anclan al pie de la tarjeta (ver .spec). */
+  align-items: stretch;
 }
 .prod-card {
   background: var(--bg);
@@ -570,6 +571,9 @@ p  { margin: 0 0 .8em; color: var(--text-dim); }
   /* Con dos columnas no entra junto al logo de marca: va abajo a la derecha. */
   .prod-card .thumb .origin-badge { top: auto; bottom: 6px; right: 6px; padding: 3px; }
   .prod-card .thumb .origin-badge img { width: 46px; }
+  /* El logo de marca también abajo (a la izquierda): tapa menos de la foto del equipo. */
+  .prod-card .thumb-brand { top: auto; bottom: 6px; left: 6px; padding: 3px 6px; }
+  .prod-card .thumb-brand img { height: 13px; max-width: 58px; }
   .pd-gallery > .origin-badge { top: 8px; right: 8px; padding: 5px; }
   .pd-gallery > .origin-badge img { width: 56px; }
 }
@@ -653,7 +657,7 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
 }
 .prod-card .spec {
   display: flex; gap: 12px;
-  margin-top: 6px;
+  margin-top: auto; padding-top: 6px;
   font-size: .75rem;
   color: var(--text-dim);
 }
