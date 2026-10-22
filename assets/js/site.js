@@ -294,7 +294,7 @@ async function loadCatalog() {
   if (CATALOG) return CATALOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/catalog.js';
+    script.src = rootPath() + 'data/catalog.js?v=20261022a';
     script.onload = () => {
       CATALOG = window.CATALOG_DATA;
       resolve(CATALOG);
@@ -388,7 +388,9 @@ function originBadgeHtml(p, asLink) {
   const cls = 'origin-badge' + (b.plain ? ' origin-badge--plain' : '');
   if (!asLink) return `<span class="${cls}" title="${b.text}">${inner}</span>`;
   const label = b.plain ? 'Qué es el marcado CE' : `Equipos con origen ${b.name}`;
-  return `<a class="${cls}" href="${rootPath()}${b.href}" aria-label="${label}">${inner}</a>`;
+  // Marcado CE: cuadro explicativo (hover en escritorio; un toque en el celular, y otro toque abre la página).
+  const pop = b.plain ? `<span class="ob-pop" role="tooltip"><b>Marcado CE</b>Declaración del fabricante de que el producto cumple la normativa de la Unión Europea en seguridad, salud y medio ambiente. No indica el país de fabricación.<em class="ob-pop-t">Tocá de nuevo para más información</em><em class="ob-pop-h">Clic para más información</em></span>` : '';
+  return `<a class="${cls}" href="${rootPath()}${b.href}" aria-label="${label}" ${b.plain ? 'aria-haspopup="true"' : ''}>${inner}${pop}</a>`;
 }
 
 // Certificación ALI: enlaza a la ficha del modelo en el directorio oficial de ALI.
@@ -503,7 +505,7 @@ async function loadBlog() {
   if (BLOG) return BLOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/blog.js';
+    script.src = rootPath() + 'data/blog.js?v=20261022a';
     script.onload = () => {
       BLOG = window.BLOG_DATA;
       resolve(BLOG);
@@ -543,3 +545,13 @@ function renderBlogGrid(containerSel, posts) {
   if (!el) return;
   el.innerHTML = posts.map(blogCard).join('');
 }
+
+// Marcado CE en el celular: el primer toque muestra el cuadro explicativo, el segundo abre la página.
+document.addEventListener('click', function (e) {
+  const badge = e.target.closest ? e.target.closest('.origin-badge--plain[aria-haspopup]') : null;
+  const abiertos = document.querySelectorAll('.origin-badge.ob-open');
+  if (!badge) { abiertos.forEach(b => b.classList.remove('ob-open')); return; }
+  if (window.matchMedia && window.matchMedia('(hover: none)').matches && !badge.classList.contains('ob-open')) {
+    e.preventDefault(); abiertos.forEach(b => b.classList.remove('ob-open')); badge.classList.add('ob-open');
+  }
+});

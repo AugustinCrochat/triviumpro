@@ -35,7 +35,7 @@ h1{margin:1mm 0 1mm;font-size:19pt;line-height:1.12;font-weight:bold}
 .hero .im img{max-width:100%;max-height:100%;object-fit:contain}
 .ht{display:flex;flex-direction:column;gap:2.2mm;flex:1}
 .ht p{border-left:3px solid #c8102e;padding-left:5mm;font-size:11pt;line-height:1.45;margin:0}
-.lk{color:#c8102e;text-decoration:none;font-size:8.6pt;padding-left:calc(5mm + 3px)}.ht{gap:1.6mm}
+.lks{display:flex;gap:2mm;flex-wrap:wrap;padding-left:calc(5mm + 3px)}.lk{display:inline-flex;align-items:center;gap:1.4mm;border:.3mm solid #e3b5bc;border-radius:1.4mm;background:#fff7f8;color:#c8102e;text-decoration:none;font-size:8pt;font-weight:bold;padding:1mm 2.2mm}.lk .ic{width:3.4mm;height:3.4mm;flex:none}.lk i{font-style:normal;font-weight:normal}.ht{gap:2mm}
 .tiles{display:flex;gap:2mm;margin-top:1mm}.tile{flex:1;background:#f2f2f2;border-radius:1.6mm;padding:1.6mm 2.2mm}
 .tile b{display:block;font-size:10pt;line-height:1.15}.tile span{font-size:6.6pt;color:#666;text-transform:uppercase;letter-spacing:.03em}
 h3{font-size:8pt;letter-spacing:.09em;margin:4mm 0 1.8mm;color:#333;text-transform:uppercase}
@@ -131,7 +131,7 @@ def render(s, n_feat=6, n_spec=14, n_faq=4, galeria=True):
 <meta name="author" content="Trivium Pro"><meta name="description" content="{E(s['resumen'])}"><style>{CSS}</style></head><body><div class="page">
 <div class="top"><img class="lg" src="file://{ROOT}/assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"><div class="chips">{chips}</div><span>FICHA TÉCNICA</span></div>
 <div class="main"><div class="kick">{E(kicker)}</div><h1>{E(s['name'])}</h1><div class="sub">{subt}</div>
-<div class="hero"><div class="im"><img src="{img(s['imagen'])}" alt="{E(s['name'])}"></div><div class="ht"><p>{E(s['destacado'] or s['resumen'])}</p><a class="lk" href="{s['url']}">Ver ficha del producto en la web ↗</a>{('<a class="lk" href="' + s['video'] + '">Ver video del producto ↗</a>') if s['video'] else ''}<div class="tiles">{tl}</div></div></div>
+<div class="hero"><div class="im"><img src="{img(s['imagen'])}" alt="{E(s['name'])}"></div><div class="ht"><p>{E(s['destacado'] or s['resumen'])}</p><div class="lks"><a class="lk" href="{s['url']}">{svg_inline("web-rojo.svg", "ic")}Ver ficha del producto en la web <i>↗</i></a>{('<a class="lk" href="' + s['video'] + '">' + svg_inline("video-rojo.svg", "ic") + 'Ver video del producto <i>↗</i></a>') if s['video'] else ''}</div><div class="tiles">{tl}</div></div></div>
 <div class="cols"><div><h3>Características principales</h3>{feats}</div><div><h3>Especificación técnica</h3><table>{rows}</table><div class="fin"><b>Financiación disponible:</b> consultá planes de pago.</div></div></div>
 {gal}<h3>Preguntas frecuentes</h3><div class="faq">{faq}</div></div>
 <div class="foot3"><div><b>Instalación en tu taller</b>Contamos con un equipo de técnicos para la colocación de tu equipo, en todo el país.</div><div><b>Servicio técnico oficial</b>Garantía y servicio técnico oficial en todo el país.</div><div><b>Repuestos originales</b>Stock permanente con garantía de trazabilidad.</div></div>

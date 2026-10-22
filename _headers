@@ -49,6 +49,14 @@
 /assets/*
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
+# JS y CSS: el HTML de las páginas se actualiza con cada deploy y el JS tiene que ser de la misma
+# versión (un site.js viejo en el teléfono rompía la hidratación de la ficha: foto deformada y sin botones).
+/assets/js/*
+  Cache-Control: public, max-age=300, must-revalidate
+
+/assets/css/*
+  Cache-Control: public, max-age=300, must-revalidate
+
 /uploads/*
   Cache-Control: public, max-age=31536000, immutable
 
