@@ -4,14 +4,14 @@ ficha PDF ya hecha, a la izquierda de "FICHA TÉCNICA". Se dibujan con Ghostscri
 (EndPage) sobre el espacio libre del encabezado; las fichas nuevas las llevan en el HTML.
 
 Las imágenes salen de scripts/make_ficha_chips.py. El alto sale del prefijo del nombre:
-brand-* 24 pt, origin-* 34 pt, ce.png 28 pt.
+brand-* 24 pt, origin-* 34 pt, ce.png 28 pt, ali-* 30 pt.
 
 Uso: python3 scripts/add_ficha_badges.py ficha.pdf chip1.png [chip2.png ...]
 """
 import os, re, shutil, subprocess, sys, tempfile
 from PIL import Image
 
-ALTOS = {"brand": 24.0, "origin": 34.0, "ce": 28.0}
+ALTOS = {"brand": 24.0, "origin": 34.0, "ce": 28.0, "ali": 30.0}
 GAP = 9.0
 DPI = 150
 

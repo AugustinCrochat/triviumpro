@@ -2,7 +2,8 @@
 """Genera los PNG de las insignias del encabezado de las fichas PDF (logo de marca,
 sello de origen, marcado CE) con Chrome headless, a 4x, sobre fondo blanco.
 
-Uso: python3 scripts/make_ficha_chips.py <carpeta_salida>
+Uso: python3 scripts/make_ficha_chips.py <carpeta_salida> [MODELO_ALI ...]
+(con modelos ALI genera solo ali-<modelo>.png)
 Crea: brand-<slug>.png, origin-<id>.png, ce.png (alto 26 pt aprox.; 1 pt = 4 px x 1.333)
 """
 import os, subprocess, sys, tempfile, html
@@ -20,8 +21,22 @@ def shot(body, w, h, out):
     # recorte al contenido (el lienzo es más grande que la insignia) con un margen mínimo
     subprocess.run(["convert", out, "-fuzz", "1%", "-trim", "+repage", "-bordercolor", "white", "-border", "6", out], check=True)
 
+def ali_chip(outdir, modelo):
+    """Sello ALI Validated + modelo certificado (ALI exige el modelo junto al sello)."""
+    logo = os.path.join(ROOT, "assets/img/iconos/ali-validated.png")
+    body = (f'<div style="display:flex;align-items:center;gap:6px;border:1px solid #d6d6d6;border-radius:4px;padding:3px 7px">'
+            f'<img src="file://{logo}" style="height:34px;width:auto">'
+            f'<div style="display:flex;flex-direction:column;line-height:1.15"><span style="font-size:7px;color:#555">MODELO CERTIFICADO</span>'
+            f'<b style="font-size:11px">{html.escape(modelo)}</b></div></div>')
+    shot(body, 190, 60, os.path.join(outdir, f"ali-{modelo}.png"))
+
+
 def main(outdir):
     os.makedirs(outdir, exist_ok=True)
+    if len(sys.argv) > 2:
+        for m in sys.argv[2:]:
+            ali_chip(outdir, m)
+        return
     px = H * 96 / 72  # alto en px CSS
     marcas = {s: os.path.join(ROOT, "assets/img/marcas", f) for s, f in
               [("rotary-lift", "logo-rotary-lift.svg"), ("hofmann", "logo-hofmann.svg"), ("direct-lift", "logo-direct-lift.svg"),
