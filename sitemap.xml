@@ -1451,6 +1451,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://pro.trivium.ar/assets/pdf/web-ficha-accesorios-de-alineacion-y-balanceo.pdf</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://pro.trivium.ar/assets/pdf/ficha-tecnica-calibre-haweka-para-medir-la-distancia-entre-bulones-de-ruedas.pdf</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>yearly</changefreq>
@@ -1458,6 +1464,12 @@
   </url>
   <url>
     <loc>https://pro.trivium.ar/assets/pdf/ficha-tecnica-kit-de-9-conos-para-balanceadora-52-5-122-mm.pdf</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/assets/pdf/web-ficha-conos-y-mangas.pdf</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -1487,6 +1499,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://pro.trivium.ar/assets/pdf/ficha-haweka-210-400-001-4-conos-expandibles-exhibidor.pdf</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://pro.trivium.ar/assets/pdf/ficha-tecnica-soporte-para-accesorios-haweka.pdf</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>yearly</changefreq>
@@ -1494,6 +1512,12 @@
   </url>
   <url>
     <loc>https://pro.trivium.ar/assets/pdf/ficha-tecnica-dispositivo-de-fijacion-probike-haweka.pdf</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/assets/pdf/39-ficha-805-818-000-805-995-000-probike-haweka.pdf</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>

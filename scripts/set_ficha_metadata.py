@@ -28,8 +28,28 @@ def mapa():
     m = {}
     for p in d["products"]:
         for f in re.findall(r'href="assets/pdf/([^"]+\.pdf)"', p.get("html_description", "")):
+            if f in CATALOGOS: continue
             m.setdefault(f, (p, brands.get(p.get("brand"), ""), cats.get(p.get("category"), "")))
     return m
+
+# Fichas de varios ítems (scripts/generate_haweka_catalogos.py): título y asunto propios.
+CATALOGOS = {
+    "web-ficha-accesorios-de-alineacion-y-balanceo.pdf": "Accesorios Haweka para alineación y balanceo",
+    "web-ficha-conos-y-mangas.pdf": "Conos y mangas de centrado Haweka",
+    "39-ficha-805-818-000-805-995-000-probike-haweka.pdf": "Dispositivo de fijación ProBike Haweka: Standard y Power Clamp",
+    "ficha-haweka-210-400-001-4-conos-expandibles-exhibidor.pdf": "Conos expandibles y QuickPlate IV Haweka con exhibidor",
+}
+
+def aplicar_catalogo(ruta, nombre):
+    titulo = f"Ficha técnica {nombre} | Trivium Pro"
+    ps = (f"[ /Title {ps_str(titulo)} /Author (Trivium Pro) /Subject {ps_str(nombre + ': códigos, medidas y usos')} "
+          f"/Keywords {ps_str('Haweka, accesorios de balanceo, Trivium Pro, Argentina')} /Creator (Trivium Pro) /DOCINFO pdfmark\n")
+    tmp = tempfile.mkdtemp(); psf = os.path.join(tmp, "m.ps"); open(psf, "w", encoding="latin-1").write(ps)
+    out = os.path.join(tmp, "o.pdf")
+    subprocess.run(["gs", "-q", "-dNOPAUSE", "-dBATCH", "-sDEVICE=pdfwrite", "-dPDFSETTINGS=/printer",
+                    f"-sOutputFile={out}", ruta, psf], check=True, capture_output=True)
+    shutil.move(out, ruta)
+    return titulo
 
 def aplicar(ruta, p, marca, cat):
     titulo = f"Ficha técnica {p['name']}" + ("" if "Trivium Pro" in p["name"] else " | Trivium Pro")
@@ -47,11 +67,14 @@ def aplicar(ruta, p, marca, cat):
 
 if __name__ == "__main__":
     m = mapa()
-    objetivos = [os.path.basename(a) for a in sys.argv[1:]] or list(m)
+    objetivos = [os.path.basename(a) for a in sys.argv[1:]] or list(m) + list(CATALOGOS)
     n = 0
     for f in objetivos:
         ruta = os.path.join(ROOT, "assets/pdf", f)
-        if f in m and os.path.exists(ruta):
+        if f in CATALOGOS and os.path.exists(ruta):
+            t = aplicar_catalogo(ruta, CATALOGOS[f]); n += 1
+            print("✔", t)
+        elif f in m and os.path.exists(ruta):
             t = aplicar(ruta, *m[f]); n += 1
             if n <= 3 or len(objetivos) == 1:
                 print("✔", t)

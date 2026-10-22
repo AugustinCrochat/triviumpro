@@ -1172,6 +1172,8 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Despega contrapesos adhesivos sin dañar la llanta de aluminio
+- Descripción: Espátula Haweka para remover los contrapesos adhesivos de las llantas de aluminio sin dañarlas.
+- Especificaciones: Código Haweka: 900-e-008-089; Función: Remover contrapesos adhesivos; Línea: Accesorios para alineación y balanceo; Uso: Llantas de aluminio y aleación; Marca: Haweka; Origen: Alemania
 - Características: Diseñada específicamente para despegar contrapesos adhesivos de llantas de aluminio.; Evita daños en la superficie de las llantas durante la extracción.; Ideal para uso en talleres mecánicos y servicios de balanceo de ruedas.; Construida con materiales de alta durabilidad para un uso prolongado.; Asegura un trabajo rápido y eficiente en cada operación.; Herramienta profesional respaldada por la calidad de Haweka.
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-espatula-para-despegar-contrapesos-adhesivos-en-llantas-de-aluminio-haweka.pdf
@@ -1183,6 +1185,8 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Mide la distancia entre bulones para el montaje correcto de la rueda
+- Descripción: Calibre Haweka para medir la distancia entre bulones de ruedas antes de elegir el adaptador de centrado.
+- Especificaciones: Código Haweka: 490 008 002; Función: Medir la distancia entre bulones; Línea: Calibres Haweka; Calibre relacionado: 490-008-000 (centros de llantas); Marca: Haweka; Origen: Alemania
 - Características: Herramienta precisa para medir la distancia entre bulones en ruedas de vehículos.; Diseñado para asegurar un ajuste correcto en el montaje de ruedas.; Compatible con una amplia variedad de vehículos y patrones de bulones.; Fabricado con materiales duraderos para un uso prolongado y fiable.; Fácil de usar, ideal para talleres y profesionales de la mecánica.; Producto de alta calidad de la marca Haweka, líder en equipos de alineación y balanceo.
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-calibre-haweka-para-medir-la-distancia-entre-bulones-de-ruedas.pdf
@@ -1194,6 +1198,8 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Nueve conos de 52,5 a 122 mm para centrar ruedas en la balanceadora
+- Descripción: Kit de nueve conos Haweka para centrar ruedas de 52,5 a 122 mm en la balanceadora.
+- Especificaciones: Código Haweka: 150 400 110; Cantidad de conos: 9; Rango de centros de llanta: 52,5 – 122 mm; Eje de la balanceadora: Ø 40 mm; Línea: Conos y mangas de centrado; Marca: Haweka; Origen: Alemania
 - Características: Rango de diámetros: Conos de 52,5 mm a 122 mm para adaptarse a distintas ruedas.; Versatilidad: Compatible con varios modelos de balanceadoras.; Alta precisión: Garantiza un centrado perfecto durante el balanceo.; Durabilidad: Fabricados con materiales resistentes para un uso prolongado.; Fácil identificación: Conos numerados para una selección rápida y precisa.
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-kit-de-9-conos-para-balanceadora-52-5-122-mm.pdf
@@ -1205,6 +1211,8 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Centrado exacto de ruedas en la balanceadora, para muchos vehículos
+- Descripción: Set de conos de centrado Haweka para ruedas de distintos diámetros de centro.
+- Especificaciones: Código Haweka: 150 400 095; Contenido: Set de conos de centrado (4 tamaños); Conos relacionados: 150 400 049 (89–132 mm, eje Ø 40 mm) y 150 280 049 (4x4, eje Ø 28 mm); Línea: Conos y mangas de centrado; Marca: Haweka; Origen: Alemania
 - Características: Alta precisión: Asegura el centrado exacto de las ruedas.; Compatibilidad universal: Adecuado para una amplia gama de vehículos.; Construcción robusta: Fabricados con materiales duraderos para uso prolongado.; Fácil de usar: Diseño intuitivo para un montaje y desmontaje rápidos.; Incluye 4 tamaños: Conos de diferentes diámetros para mayor versatilidad en el taller.
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-conos-de-centrado-haweka.pdf
@@ -1216,6 +1224,8 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Fija y afloja rápido la rueda en el eje de balanceadoras de 40 x 4 mm
+- Descripción: Tuerca de sujeción rápida ProGrip de Haweka, resistente e indispensable en el balanceo moderno.
+- Especificaciones: Artículo Haweka: 143 404 003; Medida: 40 x 4 mm; Variante 40 x 3 mm: 143 403 003; Mantenimiento: Desmontar y limpiar con limpiador a base de solvente a intervalos regulares; Marca: Haweka; Origen: Alemania
 - Características: Diseño de alta precisión: Ajuste perfecto para balanceadoras de ruedas.; Operación rápida: Permite fijar y aflojar rápidamente.; Material duradero: Fabricada con materiales resistentes al desgaste.; Compatibilidad: Ideal para la mayoría de las balanceadoras.; Fácil de usar: Simplifica el proceso de montaje y desmontaje de ruedas.
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-tuerca-rapida-de-40-x-4-mm-progrip-haweka.pdf
@@ -1227,7 +1237,9 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Tuerca rápida con mango SoftGrip para ejes de 40 x 4 mm
-- Características: Mango SoftGrip: Proporciona un agarre cómodo y antideslizante.; Fijación rápida: Acelera el proceso de montaje en el eje.; Compatibilidad: Diseñada específicamente para ejes de 40x4mm.; Durabilidad: Resistente a la corrosión y al desgaste.; Uso profesional: Ideal para talleres que requieren eficiencia y precisión.
+- Descripción: Tuerca de liberación rápida SoftGrip de Haweka, con agarre suave y mordazas que no se abren bajo carga.
+- Especificaciones: Artículo Haweka: 144 404 000; Diámetro del eje: 40 mm; Paso de rosca: 4; Espesor de la tuerca: 34,5 mm; Distancia al primer hilo: 7,5 mm; Accesorio: Vaso de plástico 190 008 065; Marca: Haweka; Origen: Alemania
+- Características: Agarre: Diseño ergonómico con agarre suave al tacto.; Seguridad: Mecanismo que evita la apertura de las mordazas bajo carga.; Roscado: Mordazas roscadas movidas al borde para enhebrar más rápido.; Vida útil: Nueva aleación de metal para mayor duración.; Altura: Menor altura, permite usar placas de presión.; Compatible: Se usa con vaso plástico de sujeción 190 008 065.
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-tuerca-rapida-softgrip-para-eje-40x4mm-haweka.pdf
 
@@ -1238,6 +1250,8 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Conos expandibles para centrar ruedas de 54 a 86 mm
+- Descripción: Conos expandibles Haweka (patentados) para centrar ruedas con centros de 54 a 86 mm.
+- Especificaciones: 165 400 001: Rango 54 – 62 mm; 165 400 002: Rango 62 – 70 mm; 165 400 003: Rango 70 – 78 mm; 165 400 006: Rango 78 – 86 mm; Presentación: Incluye soporte/exhibidor; Marca: Haweka; Origen: Alemania
 - Características: Rango 54 - 62 mm; Rango 62 - 70 mm; Rango 70 - 78 mm; Rango 78 - 86 mm
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-conos-expandibles-haweka-54-86-mm.pdf
@@ -1249,6 +1263,8 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Soporte para ordenar accesorios en paneles Haweka
+- Descripción: Soporte/exhibidor Haweka para ordenar conos expandibles y adaptadores a la vista en el taller.
+- Especificaciones: Código Haweka: 900e008 190; Uso: Exhibir y ordenar accesorios de centrado; Se usa con: Conos expandibles 165 400 001 a 006 y QuickPlate IV 210 400 001; Marca: Haweka; Origen: Alemania
 - Características: Compatibilidad: Diseñado para paneles Haweka.; Resistente: Material duradero y estable.; Fácil de usar: Montaje y desmontaje sencillo.; Portátil: Ideal para talleres y estaciones de trabajo móviles.; Diseño compacto: Ahorro de espacio en el taller.
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-soporte-para-accesorios-haweka.pdf
@@ -1260,6 +1276,8 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Fijación de ruedas de moto para balancear, agarre de 360 a 740 mm
+- Descripción: Dispositivo de fijación ProBike de Haweka para equilibrar ruedas de moto, de scooter de 10" a todoterreno de 21".
+- Especificaciones: ProBike Standard: 805-818-000; ProBike Power Clamp: 805-995-000; Rango de agarre: 360 – 740 mm; Ruedas: Desde 10" (scooter) hasta 21"; Eje de centrado: Ø 14 mm; Conos de centrado: Ø 15 – 30 mm; scooter Ø 16 – 45 mm; Manguitos de centrado: Ø 15 / 17 / 20 mm; Sistema de sujeción: QuickFix Ø 14 mm; Marca: Haweka; Origen: Alemania
 - Características: Resultados de equilibrado precisos; Instalación fácil y rápida; Rango de agarre de 360 mm a 740 mm; Ideal tanto para las ruedas de 10 pulgadas y ruedas de camioneta; El manejo es seguro y fácil
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-dispositivo-de-fijacion-probike-haweka.pdf
@@ -1271,6 +1289,8 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Cubre hasta el 95% de los autos para mejorar la calidad del balanceo
+- Descripción: Kit DuoExpert de Haweka: collares expansores que imitan el eje del vehículo y centran la rueda por detrás.
+- Especificaciones: Cobertura: Hasta el 95% de los autos; Agujero central del disco: Hasta 94 mm; Adaptadores: 3 (54 – 78 mm); Presentación: Valija / estuche; Marca: Haweka; Origen: Alemania
 - Características: Aumenta la calidad del balanceo de ruedas.; El conjunto cubre hasta el 95% de los coches existentes.; Vida útil extendida - Calidad Alemana.; El diámetro del orificio central del disco hasta 94 mm.; El kit consta de: 3 adaptadores (54-78 mm); Valija /Estuche
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-kit-haweka-duoexpert.pdf
@@ -1282,7 +1302,8 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Mide con exactitud el nivel del volante, compacto y de uso universal
-- Especificaciones: Capacidad: 2 kg
+- Descripción: Nivel Haweka para controlar la posición del volante durante la alineación.
+- Especificaciones: Código Haweka: 921-001-000; Función: Indicador de nivel de volante; Línea: Accesorios para alineación y balanceo; Marca: Haweka; Origen: Alemania
 - Características: Alta precisión: Mide el nivel del volante con exactitud.; Diseño compacto: Fácil de usar y transportar.; Compatibilidad universal: Apto para la mayoría de volantes.; Construcción duradera: Materiales resistentes para un uso prolongado.; Fácil de leer: Indicador claro y sencillo de interpretar.
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-indicador-de-nivel-de-volante-haweka.pdf
@@ -1294,6 +1315,8 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 - Categoría: Accesorios de Balanceo
 - Origen de fabricación: Alemania
 - Resumen: Pinza 3 en 1 para sacar, colocar y cortar contrapesos de plomo
+- Descripción: Pinza clásica Haweka para retirar, colocar y cortar contrapesos de plomo.
+- Especificaciones: Código Haweka: 900-008-006; Función: Retirar, colocar y cortar contrapesos; Línea: Accesorios para alineación y balanceo; Marca: Haweka; Origen: Alemania
 - Características: Función 3 en 1: Remueve, instala y corta contrapesos de plomo.; Mango ergonómico: Para un uso cómodo y preciso.; Construcción robusta: Fabricada con materiales duraderos.; Compatibilidad universal: Apta para la mayoría de ruedas y llantas.; Marca confiable: Calidad garantizada por Haweka.
 - Ideal para: balanceadoras y servicios de alineación y balanceo
 - Ficha técnica (PDF): https://pro.trivium.ar/assets/pdf/ficha-tecnica-pinza-para-plomos-contrapesos-haweka.pdf

@@ -1521,7 +1521,7 @@
       "images": [
         "assets/img/productos/espatula-para-contrapesos-plomos-adhesivos.webp"
       ],
-      "html_description": "<embed src=\"assets/pdf/web-ficha-accesorios-de-alineacion-y-balanceo.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/ficha-tecnica-espatula-para-despegar-contrapesos-adhesivos-en-llantas-de-aluminio-haweka.pdf\">Descargar PDF</a>."
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-espatula-para-despegar-contrapesos-adhesivos-en-llantas-de-aluminio-haweka.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/web-ficha-accesorios-de-alineacion-y-balanceo.pdf\" target=\"_blank\" rel=\"noopener\">Ficha de la línea</a></div></div>"
     },
     {
       "sku": "1010055",
@@ -1547,7 +1547,7 @@
       "images": [
         "assets/img/productos/calibre-para-medir-la-distancia-entre-bulones-de-ruedas.webp"
       ],
-      "html_description": "<embed src=\"assets/pdf/web-ficha-accesorios-de-alineacion-y-balanceo.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/ficha-tecnica-calibre-haweka-para-medir-la-distancia-entre-bulones-de-ruedas.pdf\">Descargar PDF</a>."
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-calibre-haweka-para-medir-la-distancia-entre-bulones-de-ruedas.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/web-ficha-accesorios-de-alineacion-y-balanceo.pdf\" target=\"_blank\" rel=\"noopener\">Ficha de la línea</a></div></div>"
     },
     {
       "sku": "1010082",
@@ -1572,7 +1572,7 @@
       "images": [
         "assets/img/productos/kit-de-9-conos-para-balanceadora.webp"
       ],
-      "html_description": "<embed src=\"assets/pdf/web-ficha-conos-y-mangas.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/ficha-tecnica-kit-de-9-conos-para-balanceadora-52-5-122-mm.pdf\">Descargar PDF</a>."
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-kit-de-9-conos-para-balanceadora-52-5-122-mm.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/web-ficha-conos-y-mangas.pdf\" target=\"_blank\" rel=\"noopener\">Ficha de la línea</a></div></div>"
     },
     {
       "sku": "1010062",
@@ -1597,7 +1597,7 @@
       "images": [
         "assets/img/productos/set-de-4-conos-de-centrado-haweka.webp"
       ],
-      "html_description": "<embed src=\"assets/pdf/web-ficha-conos-y-mangas.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/ficha-tecnica-conos-de-centrado-haweka.pdf\">Descargar PDF</a>."
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-conos-de-centrado-haweka.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/web-ficha-conos-y-mangas.pdf\" target=\"_blank\" rel=\"noopener\">Ficha de la línea</a></div></div>"
     },
     {
       "sku": "1010064",
@@ -1622,7 +1622,7 @@
       "images": [
         "assets/img/productos/tuerca-rapida-progrip-haweka.webp"
       ],
-      "html_description": "<embed src=\"assets/pdf/web-ficha-143-404-003-progrip-haweka.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/ficha-tecnica-tuerca-rapida-de-40-x-4-mm-progrip-haweka.pdf\">Descargar PDF</a>."
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-tuerca-rapida-de-40-x-4-mm-progrip-haweka.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a></div></div>"
     },
     {
       "sku": "1010186",
@@ -1647,7 +1647,7 @@
       "images": [
         "assets/img/productos/tuerca-rapida-softgrip-haweka.webp"
       ],
-      "html_description": "<embed src=\"assets/pdf/web-ficha-144-404-000-softgrip-haweka.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/ficha-tecnica-tuerca-rapida-softgrip-para-eje-40x4mm-haweka.pdf\">Descargar PDF</a>."
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-tuerca-rapida-softgrip-para-eje-40x4mm-haweka.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a></div></div>"
     },
     {
       "sku": "1010194",
@@ -1671,7 +1671,7 @@
       "images": [
         "assets/img/productos/cono-expandible-haweka.webp"
       ],
-      "html_description": "<embed src=\"assets/pdf/ficha-haweka-210-400-001-4-conos-expandibles-exhibidor.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/ficha-tecnica-conos-expandibles-haweka-54-86-mm.pdf\">Descargar PDF</a>."
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-conos-expandibles-haweka-54-86-mm.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-haweka-210-400-001-4-conos-expandibles-exhibidor.pdf\" target=\"_blank\" rel=\"noopener\">Ficha de la línea</a></div></div>"
     },
     {
       "sku": "1010197",
@@ -1696,7 +1696,7 @@
       "images": [
         "assets/img/productos/soporte-accesorios-de-balanceo-haweka.webp"
       ],
-      "html_description": "<iframe src=\"assets/pdf/ficha-haweka-210-400-001-4-conos-expandibles-exhibidor.pdf\" width=\"100%\" height=\"700px\"></iframe>\n\nClic para <a href=\"assets/pdf/ficha-tecnica-soporte-para-accesorios-haweka.pdf\">Descargar PDF</a>."
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-soporte-para-accesorios-haweka.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-haweka-210-400-001-4-conos-expandibles-exhibidor.pdf\" target=\"_blank\" rel=\"noopener\">Ficha de la línea</a></div></div>"
     },
     {
       "sku": "1010066",
@@ -1721,7 +1721,7 @@
       "images": [
         "assets/img/productos/centrado-de-ruedas-de-moto-probike.webp"
       ],
-      "html_description": "<embed src=\"assets/pdf/39-ficha-805-818-000-805-995-000-probike-haweka.pdf\" type=\"application/pdf\" width=\"100%\" height=\"700\"></embed>\n\nClic para <a href=\"assets/pdf/ficha-tecnica-dispositivo-de-fijacion-probike-haweka.pdf\">Descargar PDF</a>."
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-dispositivo-de-fijacion-probike-haweka.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/39-ficha-805-818-000-805-995-000-probike-haweka.pdf\" target=\"_blank\" rel=\"noopener\">Ficha de la línea</a></div></div>"
     },
     {
       "sku": "1010208",
@@ -2484,7 +2484,7 @@
       "images": [
         "assets/img/productos/collar-expansor-haweka-duoexpert.webp"
       ],
-      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-kit-haweka-duoexpert.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a></div></div>"
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-kit-haweka-duoexpert.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/web-ficha-conos-y-mangas.pdf\" target=\"_blank\" rel=\"noopener\">Ficha de la línea</a></div></div>"
     },
     {
       "sku": "P-3137",
@@ -2509,7 +2509,7 @@
       "images": [
         "assets/img/productos/indicador-de-nivel-de-volante-haweka.webp"
       ],
-      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-indicador-de-nivel-de-volante-haweka.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a></div></div>"
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-indicador-de-nivel-de-volante-haweka.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/web-ficha-accesorios-de-alineacion-y-balanceo.pdf\" target=\"_blank\" rel=\"noopener\">Ficha de la línea</a></div></div>"
     },
     {
       "sku": "P-3139",
@@ -2534,7 +2534,7 @@
       "images": [
         "assets/img/productos/clasica-pinza-para-retirar-plomos-contrapesos.webp"
       ],
-      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-pinza-para-plomos-contrapesos-haweka.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a></div></div>"
+      "html_description": "<div class=\"product-page-description\"><div class=\"product-page-button-container\"><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/ficha-tecnica-pinza-para-plomos-contrapesos-haweka.pdf\" target=\"_blank\" rel=\"noopener\">Ficha Técnica</a><a class=\"product-page-btn product-page-btn-pdf\" href=\"assets/pdf/web-ficha-accesorios-de-alineacion-y-balanceo.pdf\" target=\"_blank\" rel=\"noopener\">Ficha de la línea</a></div></div>"
     },
     {
       "sku": "P-3246",
