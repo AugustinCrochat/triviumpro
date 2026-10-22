@@ -81,7 +81,7 @@
 },
 "/guias/": {
 "date": "2026-10-22",
-"hash": "df9a06e40d7aa47f20138056690941fad357fab2"
+"hash": "22bc6411a874b8da324b32418c131fb364f120de"
 },
 "/guias/alineadoras-3d/": {
 "date": "2026-10-22",
@@ -99,6 +99,14 @@
 "date": "2026-10-22",
 "hash": "3ec2f6d06b9d49d0707f8522d2e1b0124b171a8b"
 },
+"/guias/equipar-un-taller-mecanico/": {
+"date": "2026-10-22",
+"hash": "0b0a608fbfcad72f65a2df3b69fe08341cbc9f1e"
+},
+"/guias/equipar-una-concesionaria/": {
+"date": "2026-10-22",
+"hash": "5d1cefb0406df55f8562982b209744210033a442"
+},
 "/guias/equipar-una-gomeria/": {
 "date": "2026-10-22",
 "hash": "b509fa1d73f73d1aba46d2547fdff59624f95f14"
@@ -106,6 +114,22 @@
 "/guias/equipos-de-taller-economicos/": {
 "date": "2026-10-22",
 "hash": "483b5aa3b20cb8ec4bf33c7988b5e6537d313469"
+},
+"/guias/equipos-para-fabricas-y-plantas-industriales/": {
+"date": "2026-10-22",
+"hash": "b927d34d35270e363ccea9a4af51791979a2711b"
+},
+"/guias/equipos-para-flotas-y-taller-propio/": {
+"date": "2026-10-22",
+"hash": "13d01f7e0ee434ccd1a19548707ba64eb10b1fac"
+},
+"/guias/equipos-premium-para-taller/": {
+"date": "2026-10-22",
+"hash": "a1a86350a210855235c5f073e72ddd56da96804f"
+},
+"/guias/herramientas-y-maquinas-para-taller/": {
+"date": "2026-10-22",
+"hash": "90e3fc59a737401941f392a027eba209ae547358"
 },
 "/instalacion-posventa-y-servicios/": {
 "date": "2026-10-22",

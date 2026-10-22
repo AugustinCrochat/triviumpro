@@ -109,6 +109,42 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://pro.trivium.ar/guias/equipar-una-concesionaria/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/guias/equipos-premium-para-taller/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/guias/equipar-un-taller-mecanico/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/guias/equipos-para-flotas-y-taller-propio/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/guias/equipos-para-fabricas-y-plantas-industriales/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/guias/herramientas-y-maquinas-para-taller/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://pro.trivium.ar/origen/</loc>
     <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>

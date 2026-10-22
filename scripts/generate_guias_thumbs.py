@@ -14,6 +14,12 @@ SPEC = {
     "equipar-una-gomeria": ["desarmadora-para-neumaticos-de-auto-y-camioneta-monfasica-24-pulgadas-trivium-pro",
                             "balanceadora-de-ruedas-s901-trivium-pro"],
     "equipos-de-taller-economicos": ["elevador-dos-columnas-4-toneladas-trivium-pro-monofasico"],
+    "equipar-una-concesionaria": ["alineadora-3d-hofmann-geoliner-880"],
+    "equipos-premium-para-taller": ["elevador-dos-columnas-rotary-lift-spoa10"],
+    "equipar-un-taller-mecanico": ["elevador-dos-columnas-cuatro-toneladas-piso-libre"],
+    "equipos-para-flotas-y-taller-propio": ["elevador-cuatro-columnas-rotary-lift-sm30s"],
+    "equipos-para-fabricas-y-plantas-industriales": ["../red-aire-comprimido-prevost-piping-system"],
+    "herramientas-y-maquinas-para-taller": ["t830018", "llave-crique-neumatica-de-impacto-kuani-ki-1838a"],
 }
 
 def load(name):

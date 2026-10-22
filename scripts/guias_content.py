@@ -487,4 +487,399 @@ GUIAS = [
   "como-abrir-un-taller-de-alineacion-y-balanceo",
  ],
 },
+
+# --------------------------------------------------------------------------
+# Guías por tipo de cliente (concesionarias, talleres, flotas, fábricas) y por gama.
+{
+ "slug": "equipar-una-concesionaria",
+ "title": "Equipar el taller de una concesionaria: elevadores, alineadoras y balanceadoras",
+ "h1": "Equipamiento para el taller de una concesionaria",
+ "description": ("Cómo equipar el taller de posventa de una concesionaria: elevadores Rotary Lift, "
+                 "alineadora 3D Hofmann, balanceadoras Geodyna y desarmadoras Monty, con "
+                 "capacitación y servicio técnico."),
+ "category": "elevadores",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> el taller de posventa de una concesionaria necesita equipos de uso intensivo, rápidos y con respaldo técnico: <strong>elevadores de dos columnas Rotary Lift</strong> con certificación ALI, una <strong>alineadora 3D Hofmann Geoliner</strong>, <strong>balanceadoras Geodyna</strong> y una <strong>desarmadora Monty</strong> para llantas de aleación y perfil bajo. Son marcas del grupo Snap-on y Trivium Pro las instala, capacita al personal y da el servicio técnico en todo el país.</p>
+</div>
+""",
+ "secciones": """
+<h2>Qué le pide una concesionaria a su taller</h2>
+<ul>
+<li><strong>Productividad por posición:</strong> más órdenes de trabajo por día con los mismos boxes. Importan los ciclos cortos de balanceo y una alineación que no obligue a mover cámaras ni a subir y bajar sensores.</li>
+<li><strong>Vehículos de gama alta y llantas delicadas:</strong> desarmadoras con protección de llanta y balanceadoras con modo de peso oculto para no marcar la aleación.</li>
+<li><strong>Estándares de marca:</strong> muchas terminales exigen equipos certificados y calibración al día. Sirven los elevadores con certificación ALI y las alineadoras con bases de datos de fabricantes actualizables.</li>
+<li><strong>Disponibilidad:</strong> un elevador parado es un box parado. Repuestos, mantenimiento preventivo y servicio técnico pesan tanto como el precio.</li>
+</ul>
+
+<h2>Los cuatro equipos de un box de posventa</h2>
+<ol>
+<li><strong>Elevador de dos columnas.</strong> Para mecánica general. Con brazos <em>all-vehicle</em> cubre desde un compacto hasta una pick-up. Ver <a href="../../guias/elevadores-para-taller/">la guía de elevadores</a>.</li>
+<li><strong>Alineadora 3D.</strong> La Geoliner 880 de paso directo es la de mayor productividad; la 630 es la opción compacta. Ver <a href="../../guias/alineadoras-3d/">la guía de alineadoras</a>.</li>
+<li><strong>Balanceadora.</strong> Geodyna de 7100 a 9000P, según el volumen. Ver <a href="../../guias/balanceadoras-de-ruedas/">la guía de balanceadoras</a>.</li>
+<li><strong>Desarmadora.</strong> Monty 3300 u 8800 para llantas grandes y neumáticos run flat. Ver <a href="../../guias/desarmadoras-de-neumaticos/">la guía de desarmadoras</a>.</li>
+</ol>
+
+<h2>Equipos de referencia</h2>
+{{TABLA}}
+
+<h2>Instalación, capacitación y servicio</h2>
+<p>La instalación se cotiza aparte del equipo. Incluye la puesta en marcha y la capacitación del personal en el lugar; después, el servicio técnico y los repuestos. Para flotas de elevadores conviene un plan de mantenimiento preventivo: tenés un checklist en <a href="../../blog/mantenimiento-de-un-elevador-de-taller-checklist-diario-mensual-y-anual/">mantenimiento de un elevador de taller</a>.</p>
+
+<h2>Combinar premium y económico</h2>
+<p>Muchas concesionarias equipan con marca premium los puestos de mayor exigencia (alineación, balanceo de gama alta) y con la línea Trivium Pro los boxes de menor carga, como lavadero, preentrega o zona de neumáticos. Lo explicamos en <a href="../../guias/equipos-premium-para-taller/">equipos premium para taller</a> y <a href="../../guias/equipos-de-taller-economicos/">equipos de taller económicos</a>.</p>
+""",
+ "tabla": {
+  "slugs": [
+   ("elevador-dos-columnas-4535-kg-rotary-lift-spoa10", "Dos columnas asimétrico, el estándar de posventa; certificación ALI."),
+   ("elevador-dos-columnas-5500-kg-rotary-lift-spo55", "Para SUV y pick-ups de gran porte."),
+   ("elevador-tijera-para-alineacion-4500-kg-rotary-lift-xa10", "Tijera para alineación, queda a nivel del piso."),
+   ("alineadora-3d-hofmann-geoliner-880", "Paso directo: las dos cámaras leen sin moverse."),
+   ("alineadora-3d-hofmann-geoliner-630", "Alineadora 3D compacta para boxes chicos."),
+   ("balanceadora-de-ruedas-hofmann-geodyna-7600p", "Pantalla táctil, Power Clamp, ciclo de 4,5 segundos."),
+   ("balanceadora-de-ruedas-hofmann-geodyna-9000p", "Diagnóstico 3D sin contacto, tope de gama."),
+   ("desarmadora-de-neumaticos-hofmann-monty-8800", "Desarmadora para llantas de perfil bajo y run flat."),
+  ],
+ },
+ "faqs": [
+  ("¿Qué marcas de equipos usan las concesionarias?",
+   "Trivium Pro comercializa e instala en Argentina las marcas del grupo Snap-on: elevadores Rotary Lift y Challenger Lifts, y alineadoras, balanceadoras y desarmadoras Hofmann."),
+  ("¿Qué elevador conviene para un taller de posventa?",
+   "El de dos columnas asimétrico de 4.500 kg con brazos all-vehicle cubre la mayoría de los vehículos. Para SUV y pick-ups pesadas, los de 5.500 a 6.500 kg."),
+  ("¿Qué alineadora es la más productiva?",
+   "La Hofmann Geoliner 880 de paso directo: tiene dos cámaras por torre, por lo que no hay que subir, bajar ni mover las cámaras para la lectura completa."),
+  ("¿Capacitan al personal del taller?",
+   "Sí. La puesta en marcha incluye la capacitación del equipo en el lugar. La instalación se cotiza aparte del equipo."),
+  ("¿Pueden equipar varias sucursales a la vez?",
+   "Sí. Armamos propuestas por sucursal, con entrega e instalación coordinadas en todo el país y un plan de mantenimiento común."),
+ ],
+ "posts": [
+  "hofmann-equipos-de-taller-premium-alineadoras-balanceadoras-y-desarmadoras",
+  "rotary-lift-en-argentina-elevadores-para-taller-linea-completa-y-certificacion-ali",
+  "hofmann-geoliner-880-alineadora-3d-de-paso-directo-con-ia",
+  "por-que-elegir-un-elevador-con-brazos-all-vehicle-de-rotary-lift",
+  "certificacion-ali-elevadores",
+ ],
+},
+# --------------------------------------------------------------------------
+{
+ "slug": "equipos-premium-para-taller",
+ "title": "Equipos premium para taller: Rotary Lift, Hofmann y Challenger",
+ "h1": "Equipos premium para taller: Rotary Lift, Hofmann y Challenger",
+ "description": ("Equipos de taller premium en Argentina: elevadores Rotary Lift y Challenger, "
+                 "alineadoras y balanceadoras Hofmann. Cuándo conviene la marca premium y qué "
+                 "ventajas tiene frente a una línea económica."),
+ "category": "elevadores",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> la gama premium (<strong>Rotary Lift</strong>, <strong>Challenger Lifts</strong> y <strong>Hofmann</strong>, todas del grupo Snap-on) se justifica cuando el equipo trabaja muchas horas por día, cuando el taller atiende concesionarias o flotas, o cuando se necesita tecnología que la línea económica no ofrece, como la alineación 3D de paso directo o el diagnóstico de balanceo sin contacto. Para el resto de los casos, la línea Trivium Pro resuelve con menor inversión.</p>
+</div>
+""",
+ "secciones": """
+<h2>Qué se paga en un equipo premium</h2>
+<ul>
+<li><strong>Vida útil bajo uso intensivo:</strong> estructura, cilindros y mecanismos dimensionados para trabajar todo el día todos los días.</li>
+<li><strong>Certificación:</strong> los elevadores Rotary Lift tienen certificación ALI. Está explicada en <a href="../../blog/certificacion-ali-elevadores/">qué es la certificación ALI</a>.</li>
+<li><strong>Tecnología:</strong> alineación 3D con cámaras de paso directo, balanceo con sensores sin contacto, pantallas táctiles, actualización de bases de datos de vehículos.</li>
+<li><strong>Respaldo de fábrica y de servicio:</strong> repuestos, manuales y entrenamiento técnico. Trivium Pro suma la instalación (cotizada aparte), la capacitación y el servicio técnico locales.</li>
+</ul>
+
+<h2>La gama por marca</h2>
+<ul>
+<li><strong>Rotary Lift:</strong> elevadores de dos y cuatro columnas, tijera, pesados y motos. Hecho en EE. UU. Ver <a href="../../marca/rotary-lift/">catálogo Rotary Lift</a> y <a href="../../blog/rotary-lift-en-argentina-elevadores-para-taller-linea-completa-y-certificacion-ali/">la línea completa</a>.</li>
+<li><strong>Challenger Lifts:</strong> elevadores para taller de uso profesional. Ver <a href="../../blog/challenger-lifts-elevadores-snap-on-que-ofrecen-y-cuando-elegirlos/">cuándo elegirlos</a>.</li>
+<li><strong>Direct Lift y Forward Lift:</strong> líneas de Rotary Lift de tijera, estacionamiento y motos. Ver <a href="../../blog/direct-lift-y-forward-lift-las-lineas-de-rotary-lift-tijera-estacionamiento-y-motos/">la nota</a>.</li>
+<li><strong>Hofmann:</strong> alineadoras, balanceadoras y desarmadoras alemanas. Ver <a href="../../blog/hofmann-equipos-de-taller-premium-alineadoras-balanceadoras-y-desarmadoras/">la línea Hofmann</a>.</li>
+</ul>
+
+<h2>Equipos premium de referencia</h2>
+{{TABLA}}
+
+<h2>Premium o económico: cómo decidir</h2>
+<p>La regla práctica: elegí premium para el equipo que más horas trabaja y economía para el que trabaja menos. La comparación completa está en <a href="../../blog/rotary-lift-o-trivium-pro-que-linea-conviene-segun-tu-taller/">Rotary Lift o Trivium Pro: qué línea conviene</a> y en <a href="../../blog/taller-premium-o-taller-economico-dos-formas-de-equipar-con-rotary-hofmann-y-trivium-pro/">taller premium o taller económico</a>. Si tu prioridad es el presupuesto, mirá <a href="../../guias/equipos-de-taller-economicos/">equipos de taller económicos</a>.</p>
+""",
+ "tabla": {
+  "slugs": [
+   ("elevador-dos-columnas-4535-kg-rotary-lift-spoa10", "El dos columnas más vendido de Rotary Lift."),
+   ("elevador-dos-columnas-simetrico-4536-kg-challenger-lifts-vle10", "Challenger simétrico de 4.536 kg."),
+   ("elevador-cuatro-columnas-8165-kg-rotary-lift-sm18", "Cuatro columnas de 8.165 kg para alineación y pesados."),
+   ("elevador-dos-columnas-7250-kg-rotary-lift-spo16-cargo", "Dos columnas de 7.250 kg para vehículos de carga."),
+   ("alineadora-3d-hofmann-geoliner-880", "Alineación 3D de paso directo."),
+   ("balanceadora-de-ruedas-hofmann-geodyna-7800-2p", "Balanceadora premium para centros de servicio."),
+   ("desarmadora-de-neumaticos-hofmann-monty-3300-24", "Desarmadora Monty para llantas hasta 24\"."),
+  ],
+ },
+ "faqs": [
+  ("¿Qué marcas premium de equipos de taller vende Trivium Pro?",
+   "Rotary Lift, Challenger Lifts, Direct Lift y Forward Lift en elevadores, y Hofmann en alineadoras, balanceadoras y desarmadoras."),
+  ("¿Vale la pena pagar más por un elevador Rotary Lift?",
+   "Si el elevador trabaja todo el día, sí: está pensado para uso intensivo y tiene certificación ALI. Para uso moderado, la línea Trivium Pro cumple con una inversión menor."),
+  ("¿Qué es la certificación ALI?",
+   "Es una certificación independiente que verifica que un elevador cumple las normas de seguridad y desempeño. La explicamos en una nota del blog."),
+  ("¿Hofmann y John Bean son lo mismo?",
+   "Son marcas hermanas con la misma tecnología. Hay una nota con las diferencias."),
+  ("¿Dan servicio técnico y repuestos?",
+   "Sí, en todo el país. La instalación se cotiza aparte del equipo."),
+ ],
+ "posts": [
+  "taller-premium-o-taller-economico-dos-formas-de-equipar-con-rotary-hofmann-y-trivium-pro",
+  "rotary-lift-o-trivium-pro-que-linea-conviene-segun-tu-taller",
+  "challenger-lifts-elevadores-snap-on-que-ofrecen-y-cuando-elegirlos",
+  "direct-lift-y-forward-lift-las-lineas-de-rotary-lift-tijera-estacionamiento-y-motos",
+  "balanceadoras-hofmann-geodyna-cual-elegir-7100-7400l-7600p-7800-9000p-980l",
+ ],
+},
+# --------------------------------------------------------------------------
+{
+ "slug": "equipar-un-taller-mecanico",
+ "title": "Cómo equipar un taller mecánico: elevador, alineadora y herramientas",
+ "h1": "Equipar un taller mecánico: qué comprar y en qué orden",
+ "description": ("Equipamiento para un taller mecánico: elevador de dos columnas o tijera, "
+                 "alineadora, balanceadora, desarmadora, aire comprimido y herramientas. Orden "
+                 "de compra según el presupuesto."),
+ "category": "elevadores",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> un taller mecánico arranca con un <strong>elevador de dos columnas</strong> (o un tijera si el espacio es justo), <strong>aire comprimido con herramientas neumáticas</strong> y <strong>equipamiento de piso</strong> (criques, soportes de motor, carros). Los servicios que más suman ticket vienen después: <strong>alineación y balanceo</strong>, que además necesitan un elevador apto para alinear.</p>
+</div>
+""",
+ "secciones": """
+<h2>Orden de compra recomendado</h2>
+<ol>
+<li><strong>Elevador.</strong> Dos columnas de piso libre para mecánica general; tijera si hay poca altura o querés dejar el piso libre. Ver <a href="../../guias/elevadores-para-taller/">la guía de elevadores</a> y <a href="../../blog/como-elegir-un-elevador-de-2-columnas-capacidad-brazos-y-altura/">cómo elegir uno de dos columnas</a>.</li>
+<li><strong>Aire comprimido y herramientas neumáticas.</strong> <a href="../../categoria/aire-comprimido/">Red de aire</a> y <a href="../../categoria/herramientas-neumaticas/">llaves de impacto</a>.</li>
+<li><strong>Equipamiento de piso.</strong> Criques, soportes y niveladores de motor, mesa hidráulica: <a href="../../categoria/equipamiento-taller/">equipamiento de taller</a>.</li>
+<li><strong>Muebles y orden.</strong> <a href="../../categoria/muebles-taller/">Carros y muebles porta herramientas</a>.</li>
+<li><strong>Neumáticos y alineación.</strong> Desarmadora y balanceadora, y luego alineadora sobre un elevador de cuatro columnas o tijera largo. Ver <a href="../../guias/alineadoras-3d/">la guía de alineadoras</a>.</li>
+</ol>
+
+<h2>Dos columnas, cuatro columnas o tijera</h2>
+<p>El de dos columnas es el más versátil y deja el vehículo accesible por debajo. El de cuatro columnas es el indicado para alinear y para vehículos pesados. El tijera ocupa poco y puede quedar a nivel del piso. La comparación está en <a href="../../blog/elevador-de-4-columnas-vs-elevador-de-tijera-largo-cual-elegir-para-alineacion/">elevador de 4 columnas vs tijera largo</a>.</p>
+
+<h2>Equipos de referencia</h2>
+{{TABLA}}
+
+<h2>Antes de comprar</h2>
+<ul>
+<li><strong>Piso:</strong> un elevador de dos columnas necesita losa de hormigón con el espesor y la resistencia que indica el fabricante. Ver <a href="../../blog/especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas/">especificaciones del piso</a>.</li>
+<li><strong>Altura del local:</strong> medí la altura libre antes de elegir entre piso libre y travesaño al piso.</li>
+<li><strong>Electricidad:</strong> monofásica o trifásica, según el equipo. Ver <a href="../../blog/diferencias-entre-maquinas-de-taller-con-motores-monofasicos-y-trifasicos-ventajas-de-cada-uno/">monofásico vs trifásico</a>.</li>
+</ul>
+""",
+ "tabla": {
+  "slugs": [
+   ("elevador-dos-columnas-4000-kg-piso-libre-unite-pl-4-0-2a", "Dos columnas de piso libre, mecánica general."),
+   ("elevador-dos-columnas-4535-kg-rotary-lift-spoa10", "Dos columnas premium, uso intensivo."),
+   ("elevador-tijera-3000-kg-pl-e30", "Tijera embutible: queda a nivel del piso."),
+   ("elevador-cuatro-columnas-5000-kg-con-kit-para-alineacion", "Cuatro columnas, apto para alineación."),
+   ("criquet-carro-3-ton", "Crique carro de 3 toneladas."),
+   ("llave-de-impacto-neumatica-kuani-ki-1488", "Llave de impacto neumática."),
+   ("carro-de-tres-bandejas-para-taller", "Carro de trabajo de tres bandejas."),
+  ],
+ },
+ "faqs": [
+  ("¿Qué necesito para abrir un taller mecánico?",
+   "Un elevador, aire comprimido con herramientas neumáticas, equipamiento de piso (criques y soportes) y muebles de taller. La alineación y el balanceo se suman después."),
+  ("¿Elevador de dos columnas o tijera?",
+   "El de dos columnas es más versátil; el tijera ocupa menos y puede quedar a nivel del piso. Depende de la altura del local y del tipo de trabajo."),
+  ("¿Qué elevador sirve para alinear?",
+   "Uno de cuatro columnas con kit de alineación o un tijera largo, que dejan las ruedas libres sobre platos giratorios."),
+  ("¿La instalación está incluida?",
+   "No. La instalación se cotiza aparte del equipo. Hacemos instalación, capacitación y servicio técnico en todo el país."),
+ ],
+ "posts": [
+  "como-abrir-un-taller-de-alineacion-y-balanceo",
+  "como-manejar-un-taller-de-autos-de-forma-eficiente",
+  "como-elegir-el-elevador-adecuado-para-hacer-alineacion",
+  "cuanto-cuesta-un-elevador-para-taller-que-influye-en-el-precio",
+ ],
+},
+# --------------------------------------------------------------------------
+{
+ "slug": "equipos-para-flotas-y-taller-propio",
+ "title": "Equipos para taller propio de flotas: camiones, colectivos y utilitarios",
+ "h1": "Taller propio y flotas: elevadores, alineación y balanceo",
+ "description": ("Equipamiento para el taller propio de una empresa con flota: elevadores de "
+                 "cuatro columnas y pesados, alineadora de camiones Josam, balanceadoras y "
+                 "desarmadoras para camión. Menos costos y menos tiempo parado."),
+ "category": "elevadores",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> si tu empresa tiene flota de camiones, colectivos, utilitarios o camionetas, un taller propio reduce el tiempo que cada unidad está parada y el gasto en terceros. El equipamiento base es un <strong>elevador de cuatro columnas o de dos columnas de alta capacidad</strong>, <strong>alineación de ejes</strong> (Josam CV-Aligner para pesados), <strong>balanceadora y desarmadora para camión</strong> y aire comprimido. La alineación y el balanceo regulares bajan el desgaste de neumáticos y el consumo de combustible.</p>
+</div>
+""",
+ "secciones": """
+<h2>Por qué conviene un taller propio</h2>
+<ul>
+<li><strong>Menos tiempo parado:</strong> el mantenimiento se programa en la propia base, sin traslados ni esperas.</li>
+<li><strong>Control del costo por kilómetro:</strong> neumáticos y combustible son los dos grandes rubros de una flota, y ambos dependen de la alineación y el balanceo. Ver <a href="../../blog/ventajas-de-la-alineacion-de-camiones-para-empresas-de-mantenimiento/">ventajas de la alineación de camiones</a>.</li>
+<li><strong>Trazabilidad:</strong> registro de cada intervención por unidad.</li>
+</ul>
+
+<h2>Equipos según el tipo de flota</h2>
+<ul>
+<li><strong>Utilitarios y camionetas:</strong> elevador de dos columnas de 4.000 a 5.500 kg y alineadora 3D estándar.</li>
+<li><strong>Camiones y colectivos:</strong> elevador de cuatro columnas de 8.165 a 13.608 kg (Rotary Lift SM18 y SM30S), alineadora <a href="../../producto/alineadora-de-camiones-josam-cv-aligner/">Josam CV-Aligner</a>, balanceadora para camión de 150 a 250 kg y desarmadora para camión. Lo vimos en la práctica en <a href="../../blog/alineacion-de-colectivos-con-tecnologia-sueca-josam-cv-aligner/">alineación de colectivos con Josam</a>.</li>
+<li><strong>Montaje de la gomería de pesados:</strong> <a href="../../blog/como-montar-una-gomeria-para-camiones-y-vehiculos-pesados-equipos-necesarios/">equipos necesarios</a>.</li>
+</ul>
+
+<h2>Equipos de referencia</h2>
+{{TABLA}}
+
+<h2>Mantenimiento preventivo de los propios equipos</h2>
+<p>Un taller propio solo rinde si los equipos están disponibles. Hay un plan de mantenimiento y casos reales en <a href="../../blog/la-importancia-del-mantenimiento-preventivo-en-equipos-de-taller-caso-exitoso-lions-group/">mantenimiento preventivo: caso Lions Group</a> y un checklist en <a href="../../blog/mantenimiento-de-un-elevador-de-taller-checklist-diario-mensual-y-anual/">mantenimiento de un elevador de taller</a>. La instalación y el servicio se cotizan aparte.</p>
+""",
+ "tabla": {
+  "slugs": [
+   ("elevador-cuatro-columnas-8165-kg-rotary-lift-sm18", "Cuatro columnas de 8.165 kg para utilitarios pesados."),
+   ("elevador-cuatro-columnas-13608-kg-rotary-lift-sm30s", "Cuatro columnas de 13.608 kg para camiones."),
+   ("elevador-dos-columnas-7250-kg-rotary-lift-spo16-cargo", "Dos columnas de 7.250 kg para vehículos de carga."),
+   ("alineadora-de-camiones-josam-cv-aligner", "Alineación de camiones y colectivos."),
+   ("balanceadora-para-ruedas-de-camion-hofmann-geodyna-980l", "Balanceo de ruedas de camión, hasta 250 kg."),
+   ("balanceadora-de-ruedas-para-camion-u-850-150-kg-trivium-pro", "Balanceo de camión de 150 kg, línea económica."),
+   ("desarmadora-de-ruedas-para-camion-hofmann-monty-4250p", "Desarmadora para ruedas de camión."),
+  ],
+ },
+ "faqs": [
+  ("¿Qué equipos necesita el taller de una flota de camiones?",
+   "Un elevador de cuatro columnas de alta capacidad, alineadora de camiones, balanceadora y desarmadora para camión, y aire comprimido con herramientas neumáticas."),
+  ("¿Cómo se alinean colectivos y camiones?",
+   "Con una alineadora específica para vehículos pesados, como la Josam CV-Aligner, que mide la alineación de todos los ejes."),
+  ("¿La alineación reduce el consumo de combustible?",
+   "Una flota bien alineada gasta menos neumáticos y menos combustible por menor resistencia a la rodadura. Los resultados dependen de cada flota."),
+  ("¿Pueden capacitar al personal de mantenimiento de la empresa?",
+   "Sí, la puesta en marcha incluye capacitación. La instalación se cotiza aparte."),
+ ],
+ "posts": [
+  "ventajas-de-la-alineacion-de-camiones-para-empresas-de-mantenimiento",
+  "alineacion-de-colectivos-con-tecnologia-sueca-josam-cv-aligner",
+  "instalamos-una-josam-cv-aligner-en-mendoza-tecnologia-snap-on-para-el-alineado-de-vehiculos-pesados",
+  "como-montar-una-gomeria-para-camiones-y-vehiculos-pesados-equipos-necesarios",
+  "la-importancia-del-mantenimiento-preventivo-en-equipos-de-taller-caso-exitoso-lions-group",
+ ],
+},
+# --------------------------------------------------------------------------
+{
+ "slug": "equipos-para-fabricas-y-plantas-industriales",
+ "title": "Equipamiento para fábricas y plantas: mantenimiento, aire comprimido y levante",
+ "h1": "Fábricas y plantas industriales: equipamiento de mantenimiento",
+ "description": ("Equipamiento para el taller de mantenimiento de una fábrica o planta: "
+                 "elevadores de alta capacidad, red de aire comprimido de aluminio Prevost, "
+                 "herramientas neumáticas y equipamiento de piso."),
+ "category": "aire-comprimido",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> una fábrica o planta con vehículos propios (autoelevadores de reparto, utilitarios, camiones) y taller de mantenimiento necesita <strong>elevadores de alta capacidad</strong>, <strong>una red de aire comprimido bien dimensionada</strong>, <strong>herramientas neumáticas</strong> de uso industrial y <strong>equipamiento de piso</strong> para mover motores y piezas pesadas. Trivium Pro provee los equipos, instala la <a href="../../categoria/aire-comprimido/">red de aire Prevost de aluminio</a> y da el servicio técnico.</p>
+</div>
+""",
+ "secciones": """
+<h2>Qué se equipa en una planta</h2>
+<ul>
+<li><strong>Aire comprimido:</strong> una red de aluminio no se oxida ni contamina el aire, es modular y se amplía sin parar la planta. Ver <a href="../../categoria/aire-comprimido/">red de aire comprimido Prevost</a>.</li>
+<li><strong>Elevación de vehículos:</strong> elevadores de cuatro columnas de hasta 13.608 kg y de dos columnas de hasta 7.250 kg para la flota propia.</li>
+<li><strong>Herramientas neumáticas de uso intensivo:</strong> llaves de impacto de alto par (hasta 2.712 Nm) para desmontar ruedas de vehículos pesados. Ver <a href="../../categoria/herramientas-neumaticas/">herramientas neumáticas</a>.</li>
+<li><strong>Manipulación de cargas:</strong> criques de hasta 15 toneladas, mesa hidráulica y soportes de motor: <a href="../../categoria/equipamiento-taller/">equipamiento de taller</a>.</li>
+<li><strong>Orden:</strong> <a href="../../categoria/muebles-taller/">muebles de taller</a> para herramientas y repuestos.</li>
+</ul>
+
+<h2>Equipos de referencia</h2>
+{{TABLA}}
+
+<h2>Cómo trabajamos con una planta</h2>
+<ol>
+<li><strong>Relevamiento:</strong> qué vehículos, qué cargas y qué instalaciones existen.</li>
+<li><strong>Propuesta técnica:</strong> equipos, planos de ubicación y requisitos de piso y electricidad.</li>
+<li><strong>Instalación y capacitación:</strong> la instalación se cotiza aparte del equipo.</li>
+<li><strong>Mantenimiento programado</strong> y repuestos.</li>
+</ol>
+<p>Más sobre servicios en <a href="../../blog/servicios-integrales-para-tus-maquinas-instalacion-mantenimiento-y-mas-en-toda-argentina/">servicios integrales para tus máquinas</a> y en <a href="../../instalacion-posventa-y-servicios/">instalación y posventa</a>.</p>
+""",
+ "tabla": {
+  "slugs": [
+   ("red-de-aire-comprimido-prevost-piping-system", "Red de aire comprimido de aluminio, modular."),
+   ("elevador-cuatro-columnas-13608-kg-rotary-lift-sm30s", "Cuatro columnas de 13.608 kg."),
+   ("elevador-dos-columnas-7250-kg-rotary-lift-spo16-cargo", "Dos columnas de 7.250 kg para vehículos de carga."),
+   ("llave-de-impacto-neumatica-kuani-ki-1838a", "Llave de impacto neumática de uso pesado."),
+   ("criquet-carro-para-camion-15-ton", "Crique carro de 15 toneladas."),
+   ("mesa-hidraulica-360-kg-eleva-1-3-metros", "Mesa hidráulica para mover piezas."),
+   ("mueble-movil-porta-herramientas-de-seis-cajones-con-guarda-objetos", "Mueble móvil de seis cajones."),
+  ],
+ },
+ "faqs": [
+  ("¿Qué equipos necesita el taller de mantenimiento de una fábrica?",
+   "Elevadores para la flota propia, una red de aire comprimido, herramientas neumáticas, equipos para manipular cargas pesadas y muebles de taller."),
+  ("¿Por qué una red de aire de aluminio?",
+   "No se oxida, no contamina el aire con partículas de óxido, tiene poca pérdida de carga y se amplía fácilmente."),
+  ("¿Pueden instalar la red de aire en la planta?",
+   "Sí. Armamos la propuesta y la instalación se cotiza aparte del material."),
+  ("¿Hacen mantenimiento de los equipos?",
+   "Sí, servicio técnico y repuestos en todo el país."),
+ ],
+ "posts": [
+  "servicios-integrales-para-tus-maquinas-instalacion-mantenimiento-y-mas-en-toda-argentina",
+  "mantenimiento-de-un-elevador-de-taller-checklist-diario-mensual-y-anual",
+  "la-importancia-del-mantenimiento-preventivo-en-equipos-de-taller-caso-exitoso-lions-group",
+ ],
+},
+# --------------------------------------------------------------------------
+{
+ "slug": "herramientas-y-maquinas-para-taller",
+ "title": "Herramientas y máquinas para taller: criques, llaves neumáticas y más",
+ "h1": "Herramientas y máquinas para taller: qué conviene tener",
+ "description": ("Herramientas y máquinas para taller en general: criques, soportes de motor, "
+                 "llaves de impacto neumáticas, infladores, muebles y accesorios de balanceo, "
+                 "con enlaces al catálogo."),
+ "category": "equipamiento-taller",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> además de las máquinas grandes (elevador, alineadora, balanceadora, desarmadora), un taller necesita un conjunto de <strong>herramientas y equipos auxiliares</strong> que se usan todos los días: <strong>criques y soportes</strong>, <strong>llaves de impacto neumáticas</strong>, <strong>infladores</strong>, <strong>carros y muebles porta herramientas</strong> y <strong>accesorios de balanceo</strong> (conos, tuercas rápidas, pinzas). Trivium Pro los vende con las máquinas, para equipar el taller en una sola compra.</p>
+</div>
+""",
+ "secciones": """
+<h2>Por rubro</h2>
+<ul>
+<li><strong>Levante y soporte:</strong> criques carro de 3 y 4 toneladas, de bajo perfil, neumáticos de hasta 40 toneladas, soportes y niveladores de motor, levanta motor. Ver <a href="../../categoria/equipamiento-taller/">equipamiento de taller</a>.</li>
+<li><strong>Herramientas neumáticas:</strong> llaves de impacto y llaves criqué Kuani. Ver <a href="../../categoria/herramientas-neumaticas/">herramientas neumáticas</a>.</li>
+<li><strong>Inflado:</strong> infladores digitales y automáticos para gomerías.</li>
+<li><strong>Muebles:</strong> carros de dos y tres bandejas y muebles móviles de hasta seis cajones: <a href="../../categoria/muebles-taller/">muebles de taller</a>.</li>
+<li><strong>Accesorios de balanceo:</strong> conos de centrado, tuercas rápidas, pinzas para plomos y calibres Haweka. Ver <a href="../../categoria/accesorios-balanceo/">accesorios de balanceo</a>.</li>
+</ul>
+
+<h2>Equipos de referencia</h2>
+{{TABLA}}
+
+<h2>Cómo elegir una llave de impacto neumática</h2>
+<ul>
+<li><strong>Torque:</strong> debe superar el de ajuste de los bulones del vehículo, con margen. Las Kuani del catálogo van de 678 Nm (KI-1478, corta) a 2.712 Nm (KI-1838A, para camiones).</li>
+<li><strong>Peso y largo:</strong> una llave corta y liviana cansa menos en trabajos repetitivos; la de mayor par pesa 8,1 kg.</li>
+<li><strong>Aire:</strong> verificá que el compresor y la red entreguen el caudal y la presión que pide la herramienta. Ver <a href="../../categoria/aire-comprimido/">aire comprimido</a>.</li>
+</ul>
+
+<h2>Para completar el taller</h2>
+<p>Si todavía estás armando el taller, empezá por la guía <a href="../../guias/equipar-un-taller-mecanico/">equipar un taller mecánico</a> o <a href="../../guias/equipar-una-gomeria/">equipar una gomería</a>.</p>
+""",
+ "tabla": {
+  "slugs": [
+   ("criquet-carro-3-ton", "Crique carro de 3 toneladas."),
+   ("criquet-carro-para-taller-4-ton", "Crique carro de 4 toneladas."),
+   ("soporte-para-motor-680-kg", "Soporte de motor de 680 kg."),
+   ("llave-de-impacto-neumatica-kuani-ki-1478", "Llave de impacto neumática Kuani."),
+   ("inflador-de-neumaticos-digital-kuani", "Inflador digital de neumáticos."),
+   ("mueble-movil-porta-herramientas-de-seis-bandejas", "Mueble móvil de seis bandejas."),
+   ("pinza-para-plomos-contrapesos-haweka", "Pinza para plomos, Haweka."),
+  ],
+ },
+ "faqs": [
+  ("¿Qué herramientas vende Trivium Pro además de máquinas?",
+   "Criques, soportes de motor, llaves de impacto neumáticas, infladores, muebles de taller y accesorios de balanceo."),
+  ("¿Qué llave de impacto necesito para camiones?",
+   "Una de mayor par, como la Kuani KI-1838A de 2.712 Nm."),
+  ("¿Puedo comprar todo junto con las máquinas?",
+   "Sí. Armamos una cotización completa con máquinas, herramientas y, por separado, la instalación."),
+ ],
+ "posts": [
+  "equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos",
+  "como-manejar-un-taller-de-autos-de-forma-eficiente",
+ ],
+},
 ]

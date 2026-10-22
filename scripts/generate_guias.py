@@ -125,8 +125,9 @@ def main():
 
     # Índice /guias/
     url = f"{SITE_URL}/guias/"
-    desc = ("Guías de compra de equipamiento para taller y gomería: elevadores, alineadoras, "
-            "balanceadoras y desarmadoras. Cómo elegir, qué comparar y qué modelos hay.")
+    desc = ("Guías de compra de equipamiento para taller y gomería, concesionarias, flotas y "
+            "fábricas: elevadores, alineadoras, balanceadoras, desarmadoras y herramientas. "
+            "Premium o económico, qué comparar y qué modelos hay.")
     items = ''.join(
         f'<li><a href="{esc(g["slug"])}/"><img src="../assets/img/guias/{esc(g["slug"])}.webp" alt="{esc(g["h1"])}" '
         f'width="240" height="150" loading="lazy"><div><strong>{esc(g["h1"])}</strong>'
