@@ -1,28 +1,30 @@
 #!/usr/bin/env python3
-"""Reemplaza la línea de contacto del pie de una ficha PDF ya hecha por la versión vigente:
+"""Rehace el pie de contacto de una ficha PDF ya hecha con cajas delimitadas e íconos:
 
-    pro.trivium.ar · info@trivium.ar · [WA] +54 9 11 2701-5294 · [WA] +54 9 351 399-4200 (Ventas)
+    [🌐 pro.trivium.ar] [✉ info@trivium.ar] [WA +54 9 11 2701-5294] [WA +54 9 351 399-4200 (Ventas)]   [bandera Origen: País]
 
-con el ícono de WhatsApp y cada dato como enlace (pro.trivium.ar → ficha del producto si se
-pasa --producto, si no la home; mail; wa.me de cada número). Tapa la línea vieja con un
-rectángulo del color del fondo y escribe la nueva encima (Ghostscript). Las anotaciones
-viejas de la ficha se descartan (por eso después conviene correr add_ficha_producto_link.py,
-que vuelve a poner el enlace de la etiqueta "Ver ficha del producto").
+Cada caja es un enlace (pro.trivium.ar → ficha del producto si se pasa --producto, si no la
+home; mail; wa.me de cada número). Tapa la línea vieja (contacto y texto de origen/página a su
+derecha) con un rectángulo del color del fondo y dibuja la nueva con Ghostscript. Las
+anotaciones viejas de la ficha se descartan; después conviene correr
+add_ficha_link_descripcion.py (enlace bajo la descripción).
 
-Para fichas nuevas, escribir la línea directamente en el HTML (ver scripts/add_ficha_links.py).
+Fichas nuevas: escribir el pie en el HTML (ver las clases .pie / .caja de las fichas SPOA10 y PL-4.0-2D).
 
-Uso: python3 scripts/update_ficha_contacto.py ficha.pdf [--producto URL]
+Uso: python3 scripts/update_ficha_contacto.py ficha.pdf [--producto URL] [--origen US|CN|IT|DE|none]
 """
 import os, re, shutil, statistics, subprocess, sys, tempfile
 import numpy as np
 from PIL import Image, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ICONOS = os.path.join(ROOT, "assets/img/iconos/contacto")
 FONT = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf", 100)
-HOME = "https://pro.trivium.ar/"
-MAIL = "mailto:info@trivium.ar"
+HOME, MAIL = "https://pro.trivium.ar/", "mailto:info@trivium.ar"
 WA1, WA2 = "https://wa.me/5491127015294", "https://wa.me/5493513994200"
 N1, N2 = "+54 9 11 2701-5294", "+54 9 351 399-4200 (Ventas)"
+ORIGENES = {"US": ("usa.svg", "Estados Unidos"), "CN": ("china.svg", "China"),
+            "IT": ("italia.svg", "Italia"), "DE": ("alemania.svg", "Alemania")}
 WA_PATH = ("M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164"
            "-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458"
            ".13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612"
@@ -35,12 +37,10 @@ WA_PATH = ("M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.
            "L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z")
 
 def ancho(t, size): return FONT.getlength(t) * size / 100.0
+def psesc(s): return s.replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
 
-def icono_png(destino):
-    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="240" height="240">'
-           f'<path d="{WA_PATH}" fill="#25D366"/></svg>')
-    tmp = tempfile.mkdtemp(); f = os.path.join(tmp, "wa.svg"); open(f, "w").write(svg)
-    subprocess.run(["inkscape", f, "-w", "240", "-h", "240", "-o", destino], check=True, capture_output=True)
+def rasterizar_svg(svg_path, destino, w=300):
+    subprocess.run(["inkscape", svg_path, "-w", str(w), "-o", destino], check=True, capture_output=True)
 
 def paginas(pdf):
     html = subprocess.run(["pdftotext", "-bbox", pdf, "-"], capture_output=True, text=True, check=True).stdout
@@ -49,8 +49,7 @@ def paginas(pdf):
                  re.findall(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>', pm.group(3))]
         yield float(pm.group(1)), float(pm.group(2)), words
 
-def muestrear(pdf, n, w, h, bb):
-    """(color de fondo, color de texto) del rectángulo bb=(x0,y0,x1,y1) en pt desde arriba."""
+def muestrear(pdf, n, w, bb):
     tmp = tempfile.mkdtemp()
     subprocess.run(["pdftoppm", "-r", "144", "-f", str(n), "-l", str(n), "-png", pdf, os.path.join(tmp, "p")], capture_output=True)
     f = [x for x in os.listdir(tmp) if x.endswith(".png")][0]
@@ -64,89 +63,104 @@ def muestrear(pdf, n, w, h, bb):
     lejos = reg[np.argsort(dist)[-max(5, len(reg) // 40):]]
     return bg / 255.0, lejos.mean(axis=0) / 255.0
 
-def procesar(pdf, producto):
+def img_hex(png, px_w, px_h, bg):
+    im = Image.open(png).convert("RGBA")
+    fondo = Image.new("RGBA", im.size, tuple(int(c * 255) for c in bg) + (255,)); fondo.alpha_composite(im)
+    im = fondo.convert("RGB").resize((px_w, px_h), Image.LANCZOS)
+    return im.tobytes().hex() + ">"
+
+RR = ("/rr { /rad exch def /hh exch def /ww exch def /yy exch def /xx exch def newpath "
+      "xx rad add yy moveto xx ww add yy xx ww add yy hh add rad arcto 4 {pop} repeat "
+      "xx ww add yy hh add xx yy hh add rad arcto 4 {pop} repeat xx yy hh add xx yy rad arcto 4 {pop} repeat "
+      "xx yy xx ww add yy rad arcto 4 {pop} repeat closepath } def\n")
+
+def procesar(pdf, producto, origen):
     sitio = producto or HOME
     datos = {}
     for n, (w, h, words) in enumerate(paginas(pdf), 1):
         pri = [i for i, x in enumerate(words) if x[4] == "pro.trivium.ar"]
-        if not pri:
-            continue
+        linea = None
         for i in pri:
             y0 = words[i][1]
-            linea = [x for x in words if abs(x[1] - y0) < 3]
-            textos = [x[4] for x in linea]
-            if "info@trivium.ar" in textos and "2701-5294" in textos:
-                break
-        else:
+            l = [x for x in words if abs(x[1] - y0) < 3]
+            tx = [x[4] for x in l]
+            if "info@trivium.ar" in tx and "2701-5294" in tx:
+                linea = l; break
+        if not linea:
             continue
-        # extensión del grupo: de pro.trivium.ar / info / número (lo que quede más a la izquierda y a la derecha)
-        claves = [x for x in linea if x[4] in ("pro.trivium.ar", "info@trivium.ar", "2701-5294", "WhatsApp", "+54", "9", "11", "·", "|")
-                  or x[4] in ("·WhatsApp", "·info@trivium.ar")]
+        claves = [x for x in linea if x[4] in ("pro.trivium.ar", "info@trivium.ar", "2701-5294", "399-4200", "(Ventas)")
+                  or x[4] in ("·info@trivium.ar", "·WhatsApp")]
+        # (los "·" y números sueltos no cuentan: en algunas fichas el "Página 1 de 2" está en la misma línea)
         x_ini = min(x[0] for x in claves); x_fin = max(x[2] for x in claves)
         grupo = [x for x in linea if x_ini - 1 <= x[0] and x[2] <= x_fin + 1]
-        yt = min(x[1] for x in grupo); yb = max(x[3] for x in grupo)
-        size = statistics.median((x[2] - x[0]) / (FONT.getlength(x[4]) / 100.0) for x in grupo if len(x[4]) > 3 and "@" not in x[4]) if True else 7
-        otros = [x for x in linea if x not in grupo]
-        datos[n] = dict(w=w, h=h, x_ini=x_ini, x_fin=x_fin, yt=yt, yb=yb, size=size, otros=otros)
+        derecho = [x for x in linea if x[0] > x_fin + 2]                     # origen / página a la derecha
+        pagina = " ".join(x[4] for x in derecho)
+        mp = re.search(r"Página \d+ de \d+", pagina)
+        yt = min(x[1] for x in grupo + derecho); yb = max(x[3] for x in grupo + derecho)
+        size = statistics.median((x[2] - x[0]) / (FONT.getlength(x[4]) / 100.0) for x in grupo if len(x[4]) > 3 and "@" not in x[4])
+        r_fin = max([x[2] for x in derecho] or [x_fin])
+        datos[n] = dict(w=w, h=h, x_ini=x_ini, x_fin=x_fin, r_fin=r_fin, yt=yt, yb=yb, size=size,
+                        pagina=mp.group(0) if mp else "", hay_derecha=bool(derecho))
     if not datos:
         print(f"· {os.path.basename(pdf)}: no tiene la línea de contacto, sin cambios"); return
-    icon = os.path.join(tempfile.mkdtemp(), "wa.png"); icono_png(icon)
-    tmp = tempfile.mkdtemp(); partes = []
-    npag = len(list(paginas(pdf)))
+    tmp = tempfile.mkdtemp()
+    ic = {}
+    iconos = [("web", "globo.svg"), ("mail", "mail.svg")] + ([("flag", ORIGENES[origen][0])] if origen in ORIGENES else [])
+    for nombre, svg in iconos:
+        d = os.path.join(tmp, nombre + ".png"); rasterizar_svg(os.path.join(ICONOS, svg), d); ic[nombre] = d
+    svgwa = os.path.join(tmp, "wa.svg")
+    open(svgwa, "w").write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="{WA_PATH}" fill="#25D366"/></svg>')
+    d = os.path.join(tmp, "wa.png"); rasterizar_svg(svgwa, d); ic["wa"] = d
+    npag = len(list(paginas(pdf))); partes = []
     for n in range(1, npag + 1):
         part = os.path.join(tmp, f"p{n}.pdf")
         if n not in datos:
             subprocess.run(["gs", "-q", "-dNOPAUSE", "-dBATCH", "-sDEVICE=pdfwrite", "-dPDFSETTINGS=/printer", f"-dFirstPage={n}", f"-dLastPage={n}",
                             f"-sOutputFile={part}", pdf], check=True, capture_output=True)
             partes.append(part); continue
-        d = datos[n]; w, h, size = d["w"], d["h"], d["size"]
-        bg, fg = muestrear(pdf, n, w, h, (d["x_ini"], d["yt"], d["x_fin"], d["yb"]))
-        isz = size * 1.25
-        def construir(sz):
-            isz = sz * 1.25
-            seg = [("t", "pro.trivium.ar", sitio), ("p", " · ", None), ("t", "info@trivium.ar", MAIL), ("p", " · ", None),
-                   ("i", None, WA1), ("t", N1, WA1), ("p", " · ", None), ("i", None, WA2), ("t", N2, WA2)]
-            x = 0.0; out = []
-            for tipo, txt, url in seg:
-                if tipo == "i":
-                    ww = isz; out.append((tipo, x, ww, txt, url)); x += ww + sz * 0.3
-                else:
-                    ww = ancho(txt, sz) + (sz * 0.12 if tipo == "t" else 0); out.append((tipo, x, ww, txt, url)); x += ww
-            return out, x
-        sz = size
-        out, total = construir(sz)
-        derecha = d["x_fin"] > w - 80
-        x0 = (d["x_fin"] - total) if derecha else d["x_ini"]
-        # colisión con otros textos de la misma línea
-        for _ in range(4):
-            if any(not (o[2] < x0 - 3 or o[0] > x0 + total + 3) for o in d["otros"]):
-                sz *= 0.93; out, total = construir(sz); x0 = (d["x_fin"] - total) if derecha else d["x_ini"]
-            else:
-                break
-        cover_x0 = min(d["x_ini"], x0) - 1.5; cover_x1 = max(d["x_fin"], x0 + total) + 1.5
-        ytop = d["yt"] - 1.5; ybot = d["yb"] + 1.5
-        base = h - (d["yb"] - (d["yb"] - d["yt"]) * 0.22)          # línea de base aproximada
-        ops = [f"{bg[0]:.3f} {bg[1]:.3f} {bg[2]:.3f} setrgbcolor {cover_x0:.1f} {h - ybot:.1f} {cover_x1 - cover_x0:.1f} {ybot - ytop:.1f} rectfill",
-               f"{fg[0]:.3f} {fg[1]:.3f} {fg[2]:.3f} setrgbcolor /HelvL findfont {sz:.2f} scalefont setfont"]
+        D = datos[n]; w, h = D["w"], D["h"]
+        bg, fg = muestrear(pdf, n, w, (D["x_ini"], D["yt"], max(D["x_fin"], D["r_fin"]), D["yb"]))
+        sz = min(D["size"], 7.0)
+        alto = sz * 1.62; pad = 3.6; gi = 2.8; isz = sz * 1.15
+        def caja(tipo, txt, url):
+            wt = ancho(txt, sz) + sz * 0.12
+            return dict(tipo=tipo, txt=txt, url=url, w=pad + isz + gi + wt + pad)
+        cajas = [caja("web", "pro.trivium.ar", sitio), caja("mail", "info@trivium.ar", MAIL), caja("wa", N1, WA1), caja("wa", N2, WA2)]
+        gap = 4.0
+        total = sum(c["w"] for c in cajas) + gap * (len(cajas) - 1)
+        derecha_contacto = (not D["hay_derecha"]) and D["x_fin"] > w - 80      # contacto pegado a la derecha (sin origen)
+        x0 = (D["x_fin"] - total) if derecha_contacto else D["x_ini"]
+        yc = h - (D["yt"] + D["yb"]) / 2.0                                       # centro vertical de la línea (PostScript)
+        cover = [min(D["x_ini"], x0) - 2, max(D["x_fin"], D["r_fin"], x0 + total) + 2]
+        ops = [f"{bg[0]:.3f} {bg[1]:.3f} {bg[2]:.3f} setrgbcolor {cover[0]:.1f} {yc - alto / 2 - 2.5:.1f} {cover[1] - cover[0]:.1f} {alto + 5:.1f} rectfill",
+               "/HelvL findfont {:.2f} scalefont setfont".format(sz)]
         marks = []
-        # icono compuesto sobre el fondo
-        im = Image.open(icon).convert("RGBA"); fondo = Image.new("RGBA", im.size, tuple(int(c * 255) for c in bg) + (255,)); fondo.alpha_composite(im)
-        px = max(10, round(sz * 1.25 * 150 / 72)); ic = fondo.convert("RGB").resize((px, px), Image.LANCZOS)
-        hexic = ic.tobytes().hex() + ">"
-        for tipo, x, ww, txt, url in out:
-            X = x0 + x
-            if tipo == "t":
-                ops.append(f"{X:.2f} {base:.2f} moveto ({txt.replace('(', chr(92) + '(').replace(')', chr(92) + ')')}) show")
-            elif tipo == "p":
-                ops.append(f"{X:.2f} {base:.2f} moveto ({txt}) show")
-            else:
-                iy = base - sz * 0.22
-                ops.append(f"gsave {X:.2f} {iy:.2f} translate {ww:.2f} {ww:.2f} scale {px} {px} 8 [{px} 0 0 -{px} 0 {px}] ({hexic}) /ASCIIHexDecode filter false 3 colorimage grestore")
-                ops.append(f"{fg[0]:.3f} {fg[1]:.3f} {fg[2]:.3f} setrgbcolor")
-            if url:
-                x1 = X + ww + (sz * 0.2 if tipo == 'i' else 0)
-                marks.append(f"[ /Rect [{X - 1:.1f} {h - ybot:.1f} {x1 + 1:.1f} {h - ytop:.1f}] /Border [0 0 0] /Subtype /Link /Action << /Subtype /URI /URI ({url}) >> /ANN pdfmark")
-        ps = ("/HelvL /Helvetica findfont dup length dict begin {1 index /FID ne {def} {pop pop} ifelse} forall "
+        def dibuja_caja(x, c):
+            ops.append(f"gsave 1 1 1 setrgbcolor {x:.2f} {yc - alto / 2:.2f} {c['w']:.2f} {alto:.2f} 3 rr fill grestore")
+            ops.append(f"gsave 0.78 setgray 0.55 setlinewidth {x:.2f} {yc - alto / 2:.2f} {c['w']:.2f} {alto:.2f} 3 rr stroke grestore")
+            px = max(10, round(isz * 150 / 72))
+            ops.append(f"gsave {x + pad:.2f} {yc - isz / 2:.2f} translate {isz:.2f} {isz:.2f} scale {px} {px} 8 [{px} 0 0 -{px} 0 {px}] ({img_hex(ic[c['tipo']], px, px, (1, 1, 1))}) /ASCIIHexDecode filter false 3 colorimage grestore")
+            ops.append(f"{fg[0]:.3f} {fg[1]:.3f} {fg[2]:.3f} setrgbcolor {x + pad + isz + gi:.2f} {yc - sz * 0.33:.2f} moveto ({psesc(c['txt'])}) show")
+            if c.get("url"):
+                marks.append(f"[ /Rect [{x:.1f} {yc - alto / 2:.1f} {x + c['w']:.1f} {yc + alto / 2:.1f}] /Border [0 0 0] /Subtype /Link /Action << /Subtype /URI /URI ({c['url']}) >> /ANN pdfmark")
+        x = x0
+        for c in cajas:
+            dibuja_caja(x, c); x += c["w"] + gap
+        # origen (bandera + país) a la derecha, y el "Página n de N" si lo había
+        if origen in ORIGENES and D["hay_derecha"]:
+            txt = f"Origen: {ORIGENES[origen][1]}"
+            fw, fh = sz * 1.5, sz * 1.0
+            cw = pad + fw + gi + ancho(txt, sz) + pad
+            xr = D["r_fin"] - cw
+            ops.append(f"gsave 1 1 1 setrgbcolor {xr:.2f} {yc - alto / 2:.2f} {cw:.2f} {alto:.2f} 3 rr fill grestore")
+            ops.append(f"gsave 0.78 setgray 0.55 setlinewidth {xr:.2f} {yc - alto / 2:.2f} {cw:.2f} {alto:.2f} 3 rr stroke grestore")
+            pxw, pxh = round(fw * 150 / 72), round(fh * 150 / 72)
+            ops.append(f"gsave {xr + pad:.2f} {yc - fh / 2:.2f} translate {fw:.2f} {fh:.2f} scale {pxw} {pxh} 8 [{pxw} 0 0 -{pxh} 0 {pxh}] ({img_hex(ic['flag'], pxw, pxh, (1, 1, 1))}) /ASCIIHexDecode filter false 3 colorimage grestore")
+            ops.append(f"0.5 setlinewidth 0.7 setgray {xr + pad:.2f} {yc - fh / 2:.2f} {fw:.2f} {fh:.2f} rectstroke")
+            ops.append(f"{fg[0]:.3f} {fg[1]:.3f} {fg[2]:.3f} setrgbcolor {xr + pad + fw + gi:.2f} {yc - sz * 0.33:.2f} moveto ({psesc(txt)}) show")
+            if D["pagina"]:
+                ops.append(f"{fg[0]:.3f} {fg[1]:.3f} {fg[2]:.3f} setrgbcolor {xr - 6 - ancho(D['pagina'], sz):.2f} {yc - sz * 0.33:.2f} moveto ({psesc(D['pagina'])}) show")
+        ps = (RR + "/HelvL /Helvetica findfont dup length dict begin {1 index /FID ne {def} {pop pop} ifelse} forall "
               "/Encoding ISOLatin1Encoding def currentdict end definefont pop\n" + "\n".join(marks) + "\n"
               "<< /EndPage { exch dup 1 add /PGN exch def exch 0 eq { PGN 1 eq { gsave\n" + "\n".join(ops) + "\ngrestore } if true } { false } ifelse } >> setpagedevice\n")
         psf = os.path.join(tmp, f"o{n}.ps"); open(psf, "w", encoding="latin-1").write(ps)
@@ -154,13 +168,11 @@ def procesar(pdf, producto):
                         f"-dFirstPage={n}", f"-dLastPage={n}", f"-sOutputFile={part}", psf, pdf], check=True, capture_output=True)
         partes.append(part)
     final = os.path.join(tmp, "final.pdf")
-    subprocess.run(["gs", "-q", "-dNOPAUSE", "-dBATCH", "-sDEVICE=pdfwrite", "-dPDFSETTINGS=/printer", f"-sOutputFile={final}"] + partes,
-                   check=True, capture_output=True)
+    subprocess.run(["gs", "-q", "-dNOPAUSE", "-dBATCH", "-sDEVICE=pdfwrite", "-dPDFSETTINGS=/printer", f"-sOutputFile={final}"] + partes, check=True, capture_output=True)
     shutil.move(final, pdf)
-    print(f"✔ {os.path.basename(pdf)}: contacto actualizado en {len(datos)} página(s)")
+    print(f"✔ {os.path.basename(pdf)}: pie rehecho en {len(datos)} página(s)")
 
 if __name__ == "__main__":
-    prod = None
-    if "--producto" in sys.argv:
-        prod = sys.argv[sys.argv.index("--producto") + 1]
-    procesar(sys.argv[1], prod)
+    prod = sys.argv[sys.argv.index("--producto") + 1] if "--producto" in sys.argv else None
+    ori = sys.argv[sys.argv.index("--origen") + 1] if "--origen" in sys.argv else "none"
+    procesar(sys.argv[1], prod, ori)
