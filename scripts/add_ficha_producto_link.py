@@ -56,8 +56,9 @@ def esquina_libre(pdf, w, h, ancho, alto):
     return None, None, None
 
 def ya_tiene(pdf, url):
+    """¿Hay un enlace a esa URL en la etiqueta? (el del pie de contacto no cuenta: la etiqueta vive en una esquina)"""
     out = subprocess.run(["pdfinfo", "-url", pdf], capture_output=True, text=True).stdout
-    return url in out
+    return url in out and "--forzar" not in sys.argv
 
 def procesar(pdf, url, forzar=None):
     if ya_tiene(pdf, url):

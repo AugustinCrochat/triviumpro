@@ -7,14 +7,20 @@ Ghostscript. Es idempotente: si el PDF ya tiene los enlaces no hace falta correr
 y correrlo de nuevo solo duplica las anotaciones (por eso se aplica al PDF recién
 generado, antes de publicarlo).
 
-Uso: python3 scripts/add_ficha_links.py ficha.pdf [salida.pdf]
+Con --producto URL, "pro.trivium.ar" del pie lleva a la ficha del producto en vez de la home.
+
+Con --solo-etiqueta --producto URL, solo se enlaza la etiqueta "Ver ficha del producto en pro.trivium.ar"
+(sirve cuando update_ficha_contacto.py descartó las anotaciones viejas de una ficha ya hecha).
+
+Uso: python3 scripts/add_ficha_links.py ficha.pdf [salida.pdf] [--producto URL] [--solo-etiqueta]
 """
 import re, shutil, subprocess, sys, tempfile, os
 
 LINKS = [
     (["pro.trivium.ar"], "https://pro.trivium.ar/"),
     (["info@trivium.ar"], "mailto:info@trivium.ar"),
-    (["WhatsApp", "+54", "9", "11", "2701-5294"], "https://wa.me/5491127015294"),
+    (["+54", "9", "11", "2701-5294"], "https://wa.me/5491127015294"),
+    (["+54", "9", "351", "399-4200"], "https://wa.me/5493513994200"),
 ]
 
 def pages(pdf):
@@ -25,14 +31,20 @@ def pages(pdf):
                  re.findall(r'<word xMin="([\d.]+)" yMin="([\d.]+)" xMax="([\d.]+)" yMax="([\d.]+)">(.*?)</word>', pm.group(3))]
         yield w, h, words
 
-def marks(pdf):
+ETIQUETA = ["Ver", "ficha", "del", "producto", "en", "pro.trivium.ar"]
+
+def marks(pdf, producto=None, solo_etiqueta=False):
     """Un grupo de marcas por página. Ghostscript solo aplica bien /Page 1: por eso
     main() procesa cada página como PDF de una hoja y después las vuelve a unir."""
     grupos = []
     for n, (w, h, words) in enumerate(pages(pdf), 1):
         out = []
         texts = [t for *_, t in words]
-        for seq, url in LINKS:
+        todos = [(ETIQUETA, producto)] if (producto and solo_etiqueta) else \
+                ([(ETIQUETA, producto)] if producto else []) + LINKS
+        for seq, url in todos:
+            if producto and seq == ["pro.trivium.ar"]:
+                url = producto          # el sitio del pie lleva a la ficha del producto
             for i in range(len(texts) - len(seq) + 1):
                 if texts[i:i + len(seq)] == seq:
                     ws = words[i:i + len(seq)]
@@ -44,8 +56,15 @@ def marks(pdf):
     return grupos
 
 def main():
-    src = sys.argv[1]; dst = sys.argv[2] if len(sys.argv) > 2 else src
-    grupos = marks(src)
+    args = sys.argv[1:]
+    producto = None
+    solo = "--solo-etiqueta" in args
+    if solo:
+        args.remove("--solo-etiqueta")
+    if "--producto" in args:
+        i = args.index("--producto"); producto = args[i + 1]; del args[i:i + 2]
+    src = args[0]; dst = args[1] if len(args) > 1 else src
+    grupos = marks(src, producto, solo)
     if not any(grupos):
         sys.exit("no se encontró ningún dato de contacto para enlazar")
     tmpdir = tempfile.mkdtemp()
