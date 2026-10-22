@@ -450,7 +450,7 @@ def product_guide_html(cat_slug, root, faqs=None, notas=''):
     items = ''.join(f'<li>{p}</li>' for p in parts)
     faq = ''
     if faqs:
-        faq = ('<div class="container cat-faq" style="padding:28px 0 8px"><h2>Preguntas frecuentes</h2>' +
+        faq = ('<div class="container cat-faq" style="padding-top:28px;padding-bottom:8px"><h2>Preguntas frecuentes</h2>' +
                ''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in faqs) + '</div>')
     return (faq + f'<div class="container"><h2>Antes de comprar</h2>'
             f'<ul class="guia-lista">{items}</ul></div>' + notas)

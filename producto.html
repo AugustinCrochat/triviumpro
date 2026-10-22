@@ -12,10 +12,10 @@
 <title>Ficha de producto — Trivium Pro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css?v=20261022b">
-<link rel="stylesheet" href="assets/css/guia.css?v=20261022b">
-<link rel="stylesheet" href="assets/css/tienda.css?v=20261022b">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="assets/css/styles.css?v=20261022d">
+<link rel="stylesheet" href="assets/css/guia.css?v=20261022d">
+<link rel="stylesheet" href="assets/css/tienda.css?v=20261022d">
 </head>
 <body>
 <div id="site-header"></div>
@@ -43,9 +43,9 @@
 <section class="cat-blog-links" id="pd-guide"></section>
 
 <div id="site-footer"></div>
-<script src="assets/js/site.js?v=20261022b"></script>
-<script src="assets/js/zoom.js?v=20261022b"></script>
-<script src="assets/js/tienda.js?v=20261022b"></script>
+<script src="assets/js/site.js?v=20261022d"></script>
+<script src="assets/js/zoom.js?v=20261022d"></script>
+<script src="assets/js/tienda.js?v=20261022d"></script>
 <script>
 mountChrome('catalogo');
 
@@ -148,7 +148,18 @@ try {
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex-shrink:0"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
           Ficha Técnica
         </a>` : ''}
-      </div>` : ''}
+      </div>
+      ${pdfHref ? `
+      <div class="pd-ficha-tools">
+        <a class="btn btn--ghost btn--sm" href="${pdfHref}" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar ficha
+        </a>
+        <button type="button" class="btn btn--ghost btn--sm" data-share-ficha="${pdfHref}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+          Compartir ficha
+        </button>
+      </div>` : ''}` : ''}
 
       ${(p.bullets && p.bullets.length) ? `
       <ul class="pd-bullets">

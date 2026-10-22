@@ -52,8 +52,9 @@ tr:nth-child(odd) td{background:#f1f1f1}tr:nth-child(even) td{background:#f8f8f8
 .foot3 b{display:flex;align-items:center;gap:1.4mm;color:#000;font-size:8.3pt;margin-bottom:.5mm}.foot3 b:before{content:"";width:1.6mm;height:1.6mm;border-radius:50%;background:#c8102e;flex:none}
 .ft{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #ccc;padding-top:1.4mm;margin-top:2mm;font-size:7.3pt;color:#555}
 .cajas{display:flex;gap:1.2mm;align-items:center}.lgp{height:6.2mm;width:auto;margin-right:1.2mm}
-.caja{display:inline-flex;align-items:center;gap:1mm;border:.25mm solid #cfcfcf;border-radius:1.1mm;padding:.7mm 1.4mm;font-size:6.8pt;color:#444;text-decoration:none;background:#fff;white-space:nowrap}
-.caja .ic{width:2.9mm;height:2.9mm;flex:none}.caja .wa{fill:#25D366;stroke:none}.caja .fl{width:4.2mm;height:2.8mm;flex:none;outline:.15mm solid #bbb}
+.caja{display:inline-flex;align-items:center;gap:1.4mm;border:.3mm solid #e3b5bc;border-radius:1.6mm;padding:1.1mm 2.2mm;font-size:8.6pt;font-weight:bold;color:#1a1a1a;text-decoration:none;background:#fff5f6;white-space:nowrap}
+.caja .ic{width:3.6mm;height:3.6mm;flex:none}.caja svg.ic:not(.wa){stroke:#c8102e}.caja .wa{fill:#25D366;stroke:none}.caja .fl{width:5mm;height:3.3mm;flex:none;outline:.15mm solid #bbb}
+.caja.w{background:#effbf3;border-color:#9bdcb2}.caja.o{background:#f4f4f4;border-color:#cfcfcf}
 """
 
 # Fichas ya hechas a mano en el formato nuevo (no se regeneran sin --slug)
@@ -70,7 +71,7 @@ def svg_inline(nombre, cls):
 
 WA = ('<svg class="ic wa" viewBox="0 0 24 24"><path d="' + re.search(r'WA_PATH = \((.*?)\)\n\ndef', open(os.path.join(ROOT, "scripts/update_ficha_contacto.py"), encoding="utf-8").read(), re.S).group(1).replace('"\n           "', "").replace('"', "").replace(" \n", "") + '"/></svg>')
 ORI_F = {"US": "estados-unidos", "IT": "italia", "DE": "alemania", "SE": "suecia", "TW": "taiwan", "CN": "marcado-ce"}
-BANDERAS = {"US": "usa.svg", "CN": "china.svg", "IT": "italia.svg", "DE": "alemania.svg"}
+BANDERAS = {"US": "usa.svg", "CN": "china.svg", "IT": "italia.svg", "DE": "alemania.svg", "SE": "suecia.svg", "TW": "taiwan.svg"}
 
 def tiles(specs):
     prio = [r"capacidad", r"altura", r"alcance|di[aá]metro|rango", r"potencia|motor|energ", r"velocidad|tiempo", r"peso", r"tensi|voltaje|alimentaci", r"presi[oó]n|par "]
@@ -94,8 +95,8 @@ def render(s, n_feat=6, n_spec=14, n_faq=4, galeria=True):
     ORI = {"US": "estados-unidos", "IT": "italia", "DE": "alemania", "SE": "suecia", "TW": "taiwan", "CN": "marcado-ce"}
     SITE = "https://pro.trivium.ar"
     if brand_file: chips += f'<a href="{SITE}/marca/{s["marca_slug"]}/"><img src="file://{brand_file}" style="height:8mm;max-width:34mm"></a>'
-    if s["origen"] and s["origen"][0] in ("US", "IT", "DE") :
-        oid = {"US": "made-in-usa", "IT": "made-in-italy", "DE": "made-in-germany"}[s["origen"][0]]
+    if s["origen"] and s["origen"][0] in ("US", "IT", "DE", "SE", "TW") :
+        oid = {"US": "made-in-usa", "IT": "made-in-italy", "DE": "made-in-germany", "SE": "made-in-sweden", "TW": "made-in-taiwan"}[s["origen"][0]]
         chips += f'<a href="{SITE}/origen/{ORI[s["origen"][0]]}/"><img src="file://{BUILD}/origin-{oid}.png" style="height:12mm"></a>'
     elif s["ce"]:
         chips += f'<a href="{SITE}/origen/marcado-ce/"><img src="file://{BUILD}/ce.png" style="height:10mm"></a>'
@@ -112,15 +113,14 @@ def render(s, n_feat=6, n_spec=14, n_faq=4, galeria=True):
     if galeria and s["galeria"]:
         gal = '<h3>Imágenes del producto</h3><div class="gal">' + "".join(f'<div><img src="{img(g)}" alt="{E(s["name"])}"></div>' for g in s["galeria"]) + "</div>"
     faq = "".join(f"<div><b>{E(q)}</b>{E(a)}</div>" for q, a in faqs(s)[:n_faq])
-    flag = f'<a class="caja" href="https://pro.trivium.ar/origen/{ORI_F[s["origen"][0]]}/">Origen: {svg_inline("contacto_" + BANDERAS[s["origen"][0]], "fl") if False else svg_inline(BANDERAS.get(s["origen"][0], "usa.svg"), "fl")}{E(s["origen"][1])}</a>' if s["origen"] and s["origen"][0] in BANDERAS else ""
+    flag = f'<a class="caja o" href="https://pro.trivium.ar/origen/{ORI_F[s["origen"][0]]}/">Origen: {svg_inline("contacto_" + BANDERAS[s["origen"][0]], "fl") if False else svg_inline(BANDERAS.get(s["origen"][0], "usa.svg"), "fl")}{E(s["origen"][1])}</a>' if s["origen"] and s["origen"][0] in BANDERAS else ""
     kicker = " · ".join(x for x in (s["categoria"], s["marca"]) if x)
     subt = " · ".join(x for x in ((f"Modelo: {s['modelo']}" if s["modelo"] else ""), (f"SKU {s['sku']}" if s["sku"] else ""), E(s["resumen"])) if x)
     titulo = f"Ficha técnica {s['name']}" + ("" if "Trivium Pro" in s["name"] else " | Trivium Pro")
     cajas = (f'<a href="https://pro.trivium.ar/"><img class="lgp" src="file://{ROOT}/assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"></a>'
              f'<a class="caja" href="{s["url"]}">{svg_inline("globo.svg", "ic")}pro.trivium.ar</a>'
              f'<a class="caja" href="mailto:info@trivium.ar">{svg_inline("mail.svg", "ic")}info@trivium.ar</a>'
-             f'<a class="caja" href="https://wa.me/5491127015294">{WA}+54 9 11 2701-5294</a>'
-             f'<a class="caja" href="https://wa.me/5493513994200">{WA}+54 9 351 399-4200 (Ventas)</a>')
+             f'<a class="caja w" href="https://wa.me/5491127015294">{WA}+54 9 11 2701-5294</a>')
     return f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{E(titulo)}</title>
 <meta name="author" content="Trivium Pro"><meta name="description" content="{E(s['resumen'])}"><style>{CSS}</style></head><body><div class="page">
 <div class="top"><a href="https://pro.trivium.ar/"><img class="lg" src="file://{ROOT}/assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"></a><div class="chips">{chips}</div><span>FICHA TÉCNICA</span></div>

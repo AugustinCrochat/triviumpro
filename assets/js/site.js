@@ -306,7 +306,7 @@ async function loadCatalog() {
   if (CATALOG) return CATALOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/catalog.js?v=20261022b';
+    script.src = rootPath() + 'data/catalog.js?v=20261022d';
     script.onload = () => {
       CATALOG = window.CATALOG_DATA;
       resolve(CATALOG);
@@ -427,11 +427,14 @@ function originSidebarHtml(activeId) {
   }).join('');
 }
 
+// Miniatura (scripts/generate_thumbs.py): carpeta t/ junto a la original; si no existe, se usa la original.
+function thumbSrc(path) { return path.replace(/^(assets\/img\/(?:productos|blog)\/)([^/]+)$/, '$1t/$2'); }
+
 function productCard(p) {
   const brand = brandById(p.brand);
   const msg = `Hola Trivium, quiero consultar por: ${p.name} (${p.sku})`;
   const img = p.image
-    ? `<img src="${rootPath()}${p.image}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+    ? `<img src="${rootPath()}${thumbSrc(p.image)}" alt="${p.name}" width="480" height="480" loading="lazy" onerror="if(this.dataset.f!=='1'){this.dataset.f='1';this.src='${rootPath()}${p.image}';return}this.style.display='none';this.nextElementSibling.style.display='grid'">
        <span style="display:none">Imagen / ${p.sku}</span>`
     : `<span>Imagen / ${p.sku}</span>`;
   let specHtml = '';
@@ -517,7 +520,7 @@ async function loadBlog() {
   if (BLOG) return BLOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/blog.js?v=20261022b';
+    script.src = rootPath() + 'data/blog.js?v=20261022d';
     script.onload = () => {
       BLOG = window.BLOG_DATA;
       resolve(BLOG);
@@ -532,7 +535,7 @@ function blogUrl(post) { return `${rootPath()}blog/${post.slug}/`; }
 function blogCard(p) {
   const date = new Date(p.date).toLocaleDateString('es-AR', { day: '2-digit', month: 'long', year: 'numeric' });
   const img = p.image 
-    ? `<img src="${rootPath()}${p.image}" alt="${p.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">` 
+    ? `<img src="${rootPath()}${thumbSrc(p.image)}" alt="${p.title}" width="640" height="360" loading="lazy" onerror="if(this.dataset.f!=='1'){this.dataset.f='1';this.src='${rootPath()}${p.image}'}" style="width:100%;height:100%;object-fit:cover;">` 
     : `<div class="ph">Noticia</div>`;
   return `
     <article class="prod-card">
@@ -577,4 +580,24 @@ document.addEventListener('click', function (e) {
   if (u.origin !== location.origin || !/^\/assets\/pdf\/[A-Za-z0-9._-]+\.pdf$/.test(u.pathname)) return;
   e.preventDefault();
   location.href = '/ficha/?f=' + encodeURIComponent(u.pathname.slice(1));
+});
+
+// Compartir la ficha técnica: en el celular abre el menú nativo con el PDF adjunto (WhatsApp, mail...);
+// si el navegador no puede adjuntar archivos comparte el enlace, y si no hay menú nativo abre WhatsApp.
+document.addEventListener('click', async function (e) {
+  const b = e.target.closest ? e.target.closest('[data-share-ficha]') : null;
+  if (!b) return;
+  const url = new URL(b.getAttribute('data-share-ficha'), location.href).href;
+  const nombre = (document.querySelector('h1') || {}).textContent || 'Ficha técnica';
+  const titulo = 'Ficha técnica ' + nombre.trim();
+  const texto = titulo + ' — Trivium Pro';
+  try {
+    if (navigator.canShare && navigator.share) {
+      const r = await fetch(url);
+      const file = new File([await r.blob()], url.split('/').pop(), { type: 'application/pdf' });
+      if (navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: titulo, text: texto }); return; }
+    }
+    if (navigator.share) { await navigator.share({ title: titulo, text: texto, url }); return; }
+  } catch (err) { if (err && err.name === 'AbortError') return; }
+  window.open('https://wa.me/?text=' + encodeURIComponent(texto + '\n' + url), '_blank', 'noopener');
 });
