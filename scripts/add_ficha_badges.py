@@ -6,7 +6,11 @@ ficha PDF ya hecha, a la izquierda de "FICHA TÉCNICA". Se dibujan con Ghostscri
 Las imágenes salen de scripts/make_ficha_chips.py. El alto sale del prefijo del nombre:
 brand-* 24 pt, origin-* 34 pt, ce.png 28 pt, ali-* 30 pt.
 
-Uso: python3 scripts/add_ficha_badges.py ficha.pdf chip1.png [chip2.png ...]
+Fichas viejas sin encabezado "FICHA TÉCNICA" (hojas heredadas de Trivium Center): con
+--top o --bottom las insignias se anclan a la esquina superior o inferior derecha de cada
+página, en la banda libre del encabezado/pie.
+
+Uso: python3 scripts/add_ficha_badges.py ficha.pdf [--top | --bottom] chip1.png [chip2.png ...]
 """
 import os, re, shutil, subprocess, sys, tempfile
 from PIL import Image
@@ -34,8 +38,20 @@ def hex_rgb(path, alto_pt):
     im = im.resize((wpx, hpx), Image.LANCZOS)
     return wpx, hpx, im.tobytes().hex() + ">"
 
+def paginas_ancla(pdf, donde):
+    """Anclaje a la esquina derecha: (nro de página, alto, x de la derecha, y del centro en pt desde abajo)."""
+    info = subprocess.run(["pdfinfo", "-f", "1", "-l", "99", "-box", pdf], capture_output=True, text=True, check=True).stdout
+    for m in re.finditer(r"Page\s+(\d+)\s+size:\s+([\d.]+) x ([\d.]+)", info):
+        n, w, h = int(m.group(1)) - 1, float(m.group(2)), float(m.group(3))
+        yield n, h, w - 28.0, (h - 27.0 if donde == "top" else 24.0)
+
 def main():
-    pdf, chips = sys.argv[1], sys.argv[2:]
+    args = sys.argv[1:]
+    donde = None
+    for flag in ("--top", "--bottom"):
+        if flag in args:
+            donde = flag[2:]; args.remove(flag)
+    pdf, chips = args[0], args[1:]
     datos = []
     for c in chips:
         pref = os.path.basename(c).split("-")[0].split(".")[0]
@@ -43,7 +59,12 @@ def main():
         wpx, hpx, hx = hex_rgb(c, alto)
         datos.append((alto, alto * wpx / hpx, wpx, hpx, hx))
     ops = {}
-    for n, h, x_ficha, y_mid in cabeceras(pdf):
+    if donde:
+        origen = [(n, h, xr, h - yc) for n, h, xr, yc in paginas_ancla(pdf, donde)]   # y_mid en pt desde arriba
+        origen = [(n, h, xr + 14.0, ym) for n, h, xr, ym in origen]
+    else:
+        origen = list(cabeceras(pdf))
+    for n, h, x_ficha, y_mid in origen:
         if x_ficha is None:
             continue
         x = x_ficha - 14.0
