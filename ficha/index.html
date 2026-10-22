@@ -10,7 +10,7 @@
 :root{--bg:#eceae6;--bar:#111;--accent:#ff2a00}
 *{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#111}
 .bar{position:sticky;top:0;z-index:10;display:flex;gap:8px;align-items:center;padding:10px 12px;background:var(--bar);color:#fff}
-.bar a,.bar button{color:#fff;text-decoration:none;font:600 .85rem system-ui,sans-serif;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#222}
+.bar a,.bar button{cursor:pointer;color:#fff;text-decoration:none;font:600 .85rem system-ui,sans-serif;padding:8px 12px;border-radius:8px;border:1px solid #444;background:#222}
 .bar a.pri{background:var(--accent);border-color:var(--accent)}.bar .t{flex:1;font-size:.85rem;opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #pages{display:flex;flex-direction:column;align-items:center;gap:12px;padding:12px}
 .pg{position:relative;background:#fff;box-shadow:0 1px 8px rgba(0,0,0,.2);max-width:100%}
@@ -19,7 +19,7 @@
 </style>
 </head>
 <body>
-<div class="bar"><a href="javascript:history.back()" aria-label="Volver">← Volver</a><span class="t" id="titulo">Ficha técnica</span><a id="sh" href="#" target="_blank" rel="noopener">Compartir</a><a class="pri" id="dl" href="#" download>Descargar PDF</a></div>
+<div class="bar"><a href="javascript:history.back()" aria-label="Volver">← Volver</a><span class="t" id="titulo">Ficha técnica</span><button type="button" id="sh">Compartir</button><a class="pri" id="dl" href="#" download>Descargar PDF</a></div>
 <div id="msg">Cargando la ficha técnica…</div>
 <div id="pages"></div>
 <script src="../assets/js/pdfjs/pdf.min.js"></script>
@@ -31,9 +31,20 @@
   if (!/^\/?assets\/pdf\/[A-Za-z0-9._-]+\.pdf$/.test(f)) { msg.textContent = 'No se encontró la ficha técnica.'; return; }
   var url = '/' + f.replace(/^\//, '');
   var dl = document.getElementById('dl'); dl.href = url; dl.setAttribute('download', f.split('/').pop());
-  // Compartir por WhatsApp con el enlace a la ficha; ?a=descargar (viene del encabezado del PDF) baja el archivo al abrir.
-  var abs = location.origin + url;
-  document.getElementById('sh').href = 'https://wa.me/?text=' + encodeURIComponent('Ficha técnica — Trivium Pro\n' + abs);
+  // Compartir igual que en la ficha del producto: menú nativo del dispositivo con el PDF adjunto; si el
+  // navegador no puede adjuntar archivos comparte el enlace, y si no hay menú nativo abre WhatsApp.
+  var abs = location.origin + url, texto = 'Ficha técnica — Trivium Pro';
+  document.getElementById('sh').addEventListener('click', async function () {
+    try {
+      if (navigator.canShare && navigator.share) {
+        var r = await fetch(url);
+        var file = new File([await r.blob()], f.split('/').pop(), { type: 'application/pdf' });
+        if (navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: texto, text: texto }); return; }
+      }
+      if (navigator.share) { await navigator.share({ title: texto, text: texto, url: abs }); return; }
+    } catch (err) { if (err && err.name === 'AbortError') return; }
+    window.open('https://wa.me/?text=' + encodeURIComponent(texto + '\n' + abs), '_blank', 'noopener');
+  });
   if (new URLSearchParams(location.search).get('a') === 'descargar') setTimeout(function () { dl.click(); }, 300);
   document.getElementById('titulo').textContent = f.split('/').pop().replace(/\.pdf$/, '').replace(/-/g, ' ');
   if (!window.pdfjsLib) { location.replace(url); return; }
