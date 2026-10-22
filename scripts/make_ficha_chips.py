@@ -31,10 +31,10 @@ def ali_chip(outdir, modelo):
     shot(body, 190, 60, os.path.join(outdir, f"ali-{modelo}.png"))
 
 
-def main(outdir):
+def main(outdir, modelos_ali=()):
     os.makedirs(outdir, exist_ok=True)
-    if len(sys.argv) > 2:
-        for m in sys.argv[2:]:
+    if modelos_ali:
+        for m in modelos_ali:
             ali_chip(outdir, m)
         return
     px = H * 96 / 72  # alto en px CSS
@@ -56,4 +56,4 @@ def main(outdir):
     print("✔ insignias en", outdir)
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1], sys.argv[2:])

@@ -1,0 +1,55 @@
+{
+ "elevador-dos-columnas-7250-kg-rotary-lift-spo16-cargo": {
+  "specs": [
+   [
+    "Capacidad",
+    "7257 kg"
+   ],
+   [
+    "Carga máxima por brazo",
+    "1814 kg"
+   ],
+   [
+    "Alcance de brazos (mín. / máx.)",
+    "881 / 1626 mm"
+   ],
+   [
+    "Altura mín. / máx. del adaptador de camión",
+    "1979 / 2035 mm"
+   ],
+   [
+    "Altura total (estándar)",
+    "4575 – 5029 mm"
+   ],
+   [
+    "Altura total (techo bajo)",
+    "4115 – 4420 mm"
+   ],
+   [
+    "Ancho total (angosto / estándar / amplio)",
+    "3937 / 4089 / 4242 mm"
+   ],
+   [
+    "Interior de columnas (angosto / estándar / amplio)",
+    "3061 / 3213 / 3366 mm"
+   ],
+   [
+    "Altura piso a techo (interruptor)",
+    "4851 mm"
+   ],
+   [
+    "Motor / alimentación",
+    "4 HP / 208-230 V"
+   ],
+   [
+    "Tiempo de subida",
+    "81 s a plena capacidad"
+   ],
+   [
+    "Tiempo de bajada",
+    "20 s"
+   ]
+  ],
+  "modelo": "SPO16 Cargo"
+ }
+}
