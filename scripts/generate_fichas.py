@@ -69,6 +69,7 @@ def svg_inline(nombre, cls):
     return s.replace("<svg ", f'<svg class="{cls}" ', 1)
 
 WA = ('<svg class="ic wa" viewBox="0 0 24 24"><path d="' + re.search(r'WA_PATH = \((.*?)\)\n\ndef', open(os.path.join(ROOT, "scripts/update_ficha_contacto.py"), encoding="utf-8").read(), re.S).group(1).replace('"\n           "', "").replace('"', "").replace(" \n", "") + '"/></svg>')
+ORI_F = {"US": "estados-unidos", "IT": "italia", "DE": "alemania", "SE": "suecia", "TW": "taiwan", "CN": "marcado-ce"}
 BANDERAS = {"US": "usa.svg", "CN": "china.svg", "IT": "italia.svg", "DE": "alemania.svg"}
 
 def tiles(specs):
@@ -90,14 +91,18 @@ def render(s, n_feat=6, n_spec=14, n_faq=4, galeria=True):
     for ext in ("svg", "webp", "png"):
         f = os.path.join(ROOT, f"assets/img/marcas/logo-{s['marca_slug']}.{ext}")
         if os.path.exists(f) and s["marca_slug"] != "trivium-pro": brand_file = f; break
-    if brand_file: chips += f'<img src="file://{brand_file}" style="height:8mm;max-width:34mm">'
+    ORI = {"US": "estados-unidos", "IT": "italia", "DE": "alemania", "SE": "suecia", "TW": "taiwan", "CN": "marcado-ce"}
+    SITE = "https://pro.trivium.ar"
+    if brand_file: chips += f'<a href="{SITE}/marca/{s["marca_slug"]}/"><img src="file://{brand_file}" style="height:8mm;max-width:34mm"></a>'
     if s["origen"] and s["origen"][0] in ("US", "IT", "DE") :
         oid = {"US": "made-in-usa", "IT": "made-in-italy", "DE": "made-in-germany"}[s["origen"][0]]
-        chips += f'<img src="file://{BUILD}/origin-{oid}.png" style="height:12mm">'
+        chips += f'<a href="{SITE}/origen/{ORI[s["origen"][0]]}/"><img src="file://{BUILD}/origin-{oid}.png" style="height:12mm"></a>'
     elif s["ce"]:
-        chips += f'<img src="file://{BUILD}/ce.png" style="height:10mm">'
+        chips += f'<a href="{SITE}/origen/marcado-ce/"><img src="file://{BUILD}/ce.png" style="height:10mm"></a>'
     if s["ali"]:
-        chips += f'<img src="file://{BUILD}/ali-{s["ali"]["model"]}.png" style="height:10.5mm">'
+        a_ = s["ali"]
+        chips += (f'<a href="https://www.autolift.org/ali-directory-of-certified-car-lifts/search-certified-car-lifts/?productCat={a_["cat"]}&amp;manufac={a_["manufac"]}&amp;ModNum&amp;rateval=%3D&amp;rateload&amp;searchsubmit=Search&amp;lift_id={a_["lift_id"]}">'
+                  f'<img src="file://{BUILD}/ali-{s["ali"]["model"]}.png" style="height:10.5mm"></a>')
     feats = ""
     for i, (a, b) in enumerate(s["features"][:n_feat], 1):
         feats += f'<div class="f"><span class="n">{i}</span><div>' + (f'<b>{E(a)}</b><br>{E(b)}' if a else E(b)) + '</div></div>'
@@ -107,18 +112,18 @@ def render(s, n_feat=6, n_spec=14, n_faq=4, galeria=True):
     if galeria and s["galeria"]:
         gal = '<h3>Imágenes del producto</h3><div class="gal">' + "".join(f'<div><img src="{img(g)}" alt="{E(s["name"])}"></div>' for g in s["galeria"]) + "</div>"
     faq = "".join(f"<div><b>{E(q)}</b>{E(a)}</div>" for q, a in faqs(s)[:n_faq])
-    flag = f'<div class="caja">Origen: {svg_inline("contacto_" + BANDERAS[s["origen"][0]], "fl") if False else svg_inline(BANDERAS.get(s["origen"][0], "usa.svg"), "fl")}{E(s["origen"][1])}</div>' if s["origen"] and s["origen"][0] in BANDERAS else ""
+    flag = f'<a class="caja" href="https://pro.trivium.ar/origen/{ORI_F[s["origen"][0]]}/">Origen: {svg_inline("contacto_" + BANDERAS[s["origen"][0]], "fl") if False else svg_inline(BANDERAS.get(s["origen"][0], "usa.svg"), "fl")}{E(s["origen"][1])}</a>' if s["origen"] and s["origen"][0] in BANDERAS else ""
     kicker = " · ".join(x for x in (s["categoria"], s["marca"]) if x)
     subt = " · ".join(x for x in ((f"Modelo: {s['modelo']}" if s["modelo"] else ""), (f"SKU {s['sku']}" if s["sku"] else ""), E(s["resumen"])) if x)
     titulo = f"Ficha técnica {s['name']}" + ("" if "Trivium Pro" in s["name"] else " | Trivium Pro")
-    cajas = (f'<img class="lgp" src="file://{ROOT}/assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro">'
+    cajas = (f'<a href="https://pro.trivium.ar/"><img class="lgp" src="file://{ROOT}/assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"></a>'
              f'<a class="caja" href="{s["url"]}">{svg_inline("globo.svg", "ic")}pro.trivium.ar</a>'
              f'<a class="caja" href="mailto:info@trivium.ar">{svg_inline("mail.svg", "ic")}info@trivium.ar</a>'
              f'<a class="caja" href="https://wa.me/5491127015294">{WA}+54 9 11 2701-5294</a>'
              f'<a class="caja" href="https://wa.me/5493513994200">{WA}+54 9 351 399-4200 (Ventas)</a>')
     return f"""<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{E(titulo)}</title>
 <meta name="author" content="Trivium Pro"><meta name="description" content="{E(s['resumen'])}"><style>{CSS}</style></head><body><div class="page">
-<div class="top"><img class="lg" src="file://{ROOT}/assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"><div class="chips">{chips}</div><span>FICHA TÉCNICA</span></div>
+<div class="top"><a href="https://pro.trivium.ar/"><img class="lg" src="file://{ROOT}/assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"></a><div class="chips">{chips}</div><span>FICHA TÉCNICA</span></div>
 <div class="main"><div class="kick">{E(kicker)}</div><h1>{E(s['name'])}</h1><div class="sub">{subt}</div>
 <div class="hero"><div class="im"><img src="{img(s['imagen'])}" alt="{E(s['name'])}"></div><div class="ht"><p>{E(s['destacado'] or s['resumen'])}</p><div class="lks"><a class="lk" href="{s['url']}">{svg_inline("web-rojo.svg", "ic")}Ver ficha del producto en la web <i>↗</i></a>{('<a class="lk" href="' + s['video'] + '">' + svg_inline("video-rojo.svg", "ic") + 'Ver video del producto <i>↗</i></a>') if s['video'] else ''}</div><div class="tiles">{tl}</div></div></div>
 <div class="cols"><div><h3>Características principales</h3>{feats}</div><div><h3>Especificación técnica</h3><table>{rows}</table><div class="fin"><b>Financiación disponible:</b> consultá planes de pago.</div></div></div>

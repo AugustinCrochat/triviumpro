@@ -83,6 +83,15 @@ SPEC = {
  "rotary-lift-o-trivium-pro-que-linea-conviene-seg": ("GUÍA DE COMPRA · MARCAS", "Rotary Lift o Trivium Pro", "Qué línea conviene según tu taller", ["elevador-dos-columnas-rotary-lift-spoa10", "elevador-dos-columnas-4-toneladas-trivium-pro-monofasico"]),
  "trivium-center-ahora-es-trivium-pro-que-cambia-y": ("NOVEDADES · TRIVIUM PRO", "Trivium Center ahora es Trivium Pro", "Qué cambia y dónde encontrarnos", ["elevador-dos-columnas-4-toneladas-trivium-pro-monofasico"]),
  "que-equipos-necesita-un-taller-mecanico-lista-co": ("GUÍA PARA EMPRENDEDORES", "Equipos para un taller mecánico", "Lista completa por prioridad", ["elevador-dos-columnas-4-toneladas-trivium-pro-monofasico", "balanceadora-de-ruedas-hofmann-geodyna-7600p"]),
+ "rotary-lift-en-argentina-elevadores-para-taller-": ("MARCAS PREMIUM · ROTARY LIFT", "Rotary Lift en Argentina", "Elevadores premium y certificación ALI", ["elevador-dos-columnas-rotary-lift-spoa10", "elevador-dos-columnas-spo55"]),
+ "challenger-lifts-elevadores-snap-on-que-ofrecen-": ("MARCAS PREMIUM · CHALLENGER LIFTS", "Challenger Lifts (Snap-on)", "Elevadores premium certificados ALI", ["elevador-dos-columnas-challenger-lifts-vle10"]),
+ "direct-lift-y-forward-lift-las-lineas-de-rotary-": ("MARCAS PREMIUM · DIRECT LIFT Y FORWARD LIFT", "Direct Lift y Forward Lift", "Tijeras, estacionamiento y motos", ["elevador-para-moto-direct-lift-procycle-dt"]),
+ "hofmann-equipos-de-taller-premium-alineadoras-ba": ("MARCAS PREMIUM · HOFMANN", "Hofmann: equipos premium de taller", "Alineadoras, balanceadoras y desarmadoras", ["alineadora-3d-hofmann-geoliner-880", "balanceadora-de-ruedas-hofmann-geodyna-7400l"]),
+ "alineadoras-hofmann-geoliner-comparativa-320-609": ("GUÍA DE COMPRA · ALINEADORAS HOFMANN", "Alineadoras Hofmann Geoliner", "Comparativa 320, 609, 630 y 880", ["alineadora-3d-para-autos-hofmann-geoliner-630", "alineadora-3d-hofmann-geoliner-880"]),
+ "balanceadoras-hofmann-geodyna-cual-elegir-7100-7": ("GUÍA DE COMPRA · BALANCEADORAS HOFMANN", "Balanceadoras Hofmann Geodyna", "Cuál elegir según tu volumen de trabajo", ["balanceadora-de-ruedas-hofmann-geodyna-7400l", "balanceadora-de-ruedas-hofmann-geodyna-78002p"]),
+ "desarmadoras-hofmann-monty-cual-elegir-1270-3300": ("GUÍA DE COMPRA · DESARMADORAS HOFMANN", "Desarmadoras Hofmann Monty", "Cuál elegir: 1270, 3300, 8800 y 4250P", ["desarmadora-hofmann-monty-3300-20-con-desmontadora-de-neumaticos", "desarmadora-para-ruedas-de-camiones-monty-4250p"]),
+ "taller-premium-o-taller-economico-dos-formas-de-": ("GUÍA DE COMPRA · EQUIPAR UN TALLER", "Taller premium o económico", "Rotary, Hofmann y Trivium Pro", ["elevador-dos-columnas-rotary-lift-spoa10", "elevador-dos-columnas-4-toneladas-trivium-pro-monofasico"]),
+ "trivium-pro-la-linea-economica-que-es-que-incluy": ("MARCAS · TRIVIUM PRO", "Trivium Pro: la línea económica", "Qué incluye y para quién es", ["elevador-dos-columnas-4-toneladas-trivium-pro-monofasico", "balanceadora-con-pantalla-y-puntero-laser-g66"]),
 }
 
 def trim(path, out):
