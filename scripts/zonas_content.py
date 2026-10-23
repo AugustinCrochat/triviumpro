@@ -90,7 +90,9 @@ ZONAS = [
    "Sí. Ofrecemos servicio técnico oficial de las marcas que representamos, con atención en 48 a 72 horas, y repuestos originales."),
  ],
  "posts": ["formacion-tecnica-en-alineadora-3d-geoliner-630-en-neumaticos-pons-cordoba",
-           "capacitacion-y-puesta-en-marcha-de-alineadora-hofmann-geoliner-630"],
+           "capacitacion-y-puesta-en-marcha-de-alineadora-hofmann-geoliner-630",
+  'neumaticos-trivium-la-gomeria-de-cordoba-donde-usamos-lo-que-vendemos',
+  'las-maquinas-del-taller-de-neumaticos-trivium-arguello'],
  "local": True,
 },
 {
@@ -193,6 +195,9 @@ ZONAS = [
 <h2>Un caso en la provincia: mantenimiento preventivo en Lions Group</h2>
 <p>Visitamos a Lions Group Bosch Car Service, en Canning, para una revisión técnica de su balanceadora y la inspección de otros equipos clave. Verificamos el estado de su alineadora Geoliner 630 y de su elevador de dos columnas Rotary Lift. Es un buen ejemplo de por qué el mantenimiento preventivo evita paradas: <a href="../../blog/la-importancia-del-mantenimiento-preventivo-en-equipos-de-taller-caso-exitoso-lions-group/">leé el caso completo</a>.</p>
 
+<h2>Oeste del Gran Buenos Aires: San Justo y La Matanza</h2>
+<p>En el oeste del conurbano la competencia de gomerías es alta y el diferencial está en el equipo y en los servicios completos. El grupo Trivium abre su propia gomería, Neumáticos Trivium San Justo, en Pres. Juan Domingo Perón 2847, San Justo, en diciembre. Qué servicios compiten mejor y qué equipo hace falta está en <a href="../../blog/gomeria-en-buenos-aires-equipamiento-y-servicios-para-el-oeste-del-conurbano/">gomería en Buenos Aires: equipamiento y servicios para el oeste del conurbano</a>.</p>
+
 <h2>Guías para decidir</h2>
 <ul>
 <li><a href="../../guias/elevadores-para-taller/">Cómo elegir un elevador</a></li>
@@ -212,6 +217,7 @@ ZONAS = [
   ("¿Qué hacen en el mantenimiento preventivo?",
    "Revisamos el estado de los equipos, como la balanceadora, la alineadora y el elevador, para detectar desgaste antes de que haya una parada."),
  ],
- "posts": ["la-importancia-del-mantenimiento-preventivo-en-equipos-de-taller-caso-exitoso-lions-group"],
+ "posts": ["la-importancia-del-mantenimiento-preventivo-en-equipos-de-taller-caso-exitoso-lions-group",
+  'gomeria-en-buenos-aires-equipamiento-y-servicios-para-el-oeste-del-conurbano'],
 },
 ]
