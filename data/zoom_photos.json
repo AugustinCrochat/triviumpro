@@ -492,5 +492,243 @@
    ],
    "caption": "Columna de montaje con manómetro"
   }
+ ],
+ "elevador-dos-columnas-4536-kg-rotary-lift-spoa10trio": [
+  {
+   "box": [
+    370,
+    780,
+    1030,
+    990
+   ],
+   "caption": "Brazos de carga con topes de apoyo regulables"
+  }
+ ],
+ "elevador-dos-columnas-4000-kg-travesano-al-piso-unite-pl-4-0-2d": [
+  {
+   "box": [
+    820,
+    560,
+    1040,
+    900
+   ],
+   "caption": "Motor y depósito de la central hidráulica, montados en la columna"
+  }
+ ],
+ "elevador-dos-columnas-4082-kg-direct-lift-dl9-by-rotary-lift": [
+  {
+   "box": [
+    100,
+    640,
+    620,
+    940
+   ],
+   "caption": "Brazo de carga bajo el chasis del vehículo"
+  }
+ ],
+ "elevador-cuatro-columnas-8165-kg-rotary-lift-sm18": [
+  {
+   "box": [
+    30,
+    540,
+    520,
+    900
+   ],
+   "caption": "Columna y calzada con la rampa de acceso"
+  }
+ ],
+ "elevador-cuatro-cloumnas-4082kg-forward-lift-by-rotary-cr4t": [
+  {
+   "box": [
+    430,
+    620,
+    650,
+    900
+   ],
+   "caption": "Central hidráulica montada en la columna"
+  }
+ ],
+ "elevador-tijera-para-alineacion-4500-kg-rotary-lift-xa10": [
+  {
+   "box": [
+    180,
+    560,
+    700,
+    990
+   ],
+   "caption": "Mecanismo de tijera con cilindro hidráulico"
+  }
+ ],
+ "elevador-para-moto-454-kg-mt07-trivium-pro": [
+  {
+   "box": [
+    380,
+    640,
+    860,
+    920
+   ],
+   "caption": "Tijera de acero con el rótulo de capacidad 454 kg"
+  }
+ ],
+ "elevador-de-ruedas-hofmann": [
+  {
+   "box": [
+    280,
+    980,
+    1100,
+    1250
+   ],
+   "caption": "Cilindro y mecanismo de tijera de la base"
+  }
+ ],
+ "elevador-dos-columnas-simetrico-4536-kg-challenger-lifts-vle10": [
+  {
+   "box": [
+    660,
+    820,
+    1000,
+    1000
+   ],
+   "caption": "Brazo de carga bajo el vehículo"
+  },
+  {
+   "box": [
+    820,
+    480,
+    1020,
+    720
+   ],
+   "caption": "Caja de comando en la columna"
+  }
+ ],
+ "brazo-auxiliar-easymont": [
+  {
+   "box": [
+    700,
+    280,
+    1100,
+    720
+   ],
+   "caption": "Cabezal del brazo con su cilindro y los pulsadores de mando"
+  }
+ ],
+ "desarmadora-de-ruedas-para-camion-hofmann-monty-4250p": [
+  {
+   "box": [
+    990,
+    740,
+    1190,
+    1060
+   ],
+   "caption": "Columna de mando con pulsador amarillo"
+  }
+ ],
+ "inflador-de-neumaticos-digital-kuani": [
+  {
+   "box": [
+    380,
+    430,
+    800,
+    830
+   ],
+   "caption": "Pantalla digital del manómetro"
+  }
+ ],
+ "inflador-de-neumaticos-automatico": [
+  {
+   "box": [
+    330,
+    0,
+    610,
+    210
+   ],
+   "caption": "Panel con pantalla LCD y botones de mando"
+  }
+ ],
+ "inflador-de-neumaticos-automatico-unite-hj-931-bd-j": [
+  {
+   "box": [
+    220,
+    270,
+    460,
+    470
+   ],
+   "caption": "Panel con pantalla y botones de mando"
+  }
+ ],
+ "elevador-de-baterias-para-autos-electricos": [
+  {
+   "box": [
+    200,
+    60,
+    1100,
+    480
+   ],
+   "caption": "Plataforma superior con puntos de apoyo"
+  },
+  {
+   "box": [
+    300,
+    330,
+    1100,
+    760
+   ],
+   "caption": "Tijera de elevación bajo la plataforma"
+  }
+ ],
+ "carro-de-dos-cajones-para-taller": [
+  {
+   "box": [
+    350,
+    130,
+    1200,
+    520
+   ],
+   "caption": "Dos cajones con correderas"
+  }
+ ],
+ "criquet-baja-motor-1-5-ton": [
+  {
+   "box": [
+    430,
+    60,
+    1110,
+    520
+   ],
+   "caption": "Plato de apoyo con cadenas de sujeción"
+  }
+ ],
+ "levanta-motor-2-ton-hidraulica-manual": [
+  {
+   "box": [
+    230,
+    50,
+    780,
+    520
+   ],
+   "caption": "Pluma con gancho, marcada con la capacidad según la extensión"
+  }
+ ],
+ "torin-big-red-rolling-jack-2000-kg": [
+  {
+   "box": [
+    520,
+    540,
+    960,
+    900
+   ],
+   "caption": "Bomba de pie con su depósito"
+  }
+ ],
+ "juego-extractor-de-masa-deslizante-2-5-kg": [
+  {
+   "box": [
+    200,
+    580,
+    780,
+    920
+   ],
+   "caption": "Masa deslizante y garras de extracción"
+  }
  ]
 }
