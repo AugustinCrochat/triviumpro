@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Agrega "Descargar" y "Compartir" (dos botones con enlace) debajo del título, a la derecha de la
+"""SIN USO desde 2026-10-23: las fichas ya no llevan estos botones (viven en el visor /ficha/ y en la
+página de producto). Se conserva por si se retoma.
+
+Agrega "Descargar" y "Compartir" (dos botones con enlace) debajo del título, a la derecha de la
 línea "Modelo · Código", en la primera página de una ficha PDF ya hecha.
 
 - Descargar: /ficha/?f=assets/pdf/<archivo>&a=descargar (el visor baja el archivo al abrir).

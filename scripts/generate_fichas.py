@@ -9,9 +9,9 @@ y sin posiciones absolutas en el contenido.
 Uso: python3 scripts/generate_fichas.py [--slug SLUG ...] [--html]   (sin argumentos: todas)
      --html  deja también el HTML en /tmp/fichas_build/<slug>.html para revisarlo
 
-Después de generar, en este orden: comprimir con gs (-dPDFSETTINGS=/printer -dColorImageResolution=200),
-python3 scripts/add_ficha_compartir.py assets/pdf/<ficha>.pdf (botones Descargar/Compartir del
-encabezado) y python3 scripts/set_ficha_metadata.py.
+Después de generar, en este orden: comprimir con gs (-dPDFSETTINGS=/printer -dColorImageResolution=200)
+y python3 scripts/set_ficha_metadata.py. Las fichas NO llevan botones Descargar/Compartir: esos viven
+en el visor /ficha/ y en la página de producto (scripts/add_ficha_compartir.py quedó sin usar).
 """
 import html, os, re, subprocess, sys, shutil, tempfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

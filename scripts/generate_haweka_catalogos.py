@@ -6,7 +6,7 @@ traen todo su contenido: códigos Haweka, descripciones y notas técnicas, con f
 ficha web cuando el ítem es un producto del catálogo. Cada producto suelto tiene además su propia
 ficha (generate_fichas.py + data/fichas_extra.json).
 
-Después: gs (-dPDFSETTINGS=/printer), add_ficha_compartir.py y set_ficha_metadata.py (que conoce
+Después: gs (-dPDFSETTINGS=/printer) y set_ficha_metadata.py (que conoce
 estos títulos en CATALOGOS).
 
 Uso: python3 scripts/generate_haweka_catalogos.py
