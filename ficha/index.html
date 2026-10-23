@@ -14,7 +14,11 @@
 .bar a.pri{background:var(--accent);border-color:var(--accent)}.bar .t{flex:1;font-size:.85rem;opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #pages{display:flex;flex-direction:column;align-items:center;gap:12px;padding:12px}
 .pg{position:relative;background:#fff;box-shadow:0 1px 8px rgba(0,0,0,.2);max-width:100%}
-.pg canvas{display:block;width:100%;height:auto}.pg a.lnk{position:absolute;display:block}
+.pg canvas{display:block;width:100%;height:auto}.pg a.lnk{position:absolute;display:block;z-index:3;padding:3px;margin:-3px}
+/* Capa de texto (pdf.js): permite seleccionar y copiar el texto del PDF */
+.textLayer{position:absolute;inset:0;overflow:hidden;line-height:1;text-align:initial;z-index:2}
+.textLayer span,.textLayer br{color:transparent;position:absolute;white-space:pre;cursor:text;transform-origin:0% 0%}
+.textLayer ::selection{background:rgba(0,90,255,.3)}
 #msg{padding:40px 20px;text-align:center}
 </style>
 </head>
@@ -62,7 +66,13 @@
         var box = document.createElement('div'); box.className = 'pg'; box.style.width = vpCss.width + 'px';
         box.appendChild(cv); cont.appendChild(box);
         var render = page.render({ canvasContext: cv.getContext('2d'), viewport: vp }).promise;
-        return render.then(function () { return page.getAnnotations(); }).then(function (anns) {
+        return render.then(function () {
+          // texto seleccionable encima del dibujo
+          var tl = document.createElement('div'); tl.className = 'textLayer';
+          tl.style.setProperty('--scale-factor', vpCss.scale); box.appendChild(tl);
+          try { pdfjsLib.renderTextLayer({ textContentSource: page.streamTextContent(), container: tl, viewport: vpCss, textDivs: [] }); } catch (e) {}
+          return page.getAnnotations();
+        }).then(function (anns) {
           anns.forEach(function (a) {
             if (a.subtype !== 'Link' || !a.url) return;
             var r = vpCss.convertToViewportRectangle(a.rect);

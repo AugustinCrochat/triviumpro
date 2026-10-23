@@ -57,6 +57,12 @@
 /assets/css/*
   Cache-Control: public, max-age=300, must-revalidate
 
+# Fichas PDF: se regeneran seguido (botones, enlaces, datos) y el navegador las guardaba un día más
+# una semana de stale-while-revalidate, así que quien ya había abierto una ficha seguía viendo la
+# versión vieja, sin los enlaces nuevos. Con 5 minutos y revalidación (ETag) el cambio entra enseguida.
+/assets/pdf/*
+  Cache-Control: public, max-age=300, must-revalidate
+
 /uploads/*
   Cache-Control: public, max-age=31536000, immutable
 
