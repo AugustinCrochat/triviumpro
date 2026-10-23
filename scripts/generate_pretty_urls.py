@@ -203,6 +203,24 @@ def make_seo_block(canonical, description, jsonld=None):
     return '\n'.join(out)
 
 
+def listing_cover(kind, slug):
+    """URL absoluta de la portada 1200x630 de una categoría o marca (scripts/generate_listing_covers.py).
+    Si no hay (categoría sin productos), la portada general del sitio: nunca el logo SVG, que Google y
+    las redes no usan como imagen de vista previa."""
+    rel = f"assets/img/og/{kind}-{slug}.jpg"
+    if os.path.exists(os.path.join(BASE_DIR, rel)):
+        return f"{SITE_URL}/{rel}"
+    return f"{SITE_URL}/assets/img/og-trivium.png"
+
+
+def collection_jsonld(name, url, description, cover):
+    """CollectionPage con su imagen principal: es la foto que Google puede mostrar junto al resultado."""
+    return {"@context": "https://schema.org", "@type": "CollectionPage", "name": name, "url": url,
+            "description": description, "inLanguage": "es-AR", "image": cover,
+            "primaryImageOfPage": {"@type": "ImageObject", "url": cover, "width": 1200, "height": 630},
+            "isPartOf": {"@type": "WebSite", "name": ORG_NAME, "url": SITE_URL + '/'}}
+
+
 def itemlist_jsonld(products, brands_by_slug=None):
     """ItemList de una categoría o marca: ayuda a Google (y a un asistente de
     compras) a entender que la página es un listado de productos concretos, no
@@ -214,6 +232,7 @@ def itemlist_jsonld(products, brands_by_slug=None):
             "position": i,
             "url": f"{SITE_URL}/producto/{p['slug']}/",
             "name": p['name'],
+            **({"image": f"{SITE_URL}/{p['image']}"} if p.get('image') else {}),
         })
     return {"@context": "https://schema.org", "@type": "ItemList",
             "itemListElement": items}
@@ -1013,6 +1032,8 @@ def main():
                 (n, SITE_URL + '/' + (h or '')) if h is not None else (n, url)
                 for n, h in crumbs
             ])]
+            _cover = listing_cover('categoria', slug)
+            jsonld.append(collection_jsonld(nombre, url, desc, _cover))
             if prods:
                 jsonld.append(itemlist_jsonld(prods))
             # Las FAQ van sólo en la categoría raíz (elevadores, no
@@ -1030,7 +1051,7 @@ def main():
                 os.path.join(BASE_DIR, 'categoria', slug), cat_template, 2,
                 title=CATEGORY_TITLES.get(slug, nombre),
                 og={'type': 'website', 'title': f"{nombre} — Equipamiento de taller",
-                    'description': desc, 'image': f"{SITE_URL}/assets/img/logo-trivium.svg",
+                    'description': desc, 'image': _cover,
                     'url': url},
                 seo=make_seo_block(url, desc, jsonld),
                 body={
@@ -1085,6 +1106,8 @@ def main():
             if _logo:
                 brand_ld["logo"] = f"{SITE_URL}/{_logo}"
             jsonld.append(brand_ld)
+            _cover = listing_cover('marca', slug)
+            jsonld.append(collection_jsonld(f"{brand['name']} en Argentina", url, desc, _cover))
             if prods:
                 jsonld.append(itemlist_jsonld(prods))
             grid = ''.join(product_card_html(p, brands_by_slug, root2, offers_by_sku) for p in prods)
@@ -1093,7 +1116,7 @@ def main():
                 os.path.join(BASE_DIR, 'marca', slug), cat_template, 2,
                 title=brand_title,
                 og={'type': 'website', 'title': f"{brand['name']} en Argentina",
-                    'description': desc, 'image': f"{SITE_URL}/assets/img/logo-trivium.svg",
+                    'description': desc, 'image': _cover,
                     'url': url},
                 seo=make_seo_block(url, desc, jsonld),
                 body={
