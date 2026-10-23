@@ -306,7 +306,7 @@ async function loadCatalog() {
   if (CATALOG) return CATALOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/catalog.js?v=20261022j';
+    script.src = rootPath() + 'data/catalog.js?v=20261022k';
     script.onload = () => {
       CATALOG = window.CATALOG_DATA;
       resolve(CATALOG);
@@ -423,7 +423,7 @@ function aliCertHtml(p) {
 function originSidebarHtml(activeId) {
   return Object.entries(ORIGIN_BADGES).map(([id, b]) => {
     const n = CATALOG.products.filter(p => (p.badges || []).includes(id)).length;
-    return `<li><a class="${id === activeId ? 'active' : ''}" href="${rootPath()}${b.href}">${b.name}<b>${n}</b></a></li>`;
+    return `<li><a class="${id === activeId ? 'active' : ''}" href="${rootPath()}${b.href}"><span class="org-lbl"><img class="org-flag-s${b.plain ? ' org-flag--ce' : ''}" src="${rootPath()}assets/img/iconos/origen/${b.file}" alt="" width="28" height="19">${b.name}</span><b>${n}</b></a></li>`;
   }).join('');
 }
 
@@ -522,7 +522,7 @@ async function loadBlog() {
   if (BLOG) return BLOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/blog.js?v=20261022j';
+    script.src = rootPath() + 'data/blog.js?v=20261022k';
     script.onload = () => {
       BLOG = window.BLOG_DATA;
       resolve(BLOG);

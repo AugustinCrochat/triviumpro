@@ -862,6 +862,12 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .sidebar li a b {
   font-size: .72rem; color: var(--text-mute); font-weight: 500;
 }
+/* Banderas de origen (barra lateral y títulos de /origen/) */
+.sidebar .org-lbl { display: inline-flex; align-items: center; gap: 9px; }
+.org-flag-s { height: 12px; width: auto; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.12); flex: none; }
+.org-flag-s.org-flag--ce { height: 14px; box-shadow: none; }
+.cat-hero h1 .org-flag { display: inline-block; height: .62em; width: auto; margin-right: .32em; vertical-align: .02em; border-radius: 3px; box-shadow: 0 0 0 1px rgba(0,0,0,.15); }
+.cat-hero h1 .org-flag--ce { height: .78em; box-shadow: none; }
 .results-head {
   display: flex; justify-content: space-between; align-items: center;
   margin-bottom: 16px;

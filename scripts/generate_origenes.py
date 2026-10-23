@@ -12,6 +12,7 @@ Uso:
 import html as html_lib
 import json
 import os
+import re
 from collections import OrderedDict
 
 from generate_pretty_urls import (
@@ -29,6 +30,22 @@ WA = "https://wa.me/5491127015294?text="
 def load(name):
     with open(os.path.join(BASE_DIR, 'data', name), encoding='utf-8') as f:
         return json.load(f)
+
+
+def flag_html(badge, root, cls='org-flag'):
+    """Bandera del país (o logo CE) del sello, como <img> decorativa."""
+    b = ORIGIN_BADGES[badge]
+    plain = ' org-flag--ce' if b.get('plain') else ''
+    return f'<img class="{cls}{plain}" src="{esc(root)}assets/img/iconos/origen/{esc(b["file"])}" alt="" width="28" height="19">'
+
+
+def thumb_rel(p, root):
+    """Miniatura de producto (carpeta t/ si existe) con ruta relativa a 'root'."""
+    src = p.get('image') or ''
+    t = re.sub(r'^(assets/img/productos/)([^/]+)$', r'\1t/\2', src)
+    if t != src and os.path.exists(os.path.join(BASE_DIR, t)):
+        src = t
+    return root + src
 
 
 def n_equipos(n):
@@ -49,7 +66,9 @@ def que_hay_html(prods, brands, cats):
         items.append(f'<li><a href="{ROOT2}categoria/{esc(slug)}/">{esc(nombre)}</a>'
                      f' — {n_equipos(len(lst))}{esc(resto)}</li>')
     modelos = ''.join(
-        f'<li><a href="{ROOT2}producto/{esc(p["slug"])}/">{esc(html_lib.unescape(p["name"]))}</a></li>'
+        f'<li><a class="om" href="{ROOT2}producto/{esc(p["slug"])}/">'
+        + (f'<img src="{esc(thumb_rel(p, ROOT2))}" alt="" width="56" height="42" loading="lazy">' if p.get('image') else '')
+        + f'<span>{esc(html_lib.unescape(p["name"]))}</span></a></li>'
         for p in prods)
     return (f'<ul>{"".join(items)}</ul>'
             f'<h3>Todos los modelos</h3><ul class="origen-modelos">{modelos}</ul>')
@@ -122,7 +141,7 @@ def main():
                     f'<li><a href="{ROOT2}marca/{esc(b["slug"])}/">{esc(b["name"])}<b>{k}</b></a></li>')
         org_list = ''.join(
             f'<li><a class="{"active" if oo["badge"] == o["badge"] else ""}" '
-            f'href="{ROOT2}origen/{esc(oo["slug"])}/">{esc(ORIGIN_BADGES[oo["badge"]]["name"])}'
+            f'href="{ROOT2}origen/{esc(oo["slug"])}/"><span class="org-lbl">{flag_html(oo["badge"], ROOT2, "org-flag-s")}{esc(ORIGIN_BADGES[oo["badge"]]["name"])}</span>'
             f'<b>{counts[oo["badge"]]}</b></a></li>' for oo in ORIGENES)
         brands_by_slug = brands
         grid = ''.join(product_card_html(p, brands_by_slug, ROOT2, offers) for p in prods)
@@ -137,7 +156,7 @@ def main():
             seo=seo,
             body={
                 'crumbs': breadcrumb_html(crumbs, ROOT2),
-                'org-title': esc(o['h1']),
+                'org-title': flag_html(o['badge'], ROOT2) + esc(o['h1']),
                 'org-tag': esc(o['chip']),
                 'org-count': f"{n} productos",
                 'count': f"{n} productos",
@@ -156,9 +175,18 @@ def main():
     url = f"{SITE_URL}/origen/"
     desc = ("Origen de fabricación y marcado CE de los equipos de taller de Trivium Pro: Estados "
             "Unidos, Italia, Alemania, Suecia, Taiwán. Qué significa cada sello y qué equipos lo llevan.")
+    def fotos(o):
+        ps = [p for p in catalog['products'] if o['badge'] in (p.get('badges') or []) and p.get('image')]
+        # una foto por categoría primero, para que la tira muestre variedad
+        vistos, sel = set(), []
+        for p in ps:
+            if p['category'] not in vistos: vistos.add(p['category']); sel.append(p)
+        for p in ps:
+            if p not in sel: sel.append(p)
+        return ''.join(f'<img src="{esc(thumb_rel(p, "../"))}" alt="{esc(html_lib.unescape(p["name"]))}" width="96" height="72" loading="lazy">' for p in sel[:4])
     items = ''.join(
-        f'<li><a href="{esc(o["slug"])}/"><strong>{esc(o["h1"])} ({n_equipos(counts[o["badge"]])})</strong>'
-        f'<span>{esc(o["description"])}</span></a></li>' for o in ORIGENES)
+        f'<li><a href="{esc(o["slug"])}/">{flag_html(o["badge"], "../", "orx-flag")}<div><strong>{esc(o["h1"])} ({n_equipos(counts[o["badge"]])})</strong>'
+        f'<span>{esc(o["description"])}</span><div class="orx-fotos">{fotos(o)}</div></div></a></li>' for o in ORIGENES)
     faqs = [
         ("¿Por qué Trivium Pro indica el origen de cada equipo?",
          "Porque el país de fabricación define de dónde vienen los repuestos, qué normas siguió el diseño y "
@@ -173,7 +201,7 @@ def main():
     ]
     body = ('<p>Cada equipo del catálogo muestra sobre la foto un sello con su origen de fabricación o con '
             'el marcado CE. Tocá el sello para ver todos los equipos que lo llevan y qué significa.</p>'
-            f'<ul class="guia-lista">{items}</ul>'
+            f'<ul class="guia-lista guia-lista--origen">{items}</ul>'
             '<h2>Cómo leer estos sellos</h2>'
             '<p>«Made in» indica el país de fabricación declarado por el fabricante de cada modelo, no el '
             'de la marca. El <a href="marcado-ce/">marcado CE</a> es otra cosa: una declaración de '

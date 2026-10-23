@@ -46,3 +46,15 @@
   .guia-lista--thumbs a img { width: 100%; height: auto; aspect-ratio: 8 / 5; border-right: 0; border-bottom: 1px solid var(--line); }
   .guia-lista--thumbs a > div { padding: 14px 18px; }
 }
+
+/* /origen/: índice con bandera y fotos; lista de modelos con miniatura */
+.guia-lista--origen a { display: flex; gap: 18px; align-items: flex-start; }
+.guia-lista--origen .orx-flag { width: 44px; height: auto; flex: none; margin-top: 4px; border-radius: 3px; box-shadow: 0 0 0 1px rgba(0,0,0,.15); }
+.guia-lista--origen .orx-flag.org-flag--ce { box-shadow: none; }
+.guia-lista--origen a > div { min-width: 0; }
+.guia-lista--origen .orx-fotos { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.guia-lista--origen .orx-fotos img { width: 96px; height: 72px; object-fit: contain; background: #fff; border: 1px solid var(--line); border-radius: 4px; }
+.guia-body .origen-modelos li { padding: 5px 0; }
+.guia-body .origen-modelos a.om { display: flex; align-items: center; gap: 12px; }
+.guia-body .origen-modelos a.om img { width: 56px; height: 42px; object-fit: contain; background: #fff; border: 1px solid var(--line); border-radius: 3px; flex: none; }
+@media (max-width: 520px) { .guia-lista--origen .orx-flag { width: 34px; } .guia-lista--origen .orx-fotos img { width: calc(50% - 4px); height: auto; aspect-ratio: 4/3; } }
