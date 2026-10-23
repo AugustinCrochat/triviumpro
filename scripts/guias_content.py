@@ -92,6 +92,8 @@ GUIAS = [
   "errores-comunes-al-usar-una-balanceadora-y-como-evitarlos",
   "la-importancia-de-balancear-ruedas-beneficios-clave-para-talleres-y-gomerias",
   "por-que-incorporar-una-balanceadora-de-ruedas-en-tu-gomeria-es-una-decision-inteligente",
+   "balanceadora-trivium-pro-vs-hofmann-geodyna-cual-conviene",
+  "preguntas-rapidas-sobre-alineadoras-y-balanceadoras-respuestas-cortas",
  ],
 },
 # --------------------------------------------------------------------------
@@ -177,6 +179,7 @@ GUIAS = [
   "alineadoras-5d-el-mito-de-las-dimensiones-en-equipos-de-alineacion",
   "como-elegir-el-elevador-adecuado-para-hacer-alineacion",
   "existen-diferencias-reales-entre-hofmann-y-john-bean",
+   "preguntas-rapidas-sobre-alineadoras-y-balanceadoras-respuestas-cortas",
  ],
 },
 # --------------------------------------------------------------------------
@@ -266,6 +269,9 @@ GUIAS = [
   "que-tipo-de-elevador-elegir-para-cambio-de-aceite",
   "especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas",
   "por-que-elegir-un-elevador-con-brazos-all-vehicle-de-rotary-lift",
+   "elevador-de-2-columnas-vs-4-columnas-cual-conviene",
+  "rotary-lift-spoa10-vs-challenger-vle10-vs-trivium-pro-pl-4-0-2a-comparativa",
+  "preguntas-rapidas-sobre-elevadores-de-taller-respuestas-cortas",
  ],
 },
 # --------------------------------------------------------------------------
@@ -338,6 +344,8 @@ GUIAS = [
   "como-funcionan-las-desarmadoras-para-neumaticos-runflat-guia-para-talleres-y-gomerias",
   "como-mantener-tu-desarmadora-trivium-center-en-optimas-condiciones",
   "equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos",
+   "desarmadora-trivium-pro-vs-hofmann-monty-cual-conviene",
+  "preguntas-rapidas-sobre-gomerias-y-desarmadoras-respuestas-cortas",
  ],
 },
 # --------------------------------------------------------------------------
@@ -410,6 +418,8 @@ GUIAS = [
   "equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos",
   "como-abrir-un-taller-de-alineacion-y-balanceo",
   "la-importancia-de-ofrecer-rotacion-de-neumaticos-en-un-taller-o-gomeria",
+   "cuanto-cuesta-equipar-un-taller-rangos-de-referencia-por-tipo-de-equipo",
+  "preguntas-rapidas-sobre-gomerias-y-desarmadoras-respuestas-cortas",
  ],
 },
 {
@@ -978,6 +988,8 @@ GUIAS = [
   "mantenimiento-de-un-elevador-de-taller-checklist-diario-mensual-y-anual",
   "especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas",
   "rotary-lift-en-argentina-elevadores-para-taller-linea-completa-y-certificacion-ali",
+   "elevador-usado-o-nuevo-cual-conviene-para-tu-taller",
+  "preguntas-rapidas-sobre-elevadores-de-taller-respuestas-cortas",
  ],
 },
 
@@ -1267,6 +1279,9 @@ GUIAS = [
   "rotary-lift-o-trivium-pro-que-linea-conviene-segun-tu-taller",
   "taller-premium-o-taller-economico-dos-formas-de-equipar-con-rotary-hofmann-y-trivium-pro",
   "servicios-integrales-para-tus-maquinas-instalacion-mantenimiento-y-mas-en-toda-argentina",
+   "cuanto-cuesta-equipar-un-taller-rangos-de-referencia-por-tipo-de-equipo",
+  "en-cuanto-tiempo-se-paga-un-equipo-de-taller-ejemplos-de-retorno",
+  "elevador-usado-o-nuevo-cual-conviene-para-tu-taller",
  ],
 },
 ]

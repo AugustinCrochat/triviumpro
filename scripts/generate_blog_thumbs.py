@@ -98,6 +98,16 @@ SPEC = {
  "reparar-esparragos-de-maza-y-roscas-danadas-en-e": ("GUÍA TÉCNICA · GOMERÍA", "Espárragos y roscas", "Reparación en el taller: herramientas y procedimiento", ["elevador-de-ruedas-para-balanceadoras-u-l01"]),
  "arme-y-desarme-y-rotacion-los-servicios-base-de-": ("GUÍA TÉCNICA · GOMERÍA", "Arme, desarme y rotación", "Los servicios base y el equipo que necesitan", ["desarmadora-hofmann-monty-3300-20-con-desmontadora-de-neumaticos", "elevador-tijera-4500-kg-pl45h-para-gomeria-rotacion-balanceo-trivium-pro"]),
  "gomeria-en-buenos-aires-equipamiento-y-servicios": ("GUÍA PARA GOMERÍAS · BUENOS AIRES", "Gomería en Buenos Aires", "Equipamiento y servicios para el oeste del conurbano", ["balanceadora-de-ruedas-hofmann-geodyna-7400l", "alineadora-3d-para-autos-hofmann-geoliner-630"]),
+ "cuanto-cuesta-equipar-un-taller-rangos-de-refere": ("GUÍA · INVERSIÓN", "Cuánto cuesta equipar un taller", "Rangos de referencia por equipo y por tipo de taller", ["elevador-dos-columnas-rotary-lift-spoa10", "balanceadora-de-ruedas-hofmann-geodyna-7600p"]),
+ "en-cuanto-tiempo-se-paga-un-equipo-de-taller-eje": ("GUÍA · RETORNO", "En cuánto tiempo se paga un equipo", "Fórmula y tres escenarios de volumen", ["alineadora-3d-para-autos-hofmann-geoliner-630"]),
+ "elevador-usado-o-nuevo-cual-conviene-para-tu-tal": ("GUÍA · COMPRA", "Elevador usado o nuevo", "Qué conviene y qué revisar", ["elevador-dos-columnas-rotary-lift-spoa10"]),
+ "rotary-lift-spoa10-vs-challenger-vle10-vs-triviu": ("COMPARATIVA · ELEVADORES", "SPOA10 vs VLE10 vs PL-4.0-2A", "Tres elevadores de dos columnas", ["elevador-dos-columnas-rotary-lift-spoa10", "elevador-dos-columnas-challenger-lifts-vle10"]),
+ "elevador-de-2-columnas-vs-4-columnas-cual-convie": ("COMPARATIVA · ELEVADORES", "Elevador de 2 vs 4 columnas", "Cuál conviene según tu trabajo", ["elevador-dos-columnas-cuatro-toneladas-piso-libre", "elevador-4-columnas-unite-pl-fs50"]),
+ "balanceadora-trivium-pro-vs-hofmann-geodyna-cual": ("COMPARATIVA · BALANCEADORAS", "Trivium Pro vs Hofmann Geodyna", "Balanceadoras: cuál conviene", ["balanceadora-con-pantalla-y-puntero-laser-g66", "balanceadora-de-ruedas-hofmann-geodyna-7100-para-gomeria"]),
+ "desarmadora-trivium-pro-vs-hofmann-monty-cual-co": ("COMPARATIVA · DESARMADORAS", "Trivium Pro vs Hofmann Monty", "Desarmadoras: cuál conviene", ["desarmadora-con-brazo-auxiliar-para-run-flat-1256-s-pro-trivium-center", "desarmadora-hofmann-monty-1270-con-desmontadora-de-neumaticos"]),
+ "preguntas-rapidas-sobre-elevadores-de-taller-res": ("PREGUNTAS RÁPIDAS · ELEVADORES", "Preguntas rápidas sobre elevadores", "Respuestas cortas para talleres", ["elevador-dos-columnas-rotary-lift-spoa10"]),
+ "preguntas-rapidas-sobre-alineadoras-y-balanceado": ("PREGUNTAS RÁPIDAS · ALINEACIÓN", "Preguntas rápidas: alineadoras y balanceadoras", "Respuestas cortas para talleres y gomerías", ["alineadora-3d-para-autos-hofmann-geoliner-630", "balanceadora-de-ruedas-hofmann-geodyna-7600p"]),
+ "preguntas-rapidas-sobre-gomerias-y-desarmadoras-": ("PREGUNTAS RÁPIDAS · GOMERÍA", "Preguntas rápidas sobre gomerías", "Respuestas cortas para armar tu gomería", ["desarmadora-con-brazo-auxiliar-para-run-flat-1256-s-pro-trivium-center"]),
 }
 
 def trim(path, out):
