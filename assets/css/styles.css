@@ -1413,3 +1413,10 @@ a.origin-badge--plain:focus-visible { outline: 2px solid var(--accent); outline-
 .legal p, .legal li { line-height: 1.6; }
 .legal ul { padding-left: 20px; }
 .legal .btn { display: inline-flex; margin: 4px 8px 4px 0; }
+
+/* Pie de foto de la galería de producto (fotos de detalle con zoom) */
+.pd-cap { margin: 10px 2px 0; font-size: .86rem; line-height: 1.4; color: var(--text-dim); padding-left: 10px; border-left: 3px solid var(--accent); }
+.pd-lb-cap { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); max-width: min(92vw, 720px); margin: 0; padding: 8px 14px; background: rgba(0,0,0,.72); color: #fff; font-size: .92rem; line-height: 1.35; border-radius: 6px; text-align: center; }
+.pd-static-fig { margin: 14px 0 0; }
+.pd-static-fig img { max-width: 100%; height: auto; }
+.pd-static-fig figcaption { font-size: .86rem; color: var(--text-dim); margin-top: 4px; }

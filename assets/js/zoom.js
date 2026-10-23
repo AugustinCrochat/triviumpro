@@ -29,7 +29,8 @@
     return { left: (fw - w) / 2, top: 0, width: w, height: fh };
   }
 
-  window.initGalleryZoom = function (srcs) {
+  window.initGalleryZoom = function (srcs, caps) {
+    caps = caps || [];
     const main = document.getElementById('pd-main');
     if (!main || !srcs || !srcs.length) return;
     const thumbs = Array.from(document.querySelectorAll('.pd-gallery .thumb'));
@@ -50,12 +51,21 @@
     main.setAttribute('aria-label', 'Ampliar imagen');
 
     const img = () => main.querySelector('img');
+    const baseAlt = (img() && img().alt) || 'Imagen del producto';
+    const capEl = document.getElementById('pd-cap');
+    function setCaption() {
+      const cap = caps[index] || '';
+      const el = img();
+      if (el) el.alt = cap ? baseAlt + ' — ' + cap : baseAlt;
+      if (capEl) { capEl.textContent = cap; capEl.hidden = !cap; }
+    }
 
     function show(i) {
       index = (i + srcs.length) % srcs.length;
       const el = img();
       if (el) { el.src = srcs[index]; el.style.display = ''; }
       thumbs.forEach((t, k) => t.classList.toggle('active', k === index));
+      setCaption();
       closeZoom();
     }
 
@@ -139,13 +149,16 @@
         '<button type="button" class="pd-lb-close" aria-label="Cerrar">&#10005;</button>' +
         (multi ? '<button type="button" class="pd-lb-nav pd-lb-prev" aria-label="Foto anterior">&#10094;</button>' +
                  '<button type="button" class="pd-lb-nav pd-lb-next" aria-label="Foto siguiente">&#10095;</button>' : '') +
-        `<img src="${srcs[index]}" alt="${alt.replace(/"/g, '&quot;')}">`;
+        `<img src="${srcs[index]}" alt="${alt.replace(/"/g, '&quot;')}"><p class="pd-lb-cap"></p>`;
       const previouslyFocused = document.activeElement;
       const prevOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
       document.body.appendChild(lb);
       const lbImg = lb.querySelector('img');
-      const go = i => { index = (i + srcs.length) % srcs.length; lbImg.src = srcs[index]; show(index); };
+      const lbCap = lb.querySelector('.pd-lb-cap');
+      const paintCap = () => { lbCap.textContent = caps[index] || ''; lbCap.hidden = !caps[index]; };
+      paintCap();
+      const go = i => { index = (i + srcs.length) % srcs.length; lbImg.src = srcs[index]; show(index); paintCap(); };
       function close() {
         lb.remove(); document.body.style.overflow = prevOverflow;
         document.removeEventListener('keydown', onKey);

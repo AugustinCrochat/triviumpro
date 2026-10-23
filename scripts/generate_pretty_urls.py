@@ -1258,7 +1258,14 @@ def main():
             gallery = ''
             if prod.get('image'):
                 gallery = (f'<div class="pd-media"><img src="{esc(root2 + prod["image"])}" '
-                           f'alt="{esc(prod["name"])}" width="800" height="600"></div>')
+                           f'alt="{esc(prod["name"])}" width="800" height="600">')
+                caps = prod.get('image_captions') or {}
+                for extra in (prod.get('images') or [])[1:]:
+                    cap = caps.get(extra, '')
+                    gallery += (f'<figure class="pd-static-fig"><img src="{esc(root2 + extra)}" '
+                                f'alt="{esc(prod["name"] + (" — " + cap if cap else ""))}" loading="lazy">'
+                                + (f'<figcaption>{esc(cap)}</figcaption>' if cap else '') + '</figure>')
+                gallery += '</div>'
             bullets = ''
             if prod.get('bullets'):
                 lis = ''.join(f'<li>{esc(b)}</li>' for b in prod['bullets'])

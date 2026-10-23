@@ -306,7 +306,7 @@ async function loadCatalog() {
   if (CATALOG) return CATALOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/catalog.js?v=20261022k';
+    script.src = rootPath() + 'data/catalog.js?v=20261022l';
     script.onload = () => {
       CATALOG = window.CATALOG_DATA;
       resolve(CATALOG);
@@ -522,7 +522,7 @@ async function loadBlog() {
   if (BLOG) return BLOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/blog.js?v=20261022k';
+    script.src = rootPath() + 'data/blog.js?v=20261022l';
     script.onload = () => {
       BLOG = window.BLOG_DATA;
       resolve(BLOG);

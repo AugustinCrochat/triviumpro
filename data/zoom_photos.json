@@ -1,0 +1,496 @@
+{
+ "elevador-dos-columnas-4535-kg-rotary-lift-spoa10": [
+  {
+   "box": [
+    120,
+    520,
+    420,
+    860
+   ],
+   "caption": "Unidad hidráulica y comando montados en la columna"
+  },
+  {
+   "box": [
+    90,
+    790,
+    390,
+    1040
+   ],
+   "caption": "Adaptadores de altura al pie de la columna"
+  }
+ ],
+ "elevador-dos-columnas-4000-kg-piso-libre-unite-pl-4-0-2a": [
+  {
+   "box": [
+    830,
+    500,
+    1120,
+    830
+   ],
+   "caption": "Central hidráulica y panel de comando en la columna"
+  },
+  {
+   "box": [
+    180,
+    790,
+    960,
+    1010
+   ],
+   "caption": "Brazos con tacos de apoyo: altura mínima de plataforma de 110 mm"
+  }
+ ],
+ "elevador-dos-columnas-7250-kg-rotary-lift-spo16-cargo": [
+  {
+   "box": [
+    120,
+    500,
+    420,
+    900
+   ],
+   "caption": "Unidad hidráulica y comando en la columna"
+  }
+ ],
+ "elevador-dos-columnas-6000-kg-vehiculos-electricos": [
+  {
+   "box": [
+    870,
+    110,
+    1130,
+    430
+   ],
+   "caption": "Motor y depósito de la central hidráulica"
+  },
+  {
+   "box": [
+    130,
+    780,
+    960,
+    1010
+   ],
+   "caption": "Brazos con plataforma baja de 100 mm"
+  }
+ ],
+ "elevador-dos-columnas-5443-kg-forward-lift-f12-by-rotary-lift": [
+  {
+   "box": [
+    620,
+    600,
+    900,
+    900
+   ],
+   "caption": "Unidad hidráulica en la columna"
+  }
+ ],
+ "elevador-dos-columnas-5000-kg-trivium-pro-u-t50msd": [
+  {
+   "box": [
+    660,
+    860,
+    1000,
+    1150
+   ],
+   "caption": "Motor hidráulico en la base de la columna"
+  }
+ ],
+ "elevador-cuatro-columnas-5000-kg-con-kit-para-alineacion": [
+  {
+   "box": [
+    250,
+    280,
+    650,
+    520
+   ],
+   "caption": "Rolling jack integrado en las plataformas"
+  }
+ ],
+ "elevador-cuatro-columnas-6350-kg-rotary-lift-sm14l": [
+  {
+   "box": [
+    440,
+    580,
+    700,
+    940
+   ],
+   "caption": "Unidad de potencia hidráulica en la columna"
+  }
+ ],
+ "elevador-de-estacionamiento-direct-lift-pro-park-8s": [
+  {
+   "box": [
+    400,
+    560,
+    720,
+    760
+   ],
+   "caption": "Unidad hidráulica en la columna"
+  }
+ ],
+ "elevador-tijera-portatil-2722-kg-rotary-lift-pro-6mr": [
+  {
+   "box": [
+    800,
+    260,
+    1140,
+    740
+   ],
+   "caption": "Unidad hidráulica portátil con ruedas"
+  }
+ ],
+ "elevador-tijera-baja-altura-3175-kg-rotary-lift-vlxs7": [
+  {
+   "box": [
+    380,
+    520,
+    720,
+    900
+   ],
+   "caption": "Cilindros hidráulicos y mecanismo de tijera"
+  }
+ ],
+ "elevador-tijera-portatil-3000-kg-pl-b30m": [
+  {
+   "box": [
+    880,
+    640,
+    1160,
+    1160
+   ],
+   "caption": "Central hidráulica portátil"
+  }
+ ],
+ "elevador-tijera-3000-kg-pl-e30": [
+  {
+   "box": [
+    20,
+    380,
+    270,
+    860
+   ],
+   "caption": "Gabinete de control con botonera de baja tensión"
+  }
+ ],
+ "elevador-tijera-largo-5500-kg-con-kit-de-alineacion": [
+  {
+   "box": [
+    0,
+    330,
+    200,
+    620
+   ],
+   "caption": "Gabinete de control"
+  }
+ ],
+ "elevador-tijera-3000-kg-pl-b30y": [
+  {
+   "box": [
+    10,
+    300,
+    260,
+    720
+   ],
+   "caption": "Gabinete de control con botonera"
+  }
+ ],
+ "elevador-tijera-gomeria-4500-kg-pl-45h": [
+  {
+   "box": [
+    0,
+    380,
+    260,
+    880
+   ],
+   "caption": "Central hidráulica portátil con ruedas"
+  }
+ ],
+ "elevador-tijera-corto-3000-kg-dl-by-rotary-lift-dig30": [
+  {
+   "box": [
+    340,
+    600,
+    860,
+    1000
+   ],
+   "caption": "Mecanismo de doble tijera"
+  }
+ ],
+ "elevador-tijera-corto-3200-kg-dl-by-rotary-lift-dsd32": [
+  {
+   "box": [
+    380,
+    560,
+    1010,
+    1180
+   ],
+   "caption": "Mecanismo de doble tijera con cilindros hidráulicos"
+  }
+ ],
+ "elevador-de-motos-453-kg-rotary-lift-procycle-dt": [
+  {
+   "box": [
+    60,
+    120,
+    520,
+    420
+   ],
+   "caption": "Sujeción de la rueda delantera"
+  }
+ ],
+ "elevador-de-motos-453-kg-rotary-lift-procycle-xlt-dt": [
+  {
+   "box": [
+    90,
+    160,
+    480,
+    420
+   ],
+   "caption": "Sujeción de la rueda delantera"
+  }
+ ],
+ "alineadora-3d-hofmann-geoliner-320": [
+  {
+   "box": [
+    880,
+    740,
+    1150,
+    1010
+   ],
+   "caption": "Cabezal de medición con cámaras 3D"
+  },
+  {
+   "box": [
+    300,
+    650,
+    720,
+    990
+   ],
+   "caption": "Cargadores de batería y cabezales guardados en el carro"
+  }
+ ],
+ "alineadora-hofmann-geoliner-609": [
+  {
+   "box": [
+    60,
+    440,
+    1140,
+    660
+   ],
+   "caption": "Barra con cámaras giratorias en los extremos y tablet en el centro"
+  }
+ ],
+ "alineadora-de-camiones-josam-cv-aligner": [
+  {
+   "box": [
+    560,
+    720,
+    900,
+    990
+   ],
+   "caption": "Cabezal de medición montado en la rueda"
+  }
+ ],
+ "sistema-de-calibracion-hofmann-ez-adas": [
+  {
+   "box": [
+    430,
+    40,
+    760,
+    560
+   ],
+   "caption": "Panel de calibración (target)"
+  }
+ ],
+ "alineadora-3d-hofmann-geoliner-880": [
+  {
+   "box": [
+    30,
+    140,
+    280,
+    520
+   ],
+   "caption": "Cabezal de la torre con dos cámaras: lectura completa sin subir, bajar ni mover las cámaras"
+  },
+  {
+   "box": [
+    450,
+    260,
+    760,
+    520
+   ],
+   "caption": "Consola con monitor de 32\", teclado y mouse"
+  }
+ ],
+ "balanceadora-de-ruedas-hofmann-geodyna-7100-pantalla-led": [
+  {
+   "box": [
+    250,
+    450,
+    650,
+    650
+   ],
+   "caption": "Panel de control con pantalla LED"
+  }
+ ],
+ "balanceadora-de-ruedas-hofmann-geodyna-7600p": [
+  {
+   "box": [
+    290,
+    260,
+    620,
+    490
+   ],
+   "caption": "Pantalla táctil"
+  }
+ ],
+ "balanceadora-de-ruedas-hofmann-geodyna-9000p": [
+  {
+   "box": [
+    560,
+    60,
+    1000,
+    420
+   ],
+   "caption": "Pantalla táctil y consola de mando"
+  }
+ ],
+ "balanceadora-de-ruedas-unite-g66": [
+  {
+   "box": [
+    400,
+    100,
+    760,
+    450
+   ],
+   "caption": "Monitor LED y panel de comandos"
+  }
+ ],
+ "balanceadora-de-ruedas-hofmann-geodyna-7800-2p": [
+  {
+   "box": [
+    590,
+    30,
+    930,
+    300
+   ],
+   "caption": "Monitor a color con la guía de balanceo"
+  }
+ ],
+ "balanceadora-de-ruedas-hofmann-geodyna-7400l": [
+  {
+   "box": [
+    390,
+    290,
+    700,
+    500
+   ],
+   "caption": "Monitor de la balanceadora"
+  }
+ ],
+ "balanceadora-para-ruedas-de-camion-hofmann-geodyna-980l": [
+  {
+   "box": [
+    160,
+    230,
+    470,
+    450
+   ],
+   "caption": "Display digital de lectura"
+  }
+ ],
+ "balanceadora-de-ruedas-para-camion-u-850-150-kg-trivium-pro": [
+  {
+   "box": [
+    90,
+    380,
+    500,
+    680
+   ],
+   "caption": "Panel de control y parada de emergencia"
+  },
+  {
+   "box": [
+    500,
+    500,
+    1200,
+    1180
+   ],
+   "caption": "Plataforma neumática para subir la rueda de camión"
+  }
+ ],
+ "balanceadora-de-ruedas-unite-s-901": [
+  {
+   "box": [
+    180,
+    300,
+    640,
+    520
+   ],
+   "caption": "Panel de control con display y teclado"
+  }
+ ],
+ "desarmadora-de-neumaticos-hofmann-monty-1270": [
+  {
+   "box": [
+    260,
+    590,
+    700,
+    860
+   ],
+   "caption": "Plato con garras de sujeción"
+  }
+ ],
+ "desarmadora-de-neumaticos-hofmann-monty-3300-24": [
+  {
+   "box": [
+    220,
+    620,
+    760,
+    880
+   ],
+   "caption": "Plato con garras de sujeción"
+  }
+ ],
+ "desarmadora-de-neumaticos-hofmann-monty-3300-20": [
+  {
+   "box": [
+    250,
+    600,
+    700,
+    900
+   ],
+   "caption": "Plato con garras de sujeción"
+  }
+ ],
+ "desarmadora-de-ruedas-con-brazo-auxiliar-pl-1256s-trivium-center": [
+  {
+   "box": [
+    520,
+    360,
+    1060,
+    700
+   ],
+   "caption": "Brazo auxiliar con presión rotatoria de 360°"
+  }
+ ],
+ "desarmadora-de-neumaticos-hofmann-monty-8800": [
+  {
+   "box": [
+    440,
+    100,
+    900,
+    340
+   ],
+   "caption": "Panel de mandos con manómetro y pantalla"
+  }
+ ],
+ "desarmadora-de-ruedas-unite-pl-1200u": [
+  {
+   "box": [
+    430,
+    230,
+    800,
+    650
+   ],
+   "caption": "Columna de montaje con manómetro"
+  }
+ ]
+}
