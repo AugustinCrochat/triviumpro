@@ -13,9 +13,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-<link rel="stylesheet" href="assets/css/styles.css?v=20261022i">
-<link rel="stylesheet" href="assets/css/guia.css?v=20261022i">
-<link rel="stylesheet" href="assets/css/tienda.css?v=20261022i">
+<link rel="stylesheet" href="assets/css/styles.css?v=20261022j">
+<link rel="stylesheet" href="assets/css/guia.css?v=20261022j">
+<link rel="stylesheet" href="assets/css/tienda.css?v=20261022j">
 </head>
 <body>
 <div id="site-header"></div>
@@ -25,6 +25,7 @@
     <div id="pd-back-folleto"></div>
     <div class="breadcrumbs" id="crumbs" style="margin-top:24px"></div>
     <div class="pd-wrap" id="pd-wrap"></div>
+    <div id="pd-qa-host"><div id="pd-qa"></div></div>
   </div>
 </section>
 
@@ -43,9 +44,9 @@
 <section class="cat-blog-links" id="pd-guide"></section>
 
 <div id="site-footer"></div>
-<script src="assets/js/site.js?v=20261022i"></script>
-<script src="assets/js/zoom.js?v=20261022i"></script>
-<script src="assets/js/tienda.js?v=20261022i"></script>
+<script src="assets/js/site.js?v=20261022j"></script>
+<script src="assets/js/zoom.js?v=20261022j"></script>
+<script src="assets/js/tienda.js?v=20261022j"></script>
 <script>
 mountChrome('catalogo');
 
@@ -129,6 +130,7 @@ try {
       <h1>${p.name}</h1>
       <span class="sku">SKU · ${p.sku}</span>
       <div id="pd-price"></div>
+      <p class="pd-fin"><strong>Financiación disponible.</strong> Consultá planes de pago. <a href="${rootPath()}contacto/">Pedí tu cotización</a> para empezar.</p>
 
       ${p.category.includes('elevador') ? `
       <div class="pd-spec-tiles">
@@ -166,6 +168,12 @@ try {
 
     </div>
   `;
+  // Preguntas rápidas (prerenderizadas en #pd-qa): se mueven debajo del resumen de la ficha.
+  (function () {
+    const qa = document.getElementById('pd-qa');
+    const info = document.querySelector('#pd-wrap .pd-info');
+    if (qa && info && qa.firstElementChild) info.appendChild(qa);
+  })();
   if (galleryImgs.length) initGalleryZoom(galleryImgs.map(src => rootPath() + src));
 
   if (p.html_description) {
@@ -212,6 +220,17 @@ try {
     .slice(0, 4);
   renderGrid('#related', related);
 })();
+</script>
+<script>
+// Preguntas rápidas: cada botón abre su respuesta y cierra las demás.
+document.addEventListener('click', function (e) {
+  var b = e.target.closest ? e.target.closest('.pd-qa-chip') : null;
+  if (!b) return;
+  var box = b.closest('.pd-qa'), abrir = b.getAttribute('aria-expanded') !== 'true';
+  box.querySelectorAll('.pd-qa-chip').forEach(function (c) { c.setAttribute('aria-expanded', 'false'); });
+  box.querySelectorAll('.pd-qa-panel').forEach(function (p) { p.hidden = true; });
+  if (abrir) { b.setAttribute('aria-expanded', 'true'); var p = document.getElementById(b.getAttribute('aria-controls')); if (p) p.hidden = false; }
+});
 </script>
 </body>
 </html>

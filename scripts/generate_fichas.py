@@ -48,7 +48,7 @@ h3{font-size:8pt;letter-spacing:.09em;margin:4mm 0 1.8mm;color:#333;text-transfo
 .f b{font-size:9.4pt}.f div{font-size:8.2pt;color:#444;line-height:1.3}
 table{width:100%;border-collapse:collapse;font-size:8pt}td{padding:1.15mm 2mm;border-bottom:1px solid #fff;vertical-align:top}
 tr:nth-child(odd) td{background:#f1f1f1}tr:nth-child(even) td{background:#f8f8f8}td+td{text-align:right;font-weight:bold}
-.fin{background:#111;color:#fff;font-size:7.6pt;padding:1.8mm 2.4mm;margin-top:1mm}.fin b{color:#e5383b}
+.fin{background:#111;color:#e6e6e6;font-size:7.6pt;line-height:1.35;padding:1.8mm 2.4mm;margin-top:1mm;border-left:1.2mm solid #c8102e}.fin b{color:#fff}.fin a{color:#fff;font-weight:bold;text-decoration:underline}
 .gal{display:flex;gap:3mm}.gal div{flex:1;height:30mm;border:1px solid #e3e3e3;border-radius:1.6mm;display:flex;align-items:center;justify-content:center;background:#fff}.gal img{max-width:100%;max-height:100%;object-fit:contain}
 .faq{display:grid;grid-template-columns:1fr 1fr;gap:2mm 5mm}.faq div{font-size:7.8pt;line-height:1.3;color:#444}.faq b{display:block;color:#111;font-size:8.2pt;margin-bottom:.4mm}
 .main{flex:1}
@@ -130,7 +130,7 @@ def render(s, n_feat=6, n_spec=14, n_faq=4, galeria=True):
 <div class="top"><a href="https://pro.trivium.ar/"><img class="lg" src="file://{ROOT}/assets/img/marcas/logo-trivium-pro.svg" alt="Trivium Pro"></a><div class="chips">{chips}</div><span>FICHA TÉCNICA</span></div>
 <div class="main"><div class="kick">{E(kicker)}</div><h1>{E(s['name'])}</h1><div class="sub">{subt}</div>
 <div class="hero"><div class="im"><img src="{img(s['imagen'])}" alt="{E(s['name'])}"></div><div class="ht"><p>{E(s['destacado'] or s['resumen'])}</p><div class="lks"><a class="lk" href="{s['url']}">{svg_inline("web-rojo.svg", "ic")}Ver ficha del producto en la web <i>↗</i></a>{('<a class="lk" href="' + s['video'] + '">' + svg_inline("video-rojo.svg", "ic") + 'Ver video del producto <i>↗</i></a>') if s['video'] else ''}</div><div class="tiles">{tl}</div></div></div>
-<div class="cols"><div><h3>Características principales</h3>{feats}</div><div><h3>Especificación técnica</h3><table>{rows}</table><div class="fin"><b>Financiación disponible:</b> consultá planes de pago.</div></div></div>
+<div class="cols"><div><h3>Características principales</h3>{feats}</div><div><h3>Especificación técnica</h3><table>{rows}</table><div class="fin"><b>Financiación disponible:</b> consultá planes de pago. Pedí tu cotización en <a href="https://pro.trivium.ar/contacto/">pro.trivium.ar/contacto</a> para empezar.</div></div></div>
 {gal}<h3>Preguntas frecuentes</h3><div class="faq">{faq}</div></div>
 <div class="foot3"><div><b>Instalación en tu taller</b>Contamos con un equipo de técnicos para la colocación de tu equipo, en todo el país.</div><div><b>Servicio técnico oficial</b>Garantía y servicio técnico oficial en todo el país.</div><div><b>Repuestos originales</b>Stock permanente con garantía de trazabilidad.</div></div>
 <div class="ft"><div class="cajas">{cajas}</div>{flag}</div></div></body></html>"""

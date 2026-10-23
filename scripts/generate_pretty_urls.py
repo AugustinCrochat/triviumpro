@@ -456,6 +456,51 @@ def product_guide_html(cat_slug, root, faqs=None, notas=''):
             f'<ul class="guia-lista">{items}</ul></div>' + notas)
 
 
+def quick_qa_html(prod, spec, offer, root, wa):
+    """Preguntas rápidas de la ficha: botones que despliegan una respuesta armada con los datos del
+    producto (ficha técnica, origen, certificación, precio público). Sin IA: si falta el dato, la
+    respuesta lleva a la cotización. Va en #pd-qa; producto.html lo mueve debajo del resumen."""
+    contacto = f'{root}contacto/'
+    nombre = prod['name']
+    qa = []
+    ideal = spec.get('ideal') or ''
+    resumen = (spec.get('resumen') or spec.get('destacado') or '').rstrip('. ')
+    if resumen:
+        qa.append(('¿Para qué sirve?', esc(resumen) + (f'. Ideal para {esc(ideal)}.' if ideal else '.')))
+    if spec['specs']:
+        filas = '; '.join(f'{esc(a)}: {esc(b)}' for a, b in spec['specs'][:5])
+        qa.append(('¿Qué medidas y capacidad tiene?', filas + '. El detalle completo está en la ficha técnica.'))
+    elec = [(a, b) for a, b in spec['specs'] if any(k in a.lower() for k in ('motor', 'aliment', 'voltaje', 'fuente', 'energ', 'conexión', 'conexion'))]
+    if elec:
+        qa.append(('¿Qué alimentación eléctrica necesita?', '; '.join(f'{esc(a)}: {esc(b)}' for a, b in elec[:3]) + '.'))
+    if spec.get('ali'):
+        a = spec['ali']
+        cert = f'Sí: el modelo {esc(a["model"])} figura en el directorio de ALI (Automotive Lift Institute) como elevador certificado.'
+    elif spec.get('ce'):
+        cert = 'Tiene marcado CE (declaración de conformidad del fabricante). No es una certificación ALI.'
+    else:
+        cert = 'Consultanos por la documentación y certificaciones de este modelo.'
+    qa.append(('¿Tiene certificación?', cert))
+    if spec.get('origen'):
+        qa.append(('¿De qué origen es?', f'Origen de fabricación: {esc(spec["origen"][1])}.'))
+    if offer:
+        monto = '$ ' + f"{round(offer['price']):,}".replace(',', '.')
+        precio = f'{monto} con IVA incluido. La instalación no está incluida. '
+    else:
+        precio = 'Este equipo se cotiza a medida. '
+    qa.append(('¿Cuánto cuesta?', precio + f'<a href="{esc(contacto)}">Pedí tu cotización</a>.'))
+    qa.append(('¿Hay financiación?', f'Sí, hay planes de pago. Consultá las condiciones y <a href="{esc(contacto)}">pedí tu cotización</a> para empezar.'))
+    qa.append(('¿Incluye instalación?', 'No: la instalación se cotiza aparte del equipo. Hacemos instalación, puesta en marcha y capacitación en todo el país.'))
+    qa.append(('¿Tiene garantía y servicio técnico?', 'Sí. Trivium Pro ofrece garantía y servicio técnico oficial en todo el país, con repuestos originales y equipo técnico propio.'))
+    chips = ''.join(f'<button type="button" class="pd-qa-chip" aria-expanded="false" aria-controls="qa{i}">{esc(q)}</button>' for i, (q, a) in enumerate(qa))
+    panels = ''.join(f'<div class="pd-qa-panel" id="qa{i}" hidden><strong>{esc(q)}</strong> {a}</div>' for i, (q, a) in enumerate(qa))
+    msg = f'Hola Trivium, tengo una consulta sobre el {nombre}: '
+    return ('<section class="pd-qa" aria-label="Preguntas rápidas"><h2>Preguntas rápidas</h2>'
+            f'<div class="pd-qa-chips">{chips}</div>{panels}'
+            f'<a class="pd-qa-more" href="{esc(wa)}{esc(msg.replace(" ", "%20"))}" target="_blank" rel="noopener">¿Otra duda? Escribinos por WhatsApp</a>'
+            '<noscript><style>.pd-qa-panel[hidden]{display:block}</style></noscript></section>')
+
+
 def guide_link_html(slug, root):
     g = CATEGORY_GUIDES.get(slug)
     if not g:
@@ -1224,6 +1269,7 @@ def main():
                 f'{brand_line}'
                 f'<p class="pd-summary">{esc(strip_tags(raw_desc))}</p>'
                 f'{price_tag_html(prod.get("sku"), offers_by_sku, True)}'
+                f'<p class="pd-fin"><strong>Financiación disponible.</strong> Consultá planes de pago. <a href="{root2}contacto/">Pedí tu cotización</a> para empezar.</p>'
                 f'{specs}{ali_cert_html(prod, root2)}{bullets}'
                 f'{rich}'
                 f'</div></article>'
@@ -1241,6 +1287,7 @@ def main():
                     'crumbs': breadcrumb_html(crumbs, root2),
                     'pd-wrap': pd_html,
                     'related': related_html,
+                    'pd-qa': quick_qa_html(prod, _spec, offers_by_sku.get(prod.get('sku')), root2, 'https://wa.me/5491127015294?text='),
                     'pd-guide': product_guide_html(prod.get('category'), root2, prod_faqs, _notas_producto(prod, catalog, blog_by_slug, root2)),
                 },
             )

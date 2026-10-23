@@ -1040,6 +1040,24 @@ a.origin-badge:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .pd-price-val { font-size: 1.7rem; font-weight: 800; letter-spacing: -.02em; color: var(--text); }
 .pd-price-iva { font-size: .85rem; font-weight: 700; color: var(--accent); margin-top: 2px; }
 
+/* Financiación en la ficha */
+.pd-fin { margin: 0 0 18px; padding: 11px 14px; background: var(--bg-2); border: 1px solid var(--line); border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0; font-size: .88rem; color: var(--text-dim); line-height: 1.45; }
+.pd-fin strong { color: var(--text); }
+.pd-fin a { color: var(--accent); font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+
+/* Preguntas rápidas de la ficha */
+.pd-qa { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+.pd-qa h2 { font-size: .8rem; letter-spacing: .09em; text-transform: uppercase; color: var(--text-mute); margin: 0 0 10px; font-family: var(--sans); }
+.pd-qa-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.pd-qa-chip { border: 1px solid var(--line-2); background: #fff; color: var(--text); border-radius: 999px; padding: 7px 13px; font-size: .84rem; font-weight: 600; cursor: pointer; font-family: inherit; line-height: 1.2; }
+.pd-qa-chip:hover { border-color: var(--text); }
+.pd-qa-chip[aria-expanded="true"] { background: var(--text); color: #fff; border-color: var(--text); }
+.pd-qa-panel { margin-top: 12px; padding: 12px 14px; background: var(--bg-2); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; font-size: .92rem; line-height: 1.5; color: var(--text-dim); }
+.pd-qa-panel strong { display: block; color: var(--text); margin-bottom: 3px; }
+.pd-qa-panel a { color: var(--accent); font-weight: 700; text-decoration: underline; }
+.pd-qa-more { display: inline-block; margin-top: 12px; font-size: .86rem; font-weight: 700; color: #15803d; text-decoration: underline; text-underline-offset: 2px; }
+
 @media (max-width: 900px) { .pd-wrap { grid-template-columns: 1fr; gap: 28px; } }
 
 /* ---------- Contact ---------- */
