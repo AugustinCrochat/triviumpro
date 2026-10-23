@@ -980,4 +980,293 @@ GUIAS = [
   "rotary-lift-en-argentina-elevadores-para-taller-linea-completa-y-certificacion-ali",
  ],
 },
+
+# --------------------------------------------------------------------------
+{
+ "slug": "equipar-un-taller-de-tren-delantero",
+ "title": "Equipar un taller de tren delantero: alineadora, elevador y herramientas",
+ "h1": "Taller de tren delantero y alineación: equipamiento necesario",
+ "description": ("Qué necesita un taller de tren delantero y suspensión: alineadora 3D, elevador "
+                 "apto para alinear (cuatro columnas o tijera largo), balanceadora y herramientas. "
+                 "Cómo elegir y en qué orden comprar."),
+ "category": "alineadoras",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> un taller de tren delantero necesita tres cosas que trabajan juntas: una <strong>alineadora 3D</strong>, un <strong>elevador apto para alinear</strong> (cuatro columnas con kit de alineación o tijera largo con placas giratorias) y la <strong>balanceadora</strong> que cierra el trabajo de ruedas. Para desarmar suspensión suma un <strong>elevador de dos columnas</strong>, que libera el piso, y herramientas como el extractor de masa. Empezá por el elevador y la alineadora: son los que definen qué servicios podés cobrar.</p>
+</div>
+""",
+ "secciones": """
+<h2>Qué se hace en un taller de tren delantero</h2>
+<ul>
+<li><strong>Alineación:</strong> ajuste de convergencia, caída y avance para que el vehículo mantenga la trayectoria y las ruedas se desgasten parejo. Ver <a href="../../blog/geometria-de-ruedas-todo-lo-que-necesitas-saber-para-mantener-tu-vehiculo-en-optimas-condiciones/">geometría de ruedas</a>.</li>
+<li><strong>Suspensión y dirección:</strong> amortiguadores, resortes, rótulas, bujes, extremos y rulemanes de rueda.</li>
+<li><strong>Balanceo de ruedas</strong> y servicios de neumáticos asociados.</li>
+</ul>
+
+<h2>Los equipos, en orden de importancia</h2>
+<ol>
+<li><strong>Elevador para alinear.</strong> La alineación se hace con las ruedas apoyadas sobre platos giratorios, sobre un elevador de cuatro columnas, uno tijera largo o una fosa. Ver <a href="../../blog/como-elegir-el-elevador-adecuado-para-hacer-alineacion/">cómo elegir el elevador adecuado para alinear</a> y <a href="../../blog/elevador-de-4-columnas-vs-elevador-de-tijera-largo-cual-elegir-para-alineacion/">4 columnas vs tijera largo</a>.</li>
+<li><strong>Alineadora 3D.</strong> Cámaras sin cables hasta las ruedas, más rápida y precisa que una 2D. Ver <a href="../../guias/alineadoras-3d/">la guía de alineadoras 3D</a>; la Geoliner 630 es compacta y la 880 es de paso directo. Hay también <a href="../../blog/alineadoras-5d-el-mito-de-las-dimensiones-en-equipos-de-alineacion/">una nota sobre el mito de las 5D</a>.</li>
+<li><strong>Balanceadora.</strong> Un servicio que casi siempre va con la alineación. Ver <a href="../../guias/balanceadoras-de-ruedas/">la guía de balanceadoras</a>.</li>
+<li><strong>Elevador de dos columnas</strong> para trabajos de suspensión que exigen acceso al conjunto. Ver <a href="../../guias/elevadores-para-taller/">la guía de elevadores</a>.</li>
+<li><strong>Herramientas de piso:</strong> extractor de masa, criques, soportes y mesa hidráulica para bajar y subir conjuntos pesados. Ver <a href="../../categoria/equipamiento-taller/">equipamiento de taller</a>.</li>
+</ol>
+
+<h2>Equipos de referencia</h2>
+{{TABLA}}
+
+<h2>Antes de comprar la alineadora</h2>
+<ul>
+<li><strong>Espacio:</strong> la alineadora y el elevador deben convivir. Ver <a href="../../blog/cuanto-espacio-dejar-entre-la-alineadora-y-el-elevador-recomendaciones-para-una-instalacion-optima/">cuánto espacio dejar entre la alineadora y el elevador</a>.</li>
+<li><strong>Vehículos que vas a atender:</strong> autos y camionetas (Geoliner) o colectivos y camiones (Josam CV-Aligner).</li>
+<li><strong>Productividad:</strong> con la Geoliner 880 de paso directo no hay que subir, bajar ni mover las cámaras para la lectura completa.</li>
+<li><strong>Actualizaciones:</strong> las bases de datos de vehículos tienen que poder actualizarse: ver <a href="../../blog/por-que-es-tan-importante-mantener-actualizadas-las-alineadoras-hofmann-y-john-bean/">por qué mantener actualizadas las alineadoras</a>.</li>
+</ul>
+<p>La instalación y la capacitación se cotizan aparte del equipo. Si todavía estás armando el taller completo, mirá <a href="../../guias/equipar-un-taller-mecanico/">equipar un taller mecánico</a>.</p>
+""",
+ "tabla": {
+  "slugs": [
+   ("alineadora-3d-hofmann-geoliner-320", "Cámaras 3D sin cables, compatible con fosas y elevadores."),
+   ("alineadora-hofmann-geoliner-609", "Compacta, sin consola, con cámaras giratorias y tablet."),
+   ("alineadora-3d-hofmann-geoliner-630", "Alineadora 3D compacta para talleres chicos."),
+   ("alineadora-3d-hofmann-geoliner-880", "Paso directo: las dos cámaras leen sin moverse."),
+   ("elevador-cuatro-columnas-5000-kg-con-kit-para-alineacion", "Cuatro columnas con kit de alineación."),
+   ("elevador-tijera-largo-5500-kg-con-kit-de-alineacion", "Tijera largo de bajo perfil apto para alineadoras de cámaras."),
+   ("elevador-tijera-para-alineacion-4500-kg-rotary-lift-xa10", "Tijera de alineación con plataformas de 4.800 mm."),
+   ("juego-extractor-de-masa-deslizante-2-5-kg", "Extractor de masa para trabajos de suspensión."),
+  ],
+ },
+ "faqs": [
+  ("¿Qué necesito para armar un taller de alineación y tren delantero?",
+   "Un elevador apto para alinear, una alineadora 3D, una balanceadora y herramientas de piso. Para trabajos de suspensión suma un elevador de dos columnas."),
+  ("¿Qué elevador sirve para alinear?",
+   "Uno de cuatro columnas con kit de alineación, uno tijera largo con placas giratorias o una fosa."),
+  ("¿Cuál es la alineadora ideal para un taller chico?",
+   "La Hofmann Geoliner 609 es compacta y no lleva consola, y la 630 es una alineadora 3D compacta. Contanos las medidas del taller y te decimos cuál entra."),
+  ("¿Se necesita balanceadora además de alineadora?",
+   "Casi siempre: el balanceo se vende junto con la alineación y completa el trabajo sobre las ruedas."),
+  ("¿Dan capacitación?",
+   "Sí. La puesta en marcha incluye capacitación. La instalación se cotiza aparte del equipo."),
+ ],
+ "posts": [
+  "como-abrir-un-taller-de-alineacion-y-balanceo",
+  "geometria-de-ruedas-todo-lo-que-necesitas-saber-para-mantener-tu-vehiculo-en-optimas-condiciones",
+  "como-elegir-el-elevador-adecuado-para-hacer-alineacion",
+  "como-funciona-la-alineacion-3d-de-autos-tecnologia-y-beneficios",
+  "los-beneficios-de-tener-una-alineadora-en-tu-taller-o-gomeria",
+ ],
+},
+# --------------------------------------------------------------------------
+{
+ "slug": "equipar-un-taller-de-chapa-y-pintura",
+ "title": "Equipar un taller de chapa y pintura: elevadores, aire y alineación",
+ "h1": "Taller de chapa y pintura: elevadores y equipamiento de apoyo",
+ "description": ("Elevadores y equipamiento para un taller de chapa y pintura: tijera de baja "
+                 "altura, empotrable o dos columnas, aire comprimido, carros de traslado y "
+                 "alineación después de un choque."),
+ "category": "elevadores",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> en chapa y pintura el elevador sirve para trabajar paragolpes, zócalos y bajos a una altura cómoda y para mover vehículos entre sectores. Lo habitual es un <strong>elevador tijera</strong> (de baja altura, de sobrepiso o empotrable, que no estorba el paso) y uno de <strong>dos columnas</strong> para desarmar. Se completa con <strong>aire comprimido</strong>, <strong>carros de traslado</strong> y <strong>alineación</strong> al terminar reparaciones que tocaron la suspensión o la estructura. El banco de enderezado y la cabina de pintura no forman parte de nuestro catálogo.</p>
+</div>
+""",
+ "secciones": """
+<h2>Para qué se usa el elevador en una chapería</h2>
+<ul>
+<li><strong>Zócalos, estribos y bajos:</strong> trabajar a una altura cómoda en la parte baja de la carrocería sin agacharse.</li>
+<li><strong>Desarme y armado:</strong> sacar y colocar paragolpes, trenes y componentes con acceso completo al vehículo, donde un dos columnas es más versátil.</li>
+<li><strong>Revisión de bajos y daños estructurales</strong> antes de presupuestar.</li>
+<li><strong>Movimiento entre sectores:</strong> un tijera embutido o de baja altura deja el piso libre para circular.</li>
+</ul>
+
+<h2>Qué tipo de elevador elegir</h2>
+<ul>
+<li><strong>Tijera de baja altura o de sobrepiso:</strong> no necesitan obra civil y sirven para trabajos de carrocería a media altura. Ver <a href="../../blog/elevador-tijera-tipos-capacidades-y-cual-elegir-para-tu-taller/">elevador tijera: tipos, capacidades y cuál elegir</a>.</li>
+<li><strong>Tijera empotrable:</strong> queda a nivel del piso, ideal para circular y trasladar vehículos sin obstáculos; requiere una excavación.</li>
+<li><strong>Dos columnas:</strong> máximo acceso para desarme, con modelos para vehículos eléctricos, SUV y utilitarios. Ver <a href="../../blog/diferencias-entre-elevadores-de-2-columnas-de-piso-libre-y-travesano-al-piso/">piso libre o travesaño al piso</a> y <a href="../../blog/como-elegir-un-elevador-de-2-columnas-capacidad-brazos-y-altura/">cómo elegir uno de dos columnas</a>.</li>
+</ul>
+<p>Hay una comparación general en <a href="../../guias/elevadores-para-taller/">la guía de elevadores</a>. Para vehículos eléctricos, mirá el <a href="../../producto/elevador-de-baterias-para-autos-electricos/">elevador de baterías para autos eléctricos</a>.</p>
+
+<h2>Equipos de referencia</h2>
+{{TABLA}}
+
+<h2>Aire comprimido para el taller</h2>
+<p>Las herramientas neumáticas y el soplado dependen de una buena red de aire. Una red de aluminio como la <a href="../../categoria/aire-comprimido/">Prevost</a> no se oxida, lo que evita partículas de óxido en el aire. Las cabinas y los equipos de pintura requieren sus propias condiciones de aire y no figuran en este catálogo: consultá a tu proveedor de cabinas.</p>
+
+<h2>Alineación después de un choque</h2>
+<p>Cuando una reparación toca suspensión, dirección o estructura, la geometría de las ruedas tiene que verificarse antes de entregar el vehículo. Un taller de chapa y pintura puede ofrecerlo con su propia <a href="../../guias/alineadoras-3d/">alineadora 3D</a> o derivarlo a un taller de tren delantero. Ver <a href="../../guias/equipar-un-taller-de-tren-delantero/">equipar un taller de tren delantero</a>.</p>
+<p>La instalación se cotiza aparte del equipo.</p>
+""",
+ "tabla": {
+  "slugs": [
+   ("elevador-tijera-baja-altura-3175-kg-rotary-lift-vlxs7", "Baja altura para neumáticos y frenos."),
+   ("elevador-tijera-corto-3200-kg-dl-by-rotary-lift-dsd32", "Perfil bajo de 105 mm para chasis bajos."),
+   ("elevador-tijera-corto-3000-kg-dl-by-rotary-lift-dig30", "Empotrado: queda a nivel del piso."),
+   ("elevador-tijera-3000-kg-pl-b30y", "Ultradelgado, sin obra civil."),
+   ("elevador-dos-columnas-4535-kg-rotary-lift-spoa10", "Dos columnas asimétrico, certificación ALI."),
+   ("elevador-dos-columnas-6000-kg-vehiculos-electricos", "Dos columnas para vehículos eléctricos y SUV."),
+   ("carros-para-traslado-de-vehiculos", "Carros con ruedas giratorias y traba para mover vehículos."),
+   ("red-de-aire-comprimido-prevost-piping-system", "Red de aire de aluminio, modular."),
+  ],
+ },
+ "faqs": [
+  ("¿Qué elevador conviene para un taller de chapa y pintura?",
+   "Uno tijera de baja altura o empotrable para trabajar zócalos y mover vehículos, y uno de dos columnas para desarmar con acceso completo."),
+  ("¿Necesito alineadora en una chapería?",
+   "Si repara suspensión o estructura, la geometría debe verificarse. Podés tener tu alineadora o derivar a un taller de tren delantero."),
+  ("¿Venden banco de enderezado o cabina de pintura?",
+   "No: no están en nuestro catálogo. Sí vendemos elevadores, carros de traslado, aire comprimido y alineación."),
+  ("¿Qué elevador sirve para vehículos eléctricos?",
+   "El de dos columnas de 6.000 kg con plataforma baja, y el elevador de baterías para trabajar sobre el pack."),
+  ("¿La instalación está incluida?",
+   "No. La instalación se cotiza aparte del equipo."),
+ ],
+ "posts": [
+  "elevador-tijera-tipos-capacidades-y-cual-elegir-para-tu-taller",
+  "diferencias-entre-elevadores-de-2-columnas-de-piso-libre-y-travesano-al-piso",
+  "como-elegir-un-elevador-de-2-columnas-capacidad-brazos-y-altura",
+  "mantenimiento-de-un-elevador-de-taller-checklist-diario-mensual-y-anual",
+ ],
+},
+# --------------------------------------------------------------------------
+{
+ "slug": "equipar-un-taller-de-detailing",
+ "title": "Equipar un taller de detailing: elevador tijera móvil y equipamiento",
+ "h1": "Taller de detailing: qué equipamiento necesitás",
+ "description": ("Equipamiento para un taller de detailing: elevador tijera móvil, aire comprimido, "
+                 "inflador, muebles y herramientas. Qué comprar primero y cómo calcular el "
+                 "retorno."),
+ "category": "elevadores-tijera",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> un taller de detailing necesita un espacio cubierto y bien iluminado, un <strong>elevador tijera móvil</strong> para trabajar llantas, estribos y bajos a altura cómoda, <strong>aire comprimido</strong>, <strong>inflador digital</strong> y <strong>muebles porta herramientas</strong>. Los equipos de pulido, lavado e insumos propios del rubro no forman parte de nuestro catálogo. Empezá por el elevador: es el equipo que más mejora la terminación y la comodidad de trabajo.</p>
+</div>
+""",
+ "secciones": """
+<h2>Equipos, en orden de compra</h2>
+<ol>
+<li><strong>Elevador tijera móvil o portátil.</strong> Se mueve, no necesita obra civil y libera el espacio cuando no se usa. Ver <a href="../../blog/elevador-tijera-movil-para-detailing-por-que-conviene-y-como-elegirlo/">elevador tijera móvil para detailing</a>.</li>
+<li><strong>Aire comprimido.</strong> Para soplar zonas difíciles, secar y alimentar herramientas neumáticas: <a href="../../categoria/aire-comprimido/">aire comprimido</a>.</li>
+<li><strong>Inflador digital</strong> para entregar los neumáticos con la presión correcta.</li>
+<li><strong>Muebles y carros</strong> para tener productos y herramientas a mano: <a href="../../categoria/muebles-taller/">muebles de taller</a>.</li>
+<li><strong>Equipamiento de piso:</strong> criques y soportes para mover y levantar el vehículo.</li>
+</ol>
+
+<h2>Cómo elegir el elevador</h2>
+<ul>
+<li><strong>Capacidad:</strong> mayor al peso de las camionetas y SUV que recibas, con margen.</li>
+<li><strong>Altura de elevación:</strong> los de media altura alcanzan para trabajar sobre llantas y zonas bajas.</li>
+<li><strong>Largo de las plataformas:</strong> debe cubrir la distancia entre ejes de tus vehículos.</li>
+<li><strong>Seguridad:</strong> bloqueos mecánicos en varias posiciones y válvulas de seguridad.</li>
+</ul>
+
+<h2>Equipos de referencia</h2>
+{{TABLA}}
+
+<h2>Cómo calcular el retorno</h2>
+<p>El punto de equilibrio es la cantidad de servicios por mes que cubre tus costos fijos. Hay un ejemplo con la fórmula y una explicación completa en <a href="../../blog/como-montar-un-taller-de-detailing-equipamiento-y-servicios-que-mas-rinden/">cómo montar un taller de detailing</a>. La instalación se cotiza aparte del equipo.</p>
+<p>Si además querés sumar servicios de neumáticos al taller, mirá <a href="../../guias/equipar-una-gomeria/">equipar una gomería</a>.</p>
+""",
+ "tabla": {
+  "slugs": [
+   ("elevador-tijera-portatil-3000-kg-pl-b30m", "Portátil de 3.000 kg, elevación hasta 980 mm, triple seguridad."),
+   ("elevador-tijera-portatil-2722-kg-rotary-lift-pro-6mr", "Portátil de media altura, 7 posiciones de bloqueo."),
+   ("elevador-tijera-3000-kg-pl-b30y", "Ultradelgado, sin obra civil."),
+   ("inflador-de-neumaticos-digital-kuani", "Inflador digital de neumáticos."),
+   ("carro-de-tres-bandejas-para-taller", "Carro de trabajo de tres bandejas."),
+   ("mueble-movil-porta-herramientas-de-seis-bandejas", "Mueble móvil de seis bandejas."),
+   ("criquet-carro-3-ton", "Crique carro de 3 toneladas."),
+  ],
+ },
+ "faqs": [
+  ("¿Qué elevador conviene para un taller de detailing?",
+   "Uno tijera portátil de media altura: permite trabajar cómodo sobre llantas y bajos, no necesita obra civil y se puede mover para liberar espacio."),
+  ("¿Qué equipos necesita un taller de detailing?",
+   "Elevador tijera móvil, aire comprimido, inflador digital y muebles porta herramientas. Los equipos de pulido y los insumos no están en nuestro catálogo."),
+  ("¿Qué capacidad necesita el elevador?",
+   "La suficiente para tus vehículos más pesados, con margen. Los modelos de 2.722 a 3.000 kg cubren autos y camionetas."),
+  ("¿Cuánto tarda en pagarse el equipamiento?",
+   "Depende de tus costos y de tu margen por servicio. Hay una fórmula de punto de equilibrio en la nota de cómo montar un taller de detailing."),
+ ],
+ "posts": [
+  "como-montar-un-taller-de-detailing-equipamiento-y-servicios-que-mas-rinden",
+  "elevador-tijera-movil-para-detailing-por-que-conviene-y-como-elegirlo",
+  "elevador-tijera-tipos-capacidades-y-cual-elegir-para-tu-taller",
+ ],
+},
+# --------------------------------------------------------------------------
+{
+ "slug": "guia-de-compras-de-equipamiento-para-taller",
+ "title": "Cómo comprar equipamiento para taller: cotizar y comparar ofertas",
+ "h1": "Compras y equipamiento: cómo cotizar y comparar ofertas de equipos de taller",
+ "description": ("Guía para responsables de compras y equipamiento: qué datos pedir, qué debe "
+                 "incluir una oferta, cómo comparar dos cotizaciones y qué documentación exigir al "
+                 "comprar elevadores, alineadoras o balanceadoras."),
+ "category": "elevadores",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> para comparar ofertas de equipos de taller, ponelas en la misma base: <strong>modelo y capacidad exactos</strong>, <strong>certificaciones</strong> (ALI, CE) verificables, <strong>qué incluye y qué no</strong> (instalación, capacitación, garantía, repuestos), <strong>plazos</strong> y <strong>condiciones de pago</strong>. El precio más bajo suele dejar afuera algo que después se paga aparte. Pedí siempre ficha técnica, manual y datos del servicio técnico por escrito.</p>
+</div>
+""",
+ "secciones": """
+<h2>Qué datos tenés que juntar antes de pedir cotización</h2>
+<ul>
+<li><strong>Vehículos a atender:</strong> tipo, peso máximo y distancia entre ejes.</li>
+<li><strong>Local:</strong> altura libre, superficie, losa de hormigón (espesor y resistencia) y electricidad disponible (monofásica o trifásica). Ver <a href="../../blog/especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas/">especificaciones del piso</a> y <a href="../../blog/diferencias-entre-maquinas-de-taller-con-motores-monofasicos-y-trifasicos-ventajas-de-cada-uno/">monofásico vs trifásico</a>.</li>
+<li><strong>Volumen de trabajo:</strong> vehículos por día, para decidir entre gama económica o premium. Ver <a href="../../guias/equipos-premium-para-taller/">equipos premium</a> y <a href="../../guias/equipos-de-taller-economicos/">equipos económicos</a>.</li>
+<li><strong>Presupuesto y plazo</strong> de puesta en marcha.</li>
+</ul>
+
+<h2>Qué debe decir una oferta</h2>
+<ol>
+<li><strong>Modelo exacto, marca y capacidad</strong> de cada equipo, con el enlace a la ficha técnica.</li>
+<li><strong>Origen y certificaciones</strong> (ALI, CE), verificables. Ver <a href="../../guias/seguridad-y-certificacion-de-elevadores/">seguridad y certificación de elevadores</a>.</li>
+<li><strong>Precio final con IVA</strong> y moneda, con la fecha de validez.</li>
+<li><strong>Instalación:</strong> si está incluida o se cotiza aparte, con quién la hace y qué requisitos de obra tiene.</li>
+<li><strong>Capacitación y puesta en marcha</strong>, y quién las firma.</li>
+<li><strong>Garantía:</strong> plazo, qué cubre y cómo se gestiona.</li>
+<li><strong>Servicio técnico y repuestos:</strong> dónde están y en qué plazos.</li>
+<li><strong>Plazo de entrega</strong> y condiciones de pago.</li>
+</ol>
+
+<h2>Cómo comparar dos ofertas</h2>
+<ul>
+<li>Llevá las dos a una planilla con las mismas filas: modelo, capacidad, certificaciones, qué incluye, plazo, garantía y servicio.</li>
+<li>Sumá lo que una oferta incluye y la otra no (instalación, flete, capacitación) antes de comparar precios.</li>
+<li>Verificá las certificaciones en la fuente: por ejemplo, el directorio público de ALI para elevadores.</li>
+<li>Preguntá por el costo de repuestos y mantenimiento a tres años, no solo el precio de compra.</li>
+</ul>
+
+<h2>Documentación para exigir</h2>
+<ul>
+<li>Ficha técnica en PDF del modelo.</li>
+<li>Manual de operación y mantenimiento en español.</li>
+<li>Certificados (ALI, CE) y, en elevadores, el plan de inspección. Ver <a href="../../blog/mantenimiento-de-un-elevador-de-taller-checklist-diario-mensual-y-anual/">mantenimiento de un elevador</a>.</li>
+<li>Datos de contacto del servicio técnico.</li>
+</ul>
+
+<h2>Para equipar varios puestos o sucursales</h2>
+<p>Conviene pedir una propuesta única con todos los equipos, una condición de instalación común y un plan de mantenimiento. Las guías por tipo de cliente ayudan a definir qué comprar: <a href="../../guias/equipar-una-concesionaria/">concesionarias</a>, <a href="../../guias/equipos-para-flotas-y-taller-propio/">flotas y taller propio</a> y <a href="../../guias/equipos-para-fabricas-y-plantas-industriales/">fábricas y plantas</a>. En <a href="../../instalacion-posventa-y-servicios/">instalación y posventa</a> está el detalle de lo que hacemos después de la venta.</p>
+<p>La instalación se cotiza aparte del equipo. Consultá por planes de pago y financiación.</p>
+""",
+ "tabla": {"slugs": []},
+ "faqs": [
+  ("¿Qué datos necesito para pedir una cotización de un elevador?",
+   "Tipo y peso de los vehículos, altura libre del local, espesor y resistencia de la losa, electricidad disponible y volumen de trabajo."),
+  ("¿Qué tiene que incluir una oferta de equipos de taller?",
+   "Modelo y capacidad exactos, certificaciones verificables, precio final con IVA, instalación, capacitación, garantía, servicio técnico, plazo y condiciones de pago."),
+  ("¿Por qué una oferta más barata puede salir más cara?",
+   "Porque puede dejar afuera la instalación, el flete, la capacitación o los repuestos, que después se pagan aparte."),
+  ("¿Cómo verifico una certificación ALI?",
+   "Buscando el modelo en el directorio público de ALI. La etiqueta sola no alcanza."),
+  ("¿Pueden hacer una propuesta para varias sucursales?",
+   "Sí. Armamos una propuesta única con instalación coordinada y plan de mantenimiento."),
+ ],
+ "posts": [
+  "cuanto-cuesta-un-elevador-para-taller-que-influye-en-el-precio",
+  "rotary-lift-o-trivium-pro-que-linea-conviene-segun-tu-taller",
+  "taller-premium-o-taller-economico-dos-formas-de-equipar-con-rotary-hofmann-y-trivium-pro",
+  "servicios-integrales-para-tus-maquinas-instalacion-mantenimiento-y-mas-en-toda-argentina",
+ ],
+},
 ]

@@ -20,6 +20,10 @@ SPEC = {
     "equipos-para-flotas-y-taller-propio": ["elevador-cuatro-columnas-rotary-lift-sm30s"],
     "equipos-para-fabricas-y-plantas-industriales": ["../red-aire-comprimido-prevost-piping-system"],
     "seguridad-y-certificacion-de-elevadores": ["elevador-dos-columnas-challenger-lifts-vle10"],
+    "equipar-un-taller-de-tren-delantero": ["alineadora-3d-para-autos-hofmann-geoliner-630", "elevador-4-columnas-unite-pl-fs50"],
+    "equipar-un-taller-de-chapa-y-pintura": ["elevador-tijera-ultradelgado-unite-pl-b30y"],
+    "equipar-un-taller-de-detailing": ["elevador-tijera-portatil-trivium-pro-b30m"],
+    "guia-de-compras-de-equipamiento-para-taller": ["elevador-dos-columnas-rotary-lift-spoa10", "balanceadora-de-ruedas-hofmann-geodyna-7600p"],
     "herramientas-y-maquinas-para-taller": ["t830018", "llave-crique-neumatica-de-impacto-kuani-ki-1838a"],
 }
 

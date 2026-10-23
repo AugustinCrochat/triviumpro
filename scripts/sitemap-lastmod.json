@@ -81,7 +81,7 @@
 },
 "/guias/": {
 "date": "2026-10-23",
-"hash": "220f371d50aaeeae2cb0e7c16594b0867dc0cbc5"
+"hash": "3791019d31011b24e846302b1f66192f7e234492"
 },
 "/guias/alineadoras-3d/": {
 "date": "2026-10-23",
@@ -98,6 +98,18 @@
 "/guias/elevadores-para-taller/": {
 "date": "2026-10-23",
 "hash": "9715d9ee9f795e512ef398241aaa192a2a9b9aea"
+},
+"/guias/equipar-un-taller-de-chapa-y-pintura/": {
+"date": "2026-10-23",
+"hash": "fe7be31fb2693026b2ec04a3e7dfa9fb518d703a"
+},
+"/guias/equipar-un-taller-de-detailing/": {
+"date": "2026-10-23",
+"hash": "fd77f14ad166afcd61dde0d498ebbeadc0fecab2"
+},
+"/guias/equipar-un-taller-de-tren-delantero/": {
+"date": "2026-10-23",
+"hash": "f06a0b331bcf3f3546c205bbed7a163e72d1f022"
 },
 "/guias/equipar-un-taller-mecanico/": {
 "date": "2026-10-23",
@@ -126,6 +138,10 @@
 "/guias/equipos-premium-para-taller/": {
 "date": "2026-10-23",
 "hash": "c54e73c41e30cf92987c71d690b5bc6d593fa802"
+},
+"/guias/guia-de-compras-de-equipamiento-para-taller/": {
+"date": "2026-10-23",
+"hash": "13edf532d3b0ebaed4516d7c6b64e8dbf561f637"
 },
 "/guias/herramientas-y-maquinas-para-taller/": {
 "date": "2026-10-23",
