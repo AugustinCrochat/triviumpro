@@ -135,9 +135,29 @@ def render(s, n_feat=6, n_spec=14, n_faq=4, galeria=True):
 <div class="foot3"><div><b>Instalación en tu taller</b>Contamos con un equipo de técnicos para la colocación de tu equipo, en todo el país.</div><div><b>Servicio técnico oficial</b>Garantía y servicio técnico oficial en todo el país.</div><div><b>Repuestos originales</b>Stock permanente con garantía de trazabilidad.</div></div>
 <div class="ft"><div class="cajas">{cajas}</div>{flag}</div></div></body></html>"""
 
-def chrome_pdf(html_path, pdf_path):
-    subprocess.run(["google-chrome", "--headless", "--no-sandbox", "--disable-gpu", "--no-pdf-header-footer", f"--print-to-pdf={pdf_path}", html_path],
-                   check=True, capture_output=True)
+def chrome_pdf(html_path, pdf_path, intentos=3, limite=90):
+    """HTML -> PDF con Chrome sin cabeza. Cada intento usa un perfil nuevo y un límite de tiempo;
+    si Chrome se cuelga (por ejemplo por falta de memoria) se mata todo su grupo de procesos y se
+    reintenta, en vez de dejar colgada la regeneración completa."""
+    import signal, time
+    for i in range(1, intentos + 1):
+        if os.path.exists(pdf_path): os.remove(pdf_path)
+        perfil = tempfile.mkdtemp(prefix="chrome-ficha-")
+        p = subprocess.Popen(["google-chrome", "--headless", "--no-sandbox", "--disable-gpu", "--no-pdf-header-footer",
+                              f"--user-data-dir={perfil}", f"--print-to-pdf={pdf_path}", html_path],
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+        try:
+            p.wait(timeout=limite)
+        except subprocess.TimeoutExpired:
+            print(f"  ⚠ Chrome tardó más de {limite} s ({os.path.basename(pdf_path)}), intento {i}/{intentos}", flush=True)
+        finally:
+            try: os.killpg(p.pid, signal.SIGKILL)
+            except (ProcessLookupError, PermissionError): pass
+            shutil.rmtree(perfil, ignore_errors=True)
+        if os.path.exists(pdf_path) and os.path.getsize(pdf_path) > 1000:
+            return
+        time.sleep(3 * i)
+    raise RuntimeError(f"Chrome no pudo generar {pdf_path} tras {intentos} intentos")
 
 def paginas(pdf):
     out = subprocess.run(["pdfinfo", pdf], capture_output=True, text=True).stdout
