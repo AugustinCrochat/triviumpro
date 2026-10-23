@@ -92,6 +92,12 @@ SPEC = {
  "desarmadoras-hofmann-monty-cual-elegir-1270-3300": ("GUÍA DE COMPRA · DESARMADORAS HOFMANN", "Desarmadoras Hofmann Monty", "Cuál elegir: 1270, 3300, 8800 y 4250P", ["desarmadora-hofmann-monty-3300-20-con-desmontadora-de-neumaticos", "desarmadora-para-ruedas-de-camiones-monty-4250p"]),
  "taller-premium-o-taller-economico-dos-formas-de-": ("GUÍA DE COMPRA · EQUIPAR UN TALLER", "Taller premium o económico", "Rotary, Hofmann y Trivium Pro", ["elevador-dos-columnas-rotary-lift-spoa10", "elevador-dos-columnas-4-toneladas-trivium-pro-monofasico"]),
  "trivium-pro-la-linea-economica-que-es-que-incluy": ("MARCAS · TRIVIUM PRO", "Trivium Pro: la línea económica", "Qué incluye y para quién es", ["elevador-dos-columnas-4-toneladas-trivium-pro-monofasico", "balanceadora-con-pantalla-y-puntero-laser-g66"]),
+ "neumaticos-trivium-la-gomeria-de-cordoba-donde-u": ("NEUMÁTICOS TRIVIUM · CÓRDOBA", "Neumáticos Trivium", "La gomería del grupo: Córdoba y San Justo", ["alineadora-3d-para-autos-hofmann-geoliner-630", "desarmadora-con-brazo-auxiliar-para-run-flat-1256-s-pro-trivium-center"]),
+ "reparacion-de-pinchaduras-en-la-gomeria-procedim": ("GUÍA TÉCNICA · GOMERÍA", "Reparación de pinchaduras", "Procedimiento, parches y herramientas", ["desarmadora-hofmann-monty-1270-con-desmontadora-de-neumaticos"]),
+ "tuercas-y-bulones-de-seguridad-en-el-taller-colo": ("GUÍA TÉCNICA · GOMERÍA", "Tuercas de seguridad", "Colocación, extracción y herramientas", ["llave-pistola-neumatica-de-impacto-kuani-ki-1481"]),
+ "reparar-esparragos-de-maza-y-roscas-danadas-en-e": ("GUÍA TÉCNICA · GOMERÍA", "Espárragos y roscas", "Reparación en el taller: herramientas y procedimiento", ["elevador-de-ruedas-para-balanceadoras-u-l01"]),
+ "arme-y-desarme-y-rotacion-los-servicios-base-de-": ("GUÍA TÉCNICA · GOMERÍA", "Arme, desarme y rotación", "Los servicios base y el equipo que necesitan", ["desarmadora-hofmann-monty-3300-20-con-desmontadora-de-neumaticos", "elevador-tijera-4500-kg-pl45h-para-gomeria-rotacion-balanceo-trivium-pro"]),
+ "gomeria-en-buenos-aires-equipamiento-y-servicios": ("GUÍA PARA GOMERÍAS · BUENOS AIRES", "Gomería en Buenos Aires", "Equipamiento y servicios para el oeste del conurbano", ["balanceadora-de-ruedas-hofmann-geodyna-7400l", "alineadora-3d-para-autos-hofmann-geoliner-630"]),
 }
 
 def trim(path, out):
