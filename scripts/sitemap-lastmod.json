@@ -80,56 +80,60 @@
 "hash": "ac4bf25bb95cbdf36927fc16d1f76cfac835538b"
 },
 "/guias/": {
-"date": "2026-10-22",
-"hash": "37b447b9fc1806cdd39d9ecb5d11a408b3ff1379"
+"date": "2026-10-23",
+"hash": "220f371d50aaeeae2cb0e7c16594b0867dc0cbc5"
 },
 "/guias/alineadoras-3d/": {
 "date": "2026-10-23",
-"hash": "050ce1acd6d4547746282f2ef90c2df43c8109cf"
+"hash": "fc137c667a2434f6b2bee4eb3aa84f18ada73c62"
 },
 "/guias/balanceadoras-de-ruedas/": {
 "date": "2026-10-23",
-"hash": "d9e48e8b81cb47268d8321248c909bf2e7a52443"
+"hash": "0f7fbfd4b83f42a366e543b82564beba58cd1267"
 },
 "/guias/desarmadoras-de-neumaticos/": {
 "date": "2026-10-23",
-"hash": "55fd08d655bd407d02e600d15c40390304cb5c70"
+"hash": "07e6fbbf436d6a2937083f072a6b4e01f27fb985"
 },
 "/guias/elevadores-para-taller/": {
 "date": "2026-10-23",
-"hash": "11565ac360420a90c1ed25664b8e995cd5bc7b98"
+"hash": "9715d9ee9f795e512ef398241aaa192a2a9b9aea"
 },
 "/guias/equipar-un-taller-mecanico/": {
 "date": "2026-10-23",
-"hash": "c1cd48e424b5c4ecf3d465ed629e2fe3e836de31"
+"hash": "e0076540eb635d23f31947deaceba08e5c9b25e8"
 },
 "/guias/equipar-una-concesionaria/": {
 "date": "2026-10-23",
-"hash": "d636cc81c8250e035e7fbdd915cce9b7232c8290"
+"hash": "1cab3f096eb2a490e3df977b60ce31cf64466d57"
 },
 "/guias/equipar-una-gomeria/": {
 "date": "2026-10-23",
-"hash": "72192e6c4d1f3b2e372ead587926d22b82dafc55"
+"hash": "cbb485dca64cd591ef307c3dba3c8b26ce3e7d43"
 },
 "/guias/equipos-de-taller-economicos/": {
 "date": "2026-10-23",
-"hash": "d0d20a820709d6aecc6358b5b5ccb95a1e7c20df"
+"hash": "07040e0620eff7ba31595ee1b630e9a6db1d95eb"
 },
 "/guias/equipos-para-fabricas-y-plantas-industriales/": {
 "date": "2026-10-23",
-"hash": "e4b6d85b467c09cf8f7f010ba82acc85d26a9070"
+"hash": "8fa79e4b40b2f22cdfcb977e4601600ff7bf7525"
 },
 "/guias/equipos-para-flotas-y-taller-propio/": {
 "date": "2026-10-23",
-"hash": "89256875410850c774f09db356066588ae109de3"
+"hash": "317e257c6a8aaf2a053c7b327b4861fea1f69c67"
 },
 "/guias/equipos-premium-para-taller/": {
 "date": "2026-10-23",
-"hash": "73ebd123fca9244ed254e1188ac1068cc8442a27"
+"hash": "c54e73c41e30cf92987c71d690b5bc6d593fa802"
 },
 "/guias/herramientas-y-maquinas-para-taller/": {
 "date": "2026-10-23",
-"hash": "6541f125f221795c6e15b766230bfff766930eb3"
+"hash": "9b132fc6f878c9e3c448adae121ba1a7a18f594c"
+},
+"/guias/seguridad-y-certificacion-de-elevadores/": {
+"date": "2026-10-23",
+"hash": "ec84898cee16efd1a071000158661e10449e3ea6"
 },
 "/instalacion-posventa-y-servicios/": {
 "date": "2026-10-22",

@@ -19,6 +19,7 @@ SPEC = {
     "equipar-un-taller-mecanico": ["elevador-dos-columnas-cuatro-toneladas-piso-libre"],
     "equipos-para-flotas-y-taller-propio": ["elevador-cuatro-columnas-rotary-lift-sm30s"],
     "equipos-para-fabricas-y-plantas-industriales": ["../red-aire-comprimido-prevost-piping-system"],
+    "seguridad-y-certificacion-de-elevadores": ["elevador-dos-columnas-challenger-lifts-vle10"],
     "herramientas-y-maquinas-para-taller": ["t830018", "llave-crique-neumatica-de-impacto-kuani-ki-1838a"],
 }
 

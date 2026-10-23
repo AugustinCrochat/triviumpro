@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://pro.trivium.ar/guias/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -140,6 +140,12 @@
   </url>
   <url>
     <loc>https://pro.trivium.ar/guias/herramientas-y-maquinas-para-taller/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pro.trivium.ar/guias/seguridad-y-certificacion-de-elevadores/</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

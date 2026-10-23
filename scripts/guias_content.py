@@ -10,7 +10,7 @@ No se publican precios: están pausados en el sitio y cambian con el dólar.
 Las cifras técnicas vienen de las fichas y de notas del blog.
 """
 
-UPDATED = "2026-10-09"
+UPDATED = "2026-10-23"
 
 GUIAS = [
 # --------------------------------------------------------------------------
@@ -880,6 +880,104 @@ GUIAS = [
  "posts": [
   "equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos",
   "como-manejar-un-taller-de-autos-de-forma-eficiente",
+ ],
+},
+
+# --------------------------------------------------------------------------
+{
+ "slug": "seguridad-y-certificacion-de-elevadores",
+ "title": "Seguridad de elevadores de taller: certificación ALI, inspección y usados",
+ "h1": "Seguridad de elevadores: certificación ALI, inspección y qué evitar",
+ "description": ("Cómo comprar y usar un elevador de taller con seguridad: qué es la certificación "
+                 "ALI y cómo verificarla, qué preguntar al proveedor, inspección anual y por qué "
+                 "conviene desconfiar de un elevador usado sin documentación."),
+ "category": "elevadores",
+ "intro": """
+<div class="respuesta">
+<p><strong>En resumen:</strong> un elevador sostiene un vehículo de más de una tonelada sobre la cabeza de una persona, así que la seguridad pesa tanto como la capacidad y el precio. Antes de comprar, pedí que el modelo tenga <strong>certificación ALI</strong> (etiqueta dorada, verificable en el directorio público de ALI), exigí el manual y la documentación por escrito, y planificá desde el primer día la <strong>inspección anual por personal calificado</strong>. Un elevador usado sin etiqueta, sin manual y sin historial es el caso más riesgoso.</p>
+</div>
+""",
+ "secciones": """
+<h2>Qué es la certificación ALI</h2>
+<p>El Automotive Lift Institute (ALI) es una organización sin fines de lucro de Estados Unidos, fundada en 1945, dedicada a la seguridad de los elevadores vehiculares. No fabrica elevadores: audita a los fabricantes y certifica cada modelo contra la norma ANSI/ALI ALCTV. La certificación incluye la revisión de los cálculos por un ingeniero independiente, ensayos físicos en un laboratorio acreditado y auditoría de la fábrica. Los modelos certificados llevan una etiqueta dorada (Gold Label) visible en la columna. El detalle está en <a href="../../blog/certificacion-ali-elevadores/">qué es la certificación ALI</a>.</p>
+<p>En Argentina no hay un organismo local equivalente para elevadores, por lo que ALI funciona como la referencia internacional más exigente disponible al comprar un equipo importado. Si tu seguro o tu ART pide respaldo, la documentación de un modelo certificado es el punto de partida.</p>
+
+<h2>Cómo verificar que un elevador está certificado</h2>
+<ol>
+<li><strong>Pedí el modelo exacto</strong> y la etiqueta ALI Gold Label del equipo.</li>
+<li><strong>Buscalo en el directorio público de ALI</strong> (Directory of Certified Car Lifts) por fabricante y modelo. Si no aparece, la etiqueta no alcanza.</li>
+<li><strong>Cotejá la capacidad</strong> certificada con la que te ofrecen.</li>
+</ol>
+<p>La ficha técnica en PDF de cada elevador certificado de Trivium Pro incluye el sello ALI con enlace directo a su registro en el directorio.</p>
+
+<h2>ALI no es lo mismo que marcado CE</h2>
+<p>Varios elevadores de la línea Trivium Pro tienen marcado CE. Son sistemas distintos: el CE es una declaración de conformidad del fabricante bajo normas europeas; ALI es una certificación de un tercero independiente con ensayos y auditoría de fábrica. Para saber qué respaldo tiene cada equipo, mirá la ficha técnica: indica si tiene ALI, CE o ambos. Más en <a href="../../origen/marcado-ce/">qué es el marcado CE</a>.</p>
+
+<h2>Elevadores certificados ALI de nuestro catálogo</h2>
+{{TABLA}}
+
+<h2>Preguntas que tenés que hacerle al proveedor</h2>
+<ul>
+<li>¿El modelo figura en el directorio de ALI? ¿Con qué capacidad?</li>
+<li>¿Qué sistemas de seguridad tiene (trabas mecánicas, restricciones de brazos, corte de emergencia)?</li>
+<li>¿Qué requisitos de piso y anclaje tiene? Ver <a href="../../blog/especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas/">especificaciones del piso</a>.</li>
+<li>¿Quién instala, capacita y firma la puesta en marcha? La instalación se cotiza aparte del equipo.</li>
+<li>¿Hay repuestos originales en el país y servicio técnico? ¿En qué plazos?</li>
+<li>¿Entregan el manual en español y el plan de mantenimiento?</li>
+</ul>
+
+<h2>Inspección y mantenimiento</h2>
+<p>La rutina se reparte en tres niveles: revisión visual diaria del operario, control periódico de lubricación, fluidos y ajustes, e inspección anual por una persona calificada, con registro por escrito. Las frecuencias y los valores exactos los fija el manual de cada modelo. Hay un checklist completo en <a href="../../blog/mantenimiento-de-un-elevador-de-taller-checklist-diario-mensual-y-anual/">mantenimiento de un elevador de taller</a>. Si una traba no engancha, hay una fuga, un carro sube más que el otro o aparece una fisura en el piso, sacá el elevador de servicio hasta que lo revise un técnico.</p>
+
+<h2>Elevador usado: por qué es el caso más riesgoso</h2>
+<p>Un elevador usado puede ser una buena compra, pero tiene riesgos que el comprador no ve:</p>
+<ul>
+<li><strong>Sin historial:</strong> no sabés cuánta carga ni cuántos ciclos soportó, ni si tuvo golpes, soldaduras o reparaciones.</li>
+<li><strong>Sin etiqueta ni manual:</strong> sin la etiqueta no podés verificar el modelo en ALI, y sin manual no tenés intervalos de mantenimiento ni requisitos de instalación.</li>
+<li><strong>Repuestos:</strong> un modelo discontinuado o de origen dudoso puede quedarse sin repuestos.</li>
+<li><strong>Cobertura:</strong> si pasa algo, un equipo sin documentación complica el reclamo al seguro o a la ART.</li>
+</ul>
+<p>Si igual considerás uno usado, pedí modelo y número de serie, verificá la etiqueta, hacelo inspeccionar por un técnico calificado antes de instalarlo y calculá el costo de repuestos y de la instalación. A veces la diferencia con uno nuevo es menor de lo que parece: ver <a href="../../blog/cuanto-cuesta-un-elevador-para-taller-que-influye-en-el-precio/">cuánto cuesta un elevador y qué influye en el precio</a>.</p>
+
+<h2>Buenas prácticas de uso</h2>
+<ul>
+<li>No superar nunca la capacidad nominal.</li>
+<li>Apoyar el vehículo en los puntos de levante que indica su fabricante.</li>
+<li>Bajar sobre las trabas antes de trabajar debajo del vehículo.</li>
+<li>No mover el vehículo ni apoyarse contra él mientras está elevado.</li>
+<li>Capacitar a todo el personal y tener el manual a mano.</li>
+</ul>
+<p>Para elegir el elevador según el trabajo, mirá <a href="../../guias/elevadores-para-taller/">la guía de elevadores</a>.</p>
+""",
+ "tabla": {
+  "slugs": [
+   ("elevador-dos-columnas-4535-kg-rotary-lift-spoa10", "Dos columnas, certificación ALI (SPOA10X)."),
+   ("elevador-dos-columnas-simetrico-4536-kg-challenger-lifts-vle10", "Dos columnas simétrico, certificación ALI (VLE10)."),
+   ("elevador-dos-columnas-7250-kg-rotary-lift-spo16-cargo", "Dos columnas para cargas, certificación ALI (SPO16X)."),
+   ("elevador-cuatro-columnas-8165-kg-rotary-lift-sm18", "Cuatro columnas, certificación ALI (SM18EX)."),
+   ("elevador-cuatro-columnas-13608-kg-rotary-lift-sm30s", "Cuatro columnas para pesados, certificación ALI."),
+   ("elevador-tijera-baja-altura-3175-kg-rotary-lift-vlxs7", "Tijera de baja altura, certificación ALI."),
+  ],
+ },
+ "faqs": [
+  ("¿Qué es la certificación ALI de un elevador?",
+   "Es la certificación de un tercero independiente, el Automotive Lift Institute, que verifica que un modelo cumple la norma ANSI/ALI ALCTV mediante revisión de ingeniería, ensayos físicos y auditoría de fábrica."),
+  ("¿Cómo verifico que mi elevador está certificado?",
+   "Buscá la etiqueta dorada ALI Gold Label en la columna y comprobá el modelo en el directorio público de elevadores certificados de ALI."),
+  ("¿Es obligatoria la certificación ALI en Argentina?",
+   "No existe en el país un organismo local equivalente para elevadores. ALI es la referencia internacional que se usa para comparar, y algunos seguros o ART piden respaldo documental."),
+  ("¿Cada cuánto hay que inspeccionar un elevador?",
+   "Revisión visual diaria del operario e inspección a fondo, como mínimo anual, por personal calificado, siguiendo el manual del fabricante."),
+  ("¿Conviene comprar un elevador usado?",
+   "Solo con modelo y serie verificables, etiqueta y manual, e inspección por un técnico antes de instalarlo. Un usado sin documentación es el caso más riesgoso."),
+  ("¿Qué diferencia hay entre ALI y marcado CE?",
+   "ALI es una certificación de un tercero con ensayos y auditoría. El CE es una declaración de conformidad del fabricante. La ficha técnica de cada equipo indica cuál tiene."),
+ ],
+ "posts": [
+  "certificacion-ali-elevadores",
+  "mantenimiento-de-un-elevador-de-taller-checklist-diario-mensual-y-anual",
+  "especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas",
+  "rotary-lift-en-argentina-elevadores-para-taller-linea-completa-y-certificacion-ali",
  ],
 },
 ]
