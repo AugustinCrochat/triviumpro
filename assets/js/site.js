@@ -230,6 +230,7 @@ function renderFooter() {
               <li><a href="${root}origen/">Origen y marcado CE</a></li>
               <li><a href="${root}zonas/">Envíos y cobertura</a></li>
               <li><a href="${root}contacto/">Contacto</a></li>
+              <li><a href="${root}mapa-del-sitio/">Mapa del sitio</a></li>
             </ul>
           </div>
 

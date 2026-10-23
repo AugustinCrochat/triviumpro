@@ -1,6 +1,6 @@
 #!/bin/sh
 # Regenera páginas, SEO y sitemap si cambiaron los datos
-if git diff --cached --name-only | grep -qE '^(data/(catalog|blog)\.json|scripts/guias_content\.py|scripts/origenes_content\.py|scripts/marcas_content\.py|marcas\.html|guia\.html|origen\.html)$'; then
+if git diff --cached --name-only | grep -qE '^(data/(catalog|blog)\.json|scripts/guias_content\.py|scripts/origenes_content\.py|scripts/marcas_content\.py|scripts/zonas_content\.py|marcas\.html|guia\.html|origen\.html)$'; then
   echo "▶ Datos cambiados — regenerando páginas, SEO y sitemap..."
   python3 scripts/generate_pretty_urls.py \
     && python3 scripts/generate_og_tags.py \
@@ -8,10 +8,11 @@ if git diff --cached --name-only | grep -qE '^(data/(catalog|blog)\.json|scripts
     && python3 scripts/generate_origenes.py \
     && python3 scripts/generate_marcas.py \
     && python3 scripts/generate_zonas.py \
+    && python3 scripts/generate_mapa.py \
     && python3 scripts/generate_sitemap.py \
     && python3 scripts/generate_llms_txt.py \
     && python3 scripts/generate_llms_full.py || exit 1
-  git add guias/ origen/ marcas/ zonas/ producto/ blog/ categoria/ marca/ nosotros/ catalogo/ instalacion-posventa-y-servicios/ contacto/ marcas/ index.html sitemap.xml robots.txt llms.txt llms-full.txt 2>/dev/null
+  git add guias/ origen/ marcas/ zonas/ mapa-del-sitio/ producto/ blog/ categoria/ marca/ nosotros/ catalogo/ instalacion-posventa-y-servicios/ contacto/ marcas/ index.html sitemap.xml robots.txt llms.txt llms-full.txt 2>/dev/null
 fi
 # worker.js se genera desde redirects.map: si no, quedan desincronizados
 if git diff --cached --name-only | grep -q '^redirects\.map$'; then
