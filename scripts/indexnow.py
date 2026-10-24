@@ -63,7 +63,8 @@ def main():
                            "keyLocation": f"{SITE_URL}/{key}.txt",
                            "urlList": urls[i:i + 10000]}).encode()
         req = urllib.request.Request(
-            ENDPOINT, data=body, headers={"Content-Type": "application/json; charset=utf-8"})
+            ENDPOINT, data=body, headers={"Content-Type": "application/json; charset=utf-8",
+                     "User-Agent": "trivium-pro-indexnow/1.0"})
         with urllib.request.urlopen(req, timeout=30) as r:
             print("IndexNow:", r.status)
 
