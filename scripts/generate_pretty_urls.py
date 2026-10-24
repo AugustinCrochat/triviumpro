@@ -1194,10 +1194,11 @@ def main():
                     product_ld["countryOfOrigin"] = {"@type": "Country", "name": ob['name']}
                     break
             props = []
-            if prod.get('capacity'):
+            # "—" es el placeholder del catálogo para "sin dato": no se declara como valor.
+            if prod.get('capacity') and prod['capacity'].strip() not in ('—', '-'):
                 props.append({"@type": "PropertyValue", "name": "Capacidad",
                               "value": prod['capacity']})
-            if prod.get('lift_height'):
+            if prod.get('lift_height') and prod['lift_height'].strip() not in ('—', '-'):
                 props.append({"@type": "PropertyValue", "name": "Altura de elevación",
                               "value": prod['lift_height']})
             if props:
