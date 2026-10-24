@@ -446,12 +446,24 @@ except OSError:
     pass
 
 
+_RELATED_MAPS = None
+
+
 def _notas_producto(prod, catalog, blog_by_slug, root):
     """Hasta 3 notas del blog de la familia del producto (elevadores, alineadoras...) debajo de la ficha."""
     cats = {c['slug']: c for c in catalog['categories']}
     c = cats.get(prod.get('category'), {})
     raiz = c.get('parent') or prod.get('category')
-    slugs = [x for x in CATEGORY_BLOG_POSTS.get(raiz, []) if x in blog_by_slug][:3]
+    # Primero las notas que nombran este modelo (scripts/related.py), después las de la familia.
+    import related
+    global _RELATED_MAPS
+    if _RELATED_MAPS is None:
+        _RELATED_MAPS = related.build()
+    slugs = []
+    for x in _RELATED_MAPS['product_posts'].get(prod['slug'], [])[:3] + CATEGORY_BLOG_POSTS.get(raiz, []):
+        if x in blog_by_slug and x not in slugs:
+            slugs.append(x)
+    slugs = slugs[:4]
     return blog_links_html("Notas y guías relacionadas", slugs, blog_by_slug, root) if slugs else ''
 
 

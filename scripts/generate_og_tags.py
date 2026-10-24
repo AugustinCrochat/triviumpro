@@ -257,10 +257,43 @@ def post_guide_html(slug, root):
     if zone:
         items.append(f'<li><a href="{esc(root)}zonas/{esc(zone["slug"])}/"><strong>{esc(zone["h1"])}</strong>'
                      f'<span>{esc(zone["description"])}</span></a></li>')
-    if not items:
-        return ''
-    return (f'<div class="container"><h2>Guías relacionadas</h2>'
-            f'<ul class="guia-lista">{"".join(items)}</ul></div>')
+    out = ''
+    if items:
+        out += (f'<div class="container"><h2>Guías relacionadas</h2>'
+                f'<ul class="guia-lista">{"".join(items)}</ul></div>')
+    out += related_html(slug, root)
+    return out
+
+
+_RELATED = None
+
+
+def related_html(slug, root):
+    """Equipos y notas afines a esta nota (scripts/related.py), como grillas de tarjetas."""
+    global _RELATED
+    if _RELATED is None:
+        import related
+        from generate_pretty_urls import product_card_html
+        with open(BASE_DIR / 'data' / 'catalog.json', encoding='utf-8') as f:
+            cat = json.load(f)
+        with open(BASE_DIR / 'data' / 'blog.json', encoding='utf-8') as f:
+            blog = json.load(f)
+        _RELATED = (related.build(), {p['slug']: p for p in cat['products']},
+                    {b['slug']: b for b in cat['brands']}, {p['slug']: p for p in blog},
+                    product_card_html)
+    rel, prods, brands, blog, card = _RELATED
+    out = ''
+    equipos = [prods[s] for s in rel['post_products'].get(slug, []) if s in prods]
+    if equipos:
+        out += ('<div class="container"><h2>Equipos relacionados</h2><div class="prod-grid">'
+                + ''.join(card(p, brands, root) for p in equipos) + '</div></div>')
+    notas = [blog[s] for s in rel['post_posts'].get(slug, []) if s in blog]
+    if notas:
+        cards = ''.join(
+            f'<a class="prod-card" href="{esc(root)}blog/{esc(n["slug"])}/">'
+            f'<div class="body"><h3>{esc(html.unescape(n["title"]))}</h3></div></a>' for n in notas)
+        out += f'<div class="container"><h2>Notas relacionadas</h2><div class="prod-grid">{cards}</div></div>'
+    return out
 
 
 def update_blog():

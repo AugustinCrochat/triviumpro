@@ -1,6 +1,6 @@
 #!/bin/sh
 # Regenera páginas, SEO y sitemap si cambiaron los datos
-if git diff --cached --name-only | grep -qE '^(data/(catalog|blog)\.json|scripts/guias_content\.py|scripts/origenes_content\.py|scripts/marcas_content\.py|scripts/zonas_content\.py|marcas\.html|guia\.html|origen\.html)$'; then
+if git diff --cached --name-only | grep -qE '^(data/(catalog|blog)\.json|scripts/guias_content\.py|scripts/related\.py|scripts/origenes_content\.py|scripts/marcas_content\.py|scripts/zonas_content\.py|marcas\.html|guia\.html|origen\.html)$'; then
   echo "▶ Datos cambiados — regenerando páginas, SEO y sitemap..."
   python3 scripts/generate_pretty_urls.py \
     && python3 scripts/generate_og_tags.py \
