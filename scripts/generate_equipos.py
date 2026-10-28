@@ -21,6 +21,11 @@ FAMILIAS = [
     ('desarmadoras', 'Desarmadoras', 'desarmadoras.svg',
      'Manuales y automáticas, con brazos auxiliares.'),
 ]
+ORIGENES = {  # igual que ORIGIN_BADGES de site.js
+    'made-in-usa': ('usa.svg', 'Made in USA', False), 'made-in-italy': ('italy.svg', 'Made in Italy', False),
+    'made-in-germany': ('germany.svg', 'Made in Germany', False), 'made-in-sweden': ('sweden.svg', 'Made in Sweden', False),
+    'made-in-taiwan': ('taiwan.svg', 'Made in Taiwan', False), 'ce-ue': ('ce.webp', 'Marcado CE', True),
+}
 TIPOS = {  # etiqueta corta de subtipo, para la tarjeta
     'elevadores-2-columnas': '2 columnas', 'elevadores-4-columnas': '4 columnas',
     'elevadores-tijera': 'Tijera', 'elevadores-pesados': 'Pesados', 'elevadores-motos': 'Motos',
@@ -39,7 +44,12 @@ CSS = '''<style>
 .eq-bar nav::-webkit-scrollbar{display:none}
 .eq-bar nav a{white-space:nowrap;padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--text);text-decoration:none}
 .eq-bar nav a:hover{border-color:var(--accent);color:var(--accent)}
-.eq-bar select{height:40px;border:1px solid var(--line-2);border-radius:10px;padding:0 10px;font:inherit;font-size:.88rem;font-weight:600;background:#fff;color:var(--text);max-width:48vw}
+.eq-linea{display:flex;align-items:center;gap:8px}
+.eq-linea>span{font-size:.8rem;font-weight:700;color:var(--text-dim);white-space:nowrap}
+.eq-seg{display:flex;border:1px solid var(--line-2);border-radius:10px;overflow:hidden}
+.eq-seg button{height:40px;padding:0 14px;border:0;border-right:1px solid var(--line-2);background:#fff;font:inherit;font-size:.85rem;font-weight:600;color:var(--text);cursor:pointer;white-space:nowrap}
+.eq-seg button:last-child{border-right:0}
+.eq-seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
 .eq-sec{scroll-margin-top:64px}
 .eq-tipos{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 0 14px;padding-bottom:2px}
 .eq-tipos::-webkit-scrollbar{display:none}
@@ -58,7 +68,10 @@ CSS = '''<style>
   .eq-tiles{grid-template-columns:repeat(2,1fr);gap:10px}
   .eq-tile{padding:16px 8px}
   .eq-bar nav{display:none}
-  .eq-bar select{max-width:none;flex:1}
+  .eq-linea{flex:1}
+  .eq-linea>span{display:none}
+  .eq-seg{flex:1}
+  .eq-seg button{flex:1;padding:0 6px;font-size:.8rem}
   .eq-row .prod-card{flex-basis:70vw}
 }
 </style>
@@ -66,7 +79,13 @@ CSS = '''<style>
 
 JS = '''<script>
 (function(){
-  var sel=document.getElementById('eq-linea');
+  var seg=document.getElementById('eq-linea');
+  var linea='todas';
+  function setLinea(v){
+    linea=v;
+    seg.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===v?'true':'false')});
+  }
+  seg.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){setLinea(b.dataset.v);aplicar()})});
   var tipo='todos';
   document.querySelectorAll('.eq-tipos button').forEach(function(b){
     b.addEventListener('click',function(){
@@ -76,7 +95,7 @@ JS = '''<script>
     });
   });
   function aplicar(){
-    var v=sel.value;
+    var v=linea;
     document.querySelectorAll('.eq-sec').forEach(function(sec){
       var n=0;
       sec.querySelectorAll('.prod-card').forEach(function(c){
@@ -90,8 +109,8 @@ JS = '''<script>
     try{history.replaceState(null,'',v==='todas'?location.pathname+location.hash:'?linea='+v+location.hash)}catch(e){}
   }
   var q=new URLSearchParams(location.search).get('linea');
-  if(q&&sel.querySelector('option[value="'+q+'"]'))sel.value=q;
-  sel.addEventListener('change',aplicar); aplicar();
+  if(q&&seg.querySelector('button[data-v="'+q+'"]'))setLinea(q);
+  aplicar();
 })();
 </script>
 '''
@@ -108,12 +127,20 @@ def card(p, brands, idx):
             if img else '')
     logo = (f'<span class="thumb-brand"><img src="../{esc(b["logo"])}" alt="{esc(b.get("name"))}"></span>'
             if b.get('logo') else '')
+    sello = ''
+    o = next((ORIGENES[x] for x in p.get('badges', []) if x in ORIGENES), None)
+    if o:
+        w = round(len(o[1]) * 4.8)
+        sello = (f'<span class="origin-badge{" origin-badge--plain" if o[2] else ""}" title="{o[1]}">'
+                 f'<img src="../assets/img/iconos/origen/{o[0]}" alt="">'
+                 f'<svg class="ob-text" viewBox="0 0 {w} 9" aria-hidden="true"><text x="0" y="7.3" textLength="{w}" '
+                 f'lengthAdjust="spacingAndGlyphs">{o[1].upper()}</text></svg></span>')
     tipo = TIPOS.get(p['category'])
     spec = ''
     if p['category'].startswith('elevadores') and p.get('capacity'):
         spec = f'<div class="spec"><span>CAP <b>{esc(p["capacity"])}</b></span></div>'
     return (f'<a class="prod-card" href="../producto/{esc(p["slug"])}/" data-linea="{linea}" data-tipo="{esc(p["category"])}">'
-            f'<div class="thumb">{foto}{logo}</div><div class="body">'
+            f'<div class="thumb">{foto}{logo}{sello}</div><div class="body">'
             f'<span class="brand-tag">{esc(b.get("name", ""))}</span>'
             + (f'<span class="eq-tipo">{esc(tipo)}</span>' if tipo else '')
             + f'<h3>{esc(p["name"])}</h3>{spec}</div></a>')
@@ -150,7 +177,7 @@ def main():
   <div class="container">
     <div class="eq-head">
       <div><h2>{nombre}</h2><p>{desc}</p></div>
-      <a class="btn btn--ghost btn--sm" href="../categoria/{slug}/">Ver todas (<span data-n>{n}</span>) →</a>
+      <a class="btn btn--ghost btn--sm" href="../categoria/{slug}/"><span>Ver todas (<span data-n>{n}</span>) →</span></a>
     </div>
     {tipos}<div class="eq-row">{cards}</div>
     <div class="eq-vacio">No tenemos {nombre.lower()} en esta línea. Probá con <b>Todas las líneas</b> o <a href="../contacto/" style="color:var(--accent)">consultanos</a>.</div>
@@ -169,7 +196,7 @@ def main():
   <div class="container">
     <div class="breadcrumbs"><a href="../">Inicio</a><span>/</span> Equipos</div>
     <h1>Equipos para tu taller</h1>
-    <p class="sub">Elegí qué necesitás. Línea económica Trivium Pro o premium de marcas importadas.</p>
+    <p class="sub">Elegí qué necesitás. Con los botones de arriba podés ver solo la línea económica (Trivium Pro) o solo la premium (marcas importadas).</p>
     <div class="eq-tiles" style="margin-top:20px">{''.join(tiles)}</div>
   </div>
 </section>
@@ -177,11 +204,13 @@ def main():
 <div class="eq-bar">
   <div class="container">
     <nav aria-label="Secciones">{''.join(f'<a href="#{s}">{n}</a>' for s, n, _, _ in FAMILIAS)}</nav>
-    <select id="eq-linea" aria-label="Filtrar por línea">
-      <option value="todas">Todas las líneas</option>
-      <option value="economica">Económica (Trivium Pro)</option>
-      <option value="premium">Premium (importadas)</option>
-    </select>
+    <div class="eq-linea"><span>Mostrar:</span>
+      <div class="eq-seg" id="eq-linea" role="group" aria-label="Filtrar por línea">
+        <button type="button" data-v="todas" aria-pressed="true">Todas</button>
+        <button type="button" data-v="economica" aria-pressed="false">Económica</button>
+        <button type="button" data-v="premium" aria-pressed="false">Premium</button>
+      </div>
+    </div>
   </div>
 </div>
 
