@@ -79,6 +79,10 @@
 "date": "2026-10-23",
 "hash": "8bfcaf5e1a427c16a3ac3b379490d9c8ab321b71"
 },
+"/equipos/": {
+"date": "2026-10-27",
+"hash": "63b81b9bd93449dbc3cafd756ea742042c6e9178"
+},
 "/guias/": {
 "date": "2026-10-23",
 "hash": "196425b83551b30a743a85eca82dad1e9940597c"
@@ -156,8 +160,8 @@
 "hash": "d7f6b14c41196107bc2622fccff4e9ef5dbe653e"
 },
 "/mapa-del-sitio/": {
-"date": "2026-10-24",
-"hash": "29a745fbbd06860c55a26f4d04e95b9748e2624d"
+"date": "2026-10-27",
+"hash": "e324cf8e976810da15bc04558f5f0ca6f8ca6edc"
 },
 "/marca/challenger-lifts/": {
 "date": "2026-10-23",
