@@ -41,6 +41,10 @@ CSS = '''<style>
 .eq-bar nav a:hover{border-color:var(--accent);color:var(--accent)}
 .eq-bar select{height:40px;border:1px solid var(--line-2);border-radius:10px;padding:0 10px;font:inherit;font-size:.88rem;font-weight:600;background:#fff;color:var(--text);max-width:48vw}
 .eq-sec{scroll-margin-top:64px}
+.eq-tipos{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 0 14px;padding-bottom:2px}
+.eq-tipos::-webkit-scrollbar{display:none}
+.eq-tipos button{white-space:nowrap;height:38px;padding:0 14px;border:1px solid var(--line-2);border-radius:999px;background:#fff;font:inherit;font-size:.85rem;font-weight:600;color:var(--text);cursor:pointer}
+.eq-tipos button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 .eq-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
 .eq-head h2{margin:0}
 .eq-head p{margin:4px 0 0;color:var(--text-dim)}
@@ -63,12 +67,20 @@ CSS = '''<style>
 JS = '''<script>
 (function(){
   var sel=document.getElementById('eq-linea');
+  var tipo='todos';
+  document.querySelectorAll('.eq-tipos button').forEach(function(b){
+    b.addEventListener('click',function(){
+      tipo=b.dataset.tipo;
+      document.querySelectorAll('.eq-tipos button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      aplicar();
+    });
+  });
   function aplicar(){
     var v=sel.value;
     document.querySelectorAll('.eq-sec').forEach(function(sec){
       var n=0;
       sec.querySelectorAll('.prod-card').forEach(function(c){
-        var ok=v==='todas'||c.dataset.linea===v;
+        var ok=(v==='todas'||c.dataset.linea===v)&&(sec.id!=='elevadores'||tipo==='todos'||c.dataset.tipo===tipo);
         c.style.display=ok?'':'none'; if(ok)n++;
       });
       sec.classList.toggle('is-empty',n===0);
@@ -100,7 +112,7 @@ def card(p, brands, idx):
     spec = ''
     if p['category'].startswith('elevadores') and p.get('capacity'):
         spec = f'<div class="spec"><span>CAP <b>{esc(p["capacity"])}</b></span></div>'
-    return (f'<a class="prod-card" href="../producto/{esc(p["slug"])}/" data-linea="{linea}">'
+    return (f'<a class="prod-card" href="../producto/{esc(p["slug"])}/" data-linea="{linea}" data-tipo="{esc(p["category"])}">'
             f'<div class="thumb">{foto}{logo}</div><div class="body">'
             f'<span class="brand-tag">{esc(b.get("name", ""))}</span>'
             + (f'<span class="eq-tipo">{esc(tipo)}</span>' if tipo else '')
@@ -125,6 +137,12 @@ def main():
         # económica primero: es lo que más se busca en esta landing
         prods.sort(key=lambda p: (p['brand'] != 'trivium-pro',))
         n = len(prods)
+        tipos = ''
+        if slug == 'elevadores':
+            tipos = ('<div class="eq-tipos" role="group" aria-label="Tipo de elevador">'
+                     '<button type="button" data-tipo="todos" aria-pressed="true">Todos</button>'
+                     + ''.join(f'<button type="button" data-tipo="{c}" aria-pressed="false">{t}</button>'
+                               for c, t in TIPOS.items()) + '</div>')
         tiles.append(f'<a class="eq-tile" href="#{slug}"><img src="../assets/img/iconos/{icono}" alt="">'
                      f'<b>{nombre}</b><span>{n} equipos</span></a>')
         cards = ''.join(card(p, brands, i) for i, p in enumerate(prods))
@@ -134,7 +152,7 @@ def main():
       <div><h2>{nombre}</h2><p>{desc}</p></div>
       <a class="btn btn--ghost btn--sm" href="../categoria/{slug}/">Ver todas (<span data-n>{n}</span>) →</a>
     </div>
-    <div class="eq-row">{cards}</div>
+    {tipos}<div class="eq-row">{cards}</div>
     <div class="eq-vacio">No tenemos {nombre.lower()} en esta línea. Probá con <b>Todas las líneas</b> o <a href="../contacto/" style="color:var(--accent)">consultanos</a>.</div>
   </div>
 </section>''')
