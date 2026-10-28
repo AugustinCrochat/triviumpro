@@ -58,6 +58,13 @@ def main():
         prods = [p for p in cat["products"] if p["category"] == c["slug"] or p["category"] in subs]
         trabajos.append((f"categoria-{c['slug']}", "EQUIPAMIENTO DE TALLER", c.get("seo_name") or c["name"],
                          c.get("tagline") or f"{len(prods)} productos", prods))
+    # landing /equipos/: un elevador y una alineadora de muestra
+    def primero(fam, marca=None):
+        return [p for p in cat["products"] if p["category"].startswith(fam) and p.get("image")
+                and (marca is None or p.get("brand") == marca)][:1]
+    trabajos.append(("equipos", "EQUIPAMIENTO DE TALLER", "Equipos para tu taller",
+                     "Elevadores, alineadoras, balanceadoras y desarmadoras",
+                     primero("elevadores", "rotary-lift") + primero("alineadoras")))
     for b in cat["brands"]:
         prods = [p for p in cat["products"] if p.get("brand") == b["slug"]]
         trabajos.append((f"marca-{b['slug']}", "MARCAS · TRIVIUM PRO", b["name"], b.get("note") or "", prods))

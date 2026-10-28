@@ -927,8 +927,10 @@ def update_static_pages(catalog):
                 "url": f"{SITE_URL}/",
             }, faq_jsonld(HOME_FAQS)]
 
+        # /equipos/ tiene portada propia (generate_listing_covers.py); el resto, la general del sitio
+        og_img = 'og/equipos.jpg' if carpeta == 'equipos' else 'og-trivium.png'
         og = make_og_block(titulo, desc,
-                           f"{SITE_URL}/assets/img/og-trivium.png", url)
+                           f"{SITE_URL}/assets/img/{og_img}", url)
         content = content.replace('</head>', og + '\n' + make_seo_block(url, desc, jsonld) + '\n</head>', 1)
         with open(path, 'w', encoding='utf-8') as fh:
             fh.write(content)
