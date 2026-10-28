@@ -822,6 +822,10 @@ def update_static_pages(catalog):
              f"Representantes oficiales de Rotary Lift y Hofmann, con servicio "
              f"técnico e instalación propios.",
              f"Nosotros — {ORG_NAME}"),
+        'equipos': ("Equipos",
+             f"Elevadores, alineadoras, balanceadoras y desarmadoras para talleres y gomerías. "
+             f"Línea económica {ORG_NAME} y premium de marcas importadas.",
+             f"Elevadores, alineadoras, balanceadoras y desarmadoras — {ORG_NAME}"),
         'contacto': ("Contacto",
              "Pedí tu cotización de equipamiento para taller. Atendemos consultas "
              "técnicas y comerciales en todo el país.",
