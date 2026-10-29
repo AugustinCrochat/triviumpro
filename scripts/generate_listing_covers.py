@@ -80,7 +80,7 @@ def main():
         open(h, "w", encoding="utf-8").write(gb.page(kicker, titulo, sub, srcs))
         captura(h, png)
         im = Image.open(png).convert("RGB")
-        lienzo = Image.new("RGB", (1200, 630), (255, 255, 255)); lienzo.paste(im, (0, 15))
+        lienzo = Image.new("RGB", (1200, 630), (241, 241, 243)); lienzo.paste(im, (0, 15))
         lienzo.paste(im.crop((0, 0, 1100, 1)).resize((1100, 15)), (0, 0))        # prolonga la franja roja y el fondo
         lienzo.paste(im.crop((0, 599, 1100, 600)).resize((1100, 15)), (0, 615))
         lienzo.save(os.path.join(OUT, nombre + ".jpg"), "JPEG", quality=88, optimize=True)

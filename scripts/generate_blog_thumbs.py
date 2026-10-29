@@ -145,20 +145,16 @@ def page(kicker, title, sub, imgs):
     ims = "".join(f'<img src="{i}">' for i in imgs)
     return f"""<!doctype html><html><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&display=swap" rel="stylesheet">
 <style>*{{margin:0;padding:0;box-sizing:border-box}}body{{width:1100px;height:600px;position:relative;overflow:hidden;font-family:Archivo,Arial,sans-serif;background:#fff}}
-.r{{position:absolute;inset:0;background:radial-gradient(circle at 74% 52%,#fff 0,#f1f1f3 38%,#d9dadf 100%)}}
-.ring{{position:absolute;left:640px;top:70px;width:440px;height:440px;border-radius:50%;border:34px solid rgba(255,42,0,.10)}}
-.ring2{{position:absolute;left:700px;top:130px;width:320px;height:320px;border-radius:50%;background:rgba(255,42,0,.07)}}
+.r{{position:absolute;inset:0;background:#f1f1f3}}
 .slash{{position:absolute;left:0;top:0;width:690px;height:600px;background:#ff2a00;clip-path:polygon(0 0,100% 0,84% 100%,0 100%)}}
-.l{{position:absolute;left:0;top:0;width:672px;height:600px;background:linear-gradient(150deg,#1d1d21,#0a0a0c);clip-path:polygon(0 0,100% 0,84% 100%,0 100%)}}
-.l:before{{content:"";position:absolute;inset:0;background:radial-gradient(circle at 0 0,rgba(255,42,0,.28),transparent 55%)}}
+.l{{position:absolute;left:0;top:0;width:672px;height:600px;background:#000;clip-path:polygon(0 0,100% 0,84% 100%,0 100%)}}
 .k{{position:absolute;left:60px;top:54px;background:#ff2a00;color:#fff;font-weight:800;font-size:15px;letter-spacing:.16em;padding:9px 16px 8px;border-radius:3px}}
 .t{{position:absolute;left:60px;top:112px;width:520px;max-height:330px;font-size:{fs}px;line-height:1.06;font-weight:800;letter-spacing:-.02em;color:#fff}}
-.s{{margin-top:22px;width:480px;letter-spacing:0;font-size:25px;font-weight:500;color:#c9c9cf;line-height:1.3;border-left:5px solid #ff2a00;padding-left:16px}}
-.logo{{position:absolute;left:60px;top:498px;width:120px;height:57px;border-radius:3px;box-shadow:0 0 0 2px rgba(255,255,255,.85)}}
-.sh{{position:absolute;left:700px;top:500px;width:360px;height:34px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.28),transparent 70%)}}
+.s{{margin-top:24px;width:520px;letter-spacing:0;font-size:35px;font-weight:500;color:#fff;line-height:1.22;border-left:5px solid #ff2a00;padding-left:16px}}
+.logo{{position:absolute;left:60px;top:498px;width:120px;height:57px;border-radius:3px}}
 .p{{position:absolute;left:640px;top:20px;width:445px;height:540px;display:flex;align-items:center;justify-content:center;gap:6px}}
 .p img{{max-width:{'50%' if two else '100%'};max-height:{'74%' if two else '100%'};object-fit:contain;mix-blend-mode:multiply}}</style></head><body>
-<div class="r"></div><div class="ring"></div><div class="ring2"></div><div class="sh"></div><div class="p">{ims}</div>
+<div class="r"></div><div class="p">{ims}</div>
 <div class="slash"></div><div class="l"></div><div class="k">{html.escape(kicker)}</div>
 <div class="t">{html.escape(title)}<div class="s">{html.escape(sub)}</div></div>
 <img class="logo" src="logo.svg"></body></html>"""
