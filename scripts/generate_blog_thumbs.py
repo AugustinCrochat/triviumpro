@@ -110,6 +110,22 @@ SPEC = {
  "preguntas-rapidas-sobre-elevadores-de-taller-res": ("PREGUNTAS RÁPIDAS · ELEVADORES", "Preguntas rápidas sobre elevadores", "Respuestas cortas para talleres", ["elevador-dos-columnas-rotary-lift-spoa10"]),
  "preguntas-rapidas-sobre-alineadoras-y-balanceado": ("PREGUNTAS RÁPIDAS · ALINEACIÓN", "Preguntas rápidas: alineadoras y balanceadoras", "Respuestas cortas para talleres y gomerías", ["alineadora-3d-para-autos-hofmann-geoliner-630", "balanceadora-de-ruedas-hofmann-geodyna-7600p"]),
  "preguntas-rapidas-sobre-gomerias-y-desarmadoras-": ("PREGUNTAS RÁPIDAS · GOMERÍA", "Preguntas rápidas sobre gomerías", "Respuestas cortas para armar tu gomería", ["desarmadora-con-brazo-auxiliar-para-run-flat-1256-s-pro-trivium-center"]),
+ "alineacion-y-balanceo-en-que-se-diferencian-y": ('GUÍA TÉCNICA · ALINEACIÓN Y BALANCEO', 'Alineación y balanceo: la diferencia', 'Qué corrige cada una y cuándo hace falta', ['alineadora-3d-para-autos-hofmann-geoliner-630', 'balanceadora-de-ruedas-hofmann-geodyna-7600p']),
+ "sintomas-de-un-auto-desalineado-o-desbalancea": ('GUÍA TÉCNICA · DIAGNÓSTICO', 'Síntomas de desalineación y desbalanceo', 'Cómo diagnosticar en el mostrador', ['alineadora-3d-para-autos-hofmann-geoliner-609']),
+ "cada-cuantos-kilometros-alinear-balancear-y-r": ('GUÍA TÉCNICA · MANTENIMIENTO', 'Cada cuántos km alinear, balancear y rotar', 'Intervalos de referencia y recordatorio al cliente', ['balanceadora-de-ruedas-hofmann-geodyna-7400l', 'alineadora-3d-para-autos-hofmann-geoliner-630']),
+ "desgaste-irregular-de-neumaticos-que-dice-cad": ('GUÍA TÉCNICA · DIAGNÓSTICO', 'Desgaste irregular de neumáticos', 'Qué dice cada patrón y cómo explicarlo', ['alineadora-3d-para-autos-hofmann-geoliner-630']),
+ "presion-de-neumaticos-como-asesorar-al-client": ('GUÍA TÉCNICA · GOMERÍA', 'Presión de neumáticos', 'Cómo asesorar al cliente en la gomería', ['inflador-de-neumaticos-unite', 'inflador-de-neumaticos-digital-ki-79d01']),
+ "nitrogeno-en-neumaticos-conviene-ofrecerlo-en": ('GUÍA TÉCNICA · GOMERÍA', 'Nitrógeno en neumáticos', '¿Conviene ofrecerlo en la gomería?', ['inflador-de-neumaticos-unite']),
+ "cambio-de-valvulas-de-neumaticos-un-servicio-": ('GUÍA TÉCNICA · GOMERÍA', 'Cambio de válvulas de neumáticos', 'Un servicio chico que conviene hacer siempre', ['desarmadora-hofmann-monty-1270-con-desmontadora-de-neumaticos']),
+ "que-incluye-un-presupuesto-de-neumaticos-como": ('GUÍA DE NEGOCIO · GOMERÍAS', 'Qué incluye un presupuesto de neumáticos', 'Cómo armarlo para que el cliente compare con claridad', ['balanceadora-de-ruedas-hofmann-geodyna-7600p']),
+ "como-distribuir-un-taller-layout-y-circulacio": ('GUÍA TÉCNICA · INSTALACIÓN', 'Cómo distribuir un taller', 'Layout y circulación de vehículos', ['elevador-dos-columnas-rotary-lift-spoa10-trio']),
+ "que-capacidad-de-elevador-necesito-para-picku": ('GUÍA DE COMPRA · ELEVADORES', 'Capacidad de elevador para pickups y SUV', 'Cómo elegir con margen', ['elevador-dos-columnas-6000-kg-vehiculos-electricos', 'elevador-4-columnas-unite-pl-fs50']),
+ "sensores-tpms-en-el-taller-que-son-y-que-hay-": ('GUÍA TÉCNICA · GOMERÍA', 'Sensores TPMS en el taller', 'Qué hay que saber antes de ofrecer el servicio', ['desarmadora-con-brazo-auxiliar-para-run-flat-1256-s-pro-trivium-center']),
+ "calibracion-adas-y-alineacion-en-autos-nuevos": ('GUÍA TÉCNICA · ALINEACIÓN', 'Calibración ADAS y alineación', 'Qué tiene que saber el taller con autos nuevos', ['alineadora-3d-hofmann-geoliner-880']),
+ "llave-de-impacto-neumatica-como-elegir-torque": ('GUÍA DE COMPRA · HERRAMIENTAS NEUMÁTICAS', 'Llave de impacto neumática: cómo elegir', 'Torque, tamaño y uso en la gomería', ['llave-pistola-neumatica-de-impacto-kuani-ki-1488', 'llave-de-impacto-neumatica-kuani-ki-1481-mt']),
+ "checklist-de-seguridad-para-un-taller-elevado": ('GUÍA TÉCNICA · SEGURIDAD', 'Checklist de seguridad para un taller', 'Elevadores, aire comprimido y pisos', ['elevador-dos-columnas-challenger-lifts-vle10']),
+ "alineacion-de-flotas-y-camiones-como-ofrecer-": ('GUÍA DE NEGOCIO · FLOTAS', 'Alineación de flotas y camiones', 'Cómo ofrecer el servicio a empresas', ['alineadora-para-camiones-con-tecnologia-de-camara-josam-cv-aligner']),
+ "como-cotizar-una-instalacion-de-equipos-que-h": ('GUÍA PARA TALLERES · INSTALACIÓN', 'Cómo cotizar una instalación', 'Qué preparar antes de que lleguen los equipos', ['elevador-dos-columnas-4-toneladas-trivium-pro-monofasico']),
 }
 
 def trim(path, out):
