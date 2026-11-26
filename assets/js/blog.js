@@ -1,5 +1,11 @@
 // Blog: índice de la nota, video de YouTube y filtros del listado. Todo el contenido ya viene en el HTML.
 (function () {
+  // Precios de las tarjetas de producto: misma regla que el catálogo (sin precio público, no se muestra nada).
+  var huecos = document.querySelectorAll('.np-precio[data-precio]');
+  if (huecos.length && typeof ensureCardPrices === 'function') {
+    ensureCardPrices().then(function () { huecos.forEach(function (h) { h.innerHTML = cardPriceHtml(h.dataset.precio); }); }).catch(function () {});
+  }
+
   var indice = document.querySelector('.nota-indice');
   if (indice) {
     var ancho = window.matchMedia('(min-width: 1040px)');

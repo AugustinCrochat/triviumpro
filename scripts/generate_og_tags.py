@@ -284,10 +284,6 @@ def related_html(slug, root):
                     product_card_html)
     rel, prods, brands, blog, card = _RELATED
     out = ''
-    equipos = [prods[s] for s in rel['post_products'].get(slug, []) if s in prods]
-    if equipos:
-        out += ('<div class="container"><h2>Equipos relacionados</h2><div class="prod-grid">'
-                + ''.join(card(p, brands, root) for p in equipos) + '</div></div>')
     notas = [blog[s] for s in rel['post_posts'].get(slug, []) if s in blog]
     if notas:
         from blog_layout import tarjeta

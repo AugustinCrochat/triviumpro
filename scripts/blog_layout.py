@@ -19,12 +19,13 @@ from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 
 from site_config import SITE_URL, ORG_NAME, load_chrome
+import blog_productos
 from generate_og_tags import (
     BASE_DIR, POST_CATEGORY, POST_ZONE, clamp, esc, make_og_block, make_seo_block,
     post_guide_html, replace_empty_el, strip_html, titulo_seo,
 )
 
-CSS_V = '20261126a'
+CSS_V = '20261126c'
 JS_V = '20261126a'
 WHATSAPP = '5491127015294'
 MESES = ('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto',
@@ -215,6 +216,8 @@ def pagina_nota(post, posts, productos):
     n_palabras = palabras(contenido)
     minutos = max(1, round(n_palabras / 200))
     cuerpo, indice = preparar_cuerpo(contenido)
+    equipos = blog_productos.elegidos(slug)
+    cuerpo = blog_productos.insertar(cuerpo, equipos, root)
 
     # fechas con zona horaria de Argentina
     zona = lambda f: (f if 'T' in f else f + 'T09:00:00') + '-03:00'
@@ -260,7 +263,9 @@ def pagina_nota(post, posts, productos):
     aside = ''
     if len(indice) >= 3:
         items = ''.join(f'<li><a href="#{i}">{esc(t)}</a></li>' for i, t in indice)
-        aside = f'<aside class="nota-lado"><details class="nota-indice" open><summary>En esta nota</summary><nav aria-label="Índice de la nota"><ol>{items}</ol></nav></details></aside>'
+        aside = f'<details class="nota-indice" open><summary>En esta nota</summary><nav aria-label="Índice de la nota"><ol>{items}</ol></nav></details>'
+    if aside or equipos:
+        aside = f'<aside class="nota-lado"><div class="nota-fijo">{aside}{blog_productos.lateral(equipos[0], root) if equipos else ""}</div></aside>'
 
     cat = POST_CATEGORY.get(slug)
     cat = (cat[0], cat[1].lower()) if cat else CATEGORIA_DE_SECCION.get(sec)
@@ -295,6 +300,7 @@ def pagina_nota(post, posts, productos):
 {aside}
 <div class="nota-columna">
 <div class="post-content" id="post-content">{cuerpo}</div>
+{blog_productos.final(equipos, root, titulo, WHATSAPP)}
 {cta}
 </div>
 </div>
