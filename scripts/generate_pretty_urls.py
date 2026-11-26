@@ -915,7 +915,7 @@ def update_static_pages(catalog):
                     "availableLanguage": "Spanish",
                 }],
                 "sameAs": [
-                    "https://www.instagram.com/trivium.center/",
+                    "https://www.instagram.com/pro.trivium/",
                     "https://www.facebook.com/profile.php?id=61571497817317",
                     "https://www.youtube.com/channel/UCkyhOuIT5A9nZ7qCAszVIaQ",
                 ],
