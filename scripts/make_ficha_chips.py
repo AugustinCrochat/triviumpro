@@ -40,7 +40,7 @@ def main(outdir, modelos_ali=()):
     px = H * 96 / 72  # alto en px CSS
     marcas = {s: os.path.join(ROOT, "assets/img/marcas", f) for s, f in
               [("rotary-lift", "logo-rotary-lift.svg"), ("hofmann", "logo-hofmann.svg"), ("direct-lift", "logo-direct-lift.svg"),
-               ("forward-lift", "logo-forward-lift.svg"), ("challenger-lifts", "logo-challenger-lifts.svg")]}
+               ("forward-lift", "logo-forward-lift.svg"), ("challenger-lifts", "logo-challenger-lifts.svg"), ("josam", "logo-josam.webp")]}
     for s, path in marcas.items():
         shot(f'<img src="file://{path}" style="height:{px:.0f}px;width:auto;max-width:200px">', 260, int(px) + 12, os.path.join(outdir, f"brand-{s}.png"))
     for oid, flag, txt in [("made-in-usa", "usa.svg", "MADE IN USA"), ("made-in-italy", "italy.svg", "MADE IN ITALY"),

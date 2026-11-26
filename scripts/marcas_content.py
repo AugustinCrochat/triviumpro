@@ -13,7 +13,7 @@ UPDATED = "2026-10-21"
 
 # Marcas premium importadas, en el orden en que se muestran. La marca propia
 # (Trivium Pro) va aparte, destacada.
-PREMIUM = ["rotary-lift", "hofmann", "challenger-lifts", "direct-lift", "forward-lift",
+PREMIUM = ["rotary-lift", "hofmann", "josam", "challenger-lifts", "direct-lift", "forward-lift",
            "haweka", "prevost"]
 PROPIA = "trivium-pro"
 
@@ -65,6 +65,15 @@ MARCAS = {
                  "soluciones móviles y fijas de gran capacidad. Incluye también elevadores tijera para alineación."),
         "ideal": "Talleres de pesados y de alineación.",
         "origen_txt": "Estados Unidos · Indiana",
+    },
+    "josam": {
+        "nombre_seo": "Josam Argentina",
+        "resumen": "Alineación de camiones, colectivos y vehículos pesados.",
+        "desc": ("Josam es una marca sueca del grupo Snap-on especializada en vehículos pesados. La alineadora "
+                 "CV-Aligner mide por cámara, sin levantar el vehículo, con comunicación inalámbrica y un informe "
+                 "con los valores antes y después de alinear."),
+        "ideal": "Talleres de pesados, flotas y transporte.",
+        "origen_txt": "Suecia",
     },
     "haweka": {
         "nombre_seo": "Haweka Argentina: accesorios y herramientas para balanceo de ruedas",

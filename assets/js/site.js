@@ -46,6 +46,7 @@ const BRAND_LOGOS = {
   'rotary-lift':  'assets/img/marcas/logo-rotary-lift.svg',
   'hofmann':      'assets/img/marcas/logo-hofmann.svg',
   'challenger-lifts': 'assets/img/marcas/logo-challenger-lifts.svg',
+  'josam':        'assets/img/marcas/logo-josam.webp',
   'direct-lift':  'assets/img/marcas/logo-direct-lift.svg',
   'forward-lift': 'assets/img/marcas/logo-forward-lift.svg',
   'trivium-pro':  'assets/img/marcas/logo-trivium-pro.svg',
@@ -307,7 +308,7 @@ async function loadCatalog() {
   if (CATALOG) return CATALOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/catalog.js?v=20261022l';
+    script.src = rootPath() + 'data/catalog.js?v=20261126a';
     script.onload = () => {
       CATALOG = window.CATALOG_DATA;
       resolve(CATALOG);
@@ -523,7 +524,7 @@ async function loadBlog() {
   if (BLOG) return BLOG;
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = rootPath() + 'data/blog.js?v=20261022l';
+    script.src = rootPath() + 'data/blog.js?v=20261126a';
     script.onload = () => {
       BLOG = window.BLOG_DATA;
       resolve(BLOG);
@@ -604,3 +605,17 @@ document.addEventListener('click', async function (e) {
   } catch (err) { if (err && err.name === 'AbortError') return; }
   window.open('https://wa.me/?text=' + encodeURIComponent(texto + '\n' + url), '_blank', 'noopener');
 });
+
+// Catálogo en el celular: botón para abrir los filtros. Sin JavaScript los filtros siguen al final, como antes.
+(function () {
+  function armar() {
+    const caja = document.querySelector('.cat-layout'), lado = caja && caja.querySelector('.sidebar');
+    if (!lado || caja.querySelector('.filtro-movil')) return;
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'filtro-movil'; b.textContent = 'Filtrar por categoría, marca u origen';
+    b.setAttribute('aria-expanded', 'false');
+    b.addEventListener('click', function () { b.setAttribute('aria-expanded', String(lado.classList.toggle('abierto'))); });
+    caja.insertBefore(b, lado); caja.classList.add('con-filtro');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', armar); else armar();
+})();

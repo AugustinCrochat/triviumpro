@@ -537,7 +537,7 @@ Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculado
 
 ### Alineadora de Camiones Josam CV-Aligner
 - URL: https://pro.trivium.ar/producto/alineadora-de-camiones-josam-cv-aligner/
-- Marca: Hofmann
+- Marca: Josam
 - SKU: 1010256
 - Categoría: Alineadoras
 - Origen de fabricación: Suecia

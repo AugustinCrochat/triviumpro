@@ -88,6 +88,11 @@
       "note": "Snap-On USA/Italia — Alineación"
     },
     {
+      "slug": "josam",
+      "name": "Josam",
+      "note": "Suecia — Alineación de vehículos pesados"
+    },
+    {
       "slug": "challenger-lifts",
       "name": "Challenger Lifts",
       "note": "Snap-on USA — Elevadores"
@@ -1196,7 +1201,7 @@
       "slug": "alineadora-de-camiones-josam-cv-aligner",
       "name": "Alineadora de Camiones Josam CV-Aligner",
       "category": "alineadoras",
-      "brand": "hofmann",
+      "brand": "josam",
       "capacity": "—",
       "lift_height": "—",
       "summary": "Alinea camiones, remolques y colectivos por cámara, sin levantar el vehículo",

@@ -1420,3 +1420,61 @@ a.origin-badge--plain:focus-visible { outline: 2px solid var(--accent); outline-
 .pd-static-fig { margin: 14px 0 0; }
 .pd-static-fig img { max-width: 100%; height: auto; }
 .pd-static-fig figcaption { font-size: .86rem; color: var(--text-dim); margin-top: 4px; }
+
+/* ---------- Mejoras de diseño (2026-11-26) ---------- */
+/* Portada: texto a la izquierda y equipos reales a la derecha */
+.hero--home .inner { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 48px; align-items: center; }
+.hero--home .hero-texto { text-align: left; }
+.hero--home h1 { font-size: clamp(2.1rem, 4.1vw, 3.5rem); }
+.hero--home p.lead { margin-left: 0; max-width: 56ch; }
+.hero-acciones { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-nota { margin: 16px 0 0; font-size: .85rem; max-width: 56ch; }
+.hero--home .stats { margin: 28px 0 0; }
+.hero-fotos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.hero-foto { position: relative; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); aspect-ratio: 1 / 1; overflow: hidden; transition: border-color .15s, box-shadow .15s; }
+.hero-foto--grande { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
+.hero-foto img { width: 100%; height: 100%; object-fit: contain; padding: 14px 14px 30px; }
+.hero-foto span { position: absolute; left: 0; bottom: 14px; background: var(--text); color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 12px 6px 14px; border-left: 4px solid var(--accent); }
+.hero-foto:hover { border-color: var(--accent); box-shadow: 0 6px 24px rgba(0,0,0,.1); }
+/* Categorías con foto */
+.cat-card--foto { padding-right: 46%; }
+.cat-card__foto { position: absolute; right: 12px; top: 12px; width: 42%; height: calc(100% - 24px); object-fit: contain; background: #fff; border-radius: var(--radius); }
+.cat-card--foto .arrow { right: auto; left: 28px; bottom: 20px; }
+.cat-card--foto > div:nth-of-type(2) { padding-bottom: 36px; }
+/* Guías: tarjetas compactas, tres por fila */
+#guias-home .cat-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+#guias-home .cat-card { min-height: 0; padding: 22px 66px 22px 22px; justify-content: center; }
+#guias-home .cat-card h3 { font-size: 1.08rem; margin-bottom: 6px; }
+#guias-home .cat-card .arrow { top: 50%; bottom: auto; right: 18px; transform: translateY(-50%); }
+#guias-home .cat-card:last-child { grid-column: 1 / -1; }
+/* Equipos sin precio publicado: la tarjeta lo dice en vez de dejar un hueco */
+.prod-card .body:has(.spec):not(:has(.price-tag))::after { content: "Consultar precio →"; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); font-size: .82rem; font-weight: 700; color: var(--accent); }
+.filtro-movil { display: none; }
+@media (max-width: 980px) {
+  .hero--home .inner { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 900px) {
+  #guias-home .cat-grid { grid-template-columns: 1fr 1fr; }
+  /* Catálogo en el celular: filtros arriba, plegados (antes quedaban después de todos los productos) */
+  .cat-layout.con-filtro .filtro-movil { display: flex; width: 100%; justify-content: space-between; align-items: center; background: var(--bg); border: 1px solid var(--line-2); border-radius: var(--radius); padding: 13px 16px; font: 700 .92rem/1.2 inherit; font-family: inherit; color: var(--text); cursor: pointer; }
+  .cat-layout.con-filtro .filtro-movil::after { content: "+"; color: var(--accent); font-size: 1.3rem; line-height: 1; }
+  .cat-layout.con-filtro .filtro-movil[aria-expanded="true"]::after { content: "−"; }
+  .cat-layout.con-filtro .sidebar { order: 0; display: none; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 16px 0; margin-top: -12px; }
+  .cat-layout.con-filtro .sidebar.abierto { display: block; }
+}
+@media (max-width: 720px) {
+  #guias-home .cat-grid { grid-template-columns: 1fr; }
+  .cat-card--foto { padding: 22px 42% 22px 20px; min-height: 190px; }
+  .cat-card__foto { width: 38%; right: 8px; }
+  .cat-card--foto .arrow { left: 20px; bottom: 16px; }
+}
+@media (max-width: 640px) {
+  .hero--home .hero-texto { text-align: left; }
+  .hero-acciones .btn { flex: 1 1 100%; justify-content: center; }
+  /* WhatsApp flotante: solo el ícono, para no tapar contenido */
+  .wa-float { width: 54px; padding: 0; justify-content: center; gap: 0; right: 14px; bottom: 14px; font-size: 0; }
+  .wa-float svg { width: 28px; height: 28px; }
+  /* Ficha de producto: foto más baja para que el nombre entre en la primera pantalla */
+  .pd-gallery .main { aspect-ratio: 4 / 3; }
+  .pd-wrap { padding-top: 18px; gap: 22px; }
+}

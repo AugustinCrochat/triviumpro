@@ -16,6 +16,7 @@ en ningún archivo público — llms.txt es tan público como robots.txt.
 Uso:
     python3 scripts/generate_llms_txt.py
 """
+import html
 import json
 import os
 
@@ -26,6 +27,17 @@ from site_config import SITE_URL, ORG_NAME
 from guias_content import GUIAS
 from origenes_content import ORIGENES
 from zonas_content import ZONAS
+
+
+def _notas_por_tema():
+    """Todas las notas del blog agrupadas por tema, para que un asistente encuentre la página que responde."""
+    from blog_layout import SECCIONES, cargar, seccion
+    posts, out = cargar(), []
+    for tema in SECCIONES:
+        grupo = [p for p in posts if seccion(p['slug']) == tema]
+        if grupo:
+            out += ["", f"## Blog: {tema}", ""] + [f"- [{html.unescape(p['title'])}]({SITE_URL}/blog/{p['slug']}/)" for p in grupo]
+    return out
 
 
 def main():
@@ -137,6 +149,8 @@ def main():
         f"- [Nosotros]({SITE_URL}/nosotros/)",
         f"- [Instalación y posventa]({SITE_URL}/instalacion-posventa-y-servicios/)",
         f"- [Blog]({SITE_URL}/blog/): notas técnicas sobre equipamiento de taller.",
+        f"- [Texto completo de todas las notas]({SITE_URL}/llms-blog.txt)",
+        *_notas_por_tema(),
         f"- [Contacto]({SITE_URL}/contacto/)",
         "",
         "## Notas para agentes",

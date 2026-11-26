@@ -165,7 +165,7 @@ def main():
 
     for post in posts:
         # date viene como 2025-10-29T23:49:21
-        lastmod = post.get("date", "")[:10] or today
+        lastmod = (post.get("updated") or post.get("date", ""))[:10] or today
         entries.append(
             url_entry(f"{SITE_URL}/blog/{post['slug']}/", lastmod, "yearly", "0.6")
         )

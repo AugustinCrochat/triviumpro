@@ -170,6 +170,7 @@ for _cat_slug, _cat_name, _posts in [
         'especificaciones-del-piso-para-la-instalacion-de-un-elevador-de-dos-columnas',
     ]),
     ('alineadoras', 'Alineadoras', [
+        'alineacion-de-camiones-con-eje-desplazado-referencia-linea-central-josam',
         'es-rentable-un-taller-de-alineacion-y-balanceo-inversion-y-retorno',
         'hofmann-geoliner-880-alineadora-3d-de-paso-directo-con-ia',
         'como-elegir-la-alineadora-de-autos-ideal-para-tu-taller',
@@ -289,145 +290,15 @@ def related_html(slug, root):
                 + ''.join(card(p, brands, root) for p in equipos) + '</div></div>')
     notas = [blog[s] for s in rel['post_posts'].get(slug, []) if s in blog]
     if notas:
-        cards = ''.join(
-            f'<a class="prod-card" href="{esc(root)}blog/{esc(n["slug"])}/">'
-            f'<div class="body"><h3>{esc(html.unescape(n["title"]))}</h3></div></a>' for n in notas)
-        out += f'<div class="container"><h2>Notas relacionadas</h2><div class="prod-grid">{cards}</div></div>'
+        from blog_layout import tarjeta
+        out += f'<div class="container"><h2>Notas relacionadas</h2><div class="nota-grid">{"".join(tarjeta(n, root) for n in notas)}</div></div>'
     return out
 
 
 def update_blog():
-    with open(BASE_DIR / 'data' / 'blog.json', encoding='utf-8') as f:
-        posts = json.load(f)
-
-    root = '../../'
-    by_date = sorted(posts, key=lambda p: p.get('date', ''), reverse=True)
-
-    count = 0
-    for post in posts:
-        slug = post['slug']
-        page_path = BASE_DIR / 'blog' / slug / 'index.html'
-        if not page_path.exists():
-            continue
-
-        title = html.unescape(post['title'])
-        url = f"{SITE_URL}/blog/{slug}/"
-        description = (post.get('meta_description')
-                       or clamp(strip_html(post.get('excerpt', ''))) or title)
-        image_path = post.get('image', '')
-        image_url = f"{SITE_URL}/{image_path}" if image_path else ''
-        published = post.get('date', '')
-
-        article_ld = {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            "headline": title[:110],
-            "description": post.get('meta_description') or strip_html(post.get('excerpt', '')),
-            "url": url,
-            "mainEntityOfPage": {"@type": "WebPage", "@id": url},
-            "author": {"@type": "Organization", "name": ORG_NAME},
-            "publisher": {
-                "@type": "Organization",
-                "name": ORG_NAME,
-                "logo": {"@type": "ImageObject",
-                         "url": f"{SITE_URL}/assets/img/logo-trivium.svg"},
-            },
-        }
-        if published:
-            article_ld["datePublished"] = published
-            article_ld["dateModified"] = published
-        if image_url:
-            article_ld["image"] = [image_url]
-
-        # Preguntas frecuentes: salen de los <details> del propio contenido, así el
-        # schema nunca queda desfasado del texto visible.
-        faq_items = re.findall(
-            r'<details><summary>(.*?)</summary><p>(.*?)</p></details>',
-            post.get('content') or '', re.S)
-        faq_ld = None
-        if faq_items:
-            faq_ld = {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                    {"@type": "Question", "name": strip_html(q),
-                     "acceptedAnswer": {"@type": "Answer", "text": strip_html(a)}}
-                    for q, a in faq_items
-                ],
-            }
-
-        crumbs_ld = {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Inicio",
-                 "item": f"{SITE_URL}/"},
-                {"@type": "ListItem", "position": 2, "name": "Blog",
-                 "item": f"{SITE_URL}/blog/"},
-                {"@type": "ListItem", "position": 3, "name": title, "item": url},
-            ],
-        }
-
-        # --- contenido prerenderizado ---
-        pretty_date = published[:10]
-        hero = ''
-        if image_path:
-            hero = (f'<p><img src="{esc(root + image_path)}" alt="{esc(title)}" '
-                    f'width="1200" height="630"></p>')
-        body_html = hero + (post.get('content') or post.get('excerpt') or '')
-        cat = POST_CATEGORY.get(slug)
-        if cat:
-            cat_slug, cat_name = cat
-            body_html += (
-                f'<p class="post-cat-cta"><a href="{esc(root)}categoria/{esc(cat_slug)}/">'
-                f'Ver equipos de {esc(cat_name.lower())} en Trivium Pro →</a></p>'
-            )
-
-        more = [p for p in by_date if p['slug'] != slug][:6]
-        more_html = ''.join(
-            f'<a class="prod-card" href="{esc(root)}blog/{esc(p["slug"])}/">'
-            f'<div class="body"><h3>{esc(html.unescape(p["title"]))}</h3></div></a>'
-            for p in more
-        )
-        crumbs_html = (
-            f'<a href="{esc(root)}">Inicio</a> <span class="sep">/</span> '
-            f'<a href="{esc(root)}blog/">Blog</a> <span class="sep">/</span> '
-            f'<span>{esc(title)}</span>'
-        )
-
-        content = page_path.read_text(encoding='utf-8')
-        content = inject_head(
-            content, title,
-            make_og_block(title, description, image_url, url, 'article'),
-            make_seo_block(url, description, [article_ld, crumbs_ld] + ([faq_ld] if faq_ld else [])),
-        )
-        # Header y footer: sin esto el crawler ve el artículo sin navegación.
-        chrome_h, chrome_f = load_chrome(root)
-        if chrome_h:
-            content = replace_empty_el(content, 'site-header', chrome_h)
-            content = replace_empty_el(content, 'site-footer', chrome_f)
-        content = replace_empty_el(content, 'crumbs', crumbs_html)
-        content = replace_empty_el(content, 'post-title', esc(title))
-        content = replace_empty_el(content, 'post-date', esc(pretty_date))
-        content = replace_empty_el(content, 'post-content', body_html)
-        content = replace_empty_el(content, 'more-posts', more_html)
-        # Contenedor estático de guías (idempotente: se crea una sola vez).
-        if 'id="post-guide"' not in content:
-            content = content.replace(
-                '</article>', '</article>\n<section class="cat-blog-links" id="post-guide"></section>', 1)
-        if 'assets/css/guia.css' not in content:
-            content = content.replace(
-                '<link rel="stylesheet" href="../../assets/css/styles.css">',
-                '<link rel="stylesheet" href="../../assets/css/styles.css">\n'
-                '<link rel="stylesheet" href="../../assets/css/guia.css">', 1)
-        content = replace_empty_el(content, 'post-guide', post_guide_html(slug, root))
-        # El script inline usa ${root} sin declararlo: lanzaba ReferenceError
-        # al armar las migas y abortaba antes de renderizar "Más noticias".
-        content = content.replace('${root}', '${rootPath()}')
-        page_path.write_text(content, encoding='utf-8')
-        count += 1
-
-    print(f"✔ {count} artículos del blog con OG, canonical, description y JSON-LD")
+    """La plantilla del blog vive en scripts/blog_layout.py."""
+    import blog_layout
+    blog_layout.build_all()
 
 
 if __name__ == "__main__":

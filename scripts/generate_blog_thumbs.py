@@ -124,6 +124,7 @@ SPEC = {
  "calibracion-adas-y-alineacion-en-autos-nuevos": ('GUÍA TÉCNICA · ALINEACIÓN', 'Calibración ADAS y alineación', 'Qué tiene que saber el taller con autos nuevos', ['alineadora-3d-hofmann-geoliner-880']),
  "llave-de-impacto-neumatica-como-elegir-torque": ('GUÍA DE COMPRA · HERRAMIENTAS NEUMÁTICAS', 'Llave de impacto neumática: cómo elegir', 'Torque, tamaño y uso en la gomería', ['llave-pistola-neumatica-de-impacto-kuani-ki-1488', 'llave-de-impacto-neumatica-kuani-ki-1481-mt']),
  "checklist-de-seguridad-para-un-taller-elevado": ('GUÍA TÉCNICA · SEGURIDAD', 'Checklist de seguridad para un taller', 'Elevadores, aire comprimido y pisos', ['elevador-dos-columnas-challenger-lifts-vle10']),
+ "alineacion-de-camiones-con-eje-desplazado": ("GUÍA TÉCNICA · CAMIONES", "Camión con un eje desplazado", "La referencia está en la línea central del chasis", ["alineadora-para-camiones-con-tecnologia-de-camara-josam-cv-aligner"]),
  "alineacion-de-flotas-y-camiones-como-ofrecer-": ('GUÍA DE NEGOCIO · FLOTAS', 'Alineación de flotas y camiones', 'Cómo ofrecer el servicio a empresas', ['alineadora-para-camiones-con-tecnologia-de-camara-josam-cv-aligner']),
  "como-cotizar-una-instalacion-de-equipos-que-h": ('GUÍA PARA TALLERES · INSTALACIÓN', 'Cómo cotizar una instalación', 'Qué preparar antes de que lleguen los equipos', ['elevador-dos-columnas-4-toneladas-trivium-pro-monofasico']),
 }

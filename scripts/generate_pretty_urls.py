@@ -117,6 +117,10 @@ BRAND_SEO = {
         "Rotary Lift Argentina: elevadores para taller",
         "Rotary Lift: {n} elevadores de mayor calibre para talleres, concesionarias "
         "y flotas. Distribuidor oficial; instalación a cotizar en todo el país."),
+    'josam': (
+        "Josam Argentina: alineadora de camiones y colectivos",
+        "Josam (Suecia, grupo Snap-on): alineación de camiones y colectivos por cámara con el CV-Aligner. "
+        "Instalación a cotizar en todo el país."),
     'haweka': (
         "Haweka Argentina: accesorios y herramientas para balanceo de ruedas",
         "Haweka®, Alemania: {n} accesorios y herramientas para balanceo de ruedas — conos de "
@@ -449,6 +453,15 @@ except OSError:
 _RELATED_MAPS = None
 
 
+# Notas que una ficha tiene que mostrar primero, aunque el enlazado automático no las detecte.
+NOTAS_FIJAS_PRODUCTO = {
+    'alineadora-de-camiones-josam-cv-aligner': [
+        'alineacion-de-camiones-con-eje-desplazado-referencia-linea-central-josam',
+        'alineacion-de-flotas-y-camiones-como-ofrecer-el-servicio-a-empresas',
+    ],
+}
+
+
 def _notas_producto(prod, catalog, blog_by_slug, root):
     """Hasta 3 notas del blog de la familia del producto (elevadores, alineadoras...) debajo de la ficha."""
     cats = {c['slug']: c for c in catalog['categories']}
@@ -460,7 +473,7 @@ def _notas_producto(prod, catalog, blog_by_slug, root):
     if _RELATED_MAPS is None:
         _RELATED_MAPS = related.build()
     slugs = []
-    for x in _RELATED_MAPS['product_posts'].get(prod['slug'], [])[:3] + CATEGORY_BLOG_POSTS.get(raiz, []):
+    for x in NOTAS_FIJAS_PRODUCTO.get(prod['slug'], []) + _RELATED_MAPS['product_posts'].get(prod['slug'], [])[:3] + CATEGORY_BLOG_POSTS.get(raiz, []):
         if x in blog_by_slug and x not in slugs:
             slugs.append(x)
     slugs = slugs[:4]
