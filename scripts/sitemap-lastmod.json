@@ -29,23 +29,23 @@
 },
 "/categoria/balanceadoras/": {
 "date": "2026-11-28",
-"hash": "892498d4f9b0ac76a8d9203d70df6b86eefae8e4"
+"hash": "b49129d6385dcaa9fc1e4bce22c3ec288ca19417"
 },
 "/categoria/desarmadoras/": {
 "date": "2026-11-28",
-"hash": "91641a554a77cbc669101a95c5d06efedbc50d8e"
+"hash": "da87708e27831e483957e6749b40b678abab766b"
 },
 "/categoria/elevadores-2-columnas/": {
 "date": "2026-11-28",
-"hash": "6fad7b402d40c0cc12b54f9f3ae3ad59dd8f3863"
+"hash": "9fc2136578c499c5add4353559c72ab53bac304a"
 },
 "/categoria/elevadores-4-columnas/": {
 "date": "2026-11-28",
-"hash": "d8d33c4b0685296d9747c38bd6f97eaf29ca2626"
+"hash": "f1a5299526dff0ac7e441da138055432db39c070"
 },
 "/categoria/elevadores-motos/": {
 "date": "2026-11-28",
-"hash": "80ac2cb8de9f8456eca75a92218773a6e32cdd79"
+"hash": "9f6d2ebfa70b6547a5df643c4a331fa75f80e8ab"
 },
 "/categoria/elevadores-pesados/": {
 "date": "2026-11-26",
@@ -53,15 +53,15 @@
 },
 "/categoria/elevadores-tijera/": {
 "date": "2026-11-28",
-"hash": "60be05d72e77ea16b1fd76af12d6a07e4d504029"
+"hash": "cdfa5d9ee4d0228b19d56b4663a92fa165ee07f8"
 },
 "/categoria/elevadores/": {
 "date": "2026-11-28",
-"hash": "7ce018baca6e82322546e20a9da19ae0fc86cb0c"
+"hash": "7acfa4ecb30940612080ff33a1b2ecd4492b9b51"
 },
 "/categoria/equipamiento-taller/": {
 "date": "2026-11-28",
-"hash": "71b1d1de9278f983cab85ddcd24f0de039f437c4"
+"hash": "2339a5fcdc67d455b7cc67e5461452e5de1f3e67"
 },
 "/categoria/herramientas-neumaticas/": {
 "date": "2026-11-26",
@@ -89,59 +89,59 @@
 },
 "/guias/alineadoras-3d/": {
 "date": "2026-11-28",
-"hash": "d73824a666f206d4f1a0d8d5ecc773b476af1ba0"
+"hash": "93362f282d60ac6c05c257bcea7de2c8287dac9d"
 },
 "/guias/balanceadoras-de-ruedas/": {
 "date": "2026-11-28",
-"hash": "8e8f4a30f6f6ceff2725a4c60327add183e5cb2b"
+"hash": "1ca13fa2fd68f28896a54f8e756d031434e3cf63"
 },
 "/guias/desarmadoras-de-neumaticos/": {
 "date": "2026-11-28",
-"hash": "049f9e89b59b3e29626f04c03a72ce3d1f473a80"
+"hash": "2b8def1e1473211240f676e14ca43cececebf995"
 },
 "/guias/elevadores-para-taller/": {
 "date": "2026-11-28",
-"hash": "deb55cbe859c2fea30679684c1a73ca23bcf0093"
+"hash": "c3cb67bf6aabe7e4c5c47819a0e732d50c50361a"
 },
 "/guias/equipar-un-taller-de-chapa-y-pintura/": {
 "date": "2026-11-28",
-"hash": "e72a0c7aceb294070497a45429a24ea31c848be6"
+"hash": "d5d8507528504902c5a595a21c8a5e499673c9ff"
 },
 "/guias/equipar-un-taller-de-detailing/": {
 "date": "2026-11-28",
-"hash": "b1db94532df8b73156a7fac196bbc125b516525c"
+"hash": "80ddaf1b5ce3e19e4574c545c664ed0002942781"
 },
 "/guias/equipar-un-taller-de-tren-delantero/": {
 "date": "2026-11-28",
-"hash": "07dbcd1b7485915a4bd7fd43560b5e6a9de159ee"
+"hash": "659007a5178bd24046832ecfd11316b649404c60"
 },
 "/guias/equipar-un-taller-mecanico/": {
 "date": "2026-11-28",
-"hash": "17bd7febfc616dc3939d0af5391693568514dcf2"
+"hash": "f4f4295b654968c1796a8542c88a73136cef3625"
 },
 "/guias/equipar-una-concesionaria/": {
 "date": "2026-11-28",
-"hash": "2d58f8e5f199f1839dc97e3997c969cc9b9fbd79"
+"hash": "638545cc557bb3884b2b77d450a6a811c0f80d54"
 },
 "/guias/equipar-una-gomeria/": {
 "date": "2026-11-28",
-"hash": "c54466f27d7ff224b1a158a4088ab426dd72640c"
+"hash": "c1aaef5fe887b2bf77db028badbaacda84bfb378"
 },
 "/guias/equipos-de-taller-economicos/": {
 "date": "2026-11-28",
-"hash": "e58811cf53b27f353b10d0010ddd6ab9e6b0b107"
+"hash": "9b850bf8be9c9227913603e707029630f8edb60f"
 },
 "/guias/equipos-para-fabricas-y-plantas-industriales/": {
 "date": "2026-11-28",
-"hash": "e38a43772b2327884a07fe02dfdd0f0af070c57f"
+"hash": "9f288158fe48c7b8462e57caca0b8419aacca254"
 },
 "/guias/equipos-para-flotas-y-taller-propio/": {
 "date": "2026-11-28",
-"hash": "90bfd1ec41e06b5528921cc0c733697fae4db52e"
+"hash": "a5a6327c7ebd101e8000a46735093b2a87bdcfcb"
 },
 "/guias/equipos-premium-para-taller/": {
 "date": "2026-11-28",
-"hash": "a1999cb97a7c2620fe7ac3d26bf5deffd4a3095c"
+"hash": "29edb29c9b4ca542c4fa137fe0ae9d42cf300a19"
 },
 "/guias/guia-de-compras-de-equipamiento-para-taller/": {
 "date": "2026-11-26",
@@ -149,11 +149,11 @@
 },
 "/guias/herramientas-y-maquinas-para-taller/": {
 "date": "2026-11-28",
-"hash": "c634f4e726e2b3b4e9af0d85b44eded48c5af21b"
+"hash": "9299f727fbd10b214bd990ea81a14807498712ef"
 },
 "/guias/seguridad-y-certificacion-de-elevadores/": {
 "date": "2026-11-28",
-"hash": "757a85baad2beb642436269f47a736a08a0444a6"
+"hash": "0792dbdfecc4c38861867a40335de4ead16beaca"
 },
 "/instalacion-posventa-y-servicios/": {
 "date": "2026-11-26",
@@ -197,7 +197,7 @@
 },
 "/marca/trivium-pro/": {
 "date": "2026-11-28",
-"hash": "54e5af20c5d6f15f669f28194d10565e55e3ed93"
+"hash": "64e632506df828dbd7ce24d861b7a2b943f797a6"
 },
 "/marcas/": {
 "date": "2026-11-26",
@@ -224,8 +224,8 @@
 "hash": "4fe9e88cc961d06faac879a31bf16b55c792a23b"
 },
 "/origen/marcado-ce/": {
-"date": "2026-11-26",
-"hash": "10903ff06de48fcb6f7f79bf957f983f7aa16e87"
+"date": "2026-11-28",
+"hash": "9b8629c379500bc9829d41a0f33bfa69ad6b31b1"
 },
 "/origen/suecia/": {
 "date": "2026-11-26",
@@ -265,7 +265,7 @@
 },
 "/producto/balanceadora-de-ruedas-hofmann-geodyna-7100-pantalla-led/": {
 "date": "2026-11-28",
-"hash": "ed6bd6f00fedf792ab8dd7451478fac35575212f"
+"hash": "035ba6698b7a7855b6990cd7e6b8eddcc0afc11b"
 },
 "/producto/balanceadora-de-ruedas-hofmann-geodyna-7200vci/": {
 "date": "2026-10-21",
@@ -273,31 +273,31 @@
 },
 "/producto/balanceadora-de-ruedas-hofmann-geodyna-7400l/": {
 "date": "2026-11-28",
-"hash": "fa9a3543e8e7926c6911b19ce85b9df973503a67"
+"hash": "422d7299ab08f6eb6faf9d05b31674a54e27c00d"
 },
 "/producto/balanceadora-de-ruedas-hofmann-geodyna-7600p/": {
 "date": "2026-11-28",
-"hash": "91d54406ed692986908bde9654b046f13a88faf1"
+"hash": "859dbceae5c58469960ae32b32fca8f517dc6b0c"
 },
 "/producto/balanceadora-de-ruedas-hofmann-geodyna-7800-2p/": {
 "date": "2026-11-28",
-"hash": "43841a75e0e6c62d4b52472e65fc9715c28d8163"
+"hash": "0c5573c6863eebeafe55ef857d19712ba48dbe49"
 },
 "/producto/balanceadora-de-ruedas-hofmann-geodyna-9000p/": {
 "date": "2026-11-28",
-"hash": "f1f2d80536450fdc027ca5d4179dd8ab77e43223"
+"hash": "77104af73552c93fb2654e859b529dcb0a2131b3"
 },
 "/producto/balanceadora-de-ruedas-para-camion-u-850-150-kg-trivium-pro/": {
 "date": "2026-11-28",
-"hash": "737257d32c5a9fb89c480d63205f9c02b464302f"
+"hash": "fcef1427ec5d5dee0f40844916d919fe87012fce"
 },
 "/producto/balanceadora-de-ruedas-unite-g66/": {
 "date": "2026-11-28",
-"hash": "5d596717bca110f233a9ba68b736939a1394a518"
+"hash": "469fe2f2014529a87eb228605678c6b43ca798da"
 },
 "/producto/balanceadora-de-ruedas-unite-s-901/": {
 "date": "2026-11-28",
-"hash": "8944768175a293cd2142e6b805a4faeeb94936ad"
+"hash": "c369aff2558b767787055eae5cc283970400a535"
 },
 "/producto/balanceadora-de-ruedas-unite-u-659/": {
 "date": "2026-10-21",
@@ -305,11 +305,11 @@
 },
 "/producto/balanceadora-para-ruedas-de-camion-hofmann-geodyna-980l/": {
 "date": "2026-11-28",
-"hash": "26e0453dc60cd89503d96b8d7753274c635fcc2d"
+"hash": "c793b39cbdc4aef1d7acffeb7c9d6609cdc98393"
 },
 "/producto/brazo-auxiliar-easymont/": {
 "date": "2026-11-28",
-"hash": "e340ca34ef5e724a016de80c8cac655c7c375305"
+"hash": "ffb6708440751dcb1651bc69d9879dcd802c278b"
 },
 "/producto/caja-porta-herramientas-sobre-mesa/": {
 "date": "2026-11-26",
@@ -377,31 +377,31 @@
 },
 "/producto/desarmadora-de-neumaticos-hofmann-monty-1270/": {
 "date": "2026-11-28",
-"hash": "c40777a6644a6314ba917a95864380b091f8dede"
+"hash": "7464abf66b59542383add2967c724ee2323c6263"
 },
 "/producto/desarmadora-de-neumaticos-hofmann-monty-3300-20/": {
 "date": "2026-11-28",
-"hash": "9ee383102468e901251fdadab0e4cbc4a4ddabec"
+"hash": "107f3f8d410eea99b9e91608bc2c1f09e135c347"
 },
 "/producto/desarmadora-de-neumaticos-hofmann-monty-3300-24/": {
 "date": "2026-11-28",
-"hash": "a0e8aefac5e8e2240236fc5d70860bfafb767941"
+"hash": "51c945c578c7f9ac96e083c93ae0974e4da21eb7"
 },
 "/producto/desarmadora-de-neumaticos-hofmann-monty-8800/": {
 "date": "2026-11-28",
-"hash": "83ab8f84d1010f25dc784aa43646613d24f0408d"
+"hash": "5e3d367d40f42d95e106c7b2f4c457cd304c4b30"
 },
 "/producto/desarmadora-de-ruedas-con-brazo-auxiliar-pl-1256s-trivium-center/": {
 "date": "2026-11-28",
-"hash": "34fd6c6023bfeb4e2993545e471302e5fbb26d35"
+"hash": "af50789c6005ce13b339c9dd06e295d0d4fc712c"
 },
 "/producto/desarmadora-de-ruedas-para-camion-hofmann-monty-4250p/": {
 "date": "2026-11-28",
-"hash": "641ad40199f60f37b49dd8c0d8b2636ed814b3d8"
+"hash": "d4dfa13f6ab091a095b564b896c5e39fd259fc29"
 },
 "/producto/desarmadora-de-ruedas-unite-pl-1200u/": {
 "date": "2026-11-28",
-"hash": "c5ac774cab391ab5aa878f1b5b113c697fedef43"
+"hash": "70bb9f4df09d9ca71e9308e1a17eec71e9ab2c79"
 },
 "/producto/dispositivo-de-fijacion-probike-haweka/": {
 "date": "2026-11-26",
@@ -409,39 +409,39 @@
 },
 "/producto/elevador-cuatro-cloumnas-4082kg-forward-lift-by-rotary-cr4t/": {
 "date": "2026-11-28",
-"hash": "c882681c3aee08118834e6dd2b559567ca5418f0"
+"hash": "1cc262e813482612a1e1a8f5342e743e297503b4"
 },
 "/producto/elevador-cuatro-columnas-13608-kg-rotary-lift-sm30s/": {
 "date": "2026-11-28",
-"hash": "53104ea0ad3c758739938c4c8aca0f472974477a"
+"hash": "dcf575415133f5c2974c4c0b2811569dcc6b0869"
 },
 "/producto/elevador-cuatro-columnas-5000-kg-con-kit-para-alineacion/": {
 "date": "2026-11-28",
-"hash": "ac76c69666fee43fd613a9003d59ced4edc00303"
+"hash": "1b1cc43026a23213a196596941485c8b9e1d311c"
 },
 "/producto/elevador-cuatro-columnas-6350-kg-rotary-lift-sm14l/": {
 "date": "2026-11-28",
-"hash": "d7a81ea8e08d1f55389a8990316c486781865d42"
+"hash": "2bda556d257f175619192c5c7e1858f72fff4828"
 },
 "/producto/elevador-cuatro-columnas-8165-kg-rotary-lift-sm18/": {
 "date": "2026-11-28",
-"hash": "9b88c16978aa7f3dc8bb99d15c9e565b9b9f41cb"
+"hash": "05d91911ba6ef2d8d8b0239e0518565c117c1798"
 },
 "/producto/elevador-de-baterias-para-autos-electricos/": {
 "date": "2026-11-28",
-"hash": "0fb9b9eed166ea070c4941b2be303a5d59dbf992"
+"hash": "9283930a7d13e57354b4ca05dcbfaf37a795695a"
 },
 "/producto/elevador-de-estacionamiento-direct-lift-pro-park-8s/": {
 "date": "2026-11-28",
-"hash": "14e0e908c653122ec5738505c3a97d5d0064dd6e"
+"hash": "e80f18517ec22dfd4bd380f8608e8c26d4699b95"
 },
 "/producto/elevador-de-motos-453-kg-rotary-lift-procycle-dt/": {
 "date": "2026-11-28",
-"hash": "3afe60a05837986d0953f7465f63c8fa4f258c69"
+"hash": "694cf9f5925c9c5fb6e51124db484acfd44e91bf"
 },
 "/producto/elevador-de-motos-453-kg-rotary-lift-procycle-xlt-dt/": {
 "date": "2026-11-28",
-"hash": "ed4955f9d34b6c663ac7662fbfe54da429fecaab"
+"hash": "d6fdf59569bdaa3ffcecd8715f1d99a5cf6f79ba"
 },
 "/producto/elevador-de-ruedas-hofmann/": {
 "date": "2026-11-26",
@@ -453,99 +453,99 @@
 },
 "/producto/elevador-dos-columnas-4000-kg-piso-libre-unite-pl-4-0-2a/": {
 "date": "2026-11-28",
-"hash": "ec8c48873ca86de90dbe968a88434e91d7468b10"
+"hash": "bc2ac9e0ca4c217adb94d604d81ee791db7369f1"
 },
 "/producto/elevador-dos-columnas-4000-kg-travesano-al-piso-unite-pl-4-0-2d/": {
 "date": "2026-11-28",
-"hash": "e2362bab31955bd2a4ea7a60844b2df299ced28f"
+"hash": "ca622b7129ed1e9743403e6a1bf5bb69944d2d5d"
 },
 "/producto/elevador-dos-columnas-4082-kg-direct-lift-dl9-by-rotary-lift/": {
 "date": "2026-11-28",
-"hash": "d61c89d9917cc8cb6542b601807c92ae1497be8f"
+"hash": "146bd17ac7165b76addcad7e1fd2a12d4e455e1f"
 },
 "/producto/elevador-dos-columnas-4535-kg-rotary-lift-spoa10/": {
 "date": "2026-11-28",
-"hash": "bdd37d9d39a2f6cd17cbca1e3d3e1b6493198e0e"
+"hash": "79ad6a46ce39c62c2c653efe86911cce8f904973"
 },
 "/producto/elevador-dos-columnas-4536-kg-rotary-lift-spoa10trio/": {
 "date": "2026-11-28",
-"hash": "eb90b1a2b5ea43e02c9cb6022afec1c886ee4ec2"
+"hash": "41176d35313d19922dce4d1c037b9a48ef3f0d05"
 },
 "/producto/elevador-dos-columnas-5000-kg-trivium-pro-u-t50msd/": {
 "date": "2026-11-28",
-"hash": "912f20e06eb5b3d1695daad75799e9cd51162930"
+"hash": "d13e3db1119d50a3616428e62504b4234d534ef6"
 },
 "/producto/elevador-dos-columnas-5443-kg-forward-lift-f12-by-rotary-lift/": {
 "date": "2026-11-28",
-"hash": "bf7c62c87059238aab0038127c3dc28cbc0e146a"
+"hash": "3d0323a3f63c54d2de68608fa9a5a979b50d2315"
 },
 "/producto/elevador-dos-columnas-5500-kg-rotary-lift-spo55/": {
 "date": "2026-11-28",
-"hash": "4c91f3ea3fd59ce4b8e4179cca757c95c12afe7a"
+"hash": "28251d5a564c5d8168e9a5fc51cebd75bdeb88c9"
 },
 "/producto/elevador-dos-columnas-6000-kg-vehiculos-electricos/": {
 "date": "2026-11-28",
-"hash": "f3424ff6c30025e1834730eaec5e569aa7956ddc"
+"hash": "b1d118cf793a12681100f2fa9164228d70e22eed"
 },
 "/producto/elevador-dos-columnas-6500-kg-rotary-lift-spo65/": {
 "date": "2026-11-28",
-"hash": "de5a55cf9ba872780e3519f01f9b9ccf86d71d6e"
+"hash": "96db9c1cd5ee979ecaebcdb6f061a45a0e17bfc4"
 },
 "/producto/elevador-dos-columnas-7250-kg-rotary-lift-spo16-cargo/": {
 "date": "2026-11-28",
-"hash": "fcca0c02f2c6d533d700d79514c73125ff1f4ce0"
+"hash": "22c285b986f4e71193e8ec7d73c64918093f5723"
 },
 "/producto/elevador-dos-columnas-simetrico-4536-kg-challenger-lifts-vle10/": {
 "date": "2026-11-28",
-"hash": "8b2817058eb2ffcd310e6aa309458a5f78914b56"
+"hash": "823a97010e53a26d8e0da790eb8d73b8a53413dc"
 },
 "/producto/elevador-para-moto-454-kg-mt07-trivium-pro/": {
 "date": "2026-11-28",
-"hash": "ab4e888bfc4e6892c85a1ae65cc73a0758451b38"
+"hash": "c0fab02e6faa945f7b33849b256513566187676d"
 },
 "/producto/elevador-tijera-3000-kg-pl-b30y/": {
 "date": "2026-11-28",
-"hash": "ea0dd9462620db6d49a4714f894ce351cf60dc96"
+"hash": "838f4099c4a1c9cc039f362c05fc8ef47f6b7b01"
 },
 "/producto/elevador-tijera-3000-kg-pl-e30/": {
 "date": "2026-11-28",
-"hash": "f73fcac65773e1839fa9515a3449648f04130048"
+"hash": "944ac449497745bd2b8c3d42b9c97b9afd1aba82"
 },
 "/producto/elevador-tijera-alineacion-4000-kg-forward-lift-nbs40a-48/": {
 "date": "2026-11-28",
-"hash": "3186752c66bdabb63af3a7e2a13cd32f629213cf"
+"hash": "c747fef901493c2d4c7ed34a1a22536c56308cfe"
 },
 "/producto/elevador-tijera-baja-altura-3175-kg-rotary-lift-vlxs7/": {
 "date": "2026-11-28",
-"hash": "f38d3aec158f04516e049792d98302180da5a7a3"
+"hash": "4d3d6f919e6fa850d2413a424fd46c76f04cea5c"
 },
 "/producto/elevador-tijera-corto-3000-kg-dl-by-rotary-lift-dig30/": {
 "date": "2026-11-28",
-"hash": "f23bcca3fbe0b59ebdc8a8a302115f5c7f339c51"
+"hash": "8d372bf3802477a78883f2015fea56dd5adcd6e6"
 },
 "/producto/elevador-tijera-corto-3200-kg-dl-by-rotary-lift-dsd32/": {
 "date": "2026-11-28",
-"hash": "a731a15b1e75c9a94dfd6ab24ebfae26be7814b7"
+"hash": "35b626e28753c7d7ad5044ecbc8d0d4b99af0add"
 },
 "/producto/elevador-tijera-gomeria-4500-kg-pl-45h/": {
 "date": "2026-11-28",
-"hash": "0736ce03e24faef61d594032580deb2265803f04"
+"hash": "fa93da0ee4796f5c1dfa0a312db111afca2484a3"
 },
 "/producto/elevador-tijera-largo-5500-kg-con-kit-de-alineacion/": {
 "date": "2026-11-28",
-"hash": "c70924cde2b32625bae9968b1fa70725fa29ffb6"
+"hash": "d092d636d14426646328da5e7c90e0b4545b08a4"
 },
 "/producto/elevador-tijera-para-alineacion-4500-kg-rotary-lift-xa10/": {
 "date": "2026-11-28",
-"hash": "54c8f07d1c9f8f20f9853ed8cf5a7207a94ce505"
+"hash": "eb10efd18d01454fe652b53a6e117fff8080b6e9"
 },
 "/producto/elevador-tijera-portatil-2722-kg-rotary-lift-pro-6mr/": {
 "date": "2026-11-28",
-"hash": "b280af5ae739760a6c35da2cd5fe700645cf2af8"
+"hash": "5f5f97d8ac99bfc0b536c5659df7627718535336"
 },
 "/producto/elevador-tijera-portatil-3000-kg-pl-b30m/": {
 "date": "2026-11-28",
-"hash": "5218bfac1ff02d29d8b18202413939c5e2090b5f"
+"hash": "85f694efbf60085f8ae93880acb4a6ef079af77e"
 },
 "/producto/espatula-para-despegar-contrapesos-adhesivos-en-llantas-de-aluminio-haweka/": {
 "date": "2026-11-26",
@@ -684,8 +684,8 @@
 "hash": "1970fb47464976795b2c53dc254b4bbd4be3056f"
 },
 "/terminos-y-condiciones/": {
-"date": "2026-11-26",
-"hash": "e29a56c857e0061cb0311ce6705490dba5cc380e"
+"date": "2026-11-28",
+"hash": "788f3553ffcf89487807b42faf48e4a20e7e08fe"
 },
 "/zonas/": {
 "date": "2026-11-26",

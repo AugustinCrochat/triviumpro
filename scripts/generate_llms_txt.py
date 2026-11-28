@@ -60,8 +60,8 @@ def main():
         f"servicio técnico propios en todo el país.",
         "",
         f"Catálogo completo: {n_prod} equipos en {len(top_cats)} categorías. Los precios "
-        f"publicados son de lista, en pesos argentinos, calculados con el dólar oficial "
-        f"venta del día e IVA incluido cuando se indica.",
+        f"publicados son de lista, en pesos argentinos, calculados con la cotización "
+        f"del dólar del día e IVA incluido cuando se indica.",
         "",
         "## Catálogo",
         "",

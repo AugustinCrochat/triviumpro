@@ -19,7 +19,7 @@
 
 import { crear as crearFolleto, obtener as obtenerFolleto } from './folleto.js';
 
-const RATE_FALLBACK = 1520;      // mismo valor de referencia que usa site.js
+const RATE_FALLBACK = 1675;      // mismo valor de referencia que usa site.js
 const RATE_TTL = 900;            // 15 min de caché para la cotización
 const MAX_ITEMS = 20;            // renglones distintos por orden
 const MAX_QTY = 10;              // unidades por renglón
@@ -30,9 +30,9 @@ const json = (data, status = 200, extra = {}) =>
     headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', ...extra },
   });
 
-/* ---------- Cotización del dólar oficial (venta) ---------- */
+/* ---------- Cotización: dólar blue compra ---------- */
 async function getRate(ctx) {
-  const key = new Request('https://tienda.trivium.ar/__rate');
+  const key = new Request('https://tienda.trivium.ar/__rate-blue');
   const cache = caches.default;
 
   const hit = await cache.match(key);
@@ -40,9 +40,9 @@ async function getRate(ctx) {
 
   let out = { rate: RATE_FALLBACK, live: false };
   try {
-    const r = await fetch('https://dolarapi.com/v1/dolares/oficial', { cf: { cacheTtl: RATE_TTL } });
+    const r = await fetch('https://dolarapi.com/v1/dolares/blue', { cf: { cacheTtl: RATE_TTL } });
     const j = await r.json();
-    if (j && j.venta) out = { rate: j.venta, live: true };
+    if (j && j.compra) out = { rate: j.compra, live: true };
   } catch (e) {
     // Se sigue con el valor de referencia: preferimos cobrar con un dólar
     // desactualizado antes que dejar la tienda caída.

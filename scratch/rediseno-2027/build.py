@@ -2,8 +2,7 @@
 """Arma los bocetos estáticos del rediseño con datos reales del catálogo.
 
 No toca nada del sitio publicado: scratch/ está en .assetsignore.
-Los precios salen del feed de Google (que usa el dólar real), no del HTML
-prerenderizado, que al 28/11/2026 está calculado con el dólar de reserva.
+Los precios salen del feed de Google.
 """
 import csv, html, json, pathlib, re
 

@@ -39,7 +39,7 @@ let mpBody = null;
 const realFetch = globalThis.fetch;
 globalThis.fetch = async (url, opts = {}) => {
   const u = String(url.url || url);
-  if (u.includes('dolarapi')) return new Response(JSON.stringify({ venta: 1535 }), { headers: { 'content-type': 'application/json' } });
+  if (u.includes('dolarapi')) return new Response(JSON.stringify({ compra: 1535 }), { headers: { 'content-type': 'application/json' } });
   if (u.includes('mercadopago')) {
     mpBody = JSON.parse(opts.body);
     return new Response(JSON.stringify({ id: 'PREF-123', init_point: 'https://mp.test/checkout/PREF-123' }),

@@ -26,7 +26,7 @@ PAGINAS = [
 <h2>2. Productos y precios</h2>
 <ul>
 <li>Los precios se expresan en <strong>pesos argentinos (ARS)</strong>, con <strong>IVA incluido</strong> (la alícuota figura en cada ficha).</li>
-<li>Se calculan a partir de un valor en dólares y la <strong>cotización del dólar oficial (vendedor) del día</strong>, por eso pueden actualizarse. El precio que rige es el que ves al momento de confirmar la compra.</li>
+<li>Se calculan a partir de un valor en dólares y la <strong>cotización del dólar del día</strong>, por eso pueden actualizarse. El precio que rige es el que ves al momento de confirmar la compra.</li>
 <li>El precio <strong>no incluye la instalación</strong> ni el flete, que se cotizan aparte según el equipo y el destino.</li>
 <li>Las fotos y descripciones son ilustrativas; las especificaciones de cada ficha técnica prevalecen sobre cualquier imagen.</li>
 <li>La disponibilidad se confirma al procesar el pedido. Si un producto no estuviera disponible, te avisaremos y podrás elegir otro equipo o la devolución de lo abonado.</li>

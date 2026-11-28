@@ -9,7 +9,7 @@
     "(folleto-8f3a1c9d/precios.js, con TODAS las marcas) vive aparte a propósito.",
     "",
     "'usd' es el precio SIN IVA. El precio en pesos se calcula en vivo con el dólar",
-    "oficial venta (dolarapi.com), salvo que el ítem tenga 'fixed_ars': en ese caso",
+    "blue compra (dolarapi.com), salvo que el ítem tenga 'fixed_ars': en ese caso",
     "se usa ese valor fijo en pesos como base y no se recalcula con el dólar.",
     "",
     "Este archivo es JSON y no JS con comentarios porque lo leen tres consumidores",

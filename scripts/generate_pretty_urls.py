@@ -8,7 +8,7 @@ import shutil
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(BASE_DIR, 'data', 'catalog.json')
 from site_config import SITE_URL, ORG_NAME, load_chrome
-from dolar import dolar_venta
+from dolar import dolar_blue_compra
 
 
 def esc(s):
@@ -47,7 +47,7 @@ def load_public_offers():
     with open(path, encoding='utf-8') as f:
         prices = json.load(f)
 
-    rate = dolar_venta()
+    rate = dolar_blue_compra()
 
     valid = (date.today() + timedelta(days=30)).isoformat()
     out = {}

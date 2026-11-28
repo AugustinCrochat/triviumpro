@@ -25,7 +25,7 @@ def main():
          "(líneas premium) y fabrica su línea propia Trivium Pro (económica). Envíos, colocación (equipo de técnicos propio) y servicio técnico en todo el país. "
          "La instalación se cotiza aparte del precio del equipo.", "",
          f"Contacto: info@trivium.ar · WhatsApp +54 9 11 2701-5294 · WhatsApp ventas +54 9 351 399-4200. Sitio: {SITE_URL}/",
-         "Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculados con el dólar oficial del día; consultá siempre la ficha del producto.", ""]
+         "Los precios, cuando figuran, son de lista en pesos argentinos con IVA, calculados con la cotización del dólar del día; consultá siempre la ficha del producto.", ""]
     top = [c for c in d["categories"] if not c.get("parent")]
     for top_c in top:
         fam = {top_c["slug"]} | {c["slug"] for c in d["categories"] if c.get("parent") == top_c["slug"]}

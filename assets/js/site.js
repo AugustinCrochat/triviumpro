@@ -326,13 +326,13 @@ async function loadPublicPrices() {
   PUBLIC_PRICES = await r.json();
   return PUBLIC_PRICES;
 }
-async function getOfficialRate() {
+async function getDollarRate() { // dólar blue compra
   try {
-    const r = await fetch('https://dolarapi.com/v1/dolares/oficial', { cache: 'no-store' });
+    const r = await fetch('https://dolarapi.com/v1/dolares/blue', { cache: 'no-store' });
     const j = await r.json();
-    if (j && j.venta) return j.venta;
+    if (j && j.compra) return j.compra;
   } catch (e) {}
-  return 1520; // valor de referencia si falla la consulta en vivo
+  return 1675; // valor de referencia si falla la consulta en vivo
 }
 
 // Precio final (con IVA) para las tarjetas de grilla. null si el equipo no
@@ -342,7 +342,7 @@ let PRICE_RATE = null;
 async function ensureCardPrices() {
   if (PRICE_RATE != null) return;
   await loadPublicPrices();
-  PRICE_RATE = await getOfficialRate();
+  PRICE_RATE = await getDollarRate();
 }
 function cardPrice(sku, enFicha) {
   const rec = PUBLIC_PRICES && PUBLIC_PRICES.items[sku];

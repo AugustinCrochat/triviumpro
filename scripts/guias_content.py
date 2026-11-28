@@ -489,7 +489,7 @@ GUIAS = [
   ("¿Se puede financiar la compra?",
    "Sí, hay planes de pago y otras opciones. Consultá las condiciones por WhatsApp."),
   ("¿Los precios incluyen IVA?",
-   "Sí. Los precios de esta página son finales con IVA incluido, en pesos, calculados con el dólar oficial del día."),
+   "Sí. Los precios de esta página son finales con IVA incluido, en pesos, calculados con la cotización del dólar del día."),
  ],
  "posts": [
   "equipamiento-esencial-para-comenzar-tu-taller-de-neumaticos",

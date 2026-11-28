@@ -56,8 +56,8 @@ def tabla_html(guia, products, brands, offers):
     return ('<div class="tabla-wrap"><table><thead><tr><th>Modelo</th><th>Marca</th>'
             '<th>Capacidad</th><th>Para qué sirve</th><th>Precio final</th></tr></thead><tbody>'
             + ''.join(rows) + '</tbody></table></div>'
-            f'<p class="nota-precios">Precios en pesos con IVA incluido, calculados con el dólar '
-            f'oficial venta del {hoy}. Los equipos sin precio se cotizan a medida: consultanos.</p>')
+            f'<p class="nota-precios">Precios en pesos con IVA incluido, calculados con la '
+            f'cotización del dólar del {hoy}. Los equipos sin precio se cotizan a medida: consultanos.</p>')
 
 
 def cta_html(guia, cats):

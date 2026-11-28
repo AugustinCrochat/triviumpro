@@ -50,7 +50,7 @@ Las tablas, el comparador y el medidor del rediseño se justifican por el compra
 ## 3. Plan, por impacto
 
 ### A. Datos correctos (esta semana)
-Precios y `llms.txt`: corregidos el 28/11, con un control (`scripts/check_precios.py`) que frena la tarea diaria si ficha y feed difieren. Pendiente: SPOA10TRIO.
+Precios y `llms.txt`: corregidos el 28/11, con un control (`scripts/check_precios.py`) que frena la tarea diaria si ficha y feed difieren. Pendiente: SPOA10TRIO. El mismo día, por decisión del negocio, la cotización pasó de oficial venta a **blue compra** (los montos y el "hoy 1625" de la tabla son anteriores).
 
 ### B. Experiencia demostrable (lo que más diferencia)
 - Cada categoría importante y cada ficha clave con **una nota firmada por un técnico**: qué se mide, qué falla, cuándo no conviene ese modelo.

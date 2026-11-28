@@ -48,10 +48,10 @@ window.FOLLETO = (function () {
       if (r.ok) { const t = await r.json(); if (t && t.rate) return { rate: t.rate, live: !!t.rate_live }; }
     } catch (e) {}
     try {
-      const d = await (await fetch('https://dolarapi.com/v1/dolares/oficial', { cache: 'no-store' })).json();
-      if (d && d.venta) return { rate: d.venta, live: true };
+      const d = await (await fetch('https://dolarapi.com/v1/dolares/blue', { cache: 'no-store' })).json();
+      if (d && d.compra) return { rate: d.compra, live: true };
     } catch (e) {}
-    return { rate: await getOfficialRate(), live: false };
+    return { rate: await getDollarRate(), live: false };
   }
 
   function precio(rec, rate, defaultIva) {
@@ -274,7 +274,7 @@ window.FOLLETO = (function () {
         <p class="sub">${bajada}</p>
         <div class="fo-cover-band">
           <div>Vigencia<b>${hoy}</b></div>
-          <div>Dólar oficial venta<b>${fmtARS(rate)}${live ? '' : ' (ref.)'}</b></div>
+          <div>Cotización del dólar<b>${fmtARS(rate)}${live ? '' : ' (ref.)'}</b></div>
           <div>Equipos<b>${lista.length} · ${conPrecio} con precio</b></div>
           <div>Contacto<b>${TRIVIUM.whatsappDisplay}</b></div>
           <div>Web<b>pro.trivium.ar</b></div>
@@ -284,7 +284,7 @@ window.FOLLETO = (function () {
         ${vendor ? vendorCardHtml(vendor) : ''}
         ${grupos.map(seccion).join('')}
         <div class="fo-foot">
-          <b>Condiciones.</b> Precios de lista en pesos argentinos, calculados con el dólar oficial venta del día
+          <b>Condiciones.</b> Precios de lista en pesos argentinos, calculados con la cotización del dólar del día
           (${fmtARS(rate)}) y sujetos a modificación sin previo aviso. Los precios <b>no incluyen envío ni
           instalación</b>, que se cotizan aparte según la localidad de entrega. Los equipos sin precio publicado se
           cotizan a pedido. Consultá disponibilidad antes de cerrar la operación.<br>

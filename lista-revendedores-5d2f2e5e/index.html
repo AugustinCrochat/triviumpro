@@ -134,7 +134,7 @@
 
   <div class="pl-foot">
     <p><strong>Confidencial.</strong> Uso exclusivo para revendedores de Trivium Pro. No compartir públicamente.</p>
-    <p>Precios <strong>sin IVA</strong>, en pesos, calculados con el <strong>dólar oficial (venta)</strong> del día. El <strong>IVA depende del equipo (10,5% o 21%)</strong> y se indica en cada producto. Valores de referencia, sujetos a la cotización vigente. Consultas: <strong id="foot-wa"></strong>.</p>
+    <p>Precios <strong>sin IVA</strong>, en pesos, calculados con la <strong>cotización del dólar</strong> del día. El <strong>IVA depende del equipo (10,5% o 21%)</strong> y se indica en cada producto. Valores de referencia, sujetos a la cotización vigente. Consultas: <strong id="foot-wa"></strong>.</p>
   </div>
 </div>
 
@@ -361,14 +361,14 @@ async function shareItem(sku) {
   } catch (e) { if (e && e.name === 'AbortError') return; toast('No se pudo compartir'); }
 }
 
-/* ---------- Dólar oficial venta ---------- */
+/* ---------- Dólar blue compra ---------- */
 async function getRate() {
   try {
-    const r = await fetch('https://dolarapi.com/v1/dolares/oficial', { cache: 'no-store' });
+    const r = await fetch('https://dolarapi.com/v1/dolares/blue', { cache: 'no-store' });
     const j = await r.json();
-    if (j && j.venta) return { rate: j.venta, live: true };
+    if (j && j.compra) return { rate: j.compra, live: true };
   } catch (e) {}
-  return { rate: 1510, live: false };
+  return { rate: 1675, live: false };
 }
 
 /* ---------- Render ---------- */
@@ -380,7 +380,7 @@ async function getRate() {
 
   const today = new Date().toLocaleDateString('es-AR');
   document.getElementById('pl-rate').innerHTML = info.live
-    ? `Dólar oficial (venta)<br><b>${fmtARS(RATE)}</b> <span class="live">● en vivo</span> · ${today}`
+    ? `Cotización del dólar<br><b>${fmtARS(RATE)}</b> <span class="live">● en vivo</span> · ${today}`
     : `Dólar de referencia<br><b>${fmtARS(RATE)}</b> <span class="ref">● sin conexión</span> · ${today}`;
   document.getElementById('foot-wa').textContent = TRIVIUM.whatsappDisplay;
 

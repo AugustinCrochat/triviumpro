@@ -1,6 +1,6 @@
 name: Update catalog feeds and prices
 
-# Los precios en pesos salen del dólar oficial del día. Todos los lugares donde
+# Los precios en pesos salen del dólar blue (compra) del día. Todos los lugares donde
 # se publican tienen que moverse juntos: los feeds de Meta y de Google Merchant
 # Center, y el HTML prerenderizado de fichas, categorías, guías y páginas de origen (de ahí leen el
 # precio los buscadores y el schema Offer). Google Merchant compara el precio del
@@ -31,7 +31,7 @@ jobs:
       # Sin cotización los scripts cortan con error (scripts/dolar.py); este paso
       # avisa antes, sin dejar nada a medio generar.
       - name: Check dollar API
-        run: curl -fsS --max-time 15 https://dolarapi.com/v1/dolares/oficial | grep -q '"venta"'
+        run: curl -fsS --max-time 15 https://dolarapi.com/v1/dolares/blue | grep -q '"compra"'
 
       - name: Generate feeds and priced pages
         run: |

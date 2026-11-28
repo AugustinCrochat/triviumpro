@@ -4,7 +4,7 @@ a partir de data/catalog.json + data/prices-publico.json.
 
 Solo incluye productos Trivium Pro que tienen precio público cargado.
 El precio del feed es el PRECIO FINAL (con IVA incluido), en ARS, calculado
-con el dólar oficial venta del día (dolarapi.com) — salvo los ítems con
+con el dólar blue compra del día (dolarapi.com) — salvo los ítems con
 "fixed_ars" en prices-publico.json, que usan ese valor fijo como base.
 
 Como es un archivo estático, hay que volver a correr este script cada vez
@@ -27,7 +27,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 from site_config import SITE_URL
-from dolar import dolar_venta
+from dolar import dolar_blue_compra
 
 
 def load_prices_publico():
@@ -86,8 +86,8 @@ def main():
     _d, _extra = fd.cargar()
     catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
     prices = load_prices_publico()
-    rate = dolar_venta()
-    print(f"Dólar oficial venta: {rate}")
+    rate = dolar_blue_compra()
+    print(f"Dólar blue compra: {rate}")
 
     by_sku = {p["sku"]: p for p in catalog["products"]}
     cats = {c["slug"]: c for c in catalog["categories"]}

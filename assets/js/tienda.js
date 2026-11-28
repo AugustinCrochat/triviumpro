@@ -59,16 +59,16 @@ window.TIENDA = (function () {
     return { rate: dolar.rate, rate_live: dolar.live, items };
   }
 
-  /* getOfficialRate() de site.js devuelve sólo el número, así que no permite
+  /* getDollarRate() de site.js devuelve sólo el número, así que no permite
      distinguir una cotización real de la de referencia; acá hace falta saberlo
      para no rotular "sin conexión" un precio que sí está al día. */
   async function fallbackRate() {
     try {
-      const r = await fetch('https://dolarapi.com/v1/dolares/oficial', { cache: 'no-store' });
+      const r = await fetch('https://dolarapi.com/v1/dolares/blue', { cache: 'no-store' });
       const j = await r.json();
-      if (j && j.venta) return { rate: j.venta, live: true };
+      if (j && j.compra) return { rate: j.compra, live: true };
     } catch (e) {}
-    return { rate: await getOfficialRate(), live: false };
+    return { rate: await getDollarRate(), live: false };
   }
 
   /* ---------- API del carrito ---------- */
@@ -262,7 +262,7 @@ window.TIENDA = (function () {
         <div>${ICON_OK}<span>Instalación y servicio técnico <b>propios</b>.</span></div>
         <div>${ICON_OK}<span>Pagás con la <b>protección de Mercado Pago</b>.</span></div>
       </div>
-      <div class="pd-buy-rate">Precio calculado con el dólar oficial venta de hoy (${fmt(table.rate)}).</div>`;
+      <div class="pd-buy-rate">Precio calculado con la cotización del dólar de hoy (${fmt(table.rate)}).</div>`;
   }
 
   function toggleFrom(sku, btn) {

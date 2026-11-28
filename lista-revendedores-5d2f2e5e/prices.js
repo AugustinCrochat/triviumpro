@@ -2,7 +2,7 @@
    Confidencial. Solo referenciado desde la página secreta de esta carpeta.
 
    BASE = dólares. usd_reseller = "Precio de Reventa USD sin IVA" (columna K de la lista).
-   El precio en pesos se calcula en vivo con el dólar OFICIAL VENTA (dolarapi.com).
+   El precio en pesos se calcula en vivo con el dólar BLUE COMPRA (dolarapi.com).
    El "precio de lista sugerido" = usd_reseller sin el 15% de descuento = usd_reseller / 0.85.
    iva = alícuota a aclarar como "+ IVA" (por defecto 10,5% para las máquinas).
 
