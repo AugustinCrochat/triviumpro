@@ -8,6 +8,7 @@ import shutil
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(BASE_DIR, 'data', 'catalog.json')
 from site_config import SITE_URL, ORG_NAME, load_chrome
+from dolar import dolar_venta
 
 
 def esc(s):
@@ -35,10 +36,9 @@ def load_public_offers():
 
     Entra todo lo público en data/prices-publico.json. Los ítems con
     tienda:false llevan 'tienda': False: se ven sólo en su ficha (igual que en
-    site.js), no en grillas, guías ni feeds. El dólar se pide en vivo con fallback fijo, igual que
-    generate_meta_catalog.py: sin red, el generador sigue andando.
+    site.js), no en grillas, guías ni feeds. El dólar sale de dolar.py, igual que en
+    generate_meta_catalog.py: sin cotización no se genera nada.
     """
-    import urllib.request
     from datetime import date, timedelta
 
     path = os.path.join(BASE_DIR, 'data', 'prices-publico.json')
@@ -47,14 +47,7 @@ def load_public_offers():
     with open(path, encoding='utf-8') as f:
         prices = json.load(f)
 
-    rate = 1535
-    try:
-        with urllib.request.urlopen('https://dolarapi.com/v1/dolares/oficial', timeout=8) as r:
-            j = json.load(r)
-            if j.get('venta'):
-                rate = j['venta']
-    except Exception:
-        pass
+    rate = dolar_venta()
 
     valid = (date.today() + timedelta(days=30)).isoformat()
     out = {}

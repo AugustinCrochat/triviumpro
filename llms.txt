@@ -34,8 +34,8 @@ Dos gamas conviven en el catálogo: las marcas premium importadas, de mayor cali
 
 ## Precios
 
-- [Lista de precios](https://pro.trivium.ar/lista-precios/): todos los equipos con precio publicado, para ver en pantalla o descargar en PDF.
-- Compra online con Mercado Pago disponible en cada ficha de producto (https://pro.trivium.ar/catalogo/) para los equipos de marca propia Trivium Pro.
+- El precio se muestra en la ficha de los equipos que lo tienen publicado; el resto se cotiza.
+- No hay compra online: la compra se coordina por WhatsApp o desde [Contacto](https://pro.trivium.ar/contacto/).
 
 ## Preguntas frecuentes
 

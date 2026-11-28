@@ -9,8 +9,8 @@
 
 | Gravedad | Problema | Evidencia | Arreglo |
 |---|---|---|---|
-| Crítica | Las fichas prerenderizadas y su schema `Offer` muestran precios más bajos que el feed de Google y que la grilla hidratada. Ej.: PL 4.0 2A, $4.240.438 en la ficha y $4.489.063 en el feed (5,5 % menos) | `dolarapi.com` responde 403 al User-Agent por defecto de Python y `scripts/generate_pretty_urls.py` cae en silencio al dólar fijo 1535 (hoy 1625). De 17 fichas comparadas, 14 difieren | Enviar un User-Agent (probado: responde 1625) y cortar con error si falla, sin dólar de reserva. Revisar también guías y categorías |
-| Alta | `llms.txt` afirma que se puede comprar con Mercado Pago, y la tienda está pausada | `scripts/generate_llms_txt.py:94` | Borrar la línea |
+| Crítica | Las fichas prerenderizadas y su schema `Offer` muestran precios más bajos que el feed de Google y que la grilla hidratada. Ej.: PL 4.0 2A, $4.240.438 en la ficha y $4.489.063 en el feed (5,5 % menos) | `dolarapi.com` responde 403 al User-Agent por defecto de Python y `scripts/generate_pretty_urls.py` cae en silencio al dólar fijo 1535 (hoy 1625). De 16 fichas comparadas, 15 diferían (la primera versión decía "17 y 14": estaba mal contado). **Corregido el 28/11** | Enviar un User-Agent (probado: responde 1625) y cortar con error si falla, sin dólar de reserva. Revisar también guías y categorías |
+| Alta | `llms.txt` afirma que se puede comprar con Mercado Pago, y la tienda está pausada | `scripts/generate_llms_txt.py:94` | **Corregido el 28/11**, junto con el enlace a `/lista-precios/`, que redirige al catálogo. Las páginas legales siguen mencionando Mercado Pago |
 | Alta | SPOA10TRIO muestra "elevación 121 mm", que es la altura mínima del adaptador | `data/catalog.json`, SKU 1010017 | Cargar la elevación real. Su botón de PDF además apunta a la ficha del SPOA10: confirmar si corresponde |
 | A confirmar | SPO55 figura con elevación 3486 mm, muy distinta de sus pares (1,8 a 2,0 m) | catálogo, SKU P-5083 | Verificar contra el fabricante |
 | Alta | 89 fichas declaran `Product` sin `offers`. Sin `offers`, `review` ni `aggregateRating` no son elegibles para resultados enriquecidos de producto | auditoría de 287 páginas | No inventar precio ni reseñas. Publicar precio donde se pueda. Donde no, esperar errores en Search Console o quitar ese bloque |
@@ -50,7 +50,7 @@ Las tablas, el comparador y el medidor del rediseño se justifican por el compra
 ## 3. Plan, por impacto
 
 ### A. Datos correctos (esta semana)
-Precios, `llms.txt` y SPOA10TRIO. Agregar un control automático que compare el precio de ficha y feed y detenga el workflow si difieren.
+Precios y `llms.txt`: corregidos el 28/11, con un control (`scripts/check_precios.py`) que frena la tarea diaria si ficha y feed difieren. Pendiente: SPOA10TRIO.
 
 ### B. Experiencia demostrable (lo que más diferencia)
 - Cada categoría importante y cada ficha clave con **una nota firmada por un técnico**: qué se mide, qué falla, cuándo no conviene ese modelo.

@@ -25,27 +25,13 @@ import re
 import sys
 from pathlib import Path
 
-import requests
-
 ROOT = Path(__file__).resolve().parent.parent
 from site_config import SITE_URL
-FALLBACK_RATE = 1520  # valor de referencia si falla la consulta en vivo
+from dolar import dolar_venta
 
 
 def load_prices_publico():
     return json.loads((ROOT / "data" / "prices-publico.json").read_text(encoding="utf-8"))
-
-
-def get_official_rate():
-    try:
-        r = requests.get("https://dolarapi.com/v1/dolares/oficial", timeout=10)
-        r.raise_for_status()
-        j = r.json()
-        if j.get("venta"):
-            return j["venta"], True
-    except Exception as e:
-        print(f"Aviso: no se pudo obtener el dólar en vivo ({e}); uso {FALLBACK_RATE}", file=sys.stderr)
-    return FALLBACK_RATE, False
 
 
 def abs_url(path):
@@ -100,8 +86,8 @@ def main():
     _d, _extra = fd.cargar()
     catalog = json.loads((ROOT / "data" / "catalog.json").read_text(encoding="utf-8"))
     prices = load_prices_publico()
-    rate, live = get_official_rate()
-    print(f"Dólar oficial venta: {rate} ({'en vivo' if live else 'referencia'})")
+    rate = dolar_venta()
+    print(f"Dólar oficial venta: {rate}")
 
     by_sku = {p["sku"]: p for p in catalog["products"]}
     cats = {c["slug"]: c for c in catalog["categories"]}

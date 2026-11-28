@@ -2,7 +2,7 @@ name: Update catalog feeds and prices
 
 # Los precios en pesos salen del dólar oficial del día. Todos los lugares donde
 # se publican tienen que moverse juntos: los feeds de Meta y de Google Merchant
-# Center, y el HTML prerenderizado de fichas, categorías y guías (de ahí leen el
+# Center, y el HTML prerenderizado de fichas, categorías, guías y páginas de origen (de ahí leen el
 # precio los buscadores y el schema Offer). Google Merchant compara el precio del
 # feed con el de la ficha y rechaza los productos que no coinciden, así que no
 # alcanza con regenerar sólo los feeds.
@@ -28,8 +28,8 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      # Si dolarapi no responde, los scripts usan un valor de referencia fijo y
-      # publicarían precios desfasados. Mejor no tocar nada que publicar eso.
+      # Sin cotización los scripts cortan con error (scripts/dolar.py); este paso
+      # avisa antes, sin dejar nada a medio generar.
       - name: Check dollar API
         run: curl -fsS --max-time 15 https://dolarapi.com/v1/dolares/oficial | grep -q '"venta"'
 
@@ -38,14 +38,19 @@ jobs:
           python3 scripts/generate_meta_catalog.py
           python3 scripts/generate_pretty_urls.py
           python3 scripts/generate_guias.py
+          python3 scripts/generate_origenes.py
           python3 scripts/generate_sitemap.py
           python3 scripts/generate_llms_full.py
+
+      # Si una ficha no coincide con el feed, no se publica nada.
+      - name: Check page prices match the feed
+        run: python3 scripts/check_precios.py
 
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add feeds producto categoria marca guias sitemap.xml llms-full.txt scripts/sitemap-lastmod.json
+          git add feeds producto categoria marca guias origen sitemap.xml llms-full.txt scripts/sitemap-lastmod.json
           if git diff --cached --quiet; then
             echo "Sin cambios (dólar sin variación relevante)"
           else
