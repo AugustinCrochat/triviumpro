@@ -132,9 +132,30 @@ marcas = ''.join(f'<a href="#"><span><img src="{R}assets/img/marcas/logo-{s}.svg
     ('direct-lift', 'Direct Lift', 'Rotary Solutions', 'Elevadores tijera y portátiles de diseño compacto.'),
     ('trivium-pro', 'Trivium Pro', 'Línea propia', 'La opción accesible para empezar o ampliar capacidad.')])
 
-clientes = ''.join(f'<div><img src="{R}assets/img/clientes/logo-{c}.svg" alt="{c.replace("-", " ").title()}"></div>' for c in
-                   ['volkswagen', 'toyota', 'ford', 'honda', 'peugeot', 'kia', 'lexus', 'subaru-inchcape', 'michelin', 'bridgestone', 'ypf'])
-clientes += '<div class="suave" style="font-weight:700">Y tu taller</div>'
+_inicio = (AQUI.parent.parent / 'index.html').read_text(encoding='utf-8')
+_a = _inicio.index('<div class="clients-carousel">'); _b = _inicio.index('</section>', _a)
+clientes = _inicio[_a:_b].replace('src="assets/', f'src="{R}assets/').rstrip()
+if clientes.endswith('<!-- Services -->'): clientes = clientes[:-len('<!-- Services -->')]
+
+FOTOS = [
+    ('assets/img/servicios/instalacion-elevador.webp', 'Dos técnicos de Trivium ajustando la unidad hidráulica de un elevador', 'Nuestro equipo en un taller', 'Elevador de columnas', '70% 50%'),
+    ('assets/img/blog/las-maquinas-del-taller-de-neumaticos-trivium-arguello-alineacion.webp', 'Técnico alineando una camioneta sobre un elevador tijera', 'Taller Trivium Argüello', 'Alineación', '35% 40%'),
+    ('assets/img/servicios/balanceadora-en-uso.webp', 'Balanceo de una rueda en una balanceadora', 'Taller Trivium Argüello', 'Balanceo', '40% 50%'),
+    ('assets/img/servicios/desarmadora-en-uso.webp', 'Rueda montada en una desarmadora de neumáticos', 'Taller Trivium Argüello', 'Armado y desarmado', '50% 50%')]
+CARRUSEL = ('<div class="foto carr" aria-roledescription="carrusel" aria-label="Fotos de taller">' +
+    ''.join(f'<figure class="diapo{" on" if i == 0 else ""}"><img src="{R}{src}" alt="{alt}" style="object-position:{pos}"{" fetchpriority=high" if i == 0 else " loading=lazy"}>'
+            f'<figcaption class="rotulo"><span><small>En la foto</small><b>{donde}</b></span><span><small>Trabajo</small><b>{que}</b></span></figcaption></figure>'
+            for i, (src, alt, donde, que, pos) in enumerate(FOTOS)) +
+    '<div class="mandos"><button type="button" data-ir="-1" aria-label="Foto anterior">←</button>' +
+    ''.join(f'<button type="button" class="punto" data-foto="{i}" aria-label="Foto {i + 1} de {len(FOTOS)}"></button>' for i in range(len(FOTOS))) +
+    '<button type="button" data-ir="1" aria-label="Foto siguiente">→</button><button type="button" class="pausa">Pausar</button></div></div>')
+CARRUSEL_JS = """<script>(()=>{const c=document.querySelector('.carr');if(!c)return;const d=[...c.querySelectorAll('.diapo')],p=[...c.querySelectorAll('.punto')],b=c.querySelector('.pausa');let i=0,t,parado=matchMedia('(prefers-reduced-motion: reduce)').matches,encima=false;
+const ver=n=>{i=(n+d.length)%d.length;d.forEach((x,k)=>{x.classList.toggle('on',k===i);x.setAttribute('aria-hidden',k!==i)});p.forEach((x,k)=>x.setAttribute('aria-current',k===i))};
+const reloj=()=>{clearInterval(t);b.textContent=parado?'Reproducir':'Pausar';if(!parado)t=setInterval(()=>{if(!encima&&!document.hidden)ver(i+1)},5000)};
+c.querySelectorAll('[data-ir]').forEach(x=>x.onclick=()=>{ver(i+ +x.dataset.ir);reloj()});p.forEach((x,k)=>x.onclick=()=>{ver(k);reloj()});b.onclick=()=>{parado=!parado;reloj()};
+c.onmouseenter=()=>encima=true;c.onmouseleave=()=>encima=false;
+let x0=null;c.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});c.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){ver(i-Math.sign(dx));reloj()}});
+ver(0);reloj()})()</script>"""
 
 guias = ''.join(f'<a href="#"><span>{t}<small>{d}</small></span><span aria-hidden="true">→</span></a>' for t, d in [
     ('Elevadores para taller', 'Tipos, capacidad y requisitos del piso'), ('Alineadoras 3D', 'Qué espacio y qué elevador necesitan'),
@@ -142,8 +163,13 @@ guias = ''.join(f'<a href="#"><span>{t}<small>{d}</small></span><span aria-hidde
     ('Comparar dos cotizaciones', 'Qué pedir y qué documentación exigir')])
 
 
+_muestras = json.loads((AQUI / 'portadas' / 'muestras.json').read_text(encoding='utf-8'))
+def portada(p):
+    return f"portadas/a-{_muestras.index(p['slug'])}.webp" if p['slug'] in _muestras else R + p['image']
+
+
 def nota_card(p):
-    return f'<article><a href="nota.html"><img src="{R}{p["image"]}" alt="" loading="lazy"><h3>{e(p["title"])}</h3></a></article>'
+    return f'<article><a href="nota.html"><img src="{portada(p)}" alt="" loading="lazy"><h3>{e(p["title"])}</h3></a></article>'
 
 
 pagina('index.html', 'Portada', f'''
@@ -152,8 +178,7 @@ pagina('index.html', 'Portada', f'''
 <p class="baj">Elevadores, alineadoras, balanceadoras y desarmadoras. Te ayudamos a elegir según tus medidas y tu volumen de trabajo, y damos servicio técnico en todo el país.</p>
 <div class="acc"><a class="btn rojo" href="categoria.html">Ver equipos</a><a class="btn claro" href="{WA}">Hablar con un técnico</a></div>
 <p class="ex">¿Nos conocías como Trivium Center? Somos el mismo equipo.</p></div>
-<figure class="foto"><img src="{R}assets/img/servicios/instalacion-elevador.webp" alt="Dos técnicos de Trivium ajustando la unidad hidráulica de un elevador en un taller" fetchpriority="high" style="object-position:70% 50%">
-<figcaption class="rotulo"><span><small>En la foto</small><b>Nuestro equipo en un taller</b></span><span><small>Trabajo</small><b>Elevador de columnas</b></span></figcaption></figure></div></section>
+{CARRUSEL}</div></section>
 <div class="w"><div class="hechos">
 <div><b>15+ años</b><div class="cota">trayectoria</div><span class="tx">en equipamiento para talleres.</span></div>
 <div><b>1 año</b><div class="cota">garantía oficial</div><span class="tx">sobre los equipos.</span></div>
@@ -177,10 +202,10 @@ pagina('index.html', 'Portada', f'''
 <li><div><h3>Instalación y capacitación</h3><p>Las coordina nuestro equipo técnico según la localidad. Se cotizan aparte.</p></div></li>
 <li><div><h3>Posventa y repuestos</h3><p>Servicio técnico y repuestos originales.</p></div></li></ol></div></div></section>
 
-<section class="sec"><div class="w"><div class="enc"><h2>Empresas que confían en nosotros</h2><p></p></div><div class="clientes">{clientes}</div></div></section>
+<section class="sec crema"><div class="w"><div class="enc"><h2>Empresas que confían en nosotros</h2><p></p></div></div>{clientes}</section>
 
 <section class="sec gris"><div class="w"><div class="enc"><h2>Biblioteca técnica</h2><p class="suave">Guías de compra para decidir y notas de taller para trabajar mejor.</p></div>
-<div class="dos"><div class="indice">{guias}</div><div class="notas" style="grid-template-columns:1fr 1fr;align-content:start">{''.join(nota_card(p) for p in posts[:4])}</div></div></div></section>''', extra=FILTRO_JS + ENTRA_JS)
+<div class="dos"><div class="indice">{guias}</div><div class="notas" style="grid-template-columns:1fr 1fr;align-content:start">{''.join(nota_card(p) for p in posts[:4])}</div></div></div></section>''', extra=FILTRO_JS + ENTRA_JS + CARRUSEL_JS)
 
 
 # ───────────────────────── PRODUCTO ─────────────────────────
@@ -232,26 +257,28 @@ pagina('categoria.html', 'Elevadores de 2 columnas', f'''
 d = posts[0]
 pagina('blog.html', 'Biblioteca técnica', f'''
 <section class="catcab"><div class="w"><h1>Biblioteca técnica</h1><p>Guías de compra y notas de taller sobre elevación, alineación, balanceo y desarmado.</p></div></section>
-<section class="sec"><div class="w"><a class="destacada" href="nota.html"><img src="{R}{d['image']}" alt="" style="width:100%"><div><span class="rot">Alineación de camiones · 25 de noviembre de 2026</span><h2 style="margin:10px 0 14px">{e(d['title'])}</h2><p class="suave">{e(html.unescape(re.sub(r'<[^>]+>', '', d.get('excerpt', ''))).strip())}</p></div></a>
+<section class="sec"><div class="w"><a class="destacada" href="nota.html"><img src="{portada(d)}" alt="" style="width:100%"><div><span class="rot">Alineación de camiones · 25 de noviembre de 2026</span><h2 style="margin:10px 0 14px">{e(d['title'])}</h2><p class="suave">{e(html.unescape(re.sub(r'<[^>]+>', '', d.get('excerpt', ''))).strip())}</p></div></a>
 <div class="dos"><div><div class="enc" style="grid-template-columns:1fr"><h2 style="font-size:1.5rem">Guías de compra</h2></div><div class="indice">{guias}</div></div>
 <div><div class="filtros"><a class="chip on">Todas</a><a class="chip">Alineación</a><a class="chip">Balanceo</a><a class="chip">Desarmado</a><a class="chip">Elevadores</a><a class="chip">Gestión del taller</a><a class="chip">Instalaciones</a></div>
 <div class="notas" style="grid-template-columns:1fr 1fr">{''.join(nota_card(p) for p in posts[1:9])}</div></div></div></div></section>''', 'Biblioteca técnica')
 
 cuerpo = d['content'].replace('../../assets/', R + 'assets/')
-cuerpo = re.sub(r'<p><strong>En resumen:</strong>(.*?)</p>', r'<p class="resp" style="font-size:1.15rem">\1</p>', cuerpo, count=1, flags=re.S)
-cuerpo = cuerpo.replace('<p class="resp" style="font-size:1.15rem"> la ', '<p class="resp" style="font-size:1.15rem">La ')
-cuerpo = re.sub(r'<figure[^>]*class="nota-video".*?</figure>', '<figure class="video"><a href="https://www.youtube.com/shorts/5g33xFirzvA"><img src="' + R + 'assets/img/blog/josam-video-portada.webp" alt="Video de la Josam CV-Aligner"></a><figcaption>Demostración de la Josam CV-Aligner, 66 segundos con subtítulos. Ver en YouTube.</figcaption></figure>', cuerpo, flags=re.S)
-cuerpo = cuerpo.replace('<strong>En resumen:</strong> la ', 'La ')
-cuerpo = re.sub(r'(<figure|<img) style="[^"]*"', r'\1', cuerpo)
+cuerpo, _n = re.subn(r'<p><strong>En resumen:</strong>\s*(\w)(.*?)</p>', lambda m: f'<div class="resumen"><strong>En resumen</strong><p>{m[1].upper()}{m[2]}</p></div><!--equipo-->', cuerpo, count=1, flags=re.S)
+if not _n:
+    _m = re.search(r'<(div|p)[^>]*class="nota-resumen".*?</\1>', cuerpo, re.S)
+    assert _m, 'la nota no tiene resumen'
+    cuerpo = cuerpo[:_m.end()] + '<!--equipo-->' + cuerpo[_m.end():]
 indice = []
 def ancla(m):
     indice.append(re.sub('<[^>]+>', '', m.group(1)))
     return f'<h2 id="s{len(indice)}">{m.group(1)}</h2>'
 cuerpo = re.sub(r'<h2>(.*?)</h2>', ancla, cuerpo)
 josam = next(p for p in cat['products'] if p['slug'] == 'alineadora-de-camiones-josam-cv-aligner')
+assert '<!--equipo-->' in cuerpo
+cuerpo = cuerpo.replace('<!--equipo-->', f'<div class="equipo"><img src="{R}{josam["image"]}" alt=""><div><span class="rot">Equipo relacionado · Josam</span><h3>{e(josam["name"])}</h3><a class="btn rojo chico" href="#">Ver ficha y especificaciones →</a></div></div>')
 pagina('nota.html', d['title'], f'''<div class="w art"><nav class="toc"><b>En esta nota</b>{''.join(f'<a href="#s{i + 1}">{t}</a>' for i, t in enumerate(indice))}</nav>
 <article class="cuerpo"><span class="rot">Biblioteca técnica / Alineación de camiones</span><h1 style="font-size:2.35rem;margin-top:10px">{e(d['title'])}</h1>
-<div class="firma"><span><small>Escrito por</small><b>[Nombre y rol: a completar]</b></span><span><small>Revisión técnica</small><b>[Técnico: a completar]</b></span><span><small>Publicado</small><b>25/11/2026</b></span></div>{cuerpo}</article>
+<div class="firma"><span><small>Escrito por</small><b>[Nombre y rol: a completar]</b></span><span><small>Revisión técnica</small><b>[Técnico: a completar]</b></span><span><small>Publicado</small><b>25/11/2026</b></span></div><figure class="portada"><img src="{portada(d)}" alt="{e(d['title'])}" width="1100" height="600"></figure>{cuerpo}</article>
 <aside class="lado"><img src="{R}{josam['image']}" alt=""><h3>Josam CV-Aligner</h3><p class="suave" style="font-size:.9rem">El equipo del que habla esta nota.</p><a class="btn lleno chico" href="#">Ver el equipo</a></aside></div>''', 'Biblioteca técnica')
 
 
