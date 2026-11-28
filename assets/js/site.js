@@ -174,9 +174,13 @@ function renderHeader(active) {
 window.addEventListener('scroll', () => {
   const header = document.getElementById('main-header');
   if (!header) return;
-  if (window.scrollY > 20) {
+  // Dos límites separados a propósito: al achicarse, el header (sticky, ocupa lugar en
+  // la página) pierde 28 px y el navegador corre el scroll esa misma distancia. Con un
+  // solo límite volvía a cruzarlo y quedaba vibrando. La distancia entre ambos tiene
+  // que ser bastante mayor que lo que cambia de alto.
+  if (window.scrollY > 80) {
     header.classList.add('scrolled');
-  } else {
+  } else if (window.scrollY < 10) {
     header.classList.remove('scrolled');
   }
 });
