@@ -38,8 +38,9 @@ CSS = """<style>
 .carr .mandos .pausa{padding:0 8px;margin-left:4px;border-left:1px solid #59636a}
 @media (prefers-reduced-motion:reduce){.carr figure{transition:none}}
 /* clientes: pegado al hero, compacto y sobre blanco */
-.clientes-arriba{background:#fff;padding:10px 0 6px;border-bottom:1px solid var(--line)}
-.clientes-arriba h2{text-align:center;font-size:.95rem;margin:0 0 4px}
+.clientes-arriba{background:#fff;padding:18px 0 6px;border-bottom:1px solid var(--line)}
+.clientes-arriba h2{text-align:center;font-size:clamp(1.4rem,2.3vw,1.85rem);font-weight:800;line-height:1.15;letter-spacing:-.015em;color:#12171b;margin:0 0 10px;padding:0 16px}
+.clientes-arriba h2::after{content:"";display:block;width:64px;height:4px;background:#ff1e00;margin:10px auto 0}
 .clientes-arriba .logo-wrap{height:46px}.clientes-arriba .clients-carousel{padding:2px 0}
 .clientes-arriba .clients-carousel::before{background:linear-gradient(to right,#fff,transparent)}
 .clientes-arriba .clients-carousel::after{background:linear-gradient(to left,#fff,transparent)}
